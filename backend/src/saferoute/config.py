@@ -10,7 +10,11 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 
 DATA_DIR = Path(os.environ.get("SAFEROUTE_DATA_DIR", REPO_ROOT / "data"))
 RAW_DIR = DATA_DIR / "raw"
+INTERIM_DIR = DATA_DIR / "interim"
+PROCESSED_DIR = DATA_DIR / "processed"
+METADATA_DIR = DATA_DIR / "metadata"  # küçük JSON kayıtları; git'te izlenir
 REPORTS_DIR = REPO_ROOT / "reports"
+DOCS_DIR = REPO_ROOT / "docs"
 
 # Resmi kaynak: NYC Open Data — Motor Vehicle Collisions - Crashes
 DATASET_ID = "h9gi-nx95"
@@ -35,3 +39,11 @@ NYC_BBOX = {
 }
 
 BOROUGHS = ("MANHATTAN", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND")
+
+# Gelecekteki geometrik ilçe zenginleştirmesi için güvenilir sınır kaynağı (Faz 2'de kullanılacak).
+# NYC Department of City Planning — Borough Boundaries (su alanları hariç).
+BOROUGH_BOUNDARIES_DATASET_ID = "gthc-hcne"
+BOROUGH_BOUNDARIES_METADATA_URL = f"https://{DATASET_DOMAIN}/api/views/{BOROUGH_BOUNDARIES_DATASET_ID}.json"
+
+# Yayıncının beyan ettiği sıklığa göre "güncel değil" sayılma eşiği (gün).
+STALENESS_THRESHOLD_DAYS = {"Daily": 3, "Weekly": 14, "Monthly": 45}

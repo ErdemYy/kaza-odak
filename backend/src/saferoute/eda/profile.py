@@ -13,6 +13,13 @@ from typing import Any
 import pandas as pd
 
 from saferoute import config
+from saferoute.data.validate import (
+    borough_status,
+    null_percentage,
+    parse_crash_date,
+    parse_crash_time,
+    require_columns,
+)
 
 CASUALTY_COLUMNS = [
     "number_of_persons_injured",
@@ -32,15 +39,14 @@ VEHICLE_COLUMNS = [
     "vehicle_type_code_4",
     "vehicle_type_code_5",
 ]
-DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
+COORD_CLASSES = ("missing", "unparseable", "zero", "outside_nyc_bbox", "valid_in_bbox")
 
 
 def _int(x: Any) -> int:
     return int(x)
 
 
-def _pct(part: int, total: int) -> float:
-    return round(100.0 * part / total, 4) if total else 0.0
+_pct = null_percentage
 
 
 def _as_text(s: pd.Series) -> pd.Series:
@@ -73,6 +79,49 @@ def schema_summary(df: pd.DataFrame) -> dict[str, Any]:
     return {"row_count": _int(len(df)), "column_count": _int(df.shape[1]), "columns": list(df.columns)}
 
 
+def infer_type(values: pd.Series) -> str:
+    """Dolu (boş olmayan) değerlerin tamamına uyan en dar türü döndürür.
+
+    Sıra: integer -> float -> datetime -> time -> text. Hiç dolu değer yoksa "empty".
+    Benzersiz değerler üzerinde çalışır; satır sayısından bağımsız olarak hızlıdır.
+    """
+    text = _as_text(values).dropna().str.strip()
+    text = text[text != ""].drop_duplicates()
+    if text.empty:
+        return "empty"
+    num = pd.to_numeric(text.astype(object), errors="coerce")
+    if num.notna().all():
+        return "integer" if (num % 1 == 0).all() else "float"
+    if parse_crash_date(text).notna().all():
+        return "datetime"
+    if parse_crash_time(text)["valid"].all():
+        return "time"
+    return "text"
+
+
+def column_overview(df: pd.DataFrame, source_types: dict[str, str] | None = None) -> dict[str, Any]:
+    """Her sütun için kaynak türü, çıkarılan tür, eksik sayısı/oranı, benzersiz değer sayısı.
+
+    ``candidate_identifier``: tüm satırlarda dolu ve tüm değerleri farklı olan sütun.
+    """
+    source_types = source_types or {}
+    total = len(df)
+    out: dict[str, Any] = {}
+    for col in df.columns:
+        present = _present_mask(df[col])
+        missing = _int((~present).sum())
+        unique = _int(_as_text(df.loc[present, col]).nunique())
+        out[col] = {
+            "source_type": source_types.get(col),
+            "inferred_type": infer_type(df[col]),
+            "missing": missing,
+            "missing_pct": _pct(missing, total),
+            "unique_non_missing": unique,
+            "candidate_identifier": bool(total) and missing == 0 and unique == total,
+        }
+    return out
+
+
 def missing_values(df: pd.DataFrame) -> dict[str, Any]:
     """Her sütun için boş (null) ve yalnızca-boşluk hücre sayıları."""
     total = len(df)
@@ -103,7 +152,7 @@ def duplicates(df: pd.DataFrame) -> dict[str, Any]:
         "collision_id_unique_values": _int(len(vc)),
         "duplicated_collision_ids": _int(len(dup_ids)),
         "rows_with_duplicated_collision_id": _int(dup_ids.sum()),
-        "exact_duplicate_rows": _int(df.duplicated(keep="first").sum()),
+        "exact_duplicate_rows": _int(df.duplicated(keep="first").sum()) if len(df) else 0,
         "duplicated_collision_id_examples": [str(x) for x in dup_ids.index[:10]],
     }
 
@@ -112,31 +161,26 @@ def temporal(df: pd.DataFrame) -> dict[str, Any]:
     """crash_date / crash_time ayrıştırma, kapsam ve zamansal dağılımlar."""
     total = len(df)
     date_present = _present_mask(df["crash_date"])
-    dates = pd.to_datetime(_as_text(df["crash_date"]).astype(object), format=DATE_FORMAT, errors="coerce")
+    dates = parse_crash_date(df["crash_date"])
     date_unparseable = date_present & dates.isna()
 
-    time_text = _as_text(df["crash_time"]).str.strip()
     time_present = _present_mask(df["crash_time"])
-    parts = time_text.str.extract(r"^(\d{1,2}):(\d{2})$")
-    hour = pd.to_numeric(parts[0].astype(object), errors="coerce")
-    minute = pd.to_numeric(parts[1].astype(object), errors="coerce")
-    time_valid = time_present & hour.between(0, 23) & minute.between(0, 59)
-    time_valid = time_valid.fillna(False).astype(bool)
+    t = parse_crash_time(df["crash_time"])
+    time_valid = t["valid"]
+    midnight = time_valid & (t["hour"] == 0) & (t["minute"] == 0)
 
     valid_dates = dates.dropna()
-    years = valid_dates.dt.year
-    year_counts = years.value_counts().sort_index()
+    year_counts = valid_dates.dt.year.value_counts().sort_index()
     month_counts = valid_dates.dt.to_period("M").astype(str).value_counts().sort_index()
     weekday_counts = valid_dates.dt.dayofweek.value_counts().sort_index()
-    hour_counts = hour[time_valid].astype(int).value_counts().sort_index()
-    midnight = time_valid & (hour == 0) & (minute == 0)
+    hour_counts = t.loc[time_valid, "hour"].astype(int).value_counts().sort_index()
 
-    min_d, max_d = (valid_dates.min(), valid_dates.max()) if len(valid_dates) else (None, None)
+    has_dates = len(valid_dates) > 0
     return {
         "crash_date_missing": _int((~date_present).sum()),
         "crash_date_unparseable": _int(date_unparseable.sum()),
-        "crash_date_min": min_d.date().isoformat() if min_d is not None else None,
-        "crash_date_max": max_d.date().isoformat() if max_d is not None else None,
+        "crash_date_min": valid_dates.min().date().isoformat() if has_dates else None,
+        "crash_date_max": valid_dates.max().date().isoformat() if has_dates else None,
         "crash_date_has_nonzero_time_component": _int(
             ((valid_dates.dt.hour != 0) | (valid_dates.dt.minute != 0)).sum()
         ),
@@ -151,35 +195,48 @@ def temporal(df: pd.DataFrame) -> dict[str, Any]:
     }
 
 
-def coordinates(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> dict[str, Any]:
-    """Koordinatları birbirini dışlayan kalite sınıflarına ayırır.
+def coordinate_class(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> pd.Series:
+    """Her satırı birbirini dışlayan bir koordinat kalite sınıfına atar.
 
     Öncelik sırası: eksik -> ayrıştırılamaz -> sıfır -> NYC kutusu dışı -> geçerli.
+    Kutu yalnızca kaba bir geçerlilik testidir; ilçe ataması için KULLANILMAZ.
     """
     bbox = bbox or config.NYC_BBOX
-    total = len(df)
     lat_present, lon_present = _present_mask(df["latitude"]), _present_mask(df["longitude"])
     lat, lon = _numeric(df["latitude"]), _numeric(df["longitude"])
-
     missing = ~(lat_present & lon_present)
     unparseable = ~missing & (lat.isna() | lon.isna())
     zero = ~missing & ~unparseable & ((lat == 0) | (lon == 0))
-    inside = lat.between(bbox["min_lat"], bbox["max_lat"]) & lon.between(bbox["min_lon"], bbox["max_lon"])
-    outside = ~missing & ~unparseable & ~zero & ~inside
-    valid = ~missing & ~unparseable & ~zero & inside
+    inside = (lat.between(bbox["min_lat"], bbox["max_lat"]) & lon.between(bbox["min_lon"], bbox["max_lon"]))
+    out = pd.Series("valid_in_bbox", index=df.index, dtype="object")
+    out[~inside.fillna(False).astype(bool)] = "outside_nyc_bbox"
+    out[zero] = "zero"
+    out[unparseable] = "unparseable"
+    out[missing] = "missing"
+    return out
 
-    classes = {
-        "missing": _int(missing.sum()),
-        "unparseable": _int(unparseable.sum()),
-        "zero": _int(zero.sum()),
-        "outside_nyc_bbox": _int(outside.sum()),
-        "valid_in_bbox": _int(valid.sum()),
-    }
+
+def coordinate_validity_mask(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> pd.Series:
+    """NYC kutusu içinde geçerli koordinatlı satırlar."""
+    return coordinate_class(df, bbox) == "valid_in_bbox"
+
+
+def coordinates(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> dict[str, Any]:
+    """Koordinat kalite sınıfları ve ilçe alanıyla ilişkisi."""
+    bbox = bbox or config.NYC_BBOX
+    total = len(df)
+    cls = coordinate_class(df, bbox)
+    counts = cls.value_counts()
+    classes = {k: _int(counts.get(k, 0)) for k in COORD_CLASSES}
     assert sum(classes.values()) == total, "koordinat sınıfları toplamı satır sayısına eşit olmalı"
 
+    valid = cls == "valid_in_bbox"
+    missing = cls == "missing"
+    lat, lon = _numeric(df["latitude"]), _numeric(df["longitude"])
     borough_present = _present_mask(df["borough"])
     location_present = _present_mask(df["location"])
     valid_lat, valid_lon = lat[valid], lon[valid]
+    any_valid = bool(valid.any())
     return {
         "classes": classes,
         "classes_pct": {k: _pct(v, total) for k, v in classes.items()},
@@ -189,45 +246,48 @@ def coordinates(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> dict[
         "location_present_latlon_missing": _int((location_present & missing).sum()),
         "latlon_present_location_missing": _int((~location_present & ~missing).sum()),
         "valid_extent": {
-            "min_lat": float(valid_lat.min()) if valid.any() else None,
-            "max_lat": float(valid_lat.max()) if valid.any() else None,
-            "min_lon": float(valid_lon.min()) if valid.any() else None,
-            "max_lon": float(valid_lon.max()) if valid.any() else None,
+            "min_lat": float(valid_lat.min()) if any_valid else None,
+            "max_lat": float(valid_lat.max()) if any_valid else None,
+            "min_lon": float(valid_lon.min()) if any_valid else None,
+            "max_lon": float(valid_lon.max()) if any_valid else None,
         },
         "distinct_valid_locations": _int(pd.DataFrame({"a": valid_lat, "b": valid_lon}).drop_duplicates().shape[0]),
     }
 
 
-def coordinate_validity_mask(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> pd.Series:
-    """Şekiller için: NYC kutusu içinde geçerli koordinatlı satırlar."""
-    bbox = bbox or config.NYC_BBOX
-    lat, lon = _numeric(df["latitude"]), _numeric(df["longitude"])
-    ok = (
-        (lat != 0) & (lon != 0)
-        & lat.between(bbox["min_lat"], bbox["max_lat"])
-        & lon.between(bbox["min_lon"], bbox["max_lon"])
-    )
-    return ok.fillna(False).astype(bool)
-
-
 def boroughs(df: pd.DataFrame) -> dict[str, Any]:
+    """Kaydedilmiş ilçe etiketleri; eksik ve beklenmeyen etiketler ayrı raporlanır."""
     total = len(df)
-    present = _present_mask(df["borough"])
-    counts = _value_counts(df.loc[present, "borough"])
-    unexpected = sorted(set(counts) - set(config.BOROUGHS))
+    status = borough_status(df["borough"])
+    counts = _value_counts(_as_text(df.loc[status == "valid", "borough"]).str.strip().str.upper())
+    unexpected = _value_counts(df.loc[status == "unexpected", "borough"])
+    missing = _int((status == "missing").sum())
     return {
-        "counts": counts,
-        "missing": _int((~present).sum()),
-        "missing_pct": _pct(_int((~present).sum()), total),
-        "unexpected_values": unexpected,
+        "counts": {b: counts.get(b, 0) for b in config.BOROUGHS},
+        "missing": missing,
+        "missing_pct": _pct(missing, total),
+        "unexpected_values": sorted(unexpected),
+        "unexpected_rows": _int(sum(unexpected.values())),
     }
+
+
+def borough_by_coordinate_class(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> dict[str, Any]:
+    """Kaydedilmiş ilçe (veya eksik/beklenmeyen) × koordinat sınıfı çapraz tablosu."""
+    status = borough_status(df["borough"])
+    label = _as_text(df["borough"]).str.strip().str.upper().astype(object)
+    row_key = label.where(status == "valid", status.str.upper())
+    table = pd.crosstab(row_key, coordinate_class(df, bbox))
+    out: dict[str, Any] = {}
+    for key in [*config.BOROUGHS, "MISSING", "UNEXPECTED"]:
+        if key in table.index:
+            out[key] = {c: _int(table.loc[key].get(c, 0)) for c in COORD_CLASSES}
+    return out
 
 
 def by_year_quality(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> dict[str, Any]:
     """Yıllara göre koordinat ve ilçe eksikliği oranı (veri kalitesinin zamanla değişimi)."""
-    dates = pd.to_datetime(_as_text(df["crash_date"]).astype(object), format=DATE_FORMAT, errors="coerce")
     frame = pd.DataFrame({
-        "year": dates.dt.year,
+        "year": parse_crash_date(df["crash_date"]).dt.year,
         "coord_valid": coordinate_validity_mask(df, bbox),
         "borough_present": _present_mask(df["borough"]),
     }).dropna(subset=["year"])
@@ -295,7 +355,8 @@ def categoricals(df: pd.DataFrame, top_n: int = 20) -> dict[str, Any]:
     vt1 = _as_text(df["vehicle_type_code1"])
     all_vehicle = pd.concat([_as_text(df[c]) for c in VEHICLE_COLUMNS]).dropna()
     normalized_vehicle = all_vehicle.str.strip().str.upper()
-    vehicles_per_row = sum(_present_mask(df[c]).astype(int) for c in VEHICLE_COLUMNS)
+    vehicles_per_row = sum((_present_mask(df[c]).astype(int) for c in VEHICLE_COLUMNS),
+                           pd.Series(0, index=df.index))
     total = len(df)
     unspecified = _int((factor1.str.strip().str.lower() == "unspecified").fillna(False).sum())
     return {
@@ -305,6 +366,7 @@ def categoricals(df: pd.DataFrame, top_n: int = 20) -> dict[str, Any]:
         "contributing_factor_1_unspecified_pct": _pct(unspecified, total),
         "contributing_factor_distinct_all_columns": _int(all_factors.nunique()),
         "vehicle_type_1_top": _value_counts(vt1, top_n),
+        "vehicle_type_1_top_normalized": _value_counts(vt1.str.strip().str.upper(), top_n),
         "vehicle_type_1_missing": _int((~_present_mask(vt1)).sum()),
         "vehicle_type_distinct_raw": _int(all_vehicle.nunique()),
         "vehicle_type_distinct_normalized": _int(normalized_vehicle.nunique()),
@@ -332,15 +394,18 @@ def text_fields(df: pd.DataFrame) -> dict[str, Any]:
     return out
 
 
-def build_profile(df: pd.DataFrame, manifest: dict[str, Any] | None = None) -> dict[str, Any]:
-    """Tüm EDA bölümlerini tek bir sözlükte toplar."""
+def build_profile(df: pd.DataFrame, source_types: dict[str, str] | None = None) -> dict[str, Any]:
+    """Tüm EDA bölümlerini tek bir sözlükte toplar. Eksik zorunlu sütunda ``SchemaError`` fırlatır."""
+    schema = require_columns(df)
     return {
-        "schema": schema_summary(df),
+        "schema": {**schema_summary(df), "validation": schema.as_dict()},
+        "column_overview": column_overview(df, source_types),
         "missing_values": missing_values(df),
         "duplicates": duplicates(df),
         "temporal": temporal(df),
         "coordinates": coordinates(df),
         "boroughs": boroughs(df),
+        "borough_by_coordinate_class": borough_by_coordinate_class(df),
         "quality_by_year": by_year_quality(df),
         "casualties": casualties(df),
         "categoricals": categoricals(df),

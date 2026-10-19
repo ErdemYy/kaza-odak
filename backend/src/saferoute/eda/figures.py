@@ -150,12 +150,64 @@ def plot_top_factors(profile: dict[str, Any], out: Path, top_n: int = 15) -> Pat
     return _save(fig, out / "top_contributing_factors.png")
 
 
+def plot_vehicle_types(profile: dict[str, Any], out: Path, top_n: int = 15) -> Path:
+    data = list(profile["categoricals"]["vehicle_type_1_top_normalized"].items())[:top_n][::-1]
+    fig, ax = plt.subplots(figsize=(9, 0.38 * len(data) + 1))
+    ax.barh([k for k, _ in data], [v for _, v in data], color=PRIMARY)
+    _style(ax, f"En sık {top_n} araç türü (araç 1, büyük harf + kırpma sonrası)", "Kayıt", "")
+    ax.grid(axis="x", alpha=0.25)
+    _thousands(ax, "x")
+    return _save(fig, out / "vehicle_types.png")
+
+
+def plot_casualties(profile: dict[str, Any], out: Path) -> Path:
+    """Yol kullanıcısı türüne göre yaralı ve ölü toplamları (iki ayrı ölçek, aldatıcı ortak eksen yok)."""
+    cols = profile["casualties"]["columns"]
+    groups = [("pedestrians", "Yaya"), ("cyclist", "Bisikletli"), ("motorist", "Motorlu araç")]
+    injured = [cols[f"number_of_{g}_injured"]["sum"] for g, _ in groups]
+    killed = [cols[f"number_of_{g}_killed"]["sum"] for g, _ in groups]
+    labels = [t for _, t in groups]
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 4))
+    a1.bar(labels, injured, color=WARNING)
+    _style(a1, "Yaralı kişi toplamı", "", "Kişi")
+    _thousands(a1)
+    a2.bar(labels, killed, color=HOTSPOT)
+    _style(a2, "Ölen kişi toplamı", "", "Kişi")
+    _thousands(a2)
+    return _save(fig, out / "casualties_by_road_user.png")
+
+
+def plot_borough_coordinate_quality(profile: dict[str, Any], out: Path) -> Path:
+    table = profile["borough_by_coordinate_class"]
+    rows = list(table)
+    labels = [BOROUGH_TR.get(r, {"MISSING": "İlçe eksik", "UNEXPECTED": "Beklenmeyen"}.get(r, r)) for r in rows]
+    fig, ax = plt.subplots(figsize=(9, 4.5))
+    left = np.zeros(len(rows))
+    colors = {"valid_in_bbox": PRIMARY, "missing": MUTED, "zero": HOTSPOT, "outside_nyc_bbox": WARNING,
+              "unparseable": "#7C3AED"}
+    for cls in ("valid_in_bbox", "missing", "zero", "outside_nyc_bbox", "unparseable"):
+        vals = np.array([table[r][cls] for r in rows], dtype=float)
+        if vals.sum() == 0:
+            continue
+        ax.barh(labels, vals, left=left, color=colors[cls], label=COORD_CLASS_TR[cls])
+        left += vals
+    _style(ax, "Kaydedilmiş ilçeye göre koordinat kalitesi", "Kayıt", "")
+    ax.grid(axis="x", alpha=0.25)
+    _thousands(ax, "x")
+    ax.legend(frameon=False, fontsize=9, loc="lower right")
+    return _save(fig, out / "borough_coordinate_quality.png")
+
+
 def plot_hexbin(lat: np.ndarray, lon: np.ndarray, out: Path) -> Path:
-    """Geçerli koordinatların yoğunluk haritası (log ölçek). Kümeleme DEĞİLDİR."""
+    """Geçerli koordinatların yoğunluk haritası (log ölçek). Kümeleme DEĞİLDİR.
+
+    Örnekleme yapılmaz: geçerli koordinatlı kayıtların tamamı altıgen hücrelere toplanır.
+    """
     fig, ax = plt.subplots(figsize=(7.5, 8))
     hb = ax.hexbin(lon, lat, gridsize=220, bins="log", cmap="inferno", mincnt=1)
     ax.set_aspect(1 / np.cos(np.deg2rad(40.7)))
-    ax.set_title("Geçerli koordinatlı kayıtların mekânsal yoğunluğu (log)", fontsize=12, loc="left", fontweight="bold")
+    ax.set_title(f"Geçerli koordinatlı kayıtların mekânsal yoğunluğu\n(tüm {len(lat):,} kayıt, örnekleme yok; log ölçek)"
+                 .replace(",", "."), fontsize=12, loc="left", fontweight="bold")
     ax.set_xlabel("Boylam")
     ax.set_ylabel("Enlem")
     fig.colorbar(hb, ax=ax, shrink=0.7, label="Kayıt sayısı (log10)")
@@ -174,6 +226,9 @@ def render_all(profile: dict[str, Any], out: Path, lat: np.ndarray | None = None
         plot_coordinate_classes(profile, out),
         plot_quality_by_year(profile, out),
         plot_top_factors(profile, out),
+        plot_vehicle_types(profile, out),
+        plot_casualties(profile, out),
+        plot_borough_coordinate_quality(profile, out),
     ]
     if lat is not None and lon is not None and len(lat):
         paths.append(plot_hexbin(lat, lon, out))

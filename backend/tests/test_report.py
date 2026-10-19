@@ -11,7 +11,15 @@ QUIET = {"log": lambda _: None, "sleep": lambda _: None}
 def test_run_eda_end_to_end(tmp_path, rows):
     snap = download_snapshot(snapshot_dir=tmp_path / "raw" / "s", page_size=3, session=FakeSession(rows), **QUIET)
     out = tmp_path / "report"
-    summary = run_eda(snap, out, log=lambda _: None)
+    dictionary = tmp_path / "docs" / "data_dictionary.md"
+    summary = run_eda(snap, out, log=lambda _: None, dictionary_path=dictionary)
+
+    dd = dictionary.read_text(encoding="utf-8")
+    assert "| `latitude` | Enlem (WGS84) | text → text | 1 | %14,29 |" in dd
+    assert "E — Kimlik / model dışı" in dd
+    assert [s["step"] for s in summary["runtime"]["steps"]] == ["load_and_verify", "profile", "figures"]
+    for name in ("vehicle_types.png", "casualties_by_road_user.png", "borough_coordinate_quality.png"):
+        assert name in summary["figures"]
 
     stored = json.loads((out / "eda_summary.json").read_text(encoding="utf-8"))
     assert stored["profile"]["schema"]["row_count"] == 7

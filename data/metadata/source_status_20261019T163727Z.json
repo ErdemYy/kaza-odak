@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-19T16:37:18.679704+00:00",
+  "dataset_id": "h9gi-nx95",
+  "metadata_url": "https://data.cityofnewyork.us/api/views/h9gi-nx95.json",
+  "app_token_configured": false,
+  "reachable": true,
+  "name": "Motor Vehicle Collisions - Crashes",
+  "attribution": "Police Department (NYPD)",
+  "license": null,
+  "view_last_modified": "2026-07-31T20:59:38+00:00",
+  "column_count": 29,
+  "server_row_count": 2269187,
+  "server_min_crash_date": "2012-07-01T00:00:00.000",
+  "server_max_crash_date": "2026-06-11T00:00:00.000",
+  "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+  "freshness": {
+    "rows_updated_at": "2026-06-15T23:05:47+00:00",
+    "declared_update_frequency": "Daily",
+    "days_since_rows_updated": 125,
+    "staleness_threshold_days": 3,
+    "verdict": "stale"
+  },
+  "borough_boundaries_source": {
+    "dataset_id": "gthc-hcne",
+    "name": "Borough Boundaries",
+    "attribution": "Department of City Planning (DCP)",
+    "rows_updated_at": "2026-05-26T19:35:50+00:00",
+    "reachable": true
+  }
+}

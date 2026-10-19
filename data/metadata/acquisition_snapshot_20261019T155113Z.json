@@ -1,0 +1,33 @@
+{
+  "dataset_id": "h9gi-nx95",
+  "source_url": "https://data.cityofnewyork.us/d/h9gi-nx95",
+  "api_endpoint": "https://data.cityofnewyork.us/resource/h9gi-nx95.csv",
+  "snapshot": "snapshot_20261019T155113Z",
+  "retrieval_started_utc": "2026-10-19T15:51:15.156697+00:00",
+  "retrieval_completed_utc": "2026-10-19T16:01:15.101443+00:00",
+  "source_rows_updated_at": "2026-06-15T23:05:47+00:00",
+  "source_view_last_modified": "2026-07-31T20:59:38+00:00",
+  "source_truth_last_modified": [
+    "Mon, 15 Jun 2026 23:05:52 GMT"
+  ],
+  "row_count": 2269187,
+  "server_row_count": 2269187,
+  "column_count": 29,
+  "earliest_crash_date": "2012-07-01T00:00:00.000",
+  "latest_crash_date": "2026-06-11T00:00:00.000",
+  "combined_sha256": "2fe1297c24f7aad761bca1dc3c04ec0de3459d297e06af20fbfe5e35ad10be5e",
+  "part_sha256": {
+    "part-00000.csv": "a21448877998518830aadae9fb2e9fa5f1239f621f97736a25075835eb13ffaa",
+    "part-00001.csv": "aa542d3f1b7b0e3cfac00ad0c7328267e1a9cee2c57b893d3e29d8f4bb4e2273",
+    "part-00002.csv": "447d19b1cf48283423804895df415a7b67de55575a6505720bef8df1e05d971c",
+    "part-00003.csv": "0561078901773e5e69f91654038454812e3587f44627e2cb5a9ed1bc80c7035f",
+    "part-00004.csv": "50d810b1673d45c807077cef3f3127a2156e6d45b12d7ad27615499ff9a0624f",
+    "part-00005.csv": "05c67812970dc2e3f2da87cc42c21dd2d71c0428bb83e4ecd2e3045677d65ceb",
+    "part-00006.csv": "f56311bda77e8592bcdbc3d20aee824a3850d1901865414461cfec74f3885f79",
+    "part-00007.csv": "f0f7ea68208afdf67d458bb7de2adb04f392af6df5e4511b936b932f635bfc1b",
+    "part-00008.csv": "2ceed615845d67f383125fa22766512c796bd6edb5aff156ef2c56bd6ee20e4a",
+    "part-00009.csv": "39e0266ba5e4130cf6be3eb17f347cfd9f683e122a44dee263c162d1d6736e19"
+  },
+  "acquisition_status": "full",
+  "warnings": []
+}

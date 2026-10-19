@@ -6,8 +6,9 @@ Rapordaki her sayı doğrudan profil sözlüğünden gelir; elle yazılmış ist
 from __future__ import annotations
 
 import json
+import os
+import platform
 import time
-import tracemalloc
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -16,6 +17,8 @@ import pandas as pd
 
 from saferoute.data.loader import load_raw, read_manifest
 from saferoute.eda import figures, profile as prof
+from saferoute.eda.dictionary import render_data_dictionary
+from saferoute.perf import StepTimer, peak_memory_mb
 
 
 def _parse_ts(value: str | None) -> datetime | None:
@@ -57,37 +60,39 @@ def freshness(manifest: dict[str, Any], profile: dict[str, Any], months: int = 6
     }
 
 
-def run_eda(snapshot_dir: Path, out_dir: Path, log=print, trace_memory: bool = False) -> dict[str, Any]:
+def run_eda(
+    snapshot_dir: Path,
+    out_dir: Path,
+    log=print,
+    dictionary_path: Path | None = None,
+) -> dict[str, Any]:
     """Anlık görüntüyü doğrular, profiller, şekilleri çizer ve raporları yazar.
 
-    ``trace_memory`` açıkken tracemalloc Python ayırmalarını izler; bu, çalışma süresini
-    belirgin biçimde uzattığı için süre ölçümüyle aynı koşuda kullanılmamalıdır.
+    Bellekte tek bir DataFrame tutulur (Arrow metin sütunları); şekiller için yalnızca
+    geçerli koordinatların iki sayısal dizisi ayrıca oluşturulur.
     """
     out_dir = Path(out_dir)
     fig_dir = out_dir / "figures"
     out_dir.mkdir(parents=True, exist_ok=True)
     manifest = read_manifest(snapshot_dir)
-
-    if trace_memory:
-        tracemalloc.start()
+    source_types = {c["field_name"]: c["data_type"] for c in manifest["columns"]}
+    timer = StepTimer()
     t0 = time.perf_counter()
-    df = load_raw(snapshot_dir, verify=True)
-    t_load = time.perf_counter() - t0
-    log(f"Yüklendi: {len(df):,} satır, {df.shape[1]} sütun ({t_load:.1f} sn)")
 
-    t1 = time.perf_counter()
-    profile = prof.build_profile(df)
-    t_profile = time.perf_counter() - t1
-    log(f"Profil çıkarıldı ({t_profile:.1f} sn)")
+    with timer.step("load_and_verify"):
+        df = load_raw(snapshot_dir, verify=True)
+    log(f"Yüklendi: {len(df):,} satır, {df.shape[1]} sütun ({timer.steps[-1]['seconds']} sn)")
 
-    mask = prof.coordinate_validity_mask(df)
-    lat = prof._numeric(df.loc[mask, "latitude"]).to_numpy()
-    lon = prof._numeric(df.loc[mask, "longitude"]).to_numpy()
-    paths = figures.render_all(profile, fig_dir, lat, lon)
-    peak = None
-    if trace_memory:
-        _, peak = tracemalloc.get_traced_memory()
-        tracemalloc.stop()
+    with timer.step("profile"):
+        profile = prof.build_profile(df, source_types)
+    log(f"Profil çıkarıldı ({timer.steps[-1]['seconds']} sn)")
+
+    with timer.step("figures"):
+        mask = prof.coordinate_validity_mask(df)
+        lat = prof._numeric(df.loc[mask, "latitude"]).to_numpy()
+        lon = prof._numeric(df.loc[mask, "longitude"]).to_numpy()
+        paths = figures.render_all(profile, fig_dir, lat, lon)
+    del df, lat, lon, mask
 
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -102,13 +107,12 @@ def run_eda(snapshot_dir: Path, out_dir: Path, log=print, trace_memory: bool = F
         "freshness": freshness(manifest, profile),
         "profile": profile,
         "runtime": {
-            "load_seconds": round(t_load, 2),
-            "profile_seconds": round(t_profile, 2),
+            "steps": timer.steps,
             "total_seconds": round(time.perf_counter() - t0, 2),
-            "trace_memory": trace_memory,
-            "python_peak_traced_memory_mb": round(peak / 2**20, 1) if peak is not None else None,
-            "note": "tracemalloc yalnızca Python ayırmalarını izler; Arrow arabellekleri dahil değildir. "
-                    "Bellek izleme açıkken süreler yapay olarak uzar.",
+            "peak_memory_mb": peak_memory_mb(),
+            "memory_method": "süreç fiziksel bellek tepe değeri (Windows PeakWorkingSetSize / Unix ru_maxrss)",
+            "machine": {"platform": platform.platform(), "python": platform.python_version(),
+                        "cpu_count": os.cpu_count()},
         },
         "figures": [p.name for p in paths],
     }
@@ -116,6 +120,9 @@ def run_eda(snapshot_dir: Path, out_dir: Path, log=print, trace_memory: bool = F
     # İzlenebilirlik: ham veri depoya girmez, ama onu tanımlayan manifest rapora eşlik eder.
     (out_dir / "source_manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     (out_dir / "EDA_RAPORU.md").write_text(render_markdown(summary, manifest), encoding="utf-8")
+    if dictionary_path is not None:
+        Path(dictionary_path).parent.mkdir(parents=True, exist_ok=True)
+        Path(dictionary_path).write_text(render_data_dictionary(profile, Path(snapshot_dir).name), encoding="utf-8")
     log(f"Rapor yazıldı: {out_dir}")
     return summary
 
@@ -130,7 +137,11 @@ def _n(x: Any) -> str:
 
 
 def _p(x: float | None) -> str:
-    return "—" if x is None else f"%{x:.2f}".replace(".", ",")
+    if x is None:
+        return "—"
+    if 0 < x < 0.005:  # sıfır olmayan küçük oran "%0,00" görünüp yanıltmasın
+        return "<%0,01"
+    return f"%{x:.2f}".replace(".", ",")
 
 
 def render_markdown(summary: dict[str, Any], manifest: dict[str, Any]) -> str:
@@ -201,6 +212,16 @@ def render_markdown(summary: dict[str, Any], manifest: dict[str, Any]) -> str:
     w("")
     w("![Eksik değerler](figures/missing_values.png)")
     w("")
+    w("### Sütun türleri ve benzersiz değerler")
+    w("")
+    w("Kaynak türü Socrata meta verisinden; ölçülen tür, dolu değerlerin tamamına uyan en dar türdür.")
+    w("")
+    w("| Sütun | Kaynak türü | Ölçülen tür | Benzersiz (dolu) | Aday kimlik |")
+    w("|---|---|---|---:|:---:|")
+    for col, o in p["column_overview"].items():
+        w(f"| `{col}` | {o['source_type'] or '—'} | {o['inferred_type']} | {_n(o['unique_non_missing'])} | "
+          f"{'✓' if o['candidate_identifier'] else ''} |")
+    w("")
 
     w("## 4. Kimlik ve tekrar analizi")
     w("")
@@ -255,7 +276,8 @@ def render_markdown(summary: dict[str, Any], manifest: dict[str, Any]) -> str:
     w("")
     w("![Yoğunluk](figures/spatial_density_hexbin.png)")
     w("")
-    w("*Not: Yoğunluk haritası ham kayıt sayısını gösterir; kümeleme sonucu veya risk ölçüsü değildir.*")
+    w("*Not: Yoğunluk haritası geçerli koordinatlı kayıtların tamamından (örnekleme olmadan) altıgen hücre "
+      "sayımıyla üretilmiştir; ham kayıt sayısını gösterir, kümeleme sonucu veya risk ölçüsü değildir.*")
     w("")
 
     w("## 7. İlçeler")
@@ -265,11 +287,23 @@ def render_markdown(summary: dict[str, Any], manifest: dict[str, Any]) -> str:
     for k, v in p["boroughs"]["counts"].items():
         w(f"| {figures.BOROUGH_TR.get(k, k)} | {_n(v)} |")
     w(f"| *Eksik* | {_n(p['boroughs']['missing'])} ({_p(p['boroughs']['missing_pct'])}) |")
+    w(f"| *Beklenmeyen etiket* | {_n(p['boroughs']['unexpected_rows'])} |")
     w("")
     if p["boroughs"]["unexpected_values"]:
         w(f"Beklenmeyen ilçe değerleri: {p['boroughs']['unexpected_values']}")
         w("")
     w("![İlçeler](figures/boroughs.png)")
+    w("")
+    w("Kaydedilmiş ilçe × koordinat sınıfı (eksik ilçeli kayıtlar atılmaz, ayrı satırda gösterilir):")
+    w("")
+    w("| İlçe kaydı | Geçerli | Eksik | Sıfır | Kutu dışı | Ayrıştırılamaz |")
+    w("|---|---:|---:|---:|---:|---:|")
+    names = {"MISSING": "*İlçe eksik*", "UNEXPECTED": "*Beklenmeyen*"}
+    for k, v in p["borough_by_coordinate_class"].items():
+        w(f"| {names.get(k, figures.BOROUGH_TR.get(k, k))} | {_n(v['valid_in_bbox'])} | {_n(v['missing'])} | "
+          f"{_n(v['zero'])} | {_n(v['outside_nyc_bbox'])} | {_n(v['unparseable'])} |")
+    w("")
+    w("![İlçe-koordinat](figures/borough_coordinate_quality.png)")
     w("")
     w("| Yıl | Geçerli koordinat % | İlçe dolu % |")
     w("|---|---:|---:|")
@@ -295,6 +329,8 @@ def render_markdown(summary: dict[str, Any], manifest: dict[str, Any]) -> str:
     w(f"- En az bir yaralı olan kayıt: {_n(cas['rows_with_any_injury'])}; "
       f"en az bir ölü olan kayıt: {_n(cas['rows_with_any_fatality'])}")
     w("")
+    w("![Yaralı ve ölüler](figures/casualties_by_road_user.png)")
+    w("")
 
     w("## 9. Kategorik alanlar")
     w("")
@@ -314,6 +350,13 @@ def render_markdown(summary: dict[str, Any], manifest: dict[str, Any]) -> str:
     for k, v in cat["vehicle_type_1_top"].items():
         w(f"| {k} | {_n(v)} |")
     w("")
+    w("![Araç türleri](figures/vehicle_types.png)")
+    w("")
+    w("| Faktör (araç 1) | Kayıt |")
+    w("|---|---:|")
+    for k, v in cat["contributing_factor_1_top"].items():
+        w(f"| {k} | {_n(v)} |")
+    w("")
     w("![Faktörler](figures/top_contributing_factors.png)")
     w("")
 
@@ -326,12 +369,16 @@ def render_markdown(summary: dict[str, Any], manifest: dict[str, Any]) -> str:
     w("")
 
     r = summary["runtime"]
-    w("## 11. Çalışma süresi")
+    w("## 11. Çalışma süresi ve bellek")
     w("")
-    w(f"Yükleme {r['load_seconds']} sn, profil {r['profile_seconds']} sn, toplam (şekiller dahil) {r['total_seconds']} sn.")
-    if r["trace_memory"]:
-        w(f"İzlenen Python bellek tepe değeri {r['python_peak_traced_memory_mb']} MB ({r['note']})")
-    else:
-        w("Bellek izleme kapalı (`--trace-memory` ile ayrı bir koşuda ölçülür).")
+    w("| Adım | Süre (sn) | O ana kadarki bellek tepe değeri (MB) |")
+    w("|---|---:|---:|")
+    step_tr = {"load_and_verify": "Yükleme + SHA-256 doğrulama", "profile": "Profil", "figures": "Şekiller"}
+    for s in r["steps"]:
+        w(f"| {step_tr.get(s['step'], s['step'])} | {_n(float(s['seconds']))} | {_n(s['peak_memory_mb_so_far'])} |")
+    w("")
+    m = r["machine"]
+    w(f"Toplam {_n(float(r['total_seconds']))} sn. Bellek ölçüm yöntemi: {r['memory_method']}. "
+      f"Ortam: {m['platform']}, Python {m['python']}, {m['cpu_count']} mantıksal çekirdek.")
     w("")
     return "\n".join(lines)

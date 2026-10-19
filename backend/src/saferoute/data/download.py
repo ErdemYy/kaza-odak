@@ -203,6 +203,7 @@ def download_snapshot(
     else:
         metadata = fetch_metadata(session)
         progress = {
+            "acquisition_status": "partial",
             "started_at": _utc_now(),
             "page_size": page_size,
             "metadata_before": metadata,
@@ -293,6 +294,7 @@ def download_snapshot(
         },
         "parts": parts,
         "combined_sha256": combined.hexdigest(),
+        "acquisition_status": "full" if total_rows == stats_after["row_count"] else "unverified",
         "status": "complete" if not warnings else "complete_with_warnings",
         "warnings": warnings,
         "software": _software_versions(),

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T16:13:24.428809+00:00",
+  "generated_at": "2026-10-19T16:42:08.530079+00:00",
   "snapshot": {
     "dir_name": "snapshot_20261019T155113Z",
     "dataset_id": "h9gi-nx95",
@@ -95,7 +95,249 @@
         "vehicle_type_code_3",
         "vehicle_type_code_4",
         "vehicle_type_code_5"
-      ]
+      ],
+      "validation": {
+        "row_count": 2269187,
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "order_matches": true,
+        "is_valid": true,
+        "is_empty": false
+      }
+    },
+    "column_overview": {
+      "crash_date": {
+        "source_type": "calendar_date",
+        "inferred_type": "datetime",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique_non_missing": 5094,
+        "candidate_identifier": false
+      },
+      "crash_time": {
+        "source_type": "text",
+        "inferred_type": "time",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique_non_missing": 1440,
+        "candidate_identifier": false
+      },
+      "borough": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 691375,
+        "missing_pct": 30.468,
+        "unique_non_missing": 5,
+        "candidate_identifier": false
+      },
+      "zip_code": {
+        "source_type": "text",
+        "inferred_type": "integer",
+        "missing": 691703,
+        "missing_pct": 30.4824,
+        "unique_non_missing": 235,
+        "candidate_identifier": false
+      },
+      "latitude": {
+        "source_type": "number",
+        "inferred_type": "float",
+        "missing": 240806,
+        "missing_pct": 10.612,
+        "unique_non_missing": 189606,
+        "candidate_identifier": false
+      },
+      "longitude": {
+        "source_type": "number",
+        "inferred_type": "float",
+        "missing": 240806,
+        "missing_pct": 10.612,
+        "unique_non_missing": 141342,
+        "candidate_identifier": false
+      },
+      "location": {
+        "source_type": "location",
+        "inferred_type": "text",
+        "missing": 240806,
+        "missing_pct": 10.612,
+        "unique_non_missing": 397985,
+        "candidate_identifier": false
+      },
+      "on_street_name": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 499194,
+        "missing_pct": 21.9988,
+        "unique_non_missing": 23331,
+        "candidate_identifier": false
+      },
+      "off_street_name": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 870164,
+        "missing_pct": 38.3469,
+        "unique_non_missing": 25403,
+        "candidate_identifier": false
+      },
+      "cross_street_name": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 1862411,
+        "missing_pct": 82.0739,
+        "unique_non_missing": 271299,
+        "candidate_identifier": false
+      },
+      "number_of_persons_injured": {
+        "source_type": "number",
+        "inferred_type": "integer",
+        "missing": 18,
+        "missing_pct": 0.0008,
+        "unique_non_missing": 32,
+        "candidate_identifier": false
+      },
+      "number_of_persons_killed": {
+        "source_type": "number",
+        "inferred_type": "integer",
+        "missing": 8913,
+        "missing_pct": 0.3928,
+        "unique_non_missing": 7,
+        "candidate_identifier": false
+      },
+      "number_of_pedestrians_injured": {
+        "source_type": "number",
+        "inferred_type": "integer",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique_non_missing": 14,
+        "candidate_identifier": false
+      },
+      "number_of_pedestrians_killed": {
+        "source_type": "number",
+        "inferred_type": "integer",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique_non_missing": 6,
+        "candidate_identifier": false
+      },
+      "number_of_cyclist_injured": {
+        "source_type": "number",
+        "inferred_type": "integer",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique_non_missing": 5,
+        "candidate_identifier": false
+      },
+      "number_of_cyclist_killed": {
+        "source_type": "number",
+        "inferred_type": "integer",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique_non_missing": 3,
+        "candidate_identifier": false
+      },
+      "number_of_motorist_injured": {
+        "source_type": "number",
+        "inferred_type": "integer",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique_non_missing": 31,
+        "candidate_identifier": false
+      },
+      "number_of_motorist_killed": {
+        "source_type": "number",
+        "inferred_type": "integer",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique_non_missing": 6,
+        "candidate_identifier": false
+      },
+      "contributing_factor_vehicle_1": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 8202,
+        "missing_pct": 0.3615,
+        "unique_non_missing": 66,
+        "candidate_identifier": false
+      },
+      "contributing_factor_vehicle_2": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 368580,
+        "missing_pct": 16.2428,
+        "unique_non_missing": 65,
+        "candidate_identifier": false
+      },
+      "contributing_factor_vehicle_3": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 2104798,
+        "missing_pct": 92.7556,
+        "unique_non_missing": 56,
+        "candidate_identifier": false
+      },
+      "contributing_factor_vehicle_4": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 2231554,
+        "missing_pct": 98.3416,
+        "unique_non_missing": 43,
+        "candidate_identifier": false
+      },
+      "contributing_factor_vehicle_5": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 2258873,
+        "missing_pct": 99.5455,
+        "unique_non_missing": 34,
+        "candidate_identifier": false
+      },
+      "collision_id": {
+        "source_type": "number",
+        "inferred_type": "integer",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique_non_missing": 2269187,
+        "candidate_identifier": true
+      },
+      "vehicle_type_code1": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 17081,
+        "missing_pct": 0.7527,
+        "unique_non_missing": 1905,
+        "candidate_identifier": false
+      },
+      "vehicle_type_code2": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 463107,
+        "missing_pct": 20.4085,
+        "unique_non_missing": 2132,
+        "candidate_identifier": false
+      },
+      "vehicle_type_code_3": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 2111354,
+        "missing_pct": 93.0445,
+        "unique_non_missing": 317,
+        "candidate_identifier": false
+      },
+      "vehicle_type_code_4": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 2232943,
+        "missing_pct": 98.4028,
+        "unique_non_missing": 125,
+        "candidate_identifier": false
+      },
+      "vehicle_type_code_5": {
+        "source_type": "text",
+        "inferred_type": "text",
+        "missing": 2259199,
+        "missing_pct": 99.5598,
+        "unique_non_missing": 81,
+        "candidate_identifier": false
+      }
     },
     "missing_values": {
       "crash_date": {
@@ -550,15 +792,60 @@
     },
     "boroughs": {
       "counts": {
+        "MANHATTAN": 348485,
         "BROOKLYN": 506806,
         "QUEENS": 422409,
-        "MANHATTAN": 348485,
         "BRONX": 234088,
         "STATEN ISLAND": 66024
       },
       "missing": 691375,
       "missing_pct": 30.468,
-      "unexpected_values": []
+      "unexpected_values": [],
+      "unexpected_rows": 0
+    },
+    "borough_by_coordinate_class": {
+      "MANHATTAN": {
+        "missing": 10097,
+        "unparseable": 0,
+        "zero": 1370,
+        "outside_nyc_bbox": 0,
+        "valid_in_bbox": 337018
+      },
+      "BROOKLYN": {
+        "missing": 10437,
+        "unparseable": 0,
+        "zero": 2066,
+        "outside_nyc_bbox": 2,
+        "valid_in_bbox": 494301
+      },
+      "QUEENS": {
+        "missing": 8722,
+        "unparseable": 0,
+        "zero": 1600,
+        "outside_nyc_bbox": 0,
+        "valid_in_bbox": 412087
+      },
+      "BRONX": {
+        "missing": 6969,
+        "unparseable": 0,
+        "zero": 1067,
+        "outside_nyc_bbox": 0,
+        "valid_in_bbox": 226052
+      },
+      "STATEN ISLAND": {
+        "missing": 1650,
+        "unparseable": 0,
+        "zero": 218,
+        "outside_nyc_bbox": 0,
+        "valid_in_bbox": 64156
+      },
+      "MISSING": {
+        "missing": 202931,
+        "unparseable": 0,
+        "zero": 1270,
+        "outside_nyc_bbox": 148,
+        "valid_in_bbox": 487026
+      }
     },
     "quality_by_year": {
       "2012": {
@@ -777,6 +1064,28 @@
         "PICK-UP TRUCK": 11505,
         "LIVERY VEHICLE": 10481
       },
+      "vehicle_type_1_top_normalized": {
+        "SEDAN": 660186,
+        "STATION WAGON/SPORT UTILITY VEHICLE": 518578,
+        "PASSENGER VEHICLE": 416206,
+        "SPORT UTILITY / STATION WAGON": 180291,
+        "TAXI": 89190,
+        "PICK-UP TRUCK": 50960,
+        "4 DR SEDAN": 43871,
+        "BUS": 39224,
+        "VAN": 36086,
+        "BOX TRUCK": 27234,
+        "OTHER": 22973,
+        "UNKNOWN": 19967,
+        "BIKE": 18674,
+        "MOTORCYCLE": 14480,
+        "LARGE COM VEH(6 OR MORE TIRES)": 14397,
+        "SMALL COM VEH(4 TIRES)": 13216,
+        "TRACTOR TRUCK DIESEL": 11585,
+        "LIVERY VEHICLE": 10481,
+        "AMBULANCE": 8226,
+        "DUMP": 4587
+      },
       "vehicle_type_1_missing": 17081,
       "vehicle_type_distinct_raw": 3149,
       "vehicle_type_distinct_normalized": 2168,
@@ -804,12 +1113,31 @@
     }
   },
   "runtime": {
-    "load_seconds": 1.53,
-    "profile_seconds": 30.43,
-    "total_seconds": 36.44,
-    "trace_memory": false,
-    "python_peak_traced_memory_mb": null,
-    "note": "tracemalloc yalnızca Python ayırmalarını izler; Arrow arabellekleri dahil değildir. Bellek izleme açıkken süreler yapay olarak uzar."
+    "steps": [
+      {
+        "step": "load_and_verify",
+        "seconds": 1.37,
+        "peak_memory_mb_so_far": 992.2
+      },
+      {
+        "step": "profile",
+        "seconds": 65.72,
+        "peak_memory_mb_so_far": 2322.4
+      },
+      {
+        "step": "figures",
+        "seconds": 7.66,
+        "peak_memory_mb_so_far": 2322.4
+      }
+    ],
+    "total_seconds": 74.78,
+    "peak_memory_mb": 2322.4,
+    "memory_method": "süreç fiziksel bellek tepe değeri (Windows PeakWorkingSetSize / Unix ru_maxrss)",
+    "machine": {
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10",
+      "cpu_count": 16
+    }
   },
   "figures": [
     "rows_per_year.png",
@@ -821,6 +1149,9 @@
     "coordinate_classes.png",
     "quality_by_year.png",
     "top_contributing_factors.png",
+    "vehicle_types.png",
+    "casualties_by_road_user.png",
+    "borough_coordinate_quality.png",
     "spatial_density_hexbin.png"
   ]
 }

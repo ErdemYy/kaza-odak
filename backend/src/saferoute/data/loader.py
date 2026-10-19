@@ -14,6 +14,7 @@ from typing import Any
 import pandas as pd
 import pyarrow as pa
 import pyarrow.csv as pacsv
+import pyarrow.parquet as pq
 
 from saferoute import config
 from saferoute.data.download import MANIFEST_NAME, file_sha256
@@ -48,6 +49,16 @@ def verify_snapshot(snapshot_dir: Path) -> dict[str, Any]:
 
 def load_raw(snapshot_dir: Path, verify: bool = True, columns: list[str] | None = None) -> pd.DataFrame:
     """Anlık görüntünün tüm parçalarını metin sütunlu tek bir DataFrame olarak yükler."""
+    return read_raw_table(snapshot_dir, verify, columns).to_pandas(types_mapper=pd.ArrowDtype)
+
+
+def load_parquet(path: Path, columns: list[str] | None = None) -> pd.DataFrame:
+    """``saferoute parquet`` ile üretilmiş kayıpsız Parquet kopyasını yükler."""
+    return pq.read_table(path, columns=columns).to_pandas(types_mapper=pd.ArrowDtype)
+
+
+def read_raw_table(snapshot_dir: Path, verify: bool = True, columns: list[str] | None = None) -> pa.Table:
+    """Anlık görüntüyü tek bir Arrow tablosu olarak okur (pandas kopyası oluşturmadan)."""
     snapshot_dir = Path(snapshot_dir)
     manifest = verify_snapshot(snapshot_dir) if verify else read_manifest(snapshot_dir)
     field_names = [c["field_name"] for c in manifest["columns"]]
@@ -65,4 +76,4 @@ def load_raw(snapshot_dir: Path, verify: bool = True, columns: list[str] | None 
     table = pa.concat_tables(tables)
     if table.num_rows != manifest["row_count"]:
         raise IntegrityError(f"Okunan satır ({table.num_rows}) manifest ile ({manifest['row_count']}) uyuşmuyor.")
-    return table.to_pandas(types_mapper=pd.ArrowDtype)
+    return table

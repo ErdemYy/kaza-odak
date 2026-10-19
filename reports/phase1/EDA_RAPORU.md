@@ -52,7 +52,7 @@ Son ayların bir önceki yılın aynı ayına oranı (raporlama gecikmesi göste
 | `on_street_name` | 499.179 | 15 | 499.194 | %22,00 |
 | `off_street_name` | 870.147 | 17 | 870.164 | %38,35 |
 | `cross_street_name` | 1.862.382 | 29 | 1.862.411 | %82,07 |
-| `number_of_persons_injured` | 18 | 0 | 18 | %0,00 |
+| `number_of_persons_injured` | 18 | 0 | 18 | <%0,01 |
 | `number_of_persons_killed` | 8.913 | 0 | 8.913 | %0,39 |
 | `number_of_pedestrians_injured` | 0 | 0 | 0 | %0,00 |
 | `number_of_pedestrians_killed` | 0 | 0 | 0 | %0,00 |
@@ -73,6 +73,42 @@ Son ayların bir önceki yılın aynı ayına oranı (raporlama gecikmesi göste
 | `vehicle_type_code_5` | 2.259.199 | 0 | 2.259.199 | %99,56 |
 
 ![Eksik değerler](figures/missing_values.png)
+
+### Sütun türleri ve benzersiz değerler
+
+Kaynak türü Socrata meta verisinden; ölçülen tür, dolu değerlerin tamamına uyan en dar türdür.
+
+| Sütun | Kaynak türü | Ölçülen tür | Benzersiz (dolu) | Aday kimlik |
+|---|---|---|---:|:---:|
+| `crash_date` | calendar_date | datetime | 5.094 |  |
+| `crash_time` | text | time | 1.440 |  |
+| `borough` | text | text | 5 |  |
+| `zip_code` | text | integer | 235 |  |
+| `latitude` | number | float | 189.606 |  |
+| `longitude` | number | float | 141.342 |  |
+| `location` | location | text | 397.985 |  |
+| `on_street_name` | text | text | 23.331 |  |
+| `off_street_name` | text | text | 25.403 |  |
+| `cross_street_name` | text | text | 271.299 |  |
+| `number_of_persons_injured` | number | integer | 32 |  |
+| `number_of_persons_killed` | number | integer | 7 |  |
+| `number_of_pedestrians_injured` | number | integer | 14 |  |
+| `number_of_pedestrians_killed` | number | integer | 6 |  |
+| `number_of_cyclist_injured` | number | integer | 5 |  |
+| `number_of_cyclist_killed` | number | integer | 3 |  |
+| `number_of_motorist_injured` | number | integer | 31 |  |
+| `number_of_motorist_killed` | number | integer | 6 |  |
+| `contributing_factor_vehicle_1` | text | text | 66 |  |
+| `contributing_factor_vehicle_2` | text | text | 65 |  |
+| `contributing_factor_vehicle_3` | text | text | 56 |  |
+| `contributing_factor_vehicle_4` | text | text | 43 |  |
+| `contributing_factor_vehicle_5` | text | text | 34 |  |
+| `collision_id` | number | integer | 2.269.187 | ✓ |
+| `vehicle_type_code1` | text | text | 1.905 |  |
+| `vehicle_type_code2` | text | text | 2.132 |  |
+| `vehicle_type_code_3` | text | text | 317 |  |
+| `vehicle_type_code_4` | text | text | 125 |  |
+| `vehicle_type_code_5` | text | text | 81 |  |
 
 ## 4. Kimlik ve tekrar analizi
 
@@ -135,20 +171,34 @@ NYC sınırlayıcı kutusu: enlem 40.4774–40.9176, boylam -74.2591–-73.7004 
 
 ![Yoğunluk](figures/spatial_density_hexbin.png)
 
-*Not: Yoğunluk haritası ham kayıt sayısını gösterir; kümeleme sonucu veya risk ölçüsü değildir.*
+*Not: Yoğunluk haritası geçerli koordinatlı kayıtların tamamından (örnekleme olmadan) altıgen hücre sayımıyla üretilmiştir; ham kayıt sayısını gösterir, kümeleme sonucu veya risk ölçüsü değildir.*
 
 ## 7. İlçeler
 
 | İlçe | Kayıt |
 |---|---:|
+| Manhattan | 348.485 |
 | Brooklyn | 506.806 |
 | Queens | 422.409 |
-| Manhattan | 348.485 |
 | Bronx | 234.088 |
 | Staten Island | 66.024 |
 | *Eksik* | 691.375 (%30,47) |
+| *Beklenmeyen etiket* | 0 |
 
 ![İlçeler](figures/boroughs.png)
+
+Kaydedilmiş ilçe × koordinat sınıfı (eksik ilçeli kayıtlar atılmaz, ayrı satırda gösterilir):
+
+| İlçe kaydı | Geçerli | Eksik | Sıfır | Kutu dışı | Ayrıştırılamaz |
+|---|---:|---:|---:|---:|---:|
+| Manhattan | 337.018 | 10.097 | 1.370 | 0 | 0 |
+| Brooklyn | 494.301 | 10.437 | 2.066 | 2 | 0 |
+| Queens | 412.087 | 8.722 | 1.600 | 0 | 0 |
+| Bronx | 226.052 | 6.969 | 1.067 | 0 | 0 |
+| Staten Island | 64.156 | 1.650 | 218 | 0 | 0 |
+| *İlçe eksik* | 487.026 | 202.931 | 1.270 | 148 | 0 |
+
+![İlçe-koordinat](figures/borough_coordinate_quality.png)
 
 | Yıl | Geçerli koordinat % | İlçe dolu % |
 |---|---:|---:|
@@ -186,6 +236,8 @@ NYC sınırlayıcı kutusu: enlem 40.4774–40.9176, boylam -74.2591–-73.7004 
 - Yaralı tutarlılığı (kişi = yaya + bisikletli + motorlu): karşılaştırılabilir 2.269.169, eşit 2.258.255, kişi > toplam 10.687, kişi < toplam 227
 - Ölü tutarlılığı (kişi = yaya + bisikletli + motorlu): karşılaştırılabilir 2.260.274, eşit 2.260.190, kişi > toplam 78, kişi < toplam 6
 - En az bir yaralı olan kayıt: 558.603; en az bir ölü olan kayıt: 3.469
+
+![Yaralı ve ölüler](figures/casualties_by_road_user.png)
 
 ## 9. Kategorik alanlar
 
@@ -225,6 +277,31 @@ NYC sınırlayıcı kutusu: enlem 40.4774–40.9176, boylam -74.2591–-73.7004 
 | PICK-UP TRUCK | 11.505 |
 | LIVERY VEHICLE | 10.481 |
 
+![Araç türleri](figures/vehicle_types.png)
+
+| Faktör (araç 1) | Kayıt |
+|---|---:|
+| Unspecified | 756.643 |
+| Driver Inattention/Distraction | 462.105 |
+| Failure to Yield Right-of-Way | 136.046 |
+| Following Too Closely | 121.711 |
+| Backing Unsafely | 82.577 |
+| Other Vehicular | 71.429 |
+| Passing or Lane Usage Improper | 65.544 |
+| Passing Too Closely | 58.028 |
+| Turning Improperly | 55.751 |
+| Fatigued/Drowsy | 47.599 |
+| Unsafe Lane Changing | 44.743 |
+| Traffic Control Disregarded | 41.898 |
+| Driver Inexperience | 36.928 |
+| Unsafe Speed | 35.562 |
+| Alcohol Involvement | 26.503 |
+| Reaction to Uninvolved Vehicle | 22.133 |
+| Pavement Slippery | 21.280 |
+| Lost Consciousness | 20.904 |
+| View Obstructed/Limited | 15.682 |
+| Prescription Medication | 15.438 |
+
 ![Faktörler](figures/top_contributing_factors.png)
 
 ## 10. Metin alanları
@@ -234,7 +311,12 @@ NYC sınırlayıcı kutusu: enlem 40.4774–40.9176, boylam -74.2591–-73.7004 
 - `off_street_name`: başında/sonunda boşluk olan 655.754; farklı değer ham 25.404 → normalize 15.843
 - `cross_street_name`: başında/sonunda boşluk olan 264.268; farklı değer ham 271.300 → normalize 241.712
 
-## 11. Çalışma süresi
+## 11. Çalışma süresi ve bellek
 
-Yükleme 1.53 sn, profil 30.43 sn, toplam (şekiller dahil) 36.44 sn.
-Bellek izleme kapalı (`--trace-memory` ile ayrı bir koşuda ölçülür).
+| Adım | Süre (sn) | O ana kadarki bellek tepe değeri (MB) |
+|---|---:|---:|
+| Yükleme + SHA-256 doğrulama | 1,37 | 992,20 |
+| Profil | 65,72 | 2.322,40 |
+| Şekiller | 7,66 | 2.322,40 |
+
+Toplam 74,78 sn. Bellek ölçüm yöntemi: süreç fiziksel bellek tepe değeri (Windows PeakWorkingSetSize / Unix ru_maxrss). Ortam: Windows-11-10.0.26200-SP0, Python 3.12.10, 16 mantıksal çekirdek.

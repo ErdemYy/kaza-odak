@@ -31,5 +31,21 @@ node_modules/
 Thumbs.db
 
 # --- SafeRoute veri ---
-# Ham ve ara veri büyük ve yeniden üretilebilir; manifest kopyaları reports/ altında tutulur.
-/data/
+# Ham, ara ve işlenmiş veri büyüktür ve belgelenmiş komutlarla yeniden üretilebilir.
+# data/metadata/ altındaki küçük edinim/kaynak kayıtları (JSON) git'te İZLENİR.
+/data/raw/*
+/data/interim/*
+/data/processed/*
+!/data/**/.gitkeep
+
+# --- Derleme ve geçici dosyalar ---
+build/
+dist/
+*.egg-info/
+.ipynb_checkpoints/
+*.partial
+*.tmp
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/

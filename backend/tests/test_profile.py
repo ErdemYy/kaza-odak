@@ -55,9 +55,81 @@ def test_coordinate_classes_are_exclusive_and_exhaustive(frame):
 
 def test_boroughs(frame):
     b = prof.boroughs(frame)
-    assert b["counts"] == {"MANHATTAN": 2, "BROOKLYN": 1, "QUEENS": 1}
+    # Beş ilçenin tamamı, kayıt olmasa bile 0 ile raporlanır.
+    assert b["counts"] == {"MANHATTAN": 2, "BROOKLYN": 1, "QUEENS": 1, "BRONX": 0, "STATEN ISLAND": 0}
     assert b["missing"] == 3
-    assert b["unexpected_values"] == []
+    assert b["unexpected_values"] == [] and b["unexpected_rows"] == 0
+
+
+def test_unexpected_and_lowercase_borough_labels():
+    from conftest import make_row, to_frame
+
+    df = to_frame([make_row(borough="manhattan "), make_row(borough="NEW JERSEY"), make_row(borough=None)])
+    b = prof.boroughs(df)
+    assert b["counts"]["MANHATTAN"] == 1
+    assert b["unexpected_values"] == ["NEW JERSEY"] and b["unexpected_rows"] == 1
+    assert b["missing"] == 1
+
+
+def test_borough_by_coordinate_class_keeps_missing_borough_rows(frame):
+    t = prof.borough_by_coordinate_class(frame)
+    assert t["MANHATTAN"]["valid_in_bbox"] == 2
+    assert t["BROOKLYN"]["missing"] == 1
+    assert t["QUEENS"]["outside_nyc_bbox"] == 1
+    # İlçesi eksik 3 kayıt: sıfır (r3), ayrıştırılamaz (r5), geçerli (r7)
+    assert t["MISSING"] == {"missing": 0, "unparseable": 1, "zero": 1, "outside_nyc_bbox": 0, "valid_in_bbox": 1}
+    assert sum(sum(v.values()) for v in t.values()) == len(frame)
+
+
+def test_column_overview_types_uniques_and_identifiers(frame):
+    o = prof.column_overview(frame, {"latitude": "number"})
+    assert o["latitude"]["source_type"] == "number"
+    assert o["latitude"]["inferred_type"] == "text"          # "abc" değeri var
+    assert o["crash_time"]["inferred_type"] == "text"        # "25:00" geçersiz
+    assert o["zip_code"]["inferred_type"] == "integer"
+    assert o["number_of_persons_killed"]["inferred_type"] == "integer"
+    assert o["collision_id"]["inferred_type"] == "float"     # "7.5"
+    assert o["vehicle_type_code_5"]["inferred_type"] == "empty"
+    assert o["borough"]["missing"] == 3 and o["borough"]["unique_non_missing"] == 3
+    # collision_id tekrarlı olduğu için aday kimlik değil
+    assert not any(v["candidate_identifier"] for v in o.values())
+
+
+def test_candidate_identifier_detected():
+    from conftest import make_row, to_frame
+
+    df = to_frame([make_row(collision_id=str(i), crash_date="2020-01-01T00:00:00.000") for i in range(3)])
+    o = prof.column_overview(df)
+    assert o["collision_id"]["candidate_identifier"] is True
+    assert o["collision_id"]["inferred_type"] == "integer"
+    assert o["crash_date"]["inferred_type"] == "datetime"
+    assert o["crash_date"]["candidate_identifier"] is False
+
+
+def test_infer_type_time():
+    import pandas as pd
+
+    assert prof.infer_type(pd.Series(["0:05", "23:59", None])) == "time"
+
+
+def test_empty_input_produces_zero_profile():
+    from conftest import to_frame
+
+    p = prof.build_profile(to_frame([]))
+    assert p["schema"]["row_count"] == 0 and p["schema"]["validation"]["is_empty"]
+    assert p["missing_values"]["latitude"]["missing_pct"] == 0.0
+    assert p["coordinates"]["classes"] == {k: 0 for k in prof.COORD_CLASSES}
+    assert p["temporal"]["crash_date_min"] is None
+    assert p["boroughs"]["missing"] == 0
+    assert p["duplicates"]["exact_duplicate_rows"] == 0
+    assert p["quality_by_year"] == {}
+
+
+def test_missing_column_raises_schema_error(frame):
+    from saferoute.data.validate import SchemaError
+
+    with pytest.raises(SchemaError, match="latitude"):
+        prof.build_profile(frame.drop(columns=["latitude"]))
 
 
 def test_quality_by_year(frame):
