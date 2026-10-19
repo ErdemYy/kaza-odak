@@ -22,9 +22,14 @@ graphify-out/graph.graphml
 .env
 .env.*
 __pycache__/
+.pytest_cache/
 *.py[cod]
 .venv/
 venv/
 node_modules/
 .DS_Store
 Thumbs.db
+
+# --- SafeRoute veri ---
+# Ham ve ara veri büyük ve yeniden üretilebilir; manifest kopyaları reports/ altında tutulur.
+/data/

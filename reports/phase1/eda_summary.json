@@ -1,0 +1,826 @@
+{
+  "generated_at": "2026-10-19T16:13:24.428809+00:00",
+  "snapshot": {
+    "dir_name": "snapshot_20261019T155113Z",
+    "dataset_id": "h9gi-nx95",
+    "combined_sha256": "2fe1297c24f7aad761bca1dc3c04ec0de3459d297e06af20fbfe5e35ad10be5e",
+    "row_count_manifest": 2269187,
+    "status": "complete",
+    "warnings": []
+  },
+  "freshness": {
+    "source_rows_updated_at": "2026-06-15T23:05:47+00:00",
+    "downloaded_at": "2026-10-19T16:01:15.101443+00:00",
+    "max_crash_date": "2026-06-11",
+    "days_source_update_to_download": 125,
+    "days_max_crash_date_to_source_update": 4,
+    "days_max_crash_date_to_download": 130,
+    "update_frequency_declared": "Daily",
+    "recent_months": [
+      {
+        "month": "2026-01",
+        "partial_month": false,
+        "rows": 6773,
+        "same_month_previous_year": 6482,
+        "ratio_to_previous_year": 1.0449
+      },
+      {
+        "month": "2026-02",
+        "partial_month": false,
+        "rows": 6492,
+        "same_month_previous_year": 5988,
+        "ratio_to_previous_year": 1.0842
+      },
+      {
+        "month": "2026-03",
+        "partial_month": false,
+        "rows": 6759,
+        "same_month_previous_year": 7035,
+        "ratio_to_previous_year": 0.9608
+      },
+      {
+        "month": "2026-04",
+        "partial_month": false,
+        "rows": 6665,
+        "same_month_previous_year": 6924,
+        "ratio_to_previous_year": 0.9626
+      },
+      {
+        "month": "2026-05",
+        "partial_month": false,
+        "rows": 7413,
+        "same_month_previous_year": 7636,
+        "ratio_to_previous_year": 0.9708
+      },
+      {
+        "month": "2026-06",
+        "partial_month": true,
+        "rows": 2322,
+        "same_month_previous_year": 7483,
+        "ratio_to_previous_year": 0.3103
+      }
+    ]
+  },
+  "profile": {
+    "schema": {
+      "row_count": 2269187,
+      "column_count": 29,
+      "columns": [
+        "crash_date",
+        "crash_time",
+        "borough",
+        "zip_code",
+        "latitude",
+        "longitude",
+        "location",
+        "on_street_name",
+        "off_street_name",
+        "cross_street_name",
+        "number_of_persons_injured",
+        "number_of_persons_killed",
+        "number_of_pedestrians_injured",
+        "number_of_pedestrians_killed",
+        "number_of_cyclist_injured",
+        "number_of_cyclist_killed",
+        "number_of_motorist_injured",
+        "number_of_motorist_killed",
+        "contributing_factor_vehicle_1",
+        "contributing_factor_vehicle_2",
+        "contributing_factor_vehicle_3",
+        "contributing_factor_vehicle_4",
+        "contributing_factor_vehicle_5",
+        "collision_id",
+        "vehicle_type_code1",
+        "vehicle_type_code2",
+        "vehicle_type_code_3",
+        "vehicle_type_code_4",
+        "vehicle_type_code_5"
+      ]
+    },
+    "missing_values": {
+      "crash_date": {
+        "null": 0,
+        "blank": 0,
+        "missing_total": 0,
+        "missing_pct": 0.0
+      },
+      "crash_time": {
+        "null": 0,
+        "blank": 0,
+        "missing_total": 0,
+        "missing_pct": 0.0
+      },
+      "borough": {
+        "null": 691375,
+        "blank": 0,
+        "missing_total": 691375,
+        "missing_pct": 30.468
+      },
+      "zip_code": {
+        "null": 691661,
+        "blank": 42,
+        "missing_total": 691703,
+        "missing_pct": 30.4824
+      },
+      "latitude": {
+        "null": 240806,
+        "blank": 0,
+        "missing_total": 240806,
+        "missing_pct": 10.612
+      },
+      "longitude": {
+        "null": 240806,
+        "blank": 0,
+        "missing_total": 240806,
+        "missing_pct": 10.612
+      },
+      "location": {
+        "null": 240806,
+        "blank": 0,
+        "missing_total": 240806,
+        "missing_pct": 10.612
+      },
+      "on_street_name": {
+        "null": 499179,
+        "blank": 15,
+        "missing_total": 499194,
+        "missing_pct": 21.9988
+      },
+      "off_street_name": {
+        "null": 870147,
+        "blank": 17,
+        "missing_total": 870164,
+        "missing_pct": 38.3469
+      },
+      "cross_street_name": {
+        "null": 1862382,
+        "blank": 29,
+        "missing_total": 1862411,
+        "missing_pct": 82.0739
+      },
+      "number_of_persons_injured": {
+        "null": 18,
+        "blank": 0,
+        "missing_total": 18,
+        "missing_pct": 0.0008
+      },
+      "number_of_persons_killed": {
+        "null": 8913,
+        "blank": 0,
+        "missing_total": 8913,
+        "missing_pct": 0.3928
+      },
+      "number_of_pedestrians_injured": {
+        "null": 0,
+        "blank": 0,
+        "missing_total": 0,
+        "missing_pct": 0.0
+      },
+      "number_of_pedestrians_killed": {
+        "null": 0,
+        "blank": 0,
+        "missing_total": 0,
+        "missing_pct": 0.0
+      },
+      "number_of_cyclist_injured": {
+        "null": 0,
+        "blank": 0,
+        "missing_total": 0,
+        "missing_pct": 0.0
+      },
+      "number_of_cyclist_killed": {
+        "null": 0,
+        "blank": 0,
+        "missing_total": 0,
+        "missing_pct": 0.0
+      },
+      "number_of_motorist_injured": {
+        "null": 0,
+        "blank": 0,
+        "missing_total": 0,
+        "missing_pct": 0.0
+      },
+      "number_of_motorist_killed": {
+        "null": 0,
+        "blank": 0,
+        "missing_total": 0,
+        "missing_pct": 0.0
+      },
+      "contributing_factor_vehicle_1": {
+        "null": 8202,
+        "blank": 0,
+        "missing_total": 8202,
+        "missing_pct": 0.3615
+      },
+      "contributing_factor_vehicle_2": {
+        "null": 368580,
+        "blank": 0,
+        "missing_total": 368580,
+        "missing_pct": 16.2428
+      },
+      "contributing_factor_vehicle_3": {
+        "null": 2104798,
+        "blank": 0,
+        "missing_total": 2104798,
+        "missing_pct": 92.7556
+      },
+      "contributing_factor_vehicle_4": {
+        "null": 2231554,
+        "blank": 0,
+        "missing_total": 2231554,
+        "missing_pct": 98.3416
+      },
+      "contributing_factor_vehicle_5": {
+        "null": 2258873,
+        "blank": 0,
+        "missing_total": 2258873,
+        "missing_pct": 99.5455
+      },
+      "collision_id": {
+        "null": 0,
+        "blank": 0,
+        "missing_total": 0,
+        "missing_pct": 0.0
+      },
+      "vehicle_type_code1": {
+        "null": 17081,
+        "blank": 0,
+        "missing_total": 17081,
+        "missing_pct": 0.7527
+      },
+      "vehicle_type_code2": {
+        "null": 463107,
+        "blank": 0,
+        "missing_total": 463107,
+        "missing_pct": 20.4085
+      },
+      "vehicle_type_code_3": {
+        "null": 2111354,
+        "blank": 0,
+        "missing_total": 2111354,
+        "missing_pct": 93.0445
+      },
+      "vehicle_type_code_4": {
+        "null": 2232943,
+        "blank": 0,
+        "missing_total": 2232943,
+        "missing_pct": 98.4028
+      },
+      "vehicle_type_code_5": {
+        "null": 2259199,
+        "blank": 0,
+        "missing_total": 2259199,
+        "missing_pct": 99.5598
+      }
+    },
+    "duplicates": {
+      "collision_id_missing": 0,
+      "collision_id_non_integer": 0,
+      "collision_id_unique_values": 2269187,
+      "duplicated_collision_ids": 0,
+      "rows_with_duplicated_collision_id": 0,
+      "exact_duplicate_rows": 0,
+      "duplicated_collision_id_examples": []
+    },
+    "temporal": {
+      "crash_date_missing": 0,
+      "crash_date_unparseable": 0,
+      "crash_date_min": "2012-07-01",
+      "crash_date_max": "2026-06-11",
+      "crash_date_has_nonzero_time_component": 0,
+      "crash_time_missing": 0,
+      "crash_time_invalid": 0,
+      "crash_time_exact_midnight": 24566,
+      "crash_time_exact_midnight_pct": 1.0826,
+      "rows_per_year": {
+        "2012": 100545,
+        "2013": 203742,
+        "2014": 206046,
+        "2015": 217708,
+        "2016": 229833,
+        "2017": 231007,
+        "2018": 231564,
+        "2019": 211486,
+        "2020": 112918,
+        "2021": 110558,
+        "2022": 103887,
+        "2023": 96607,
+        "2024": 91316,
+        "2025": 85546,
+        "2026": 36424
+      },
+      "rows_per_month": {
+        "2012-07": 16992,
+        "2012-08": 17142,
+        "2012-09": 16535,
+        "2012-10": 16864,
+        "2012-11": 15889,
+        "2012-12": 17123,
+        "2013-01": 15643,
+        "2013-02": 14399,
+        "2013-03": 16509,
+        "2013-04": 16439,
+        "2013-05": 18488,
+        "2013-06": 18205,
+        "2013-07": 17578,
+        "2013-08": 16759,
+        "2013-09": 16956,
+        "2013-10": 17713,
+        "2013-11": 17772,
+        "2013-12": 17281,
+        "2014-01": 16674,
+        "2014-02": 15738,
+        "2014-03": 15862,
+        "2014-04": 16372,
+        "2014-05": 18278,
+        "2014-06": 18411,
+        "2014-07": 17459,
+        "2014-08": 17094,
+        "2014-09": 17828,
+        "2014-10": 18086,
+        "2014-11": 16985,
+        "2014-12": 17259,
+        "2015-01": 16127,
+        "2015-02": 15714,
+        "2015-03": 17956,
+        "2015-04": 16794,
+        "2015-05": 19274,
+        "2015-06": 18826,
+        "2015-07": 18775,
+        "2015-08": 18980,
+        "2015-09": 18516,
+        "2015-10": 19850,
+        "2015-11": 18023,
+        "2015-12": 18873,
+        "2016-01": 18098,
+        "2016-02": 15987,
+        "2016-03": 18781,
+        "2016-04": 18577,
+        "2016-05": 20185,
+        "2016-06": 20712,
+        "2016-07": 19970,
+        "2016-08": 19700,
+        "2016-09": 19512,
+        "2016-10": 19677,
+        "2016-11": 19388,
+        "2016-12": 19246,
+        "2017-01": 17549,
+        "2017-02": 15836,
+        "2017-03": 19336,
+        "2017-04": 17829,
+        "2017-05": 21012,
+        "2017-06": 21373,
+        "2017-07": 19593,
+        "2017-08": 19137,
+        "2017-09": 19604,
+        "2017-10": 20360,
+        "2017-11": 19661,
+        "2017-12": 19717,
+        "2018-01": 18122,
+        "2018-02": 15990,
+        "2018-03": 19274,
+        "2018-04": 18195,
+        "2018-05": 20843,
+        "2018-06": 20796,
+        "2018-07": 19707,
+        "2018-08": 19642,
+        "2018-09": 19238,
+        "2018-10": 20820,
+        "2018-11": 19436,
+        "2018-12": 19501,
+        "2019-01": 16929,
+        "2019-02": 16065,
+        "2019-03": 17759,
+        "2019-04": 16829,
+        "2019-05": 19588,
+        "2019-06": 19516,
+        "2019-07": 18421,
+        "2019-08": 17215,
+        "2019-09": 17541,
+        "2019-10": 17611,
+        "2019-11": 16953,
+        "2019-12": 17059,
+        "2020-01": 14366,
+        "2020-02": 13704,
+        "2020-03": 11079,
+        "2020-04": 4129,
+        "2020-05": 6165,
+        "2020-06": 7647,
+        "2020-07": 9277,
+        "2020-08": 9823,
+        "2020-09": 9610,
+        "2020-10": 9710,
+        "2020-11": 9029,
+        "2020-12": 8379,
+        "2021-01": 7719,
+        "2021-02": 6976,
+        "2021-03": 8262,
+        "2021-04": 8754,
+        "2021-05": 10290,
+        "2021-06": 10611,
+        "2021-07": 10003,
+        "2021-08": 9880,
+        "2021-09": 9898,
+        "2021-10": 10205,
+        "2021-11": 9377,
+        "2021-12": 8583,
+        "2022-01": 7915,
+        "2022-02": 7391,
+        "2022-03": 8860,
+        "2022-04": 8550,
+        "2022-05": 9464,
+        "2022-06": 9478,
+        "2022-07": 8885,
+        "2022-08": 8923,
+        "2022-09": 8884,
+        "2022-10": 8960,
+        "2022-11": 8184,
+        "2022-12": 8393,
+        "2023-01": 7464,
+        "2023-02": 6884,
+        "2023-03": 8180,
+        "2023-04": 7772,
+        "2023-05": 8995,
+        "2023-06": 8191,
+        "2023-07": 8243,
+        "2023-08": 8014,
+        "2023-09": 8293,
+        "2023-10": 8717,
+        "2023-11": 7860,
+        "2023-12": 7994,
+        "2024-01": 7542,
+        "2024-02": 6841,
+        "2024-03": 7861,
+        "2024-04": 7161,
+        "2024-05": 8196,
+        "2024-06": 7967,
+        "2024-07": 7496,
+        "2024-08": 7640,
+        "2024-09": 7842,
+        "2024-10": 7796,
+        "2024-11": 7364,
+        "2024-12": 7610,
+        "2025-01": 6482,
+        "2025-02": 5988,
+        "2025-03": 7035,
+        "2025-04": 6924,
+        "2025-05": 7636,
+        "2025-06": 7483,
+        "2025-07": 7410,
+        "2025-08": 6989,
+        "2025-09": 7537,
+        "2025-10": 7537,
+        "2025-11": 7148,
+        "2025-12": 7377,
+        "2026-01": 6773,
+        "2026-02": 6492,
+        "2026-03": 6759,
+        "2026-04": 6665,
+        "2026-05": 7413,
+        "2026-06": 2322
+      },
+      "rows_per_weekday": {
+        "0": 323889,
+        "1": 333467,
+        "2": 330997,
+        "3": 338604,
+        "4": 360747,
+        "5": 306800,
+        "6": 274683
+      },
+      "rows_per_hour": {
+        "0": 75806,
+        "1": 40498,
+        "2": 31269,
+        "3": 27571,
+        "4": 31321,
+        "5": 33878,
+        "6": 51553,
+        "7": 70581,
+        "8": 124228,
+        "9": 118950,
+        "10": 111160,
+        "11": 115977,
+        "12": 123461,
+        "13": 129341,
+        "14": 149385,
+        "15": 141172,
+        "16": 161385,
+        "17": 158232,
+        "18": 139496,
+        "19": 115262,
+        "20": 96751,
+        "21": 82841,
+        "22": 75404,
+        "23": 63665
+      }
+    },
+    "coordinates": {
+      "classes": {
+        "missing": 240806,
+        "unparseable": 0,
+        "zero": 7591,
+        "outside_nyc_bbox": 150,
+        "valid_in_bbox": 2020640
+      },
+      "classes_pct": {
+        "missing": 10.612,
+        "unparseable": 0.0,
+        "zero": 0.3345,
+        "outside_nyc_bbox": 0.0066,
+        "valid_in_bbox": 89.0469
+      },
+      "bbox": {
+        "min_lat": 40.4774,
+        "max_lat": 40.9176,
+        "min_lon": -74.2591,
+        "max_lon": -73.7004
+      },
+      "valid_but_borough_missing": 487026,
+      "borough_present_but_coords_unusable": 44198,
+      "location_present_latlon_missing": 0,
+      "latlon_present_location_missing": 0,
+      "valid_extent": {
+        "min_lat": 40.498947,
+        "max_lat": 40.912884,
+        "min_lon": -74.25496,
+        "max_lon": -73.70048
+      },
+      "distinct_valid_locations": 349124
+    },
+    "boroughs": {
+      "counts": {
+        "BROOKLYN": 506806,
+        "QUEENS": 422409,
+        "MANHATTAN": 348485,
+        "BRONX": 234088,
+        "STATEN ISLAND": 66024
+      },
+      "missing": 691375,
+      "missing_pct": 30.468,
+      "unexpected_values": []
+    },
+    "quality_by_year": {
+      "2012": {
+        "rows": 100545,
+        "coord_valid_pct": 84.9948,
+        "borough_present_pct": 77.1555
+      },
+      "2013": {
+        "rows": 203742,
+        "coord_valid_pct": 84.3915,
+        "borough_present_pct": 76.5581
+      },
+      "2014": {
+        "rows": 206046,
+        "coord_valid_pct": 83.841,
+        "borough_present_pct": 75.884
+      },
+      "2015": {
+        "rows": 217708,
+        "coord_valid_pct": 84.0539,
+        "borough_present_pct": 75.0887
+      },
+      "2016": {
+        "rows": 229833,
+        "coord_valid_pct": 83.6051,
+        "borough_present_pct": 66.7032
+      },
+      "2017": {
+        "rows": 231007,
+        "coord_valid_pct": 93.9006,
+        "borough_present_pct": 61.883
+      },
+      "2018": {
+        "rows": 231564,
+        "coord_valid_pct": 93.3254,
+        "borough_present_pct": 64.4461
+      },
+      "2019": {
+        "rows": 211486,
+        "coord_valid_pct": 91.6467,
+        "borough_present_pct": 64.791
+      },
+      "2020": {
+        "rows": 112918,
+        "coord_valid_pct": 91.9588,
+        "borough_present_pct": 65.2589
+      },
+      "2021": {
+        "rows": 110558,
+        "coord_valid_pct": 91.2607,
+        "borough_present_pct": 65.3268
+      },
+      "2022": {
+        "rows": 103887,
+        "coord_valid_pct": 89.5974,
+        "borough_present_pct": 66.2133
+      },
+      "2023": {
+        "rows": 96607,
+        "coord_valid_pct": 92.1403,
+        "borough_present_pct": 68.0385
+      },
+      "2024": {
+        "rows": 91316,
+        "coord_valid_pct": 91.651,
+        "borough_present_pct": 71.4344
+      },
+      "2025": {
+        "rows": 85546,
+        "coord_valid_pct": 96.6778,
+        "borough_present_pct": 80.0914
+      },
+      "2026": {
+        "rows": 36424,
+        "coord_valid_pct": 96.851,
+        "borough_present_pct": 76.1339
+      }
+    },
+    "casualties": {
+      "columns": {
+        "number_of_persons_injured": {
+          "missing": 18,
+          "unparseable": 0,
+          "negative": 0,
+          "non_integer": 0,
+          "sum": 756353,
+          "max": 43.0,
+          "rows_gt_zero": 558603
+        },
+        "number_of_persons_killed": {
+          "missing": 8913,
+          "unparseable": 0,
+          "negative": 0,
+          "non_integer": 0,
+          "sum": 3617,
+          "max": 8.0,
+          "rows_gt_zero": 3469
+        },
+        "number_of_pedestrians_injured": {
+          "missing": 0,
+          "unparseable": 0,
+          "negative": 0,
+          "non_integer": 0,
+          "sum": 137819,
+          "max": 27.0,
+          "rows_gt_zero": 132157
+        },
+        "number_of_pedestrians_killed": {
+          "missing": 0,
+          "unparseable": 0,
+          "negative": 0,
+          "non_integer": 0,
+          "sum": 1805,
+          "max": 6.0,
+          "rows_gt_zero": 1778
+        },
+        "number_of_cyclist_injured": {
+          "missing": 0,
+          "unparseable": 0,
+          "negative": 0,
+          "non_integer": 0,
+          "sum": 67336,
+          "max": 4.0,
+          "rows_gt_zero": 66461
+        },
+        "number_of_cyclist_killed": {
+          "missing": 0,
+          "unparseable": 0,
+          "negative": 0,
+          "non_integer": 0,
+          "sum": 294,
+          "max": 2.0,
+          "rows_gt_zero": 293
+        },
+        "number_of_motorist_injured": {
+          "missing": 0,
+          "unparseable": 0,
+          "negative": 0,
+          "non_integer": 0,
+          "sum": 540227,
+          "max": 43.0,
+          "rows_gt_zero": 353245
+        },
+        "number_of_motorist_killed": {
+          "missing": 0,
+          "unparseable": 0,
+          "negative": 0,
+          "non_integer": 0,
+          "sum": 1466,
+          "max": 5.0,
+          "rows_gt_zero": 1355
+        }
+      },
+      "consistency_injured": {
+        "comparable_rows": 2269169,
+        "persons_equals_sum": 2258255,
+        "persons_greater_than_sum": 10687,
+        "persons_less_than_sum": 227
+      },
+      "consistency_killed": {
+        "comparable_rows": 2260274,
+        "persons_equals_sum": 2260190,
+        "persons_greater_than_sum": 78,
+        "persons_less_than_sum": 6
+      },
+      "rows_with_any_injury": 558603,
+      "rows_with_any_fatality": 3469,
+      "rows_with_injury_or_fatality": 561214
+    },
+    "categoricals": {
+      "contributing_factor_1_top": {
+        "Unspecified": 756643,
+        "Driver Inattention/Distraction": 462105,
+        "Failure to Yield Right-of-Way": 136046,
+        "Following Too Closely": 121711,
+        "Backing Unsafely": 82577,
+        "Other Vehicular": 71429,
+        "Passing or Lane Usage Improper": 65544,
+        "Passing Too Closely": 58028,
+        "Turning Improperly": 55751,
+        "Fatigued/Drowsy": 47599,
+        "Unsafe Lane Changing": 44743,
+        "Traffic Control Disregarded": 41898,
+        "Driver Inexperience": 36928,
+        "Unsafe Speed": 35562,
+        "Alcohol Involvement": 26503,
+        "Reaction to Uninvolved Vehicle": 22133,
+        "Pavement Slippery": 21280,
+        "Lost Consciousness": 20904,
+        "View Obstructed/Limited": 15682,
+        "Prescription Medication": 15438
+      },
+      "contributing_factor_1_missing": 8202,
+      "contributing_factor_1_unspecified": 756643,
+      "contributing_factor_1_unspecified_pct": 33.3442,
+      "contributing_factor_distinct_all_columns": 66,
+      "vehicle_type_1_top": {
+        "Sedan": 660172,
+        "Station Wagon/Sport Utility Vehicle": 518578,
+        "PASSENGER VEHICLE": 416206,
+        "SPORT UTILITY / STATION WAGON": 180291,
+        "Taxi": 57275,
+        "4 dr sedan": 43871,
+        "Pick-up Truck": 39455,
+        "TAXI": 31911,
+        "Box Truck": 27179,
+        "VAN": 25266,
+        "Bus": 25192,
+        "OTHER": 22968,
+        "UNKNOWN": 19941,
+        "Bike": 18674,
+        "LARGE COM VEH(6 OR MORE TIRES)": 14397,
+        "BUS": 13993,
+        "SMALL COM VEH(4 TIRES) ": 13216,
+        "Tractor Truck Diesel": 11585,
+        "PICK-UP TRUCK": 11505,
+        "LIVERY VEHICLE": 10481
+      },
+      "vehicle_type_1_missing": 17081,
+      "vehicle_type_distinct_raw": 3149,
+      "vehicle_type_distinct_normalized": 2168,
+      "vehicle_type_codes_present_per_row": {
+        "0": 17081,
+        "1": 446026,
+        "2": 1648247,
+        "3": 121589,
+        "4": 26256,
+        "5": 9988
+      }
+    },
+    "text_fields": {
+      "zip_code_missing": 691703,
+      "zip_code_invalid_format": 0,
+      "on_street_name_whitespace_padded": 1412004,
+      "on_street_name_distinct_raw": 23332,
+      "on_street_name_distinct_stripped_upper": 14669,
+      "off_street_name_whitespace_padded": 655754,
+      "off_street_name_distinct_raw": 25404,
+      "off_street_name_distinct_stripped_upper": 15843,
+      "cross_street_name_whitespace_padded": 264268,
+      "cross_street_name_distinct_raw": 271300,
+      "cross_street_name_distinct_stripped_upper": 241712
+    }
+  },
+  "runtime": {
+    "load_seconds": 1.53,
+    "profile_seconds": 30.43,
+    "total_seconds": 36.44,
+    "trace_memory": false,
+    "python_peak_traced_memory_mb": null,
+    "note": "tracemalloc yalnızca Python ayırmalarını izler; Arrow arabellekleri dahil değildir. Bellek izleme açıkken süreler yapay olarak uzar."
+  },
+  "figures": [
+    "rows_per_year.png",
+    "rows_per_month.png",
+    "rows_per_hour.png",
+    "rows_per_weekday.png",
+    "boroughs.png",
+    "missing_values.png",
+    "coordinate_classes.png",
+    "quality_by_year.png",
+    "top_contributing_factors.png",
+    "spatial_density_hexbin.png"
+  ]
+}

@@ -1,0 +1,348 @@
+"""Ham çarpışma verisi için keşifsel veri analizi (EDA) profilleri.
+
+Buradaki fonksiyonlar veriyi DEĞİŞTİRMEZ ve hiçbir eksik değeri doldurmaz; yalnızca
+ölçer. Her fonksiyon JSON'a yazılabilir bir sözlük döndürür. Sayımlar ham metin
+sütunları üzerinden yapılır: "eksik" = boş alan, "boşluk" = yalnızca boşluk karakteri,
+"ayrıştırılamaz" = dolu ama beklenen türe dönüştürülemeyen değer.
+"""
+
+from __future__ import annotations
+
+from typing import Any
+
+import pandas as pd
+
+from saferoute import config
+
+CASUALTY_COLUMNS = [
+    "number_of_persons_injured",
+    "number_of_persons_killed",
+    "number_of_pedestrians_injured",
+    "number_of_pedestrians_killed",
+    "number_of_cyclist_injured",
+    "number_of_cyclist_killed",
+    "number_of_motorist_injured",
+    "number_of_motorist_killed",
+]
+FACTOR_COLUMNS = [f"contributing_factor_vehicle_{i}" for i in range(1, 6)]
+VEHICLE_COLUMNS = [
+    "vehicle_type_code1",
+    "vehicle_type_code2",
+    "vehicle_type_code_3",
+    "vehicle_type_code_4",
+    "vehicle_type_code_5",
+]
+DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
+
+
+def _int(x: Any) -> int:
+    return int(x)
+
+
+def _pct(part: int, total: int) -> float:
+    return round(100.0 * part / total, 4) if total else 0.0
+
+
+def _as_text(s: pd.Series) -> pd.Series:
+    return s.astype("string[pyarrow]")
+
+
+def _blank_mask(s: pd.Series) -> pd.Series:
+    """Dolu ama yalnızca boşluk içeren hücreler."""
+    t = _as_text(s)
+    return (t.notna() & (t.str.strip() == "")).fillna(False).astype(bool)
+
+
+def _present_mask(s: pd.Series) -> pd.Series:
+    t = _as_text(s)
+    return (t.notna() & (t.str.strip() != "")).fillna(False).astype(bool)
+
+
+def _numeric(s: pd.Series) -> pd.Series:
+    return pd.to_numeric(_as_text(s).str.strip().astype(object), errors="coerce").astype("float64")
+
+
+def _value_counts(s: pd.Series, top_n: int | None = None) -> dict[str, int]:
+    vc = _as_text(s).value_counts(dropna=True)
+    if top_n is not None:
+        vc = vc.head(top_n)
+    return {str(k): _int(v) for k, v in vc.items()}
+
+
+def schema_summary(df: pd.DataFrame) -> dict[str, Any]:
+    return {"row_count": _int(len(df)), "column_count": _int(df.shape[1]), "columns": list(df.columns)}
+
+
+def missing_values(df: pd.DataFrame) -> dict[str, Any]:
+    """Her sütun için boş (null) ve yalnızca-boşluk hücre sayıları."""
+    total = len(df)
+    out = {}
+    for col in df.columns:
+        nulls = _int(df[col].isna().sum())
+        blanks = _int(_blank_mask(df[col]).sum())
+        out[col] = {
+            "null": nulls,
+            "blank": blanks,
+            "missing_total": nulls + blanks,
+            "missing_pct": _pct(nulls + blanks, total),
+        }
+    return out
+
+
+def duplicates(df: pd.DataFrame) -> dict[str, Any]:
+    """collision_id benzersizliği ve tam satır tekrarları."""
+    ids = _as_text(df["collision_id"])
+    present = _present_mask(ids)
+    numeric = _numeric(ids)
+    non_integer = present & (numeric.isna() | (numeric % 1 != 0))
+    vc = ids[present].value_counts()
+    dup_ids = vc[vc > 1]
+    return {
+        "collision_id_missing": _int((~present).sum()),
+        "collision_id_non_integer": _int(non_integer.sum()),
+        "collision_id_unique_values": _int(len(vc)),
+        "duplicated_collision_ids": _int(len(dup_ids)),
+        "rows_with_duplicated_collision_id": _int(dup_ids.sum()),
+        "exact_duplicate_rows": _int(df.duplicated(keep="first").sum()),
+        "duplicated_collision_id_examples": [str(x) for x in dup_ids.index[:10]],
+    }
+
+
+def temporal(df: pd.DataFrame) -> dict[str, Any]:
+    """crash_date / crash_time ayrıştırma, kapsam ve zamansal dağılımlar."""
+    total = len(df)
+    date_present = _present_mask(df["crash_date"])
+    dates = pd.to_datetime(_as_text(df["crash_date"]).astype(object), format=DATE_FORMAT, errors="coerce")
+    date_unparseable = date_present & dates.isna()
+
+    time_text = _as_text(df["crash_time"]).str.strip()
+    time_present = _present_mask(df["crash_time"])
+    parts = time_text.str.extract(r"^(\d{1,2}):(\d{2})$")
+    hour = pd.to_numeric(parts[0].astype(object), errors="coerce")
+    minute = pd.to_numeric(parts[1].astype(object), errors="coerce")
+    time_valid = time_present & hour.between(0, 23) & minute.between(0, 59)
+    time_valid = time_valid.fillna(False).astype(bool)
+
+    valid_dates = dates.dropna()
+    years = valid_dates.dt.year
+    year_counts = years.value_counts().sort_index()
+    month_counts = valid_dates.dt.to_period("M").astype(str).value_counts().sort_index()
+    weekday_counts = valid_dates.dt.dayofweek.value_counts().sort_index()
+    hour_counts = hour[time_valid].astype(int).value_counts().sort_index()
+    midnight = time_valid & (hour == 0) & (minute == 0)
+
+    min_d, max_d = (valid_dates.min(), valid_dates.max()) if len(valid_dates) else (None, None)
+    return {
+        "crash_date_missing": _int((~date_present).sum()),
+        "crash_date_unparseable": _int(date_unparseable.sum()),
+        "crash_date_min": min_d.date().isoformat() if min_d is not None else None,
+        "crash_date_max": max_d.date().isoformat() if max_d is not None else None,
+        "crash_date_has_nonzero_time_component": _int(
+            ((valid_dates.dt.hour != 0) | (valid_dates.dt.minute != 0)).sum()
+        ),
+        "crash_time_missing": _int((~time_present).sum()),
+        "crash_time_invalid": _int((time_present & ~time_valid).sum()),
+        "crash_time_exact_midnight": _int(midnight.sum()),
+        "crash_time_exact_midnight_pct": _pct(_int(midnight.sum()), total),
+        "rows_per_year": {str(k): _int(v) for k, v in year_counts.items()},
+        "rows_per_month": {str(k): _int(v) for k, v in month_counts.items()},
+        "rows_per_weekday": {str(k): _int(v) for k, v in weekday_counts.items()},  # 0=Pazartesi
+        "rows_per_hour": {str(k): _int(v) for k, v in hour_counts.items()},
+    }
+
+
+def coordinates(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> dict[str, Any]:
+    """Koordinatları birbirini dışlayan kalite sınıflarına ayırır.
+
+    Öncelik sırası: eksik -> ayrıştırılamaz -> sıfır -> NYC kutusu dışı -> geçerli.
+    """
+    bbox = bbox or config.NYC_BBOX
+    total = len(df)
+    lat_present, lon_present = _present_mask(df["latitude"]), _present_mask(df["longitude"])
+    lat, lon = _numeric(df["latitude"]), _numeric(df["longitude"])
+
+    missing = ~(lat_present & lon_present)
+    unparseable = ~missing & (lat.isna() | lon.isna())
+    zero = ~missing & ~unparseable & ((lat == 0) | (lon == 0))
+    inside = lat.between(bbox["min_lat"], bbox["max_lat"]) & lon.between(bbox["min_lon"], bbox["max_lon"])
+    outside = ~missing & ~unparseable & ~zero & ~inside
+    valid = ~missing & ~unparseable & ~zero & inside
+
+    classes = {
+        "missing": _int(missing.sum()),
+        "unparseable": _int(unparseable.sum()),
+        "zero": _int(zero.sum()),
+        "outside_nyc_bbox": _int(outside.sum()),
+        "valid_in_bbox": _int(valid.sum()),
+    }
+    assert sum(classes.values()) == total, "koordinat sınıfları toplamı satır sayısına eşit olmalı"
+
+    borough_present = _present_mask(df["borough"])
+    location_present = _present_mask(df["location"])
+    valid_lat, valid_lon = lat[valid], lon[valid]
+    return {
+        "classes": classes,
+        "classes_pct": {k: _pct(v, total) for k, v in classes.items()},
+        "bbox": bbox,
+        "valid_but_borough_missing": _int((valid & ~borough_present).sum()),
+        "borough_present_but_coords_unusable": _int((~valid & borough_present).sum()),
+        "location_present_latlon_missing": _int((location_present & missing).sum()),
+        "latlon_present_location_missing": _int((~location_present & ~missing).sum()),
+        "valid_extent": {
+            "min_lat": float(valid_lat.min()) if valid.any() else None,
+            "max_lat": float(valid_lat.max()) if valid.any() else None,
+            "min_lon": float(valid_lon.min()) if valid.any() else None,
+            "max_lon": float(valid_lon.max()) if valid.any() else None,
+        },
+        "distinct_valid_locations": _int(pd.DataFrame({"a": valid_lat, "b": valid_lon}).drop_duplicates().shape[0]),
+    }
+
+
+def coordinate_validity_mask(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> pd.Series:
+    """Şekiller için: NYC kutusu içinde geçerli koordinatlı satırlar."""
+    bbox = bbox or config.NYC_BBOX
+    lat, lon = _numeric(df["latitude"]), _numeric(df["longitude"])
+    ok = (
+        (lat != 0) & (lon != 0)
+        & lat.between(bbox["min_lat"], bbox["max_lat"])
+        & lon.between(bbox["min_lon"], bbox["max_lon"])
+    )
+    return ok.fillna(False).astype(bool)
+
+
+def boroughs(df: pd.DataFrame) -> dict[str, Any]:
+    total = len(df)
+    present = _present_mask(df["borough"])
+    counts = _value_counts(df.loc[present, "borough"])
+    unexpected = sorted(set(counts) - set(config.BOROUGHS))
+    return {
+        "counts": counts,
+        "missing": _int((~present).sum()),
+        "missing_pct": _pct(_int((~present).sum()), total),
+        "unexpected_values": unexpected,
+    }
+
+
+def by_year_quality(df: pd.DataFrame, bbox: dict[str, float] | None = None) -> dict[str, Any]:
+    """Yıllara göre koordinat ve ilçe eksikliği oranı (veri kalitesinin zamanla değişimi)."""
+    dates = pd.to_datetime(_as_text(df["crash_date"]).astype(object), format=DATE_FORMAT, errors="coerce")
+    frame = pd.DataFrame({
+        "year": dates.dt.year,
+        "coord_valid": coordinate_validity_mask(df, bbox),
+        "borough_present": _present_mask(df["borough"]),
+    }).dropna(subset=["year"])
+    grouped = frame.groupby("year").agg(
+        rows=("coord_valid", "size"), coord_valid=("coord_valid", "sum"), borough_present=("borough_present", "sum")
+    )
+    return {
+        str(int(y)): {
+            "rows": _int(r.rows),
+            "coord_valid_pct": _pct(_int(r.coord_valid), _int(r.rows)),
+            "borough_present_pct": _pct(_int(r.borough_present), _int(r.rows)),
+        }
+        for y, r in grouped.iterrows()
+    }
+
+
+def casualties(df: pd.DataFrame) -> dict[str, Any]:
+    """Yaralı/ölü sütunlarının geçerliliği, toplamları ve iç tutarlılığı."""
+    cols: dict[str, Any] = {}
+    values: dict[str, pd.Series] = {}
+    for col in CASUALTY_COLUMNS:
+        present = _present_mask(df[col])
+        v = _numeric(df[col])
+        values[col] = v
+        cols[col] = {
+            "missing": _int((~present).sum()),
+            "unparseable": _int((present & v.isna()).sum()),
+            "negative": _int((v < 0).sum()),
+            "non_integer": _int((v.notna() & (v % 1 != 0)).sum()),
+            "sum": _int(v.fillna(0).clip(lower=0).sum()),
+            "max": float(v.max()) if v.notna().any() else None,
+            "rows_gt_zero": _int((v > 0).sum()),
+        }
+
+    def consistency(kind: str) -> dict[str, int]:
+        total = values[f"number_of_persons_{kind}"]
+        parts = (
+            values[f"number_of_pedestrians_{kind}"]
+            + values[f"number_of_cyclist_{kind}"]
+            + values[f"number_of_motorist_{kind}"]
+        )
+        both = total.notna() & parts.notna()
+        return {
+            "comparable_rows": _int(both.sum()),
+            "persons_equals_sum": _int((both & (total == parts)).sum()),
+            "persons_greater_than_sum": _int((both & (total > parts)).sum()),
+            "persons_less_than_sum": _int((both & (total < parts)).sum()),
+        }
+
+    injured, killed = values["number_of_persons_injured"], values["number_of_persons_killed"]
+    return {
+        "columns": cols,
+        "consistency_injured": consistency("injured"),
+        "consistency_killed": consistency("killed"),
+        "rows_with_any_injury": _int((injured > 0).sum()),
+        "rows_with_any_fatality": _int((killed > 0).sum()),
+        "rows_with_injury_or_fatality": _int(((injured > 0) | (killed > 0)).sum()),
+    }
+
+
+def categoricals(df: pd.DataFrame, top_n: int = 20) -> dict[str, Any]:
+    """Katkıda bulunan faktörler ve araç türleri: çeşitlilik, en sık değerler, araç sayısı."""
+    factor1 = _as_text(df["contributing_factor_vehicle_1"])
+    all_factors = pd.concat([_as_text(df[c]) for c in FACTOR_COLUMNS]).dropna()
+    vt1 = _as_text(df["vehicle_type_code1"])
+    all_vehicle = pd.concat([_as_text(df[c]) for c in VEHICLE_COLUMNS]).dropna()
+    normalized_vehicle = all_vehicle.str.strip().str.upper()
+    vehicles_per_row = sum(_present_mask(df[c]).astype(int) for c in VEHICLE_COLUMNS)
+    total = len(df)
+    unspecified = _int((factor1.str.strip().str.lower() == "unspecified").fillna(False).sum())
+    return {
+        "contributing_factor_1_top": _value_counts(factor1, top_n),
+        "contributing_factor_1_missing": _int((~_present_mask(factor1)).sum()),
+        "contributing_factor_1_unspecified": unspecified,
+        "contributing_factor_1_unspecified_pct": _pct(unspecified, total),
+        "contributing_factor_distinct_all_columns": _int(all_factors.nunique()),
+        "vehicle_type_1_top": _value_counts(vt1, top_n),
+        "vehicle_type_1_missing": _int((~_present_mask(vt1)).sum()),
+        "vehicle_type_distinct_raw": _int(all_vehicle.nunique()),
+        "vehicle_type_distinct_normalized": _int(normalized_vehicle.nunique()),
+        "vehicle_type_codes_present_per_row": {
+            str(k): _int(v) for k, v in vehicles_per_row.value_counts().sort_index().items()
+        },
+    }
+
+
+def text_fields(df: pd.DataFrame) -> dict[str, Any]:
+    """Posta kodu biçimi ve sokak adlarında doldurma boşlukları."""
+    zip_text = _as_text(df["zip_code"]).str.strip()
+    zip_present = _present_mask(df["zip_code"])
+    zip_ok = zip_text.str.fullmatch(r"\d{5}").fillna(False).astype(bool)
+    out: dict[str, Any] = {
+        "zip_code_missing": _int((~zip_present).sum()),
+        "zip_code_invalid_format": _int((zip_present & ~zip_ok).sum()),
+    }
+    for col in ("on_street_name", "off_street_name", "cross_street_name"):
+        t = _as_text(df[col])
+        padded = (t.notna() & (t != t.str.strip())).fillna(False).astype(bool)
+        out[f"{col}_whitespace_padded"] = _int(padded.sum())
+        out[f"{col}_distinct_raw"] = _int(t.nunique())
+        out[f"{col}_distinct_stripped_upper"] = _int(t.str.strip().str.upper().nunique())
+    return out
+
+
+def build_profile(df: pd.DataFrame, manifest: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Tüm EDA bölümlerini tek bir sözlükte toplar."""
+    return {
+        "schema": schema_summary(df),
+        "missing_values": missing_values(df),
+        "duplicates": duplicates(df),
+        "temporal": temporal(df),
+        "coordinates": coordinates(df),
+        "boroughs": boroughs(df),
+        "quality_by_year": by_year_quality(df),
+        "casualties": casualties(df),
+        "categoricals": categoricals(df),
+        "text_fields": text_fields(df),
+    }

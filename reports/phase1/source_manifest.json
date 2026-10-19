@@ -1,0 +1,305 @@
+{
+  "dataset_id": "h9gi-nx95",
+  "dataset_name": "Motor Vehicle Collisions - Crashes",
+  "source_page_url": "https://data.cityofnewyork.us/d/h9gi-nx95",
+  "catalog_url": "https://catalog.data.gov/dataset/motor-vehicle-collisions-crashes",
+  "metadata_url": "https://data.cityofnewyork.us/api/views/h9gi-nx95.json",
+  "download_method": {
+    "endpoint": "https://data.cityofnewyork.us/resource/h9gi-nx95.csv",
+    "api": "Socrata SODA 2.x (CSV)",
+    "ordering": "$order=:id",
+    "pagination": "$limit/$offset",
+    "page_size": 250000,
+    "max_retries": 5
+  },
+  "started_at": "2026-10-19T15:51:15.156697+00:00",
+  "completed_at": "2026-10-19T16:01:15.101443+00:00",
+  "source_version": {
+    "rows_updated_at_before": "2026-06-15T23:05:47+00:00",
+    "rows_updated_at_after": "2026-06-15T23:05:47+00:00",
+    "view_last_modified": "2026-07-31T20:59:38+00:00",
+    "truth_last_modified_values": [
+      "Mon, 15 Jun 2026 23:05:52 GMT"
+    ],
+    "update_frequency": "Daily"
+  },
+  "server_stats_before": {
+    "row_count": 2269187,
+    "min_crash_date": "2012-07-01T00:00:00.000",
+    "max_crash_date": "2026-06-11T00:00:00.000",
+    "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT"
+  },
+  "server_stats_after": {
+    "row_count": 2269187,
+    "min_crash_date": "2012-07-01T00:00:00.000",
+    "max_crash_date": "2026-06-11T00:00:00.000",
+    "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT"
+  },
+  "row_count": 2269187,
+  "column_count": 29,
+  "columns": [
+    {
+      "field_name": "crash_date",
+      "data_type": "calendar_date",
+      "name": "CRASH DATE"
+    },
+    {
+      "field_name": "crash_time",
+      "data_type": "text",
+      "name": "CRASH TIME"
+    },
+    {
+      "field_name": "borough",
+      "data_type": "text",
+      "name": "BOROUGH"
+    },
+    {
+      "field_name": "zip_code",
+      "data_type": "text",
+      "name": "ZIP CODE"
+    },
+    {
+      "field_name": "latitude",
+      "data_type": "number",
+      "name": "LATITUDE"
+    },
+    {
+      "field_name": "longitude",
+      "data_type": "number",
+      "name": "LONGITUDE"
+    },
+    {
+      "field_name": "location",
+      "data_type": "location",
+      "name": "LOCATION"
+    },
+    {
+      "field_name": "on_street_name",
+      "data_type": "text",
+      "name": "ON STREET NAME"
+    },
+    {
+      "field_name": "off_street_name",
+      "data_type": "text",
+      "name": "CROSS STREET NAME"
+    },
+    {
+      "field_name": "cross_street_name",
+      "data_type": "text",
+      "name": "OFF STREET NAME"
+    },
+    {
+      "field_name": "number_of_persons_injured",
+      "data_type": "number",
+      "name": "NUMBER OF PERSONS INJURED"
+    },
+    {
+      "field_name": "number_of_persons_killed",
+      "data_type": "number",
+      "name": "NUMBER OF PERSONS KILLED"
+    },
+    {
+      "field_name": "number_of_pedestrians_injured",
+      "data_type": "number",
+      "name": "NUMBER OF PEDESTRIANS INJURED"
+    },
+    {
+      "field_name": "number_of_pedestrians_killed",
+      "data_type": "number",
+      "name": "NUMBER OF PEDESTRIANS KILLED"
+    },
+    {
+      "field_name": "number_of_cyclist_injured",
+      "data_type": "number",
+      "name": "NUMBER OF CYCLIST INJURED"
+    },
+    {
+      "field_name": "number_of_cyclist_killed",
+      "data_type": "number",
+      "name": "NUMBER OF CYCLIST KILLED"
+    },
+    {
+      "field_name": "number_of_motorist_injured",
+      "data_type": "number",
+      "name": "NUMBER OF MOTORIST INJURED"
+    },
+    {
+      "field_name": "number_of_motorist_killed",
+      "data_type": "number",
+      "name": "NUMBER OF MOTORIST KILLED"
+    },
+    {
+      "field_name": "contributing_factor_vehicle_1",
+      "data_type": "text",
+      "name": "CONTRIBUTING FACTOR VEHICLE 1"
+    },
+    {
+      "field_name": "contributing_factor_vehicle_2",
+      "data_type": "text",
+      "name": "CONTRIBUTING FACTOR VEHICLE 2"
+    },
+    {
+      "field_name": "contributing_factor_vehicle_3",
+      "data_type": "text",
+      "name": "CONTRIBUTING FACTOR VEHICLE 3"
+    },
+    {
+      "field_name": "contributing_factor_vehicle_4",
+      "data_type": "text",
+      "name": "CONTRIBUTING FACTOR VEHICLE 4"
+    },
+    {
+      "field_name": "contributing_factor_vehicle_5",
+      "data_type": "text",
+      "name": "CONTRIBUTING FACTOR VEHICLE 5"
+    },
+    {
+      "field_name": "collision_id",
+      "data_type": "number",
+      "name": "COLLISION_ID"
+    },
+    {
+      "field_name": "vehicle_type_code1",
+      "data_type": "text",
+      "name": "VEHICLE TYPE CODE 1"
+    },
+    {
+      "field_name": "vehicle_type_code2",
+      "data_type": "text",
+      "name": "VEHICLE TYPE CODE 2"
+    },
+    {
+      "field_name": "vehicle_type_code_3",
+      "data_type": "text",
+      "name": "VEHICLE TYPE CODE 3"
+    },
+    {
+      "field_name": "vehicle_type_code_4",
+      "data_type": "text",
+      "name": "VEHICLE TYPE CODE 4"
+    },
+    {
+      "field_name": "vehicle_type_code_5",
+      "data_type": "text",
+      "name": "VEHICLE TYPE CODE 5"
+    }
+  ],
+  "coverage": {
+    "min_crash_date": "2012-07-01T00:00:00.000",
+    "max_crash_date": "2026-06-11T00:00:00.000"
+  },
+  "parts": [
+    {
+      "file": "part-00000.csv",
+      "offset": 0,
+      "rows": 250000,
+      "bytes": 65790414,
+      "sha256": "a21448877998518830aadae9fb2e9fa5f1239f621f97736a25075835eb13ffaa",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T15:51:43.944655+00:00"
+    },
+    {
+      "file": "part-00001.csv",
+      "offset": 250000,
+      "rows": 250000,
+      "bytes": 66250689,
+      "sha256": "aa542d3f1b7b0e3cfac00ad0c7328267e1a9cee2c57b893d3e29d8f4bb4e2273",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T15:52:30.131150+00:00"
+    },
+    {
+      "file": "part-00002.csv",
+      "offset": 500000,
+      "rows": 250000,
+      "bytes": 65933713,
+      "sha256": "447d19b1cf48283423804895df415a7b67de55575a6505720bef8df1e05d971c",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T15:53:10.918924+00:00"
+    },
+    {
+      "file": "part-00003.csv",
+      "offset": 750000,
+      "rows": 250000,
+      "bytes": 65048730,
+      "sha256": "0561078901773e5e69f91654038454812e3587f44627e2cb5a9ed1bc80c7035f",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T15:54:01.592096+00:00"
+    },
+    {
+      "file": "part-00004.csv",
+      "offset": 1000000,
+      "rows": 250000,
+      "bytes": 70257776,
+      "sha256": "50d810b1673d45c807077cef3f3127a2156e6d45b12d7ad27615499ff9a0624f",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T15:56:01.917648+00:00"
+    },
+    {
+      "file": "part-00005.csv",
+      "offset": 1250000,
+      "rows": 250000,
+      "bytes": 69700376,
+      "sha256": "05c67812970dc2e3f2da87cc42c21dd2d71c0428bb83e4ecd2e3045677d65ceb",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T15:57:55.762436+00:00"
+    },
+    {
+      "file": "part-00006.csv",
+      "offset": 1500000,
+      "rows": 250000,
+      "bytes": 69554210,
+      "sha256": "f56311bda77e8592bcdbc3d20aee824a3850d1901865414461cfec74f3885f79",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T15:59:34.102472+00:00"
+    },
+    {
+      "file": "part-00007.csv",
+      "offset": 1750000,
+      "rows": 250000,
+      "bytes": 61951206,
+      "sha256": "f0f7ea68208afdf67d458bb7de2adb04f392af6df5e4511b936b932f635bfc1b",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T16:00:19.105502+00:00"
+    },
+    {
+      "file": "part-00008.csv",
+      "offset": 2000000,
+      "rows": 250000,
+      "bytes": 61307673,
+      "sha256": "2ceed615845d67f383125fa22766512c796bd6edb5aff156ef2c56bd6ee20e4a",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T16:01:01.121059+00:00"
+    },
+    {
+      "file": "part-00009.csv",
+      "offset": 2250000,
+      "rows": 19187,
+      "bytes": 4664858,
+      "sha256": "39e0266ba5e4130cf6be3eb17f347cfd9f683e122a44dee263c162d1d6736e19",
+      "truth_last_modified": "Mon, 15 Jun 2026 23:05:52 GMT",
+      "attempts": 1,
+      "downloaded_at": "2026-10-19T16:01:13.013734+00:00"
+    }
+  ],
+  "combined_sha256": "2fe1297c24f7aad761bca1dc3c04ec0de3459d297e06af20fbfe5e35ad10be5e",
+  "status": "complete",
+  "warnings": [],
+  "software": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "pandas": "3.0.6",
+    "pyarrow": "26.0.0",
+    "requests": "2.34.2"
+  },
+  "license": null,
+  "attribution": "Police Department (NYPD)"
+}
