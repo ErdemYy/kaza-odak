@@ -7,6 +7,8 @@ Kullanım:
     saferoute record [DIZIN]           Edinim kaydını data/metadata/ altına yaz
     saferoute parquet [DIZIN]          Kayıpsız Parquet kopyası (data/interim/)
     saferoute eda [--snapshot DIZIN] [--out DIZIN]
+    saferoute boundaries               Resmî ilçe sınırlarını indir (gthc-hcne)
+    saferoute preprocess [--force]     Faz 2 hattı + raporlar
 """
 
 from __future__ import annotations
@@ -90,6 +92,41 @@ def _cmd_eda(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_boundaries(args: argparse.Namespace) -> int:
+    from saferoute.preprocess.boundaries import download_boundaries
+
+    print(download_boundaries())
+    return 0
+
+
+def _cmd_preprocess(args: argparse.Namespace) -> int:
+    from saferoute.preprocess.boundaries import latest_boundaries
+    from saferoute.preprocess.pipeline import output_paths, run_pipeline
+    from saferoute.preprocess.report import write_reports
+
+    snap = _snapshot(args.snapshot)
+    try:
+        bdir = Path(args.boundaries) if args.boundaries else latest_boundaries()
+    except FileNotFoundError:
+        from saferoute.preprocess.boundaries import download_boundaries
+
+        print("İlçe sınırı anlık görüntüsü yok; resmî kaynaktan indiriliyor.")
+        bdir = download_boundaries()
+    summary = run_pipeline(snap, bdir, force=args.force)
+    if not summary.get("raw_unchanged", True):
+        print("HATA: ham veri işlem sırasında değişti.", file=sys.stderr)
+        return 1
+    if not args.skip_reports:
+        import pandas as pd
+
+        paths = output_paths(snap.name)
+        processed = pd.read_parquet(paths["processed"])
+        mapping = pd.read_parquet(paths["mapping"])
+        figs = write_reports(summary, processed, mapping)
+        print(f"Faz 2 raporları yazıldı ({len(figs)} şekil): {config.REPORTS_DIR / 'phase2'}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="saferoute", description="SafeRoute 3D veri hattı")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -120,6 +157,16 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out", default=str(config.REPORTS_DIR / "phase1"))
     p.add_argument("--dictionary", default=str(config.DOCS_DIR / "data_dictionary.md"))
     p.set_defaults(func=_cmd_eda)
+
+    p = sub.add_parser("boundaries", help="Resmî NYC ilçe sınırlarını (gthc-hcne) indir ve doğrula")
+    p.set_defaults(func=_cmd_boundaries)
+
+    p = sub.add_parser("preprocess", help="Faz 2: interim, processed ve öznitelik matrislerini üret")
+    p.add_argument("--snapshot", default=None)
+    p.add_argument("--boundaries", default=None, help="İlçe sınırı anlık görüntü dizini")
+    p.add_argument("--force", action="store_true", help="Güncel olsa bile yeniden üret")
+    p.add_argument("--skip-reports", action="store_true")
+    p.set_defaults(func=_cmd_preprocess)
 
     args = parser.parse_args(argv)
     return args.func(args)

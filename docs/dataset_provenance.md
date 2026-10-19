@@ -82,3 +82,17 @@ Sonuç: Kaynak şu anda güncellenmiyor görünüyor ve 2026-06-11 sonrasındaki
 | Erişilebilirlik | 2026-10-19'da doğrulandı; beş ilçenin tamamı mevcut |
 
 Zenginleştirme stratejisi `feature_candidates.md` §4'te anlatılıyor.
+
+### Faz 2'de indirilen anlık görüntü
+
+| Alan | Değer |
+|---|---|
+| Dizin | `data/raw/gthc-hcne/snapshot_20261019T170733Z/` (salt-okunur) |
+| İndirme | `https://data.cityofnewyork.us/resource/gthc-hcne.geojson`, 2026-10-19T17:07:34Z |
+| Sürüm / yayın / son güncelleme | 26b / 2024-06-17 / 2026-05-26 (beyan: üç ayda bir) |
+| Beyan edilen CRS | `urn:ogc:def:crs:OGC:1.3:CRS84` (boylam, enlem; WGS84) → EPSG:4326 olarak kullanıldı |
+| Doğrulama | 5 ilçe (kod 1–5), tümü MultiPolygon, 117 poligon parçası, tüm geometriler geçerli, ilçeler arası en büyük örtüşme ≈ 9·10⁻⁶ m² |
+| Dosya | 3.167.672 bayt, SHA-256 `7aa44d9fb611f2f518a226ff994a6516a261a8ce982ccf1e7b37d663687f443c` |
+| Lisans alanı | Meta veride boş |
+
+Manifestin tam kopyası: `reports/phase2/boundaries_manifest.json`.

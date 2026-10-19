@@ -9,10 +9,15 @@ dependencies = [
     "pyarrow>=17",
     "requests>=2.32",
     "matplotlib>=3.9",
+    "geopandas>=1.0",
+    "shapely>=2.0",
+    "pyproj>=3.6",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8"]
+# scikit-learn testlerde Haversine sütun sırası ve ağırlıklı DBSCAN eşdeğerliğini doğrulamak için;
+# modelleme bağımlılığı olarak Faz 3'te ana bağımlılıklara taşınacak.
+dev = ["pytest>=8", "scikit-learn>=1.5"]
 notebook = ["ipykernel>=6.29", "nbclient>=0.10", "nbformat>=5.10"]
 
 [project.scripts]

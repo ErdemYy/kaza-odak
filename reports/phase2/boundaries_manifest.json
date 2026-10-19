@@ -1,0 +1,51 @@
+{
+  "dataset_id": "gthc-hcne",
+  "dataset_name": "Borough Boundaries",
+  "publisher": "Department of City Planning (DCP)",
+  "source_page_url": "https://data.cityofnewyork.us/City-Government/Borough-Boundaries/gthc-hcne",
+  "download_url": "https://data.cityofnewyork.us/resource/gthc-hcne.geojson",
+  "retrieved_at": "2026-10-19T17:07:34.167237+00:00",
+  "source_version": "26b",
+  "description": "Boundaries of boroughs (water areas excluded).\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/borough-boundaries\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26b",
+  "publication_date": "2024-06-17T03:32:01+00:00",
+  "rows_updated_at": "2026-05-26T19:35:50+00:00",
+  "view_last_modified": "2026-05-26T19:35:48+00:00",
+  "truth_last_modified": "Tue, 26 May 2026 19:35:49 GMT",
+  "update_frequency": "Quarterly",
+  "license": null,
+  "declared_crs": "urn:ogc:def:crs:OGC:1.3:CRS84",
+  "file": "borough_boundaries.geojson",
+  "bytes": 3167672,
+  "sha256": "7aa44d9fb611f2f518a226ff994a6516a261a8ce982ccf1e7b37d663687f443c",
+  "validation": {
+    "borough_count": 5,
+    "borough_codes": {
+      "1": "MANHATTAN",
+      "2": "BRONX",
+      "3": "BROOKLYN",
+      "4": "QUEENS",
+      "5": "STATEN ISLAND"
+    },
+    "geometry_types": [
+      "MultiPolygon"
+    ],
+    "crs": "EPSG:4326",
+    "all_valid": true,
+    "empty_geometries": 0,
+    "total_bounds": [
+      -74.25559136315213,
+      40.49613398761199,
+      -73.70000906387347,
+      40.91553277650281
+    ],
+    "area_km2_epsg32618": {
+      "MANHATTAN": 59.109,
+      "BRONX": 110.233,
+      "BROOKLYN": 179.609,
+      "QUEENS": 282.403,
+      "STATEN ISLAND": 150.737
+    },
+    "max_pairwise_overlap_m2": 9.02364959404564e-06,
+    "polygon_parts": 117
+  }
+}

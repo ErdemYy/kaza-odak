@@ -4,6 +4,11 @@ graphify-out/cache/
 graphify-out/.graphify_*
 !graphify-out/.graphify_labels.json
 graphify-out/.needs_update
+# graphify update'in tarihli yedek klasörleri (ör. graphify-out/2026-10-19/): önceki grafiğin
+# yeniden üretilebilir kopyası; aktif kaynak graphify-out/graph.json'dır ve geçmişi git'tedir.
+graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+graphify-out/.graphify_labels.json.sig
+graphify-out/.graphify_labels.pending.json
 # Yeniden üretilebilir görselleştirme ve opsiyonel dışa aktarımlar
 graphify-out/graph.html
 graphify-out/obsidian/

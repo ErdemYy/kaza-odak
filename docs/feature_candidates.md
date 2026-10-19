@@ -1,5 +1,7 @@
 # Özellik Adayları ve Seçim Gerekçesi — Faz 1
 
+> **Faz 2 notu:** Bu belge Faz 1'deki öneridir. Uygulanan nihai seçim, ölçülmüş eksik oranları ve üretilen matrisler için `docs/feature_selection_report.md` ile `docs/phase2/TEKNIK_RAPOR.md` dosyalarına bakın. İlçe zenginleştirme stratejisi (§4) Faz 2'de uygulandı. Tek fark şu: kıyı ve köprü noktaları için önerilen "en yakın ilçeye atama" yerine bu noktalara **hiçbir ilçe atanmaması** politikası seçildi (K-12, K-13).
+
 Bu belge, ham veri setindeki 29 sütunun SafeRoute 3D kümeleme deneylerindeki rolünü sınıflandırıyor ve gerekçelendiriyor. Eksik değer oranları `snapshot_20261019T155113Z` üzerinde ölçülmüştür; sütun bazlı ayrıntı için `docs/data_dictionary.md` dosyasına bakın.
 
 **Bu fazda hiçbir model eğitilmedi (fit yapılmadı).** Aşağıdaki deneyler Faz 3 için öneridir.

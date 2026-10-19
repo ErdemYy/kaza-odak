@@ -1,0 +1,2166 @@
+normalized,count,raw_variants,category,rule,category_tr
+SEDAN,1178755,3,PASSENGER_CAR,passenger_car,Binek otomobil
+STATION WAGON/SPORT UTILITY VEHICLE,938050,1,SUV,suv,SUV / station wagon
+PASSENGER VEHICLE,769982,1,PASSENGER_CAR,passenger_car,Binek otomobil
+SPORT UTILITY / STATION WAGON,337507,1,SUV,suv,SUV / station wagon
+TAXI,160983,3,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+UNKNOWN,105651,3,UNKNOWN,unknown_tokens,Bilinmiyor
+PICK-UP TRUCK,100998,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+4 DR SEDAN,79609,1,PASSENGER_CAR,passenger_car,Binek otomobil
+BUS,74682,4,BUS,bus,Otobüs
+VAN,71157,5,VAN,van,Van / minibüs
+BOX TRUCK,60676,5,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BIKE,58648,1,BICYCLE,bicycle,Bisiklet
+OTHER,45953,3,OTHER,other_explicit,Diğer
+LARGE COM VEH(6 OR MORE TIRES),28596,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MOTORCYCLE,27727,3,MOTORCYCLE,motorcycle,Motosiklet / moped
+SMALL COM VEH(4 TIRES),26679,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRACTOR TRUCK DIESEL,23647,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+LIVERY VEHICLE,19426,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+BICYCLE,19334,3,BICYCLE,bicycle,Bisiklet
+AMBULANCE,12777,4,EMERGENCY,emergency,Acil durum aracı
+E-BIKE,12402,5,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+DUMP,9486,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MOPED,8982,4,MOTORCYCLE,motorcycle,Motosiklet / moped
+E-SCOOTER,7586,4,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+CONVERTIBLE,7473,1,PASSENGER_CAR,passenger_car,Binek otomobil
+FLAT BED,5867,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PK,5773,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+GARBAGE OR REFUSE,5418,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+2 DR SEDAN,5078,1,PASSENGER_CAR,passenger_car,Binek otomobil
+CARRY ALL,4580,2,SUV,suv,SUV / station wagon
+TRACTOR TRUCK GASOLINE,3748,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOW TRUCK / WRECKER,3217,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+CHASSIS CAB,2071,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MOTORSCOOTER,1900,1,MOTORCYCLE,motorcycle,Motosiklet / moped
+FIRE TRUCK,1882,4,EMERGENCY,emergency,Acil durum aracı
+TANKER,1864,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MOTORBIKE,1417,2,MOTORCYCLE,motorcycle,Motosiklet / moped
+STANDING S,1413,4,OTHER,unmatched,Diğer
+CONCRETE MIXER,1163,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+REFRIGERATED VAN,1067,1,TRUCK_COMMERCIAL,refrigerated_truck,Kamyon / ticari
+AMBUL,929,4,EMERGENCY,emergency,Acil durum aracı
+SCHOOL BUS,915,5,BUS,bus,Otobüs
+FLAT RACK,806,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SCOOTER,750,3,OTHER,ambiguous_scooter,Diğer
+TRUCK,736,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+3-DOOR,726,1,PASSENGER_CAR,passenger_car,Binek otomobil
+ARMORED TRUCK,721,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BICY,719,1,BICYCLE,bicycle,Bisiklet
+LIMO,673,3,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+BEVERAGE TRUCK,640,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAIL,602,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FIRE,587,4,EMERGENCY,emergency,Acil durum aracı
+UNK,578,3,UNKNOWN,unknown_tokens,Bilinmiyor
+UNKNO,521,3,UNKNOWN,unknown_tokens,Bilinmiyor
+LIFT BOOM,473,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SUBN,433,3,SUV,suv,SUV / station wagon
+TRAILER,425,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PEDICAB,411,3,OTHER,special_equipment,Diğer
+STAKE OR RACK,406,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DELV,398,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FDNY,357,4,EMERGENCY,emergency,Acil durum aracı
+UTIL,313,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SNOW PLOW,304,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+E-SCO,293,2,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+E-BIK,283,5,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+MULTI-WHEELED VEHICLE,282,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOW TRUCK,253,5,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+AMBU,248,3,EMERGENCY,emergency,Acil durum aracı
+UN/C,245,1,OTHER,unmatched,Diğer
+MOPD,232,3,MOTORCYCLE,motorcycle,Motosiklet / moped
+OPEN BODY,219,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRACT,214,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS,200,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+ESST,199,1,OTHER,unmatched,Diğer
+TRAC,197,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BULK AGRICULTURE,191,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FIRETRUCK,190,4,EMERGENCY,emergency,Acil durum aracı
+POLI,183,1,EMERGENCY,emergency,Acil durum aracı
+EBIK,169,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+DELIV,160,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COM,159,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FORKL,156,3,OTHER,special_equipment,Diğer
+BOX T,155,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SCOOT,151,3,OTHER,ambiguous_scooter,Diğer
+SCHOO,149,3,BUS,bus,Otobüs
+TOW T,143,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMMERCIAL,141,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMME,140,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FORKLIFT,140,3,OTHER,special_equipment,Diğer
+PALLET,138,1,OTHER,unmatched,Diğer
+ELECT,135,3,OTHER,unmatched,Diğer
+FIRET,127,5,EMERGENCY,emergency,Acil durum aracı
+MINIBIKE,125,1,MOTORCYCLE,motorcycle,Motosiklet / moped
+UN/T,121,1,OTHER,unmatched,Diğer
+FDNY AMBUL,120,5,EMERGENCY,emergency,Acil durum aracı
+FDNY TRUCK,120,6,EMERGENCY,emergency,Acil durum aracı
+FDNY FIRE,118,6,EMERGENCY,emergency,Acil durum aracı
+PICKUP WITH MOUNTED CAMPER,118,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTILI,118,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FLAT,114,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+GARBAGE TR,94,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+AMB,90,3,EMERGENCY,emergency,Acil durum aracı
+VAN CAMPER,90,1,VAN,van,Van / minibüs
+LUNCH WAGON,87,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SANITATION,85,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PAS,84,3,PASSENGER_CAR,passenger_car,Binek otomobil
+DIRT BIKE,81,4,MOTORCYCLE,motorcycle,Motosiklet / moped
+DUMP TRUCK,78,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICK,78,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICK UP,77,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MOTOR,75,3,MOTORCYCLE,motorcycle,Motosiklet / moped
+POSTA,72,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+GARBA,71,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICK UP TR,70,5,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SANIT,70,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MOTORIZED HOME,66,1,OTHER,special_equipment,Diğer
+FORK,65,3,OTHER,special_equipment,Diğer
+MTA BUS,64,5,BUS,bus,Otobüs
+HOPPER,63,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+STREE,63,3,OTHER,unmatched,Diğer
+RV,60,2,OTHER,special_equipment,Diğer
+DELIVERY T,59,4,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+FORD,58,3,OTHER,unmatched,Diğer
+TRL,58,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MINICYCLE,57,1,MOTORCYCLE,motorcycle,Motosiklet / moped
+USPS TRUCK,55,5,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+ELECTRIC S,54,4,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+FORK LIFT,54,4,OTHER,special_equipment,Diğer
+TRACTOR TR,53,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTILITY,52,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+N/A,51,3,UNKNOWN,unknown_tokens,Bilinmiyor
+C1,50,2,OTHER,unmatched,Diğer
+PICKU,50,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+REFG,50,2,TRUCK_COMMERCIAL,refrigerated_truck,Kamyon / ticari
+TANK,50,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FREIG,49,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SPRINTER V,49,4,VAN,van,Van / minibüs
+UN/V,49,1,OTHER,unmatched,Diğer
+UTV,49,2,OTHER,special_equipment,Diğer
+PICKUP,48,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+POWER SHOV,46,4,OTHER,special_equipment,Diğer
+MTA B,45,4,BUS,bus,Otobüs
+WAGON,45,3,SUV,suv,SUV / station wagon
+SELF,44,3,OTHER,unmatched,Diğer
+TRK,44,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MACK,43,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+STREET SWE,43,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRACTOR,43,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+VAN TRUCK,43,4,VAN,van,Van / minibüs
+ROAD SWEEP,41,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+US PO,41,5,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+POWER,40,3,OTHER,unmatched,Diğer
+CONST,39,3,OTHER,unmatched,Diğer
+BACKH,38,3,OTHER,special_equipment,Diğer
+GOLF CART,38,4,OTHER,special_equipment,Diğer
+MOTOR SCOO,38,4,MOTORCYCLE,motorcycle,Motosiklet / moped
+PICKUP TRU,38,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOW,38,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PASSENGER,37,3,PASSENGER_CAR,passenger_car,Binek otomobil
+CRANE,36,3,OTHER,special_equipment,Diğer
+GLASS RACK,35,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SKATEBOARD,35,3,OTHER,special_equipment,Diğer
+SEMI,34,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+VAN T,34,3,VAN,van,Van / minibüs
+VANETTE,34,1,VAN,van,Van / minibüs
+MAIL,33,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FDNY FIRET,32,4,EMERGENCY,emergency,Acil durum aracı
+LIVESTOCK RACK,32,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PSD,31,3,OTHER,unmatched,Diğer
+FIRE ENGIN,30,3,EMERGENCY,emergency,Acil durum aracı
+UHAUL,30,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+GAS SCOOTE,29,4,MOTORCYCLE,motorcycle,Motosiklet / moped
+SUV,29,3,SUV,suv,SUV / station wagon
+P/SH,28,2,OTHER,special_equipment,Diğer
+DELIVERY,27,3,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+FLATB,27,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+OMT,27,2,OTHER,unmatched,Diğer
+SELF INSUR,27,4,OTHER,unmatched,Diğer
+FOOD,26,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+ROAD,26,3,OTHER,unmatched,Diğer
+SUBURBAN,26,3,SUV,suv,SUV / station wagon
+CARGO,25,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+E BIK,25,5,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+POSTAL TRU,25,5,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BOBCA,24,2,OTHER,special_equipment,Diğer
+GOLF,24,3,OTHER,special_equipment,Diğer
+NA,24,3,UNKNOWN,unknown_tokens,Bilinmiyor
+ENCLOSED BODY - NONREMOVABLE ENCLOSURE,23,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+HORSE,23,3,OTHER,special_equipment,Diğer
+WELL DRILLER,23,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+EMS,22,2,EMERGENCY,emergency,Acil durum aracı
+WHITE,22,3,OTHER,unmatched,Diğer
+BOBCAT,21,3,OTHER,special_equipment,Diğer
+CARGO VAN,21,4,VAN,van,Van / minibüs
+ELECTRIC M,21,4,OTHER,unmatched,Diğer
+EXCAVATOR,21,3,OTHER,special_equipment,Diğer
+FDNY LADDE,21,3,EMERGENCY,emergency,Acil durum aracı
+FLATBED,21,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+OMR,21,2,OTHER,unmatched,Diğer
+SPC,21,3,OTHER,unmatched,Diğer
+STAK,21,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+LOG,20,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PC,20,2,OTHER,unmatched,Diğer
+RD/S,20,2,OTHER,unmatched,Diğer
+CEMEN,19,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMM,19,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+EBIKE,19,3,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+MINI,19,3,OTHER,unmatched,Diğer
+PASS,19,3,PASSENGER_CAR,passenger_car,Binek otomobil
+UTILITY TR,19,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+WORK VAN,19,4,VAN,van,Van / minibüs
+BOX,18,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+CATER,18,3,OTHER,unmatched,Diğer
+CMIX,18,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DTB,18,1,OTHER,unmatched,Diğer
+E SCOOTER,18,4,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+MAIL TRUCK,18,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+NYS AMBULA,18,3,EMERGENCY,emergency,Acil durum aracı
+OML,18,2,OTHER,unmatched,Diğer
+TK,18,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+YELLO,18,2,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+AMBULETTE,17,3,EMERGENCY,emergency,Acil durum aracı
+MTA,17,3,OTHER,unmatched,Diğer
+PICK-,17,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SPRIN,17,3,VAN,van,Van / minibüs
+US POSTAL,17,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DELIVERY V,16,3,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+FDNY ENGIN,16,3,EMERGENCY,emergency,Acil durum aracı
+PICK-UP TR,16,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UNKOW,16,3,UNKNOWN,unknown_tokens,Bilinmiyor
+USPS MAIL,16,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTILITY VE,16,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+AMBULENCE,15,3,EMERGENCY,emergency,Acil durum aracı
+BULLD,15,2,OTHER,special_equipment,Diğer
+DLR,15,1,OTHER,unmatched,Diğer
+F550,15,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FDNY EMS,15,3,EMERGENCY,emergency,Acil durum aracı
+GATOR,15,3,OTHER,special_equipment,Diğer
+HINO,15,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+RMP,15,3,EMERGENCY,emergency,Acil durum aracı
+SUBUR,15,3,SUV,suv,SUV / station wagon
+TRLR,15,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UNKNOWN VE,15,3,UNKNOWN,unknown_tokens,Bilinmiyor
+WORK,15,3,OTHER,unmatched,Diğer
+COURIER,14,3,OTHER,unmatched,Diğer
+EXCAV,14,3,OTHER,special_equipment,Diğer
+FOOD TRUCK,14,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+JEEP,14,3,OTHER,unmatched,Diğer
+SEMI-,14,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILOR,14,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+U-HAU,14,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+ACCES,13,3,OTHER,unmatched,Diğer
+BACK,13,3,OTHER,unmatched,Diğer
+ENCLOSED BODY - REMOVABLE ENCLOSURE,13,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+GOVERNMENT,13,3,OTHER,unmatched,Diğer
+MOTOR HOME,13,4,OTHER,special_equipment,Diğer
+UNKN,13,3,UNKNOWN,unknown_tokens,Bilinmiyor
+BACKHOE,12,3,OTHER,special_equipment,Diğer
+C3,12,2,OTHER,unmatched,Diğer
+COMMERICAL,12,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+CONSTRUCTI,12,3,OTHER,unmatched,Diğer
+DIRT,12,3,OTHER,unmatched,Diğer
+ESSI,12,1,OTHER,unmatched,Diğer
+GAS MOPED,12,3,OTHER,unmatched,Diğer
+ACCESS A R,11,4,OTHER,unmatched,Diğer
+BOOM LIFT,11,3,OTHER,unmatched,Diğer
+CITY,11,3,OTHER,unmatched,Diğer
+DIRTBIKE,11,3,OTHER,unmatched,Diğer
+FOOD CART,11,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+HORSE CARR,11,3,OTHER,special_equipment,Diğer
+ICE C,11,3,OTHER,unmatched,Diğer
+ICE CREAM,11,3,OTHER,unmatched,Diğer
+LEFT,11,2,OTHER,unmatched,Diğer
+LIFT,11,3,OTHER,unmatched,Diğer
+LIGHT,11,3,OTHER,unmatched,Diğer
+MINI VAN,11,4,VAN,van,Van / minibüs
+NYC F,11,3,OTHER,unmatched,Diğer
+PASSE,11,3,OTHER,unmatched,Diğer
+SWEEPER,11,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SWT,11,1,OTHER,unmatched,Diğer
+UNKOWN,11,2,OTHER,unmatched,Diğer
+UPS TRUCK,11,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+YELLOW BUS,11,4,BUS,bus,Otobüs
+CAT,10,3,OTHER,unmatched,Diğer
+EMS TRUCK,10,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FRONT,10,2,OTHER,unmatched,Diğer
+G COM,10,3,OTHER,unmatched,Diğer
+INTER,10,3,OTHER,unmatched,Diğer
+LIMOU,10,3,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+NYPD,10,3,EMERGENCY,emergency,Acil durum aracı
+OMNIB,10,2,OTHER,unmatched,Diğer
+PICK-UP,10,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+RAM,10,3,OTHER,unmatched,Diğer
+REFRI,10,2,OTHER,unmatched,Diğer
+REP,10,2,OTHER,unmatched,Diğer
+SPRINTER,10,3,VAN,van,Van / minibüs
+TR,10,2,OTHER,unmatched,Diğer
+TRACK,10,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+WHITE VAN,10,4,VAN,van,Van / minibüs
+4DSD,9,1,OTHER,unmatched,Diğer
+A,9,2,OTHER,unmatched,Diğer
+BOOM,9,3,OTHER,unmatched,Diğer
+BULLDOZER,9,2,OTHER,special_equipment,Diğer
+CEMENT TRU,9,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+CNEQ,9,1,OTHER,unmatched,Diğer
+CO,9,1,OTHER,unmatched,Diğer
+DUMPS,9,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FD TRUCK,9,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FEDEX,9,3,OTHER,unmatched,Diğer
+FEDEX TRUC,9,4,OTHER,unmatched,Diğer
+GOVER,9,3,OTHER,unmatched,Diğer
+LIVER,9,3,OTHER,unmatched,Diğer
+MACK TRUCK,9,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MINIVAN,9,2,VAN,van,Van / minibüs
+PEDIC,9,3,OTHER,unmatched,Diğer
+SKATE,9,3,OTHER,unmatched,Diğer
+USPS VAN,9,4,VAN,van,Van / minibüs
+ARMOR,8,2,OTHER,unmatched,Diğer
+D1,8,2,OTHER,unmatched,Diğer
+E BIKE,8,4,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+EMS BUS,8,4,BUS,bus,Otobüs
+FREIGHTLIN,8,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+GLBEN,8,1,OTHER,unmatched,Diğer
+GRAIN,8,1,OTHER,unmatched,Diğer
+MCY,8,2,OTHER,unmatched,Diğer
+MINIV,8,2,OTHER,unmatched,Diğer
+MOTORIZED,8,3,OTHER,unmatched,Diğer
+MOVIN,8,3,OTHER,unmatched,Diğer
+TANKE,8,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TL,8,1,OTHER,unmatched,Diğer
+TRANSPORT,8,3,OTHER,unmatched,Diğer
+UHAUL TRUC,8,5,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UT,8,1,OTHER,unmatched,Diğer
+VAN/T,8,1,VAN,van,Van / minibüs
+CASE,7,2,OTHER,unmatched,Diğer
+EMS AMBULA,7,3,EMERGENCY,emergency,Acil durum aracı
+ENGIN,7,2,OTHER,unmatched,Diğer
+FIRE APPAR,7,2,EMERGENCY,emergency,Acil durum aracı
+FORD TRANS,7,3,OTHER,unmatched,Diğer
+FORD VAN,7,3,VAN,van,Van / minibüs
+HRSE,7,3,OTHER,unmatched,Diğer
+LADDER TRU,7,2,OTHER,unmatched,Diğer
+LEFT SCENE,7,3,OTHER,unmatched,Diğer
+LSVT,7,1,OTHER,unmatched,Diğer
+MC,7,2,OTHER,unmatched,Diğer
+MOPED SCOO,7,4,MOTORCYCLE,motorcycle,Motosiklet / moped
+NYC SANITA,7,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+OIL T,7,2,OTHER,unmatched,Diğer
+PLOW,7,2,OTHER,unmatched,Diğer
+SCOM,7,1,OTHER,unmatched,Diğer
+SEMI TRAIL,7,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SEMI-TRAIL,7,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SNOWMOBILE,7,2,OTHER,unmatched,Diğer
+SWEEP,7,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRANS,7,2,OTHER,unmatched,Diğer
+U-HAUL,7,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+VAN/TRUCK,7,3,VAN,van,Van / minibüs
+WHEELCHAIR,7,2,OTHER,unmatched,Diğer
+0,6,1,OTHER,unmatched,Diğer
+COURI,6,2,OTHER,unmatched,Diğer
+DOT TRUCK,6,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DSNY,6,2,OTHER,unmatched,Diğer
+ECONO,6,3,OTHER,unmatched,Diğer
+ECONOLINE,6,2,OTHER,unmatched,Diğer
+ESCOOTER,6,4,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+FED E,6,2,OTHER,unmatched,Diğer
+FLEET,6,2,OTHER,unmatched,Diğer
+FREIGHT,6,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FRIEG,6,2,OTHER,unmatched,Diğer
+JOHN DEERE,6,2,OTHER,unmatched,Diğer
+LIM,6,2,OTHER,unmatched,Diğer
+LSV,6,1,OTHER,unmatched,Diğer
+MECHA,6,3,OTHER,unmatched,Diğer
+MOBIL,6,2,OTHER,unmatched,Diğer
+MOPAD,6,3,OTHER,unmatched,Diğer
+MOPPED,6,2,OTHER,unmatched,Diğer
+MOTORSCOOT,6,2,MOTORCYCLE,motorcycle,Motosiklet / moped
+NYC FIRE T,6,2,EMERGENCY,emergency,Acil durum aracı
+P/U,6,2,OTHER,unmatched,Diğer
+PKUP,6,1,OTHER,unmatched,Diğer
+PUSH SCOOT,6,3,OTHER,unmatched,Diğer
+RAZOR SCOO,6,3,OTHER,unmatched,Diğer
+RENTA,6,3,OTHER,unmatched,Diğer
+SKID STEER,6,2,OTHER,unmatched,Diğer
+STAND UP S,6,4,OTHER,unmatched,Diğer
+STREET CLE,6,3,OTHER,unmatched,Diğer
+TOWER,6,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILER TR,6,4,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRC,6,3,OTHER,unmatched,Diğer
+UKNOWN,6,2,OTHER,unmatched,Diğer
+USPS POSTA,6,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+4D,5,1,OTHER,unmatched,Diğer
+AMAZON TRU,5,3,OTHER,unmatched,Diğer
+APPOR,5,1,OTHER,unmatched,Diğer
+BK,5,1,OTHER,unmatched,Diğer
+BOX VAN,5,3,VAN,van,Van / minibüs
+CART,5,2,OTHER,unmatched,Diğer
+DIRTB,5,2,OTHER,unmatched,Diğer
+DUMPT,5,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+E COM,5,2,OTHER,unmatched,Diğer
+E SCO,5,2,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+FDNY EMS V,5,4,EMERGENCY,emergency,Acil durum aracı
+FDNY VEHIC,5,2,EMERGENCY,emergency,Acil durum aracı
+FLAT BED T,5,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FLATBED TR,5,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FM/T,5,1,OTHER,unmatched,Diğer
+FREIGHT TR,5,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+HOUSE ON W,5,2,OTHER,unmatched,Diğer
+L1,5,2,OTHER,unmatched,Diğer
+LADDE,5,2,OTHER,unmatched,Diğer
+LCOM,5,1,OTHER,unmatched,Diğer
+MAILTRUCK,5,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MOBILITY S,5,2,OTHER,unmatched,Diğer
+MOT,5,2,OTHER,unmatched,Diğer
+MOTORIZEDS,5,2,OTHER,unmatched,Diğer
+NISSA,5,2,OTHER,unmatched,Diğer
+NYC AMBULA,5,1,EMERGENCY,emergency,Acil durum aracı
+NYC TRANSI,5,1,OTHER,unmatched,Diğer
+NYPD TOW T,5,3,EMERGENCY,emergency,Acil durum aracı
+OMNIBUS,5,3,OTHER,unmatched,Diğer
+POSTAL VEH,5,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+R/V,5,2,OTHER,unmatched,Diğer
+RESCU,5,2,OTHER,unmatched,Diğer
+REVEL SCOO,5,3,OTHER,unmatched,Diğer
+SE,5,1,OTHER,unmatched,Diğer
+SKID,5,2,OTHER,unmatched,Diğer
+SMALL,5,3,OTHER,unmatched,Diğer
+TF,5,1,OTHER,unmatched,Diğer
+TLR,5,2,OTHER,unmatched,Diğer
+TOWTR,5,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAIN,5,3,OTHER,unmatched,Diğer
+TRANSIT VA,5,3,OTHER,unmatched,Diğer
+U HAUL,5,3,OTHER,unmatched,Diğer
+UHAUL VAN,5,2,VAN,van,Van / minibüs
+UHUAL,5,3,OTHER,unmatched,Diğer
+UPS T,5,3,OTHER,unmatched,Diğer
+USPS VEHIC,5,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+X COM,5,1,OTHER,unmatched,Diğer
+000,4,1,OTHER,unmatched,Diğer
+1,4,1,OTHER,unmatched,Diğer
+18 WH,4,2,OTHER,unmatched,Diğer
+18 WHEELER,4,2,OTHER,unmatched,Diğer
+2 DOO,4,1,OTHER,unmatched,Diğer
+3 WHE,4,2,OTHER,unmatched,Diğer
+4DR,4,1,OTHER,unmatched,Diğer
+4DS,4,1,OTHER,unmatched,Diğer
+ACCESS-A-R,4,3,OTHER,unmatched,Diğer
+AMAZON VAN,4,3,VAN,van,Van / minibüs
+BACKHOE LO,4,2,OTHER,special_equipment,Diğer
+BOAT,4,2,OTHER,unmatched,Diğer
+BOXTR,4,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BS,4,1,OTHER,unmatched,Diğer
+BUCKET TRU,4,3,OTHER,unmatched,Diğer
+BUDGE,4,2,OTHER,unmatched,Diğer
+CAN,4,2,OTHER,unmatched,Diğer
+CAR TRAILE,4,3,OTHER,unmatched,Diğer
+CHEVY,4,2,OTHER,unmatched,Diğer
+CITY OF NE,4,1,OTHER,unmatched,Diğer
+COM T,4,2,OTHER,unmatched,Diğer
+COMM VAN,4,1,VAN,van,Van / minibüs
+D3,4,2,OTHER,unmatched,Diğer
+DEPARTMENT,4,2,OTHER,unmatched,Diğer
+DETACHED T,4,3,OTHER,unmatched,Diğer
+DODGE,4,3,OTHER,unmatched,Diğer
+DOLLAR VAN,4,2,VAN,van,Van / minibüs
+DSNY TRUCK,4,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+E-SKATEBOA,4,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+E-UNICYCLE,4,2,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+E1,4,2,OTHER,unmatched,Diğer
+ESCOOTER S,4,2,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+FD TR,4,3,OTHER,unmatched,Diğer
+FRE,4,2,OTHER,unmatched,Diğer
+FREIGHT VA,4,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+G AMB,4,1,OTHER,unmatched,Diğer
+G TOW,4,1,OTHER,unmatched,Diğer
+GEICO,4,1,OTHER,unmatched,Diğer
+HAND,4,2,OTHER,unmatched,Diğer
+HORSE TRAI,4,3,OTHER,special_equipment,Diğer
+HOUSE,4,2,OTHER,unmatched,Diğer
+I1,4,1,OTHER,unmatched,Diğer
+JOHN,4,3,OTHER,unmatched,Diğer
+KENWO,4,2,OTHER,unmatched,Diğer
+LIGHT TRAI,4,3,OTHER,unmatched,Diğer
+MOVING TRU,4,2,OTHER,unmatched,Diğer
+MPC,4,1,OTHER,unmatched,Diğer
+NEW Y,4,2,OTHER,unmatched,Diğer
+NOT I,4,1,OTHER,unmatched,Diğer
+PASSANGER,4,2,OTHER,unmatched,Diğer
+PAYLO,4,2,OTHER,unmatched,Diğer
+POLICE VEH,4,2,EMERGENCY,emergency,Acil durum aracı
+POST,4,2,OTHER,unmatched,Diğer
+POST OFFIC,4,3,OTHER,unmatched,Diğer
+RMP V,4,1,OTHER,unmatched,Diğer
+SCL,4,2,OTHER,unmatched,Diğer
+SMART,4,2,OTHER,unmatched,Diğer
+SUB,4,2,OTHER,unmatched,Diğer
+SW,4,1,OTHER,unmatched,Diğer
+TLC,4,3,OTHER,unmatched,Diğer
+TOYOT,4,2,OTHER,unmatched,Diğer
+TRANSIT,4,2,OTHER,unmatched,Diğer
+TRUCK TRAI,4,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UKN,4,2,OTHER,unmatched,Diğer
+UNICYCLE,4,2,OTHER,unmatched,Diğer
+UTILITY VA,4,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+VERIZ,4,2,OTHER,unmatched,Diğer
+VESPA,4,2,MOTORCYCLE,motorcycle,Motosiklet / moped
+WINNE,4,2,OTHER,unmatched,Diğer
+WORK TRUCK,4,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+12 PA,3,2,OTHER,unmatched,Diğer
+12 PASSENG,3,1,OTHER,unmatched,Diğer
+15 PA,3,3,OTHER,unmatched,Diğer
+2,3,1,OTHER,unmatched,Diğer
+3-WHE,3,2,OTHER,unmatched,Diğer
+999,3,1,OTHER,unmatched,Diğer
+AMBULACE,3,1,EMERGENCY,emergency,Acil durum aracı
+AMBULANE,3,1,EMERGENCY,emergency,Acil durum aracı
+ATV*,3,1,OTHER,unmatched,Diğer
+BACK HOE,3,1,OTHER,unmatched,Diğer
+BLACK,3,2,OTHER,unmatched,Diğer
+BUCKE,3,2,OTHER,unmatched,Diğer
+CAB,3,2,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+CAMPE,3,1,OTHER,unmatched,Diğer
+CAMPER TRA,3,2,OTHER,unmatched,Diğer
+CAR C,3,2,OTHER,unmatched,Diğer
+CARRI,3,2,OTHER,unmatched,Diğer
+CHERRY PIC,3,2,OTHER,unmatched,Diğer
+CHEV,3,2,OTHER,unmatched,Diğer
+CHEVROLET,3,2,OTHER,unmatched,Diğer
+CON ED TRU,3,2,OTHER,unmatched,Diğer
+CONCR,3,2,OTHER,unmatched,Diğer
+COURIER VA,3,1,OTHER,unmatched,Diğer
+DETAC,3,2,OTHER,unmatched,Diğer
+DOT T,3,2,OTHER,unmatched,Diğer
+DP,3,1,OTHER,unmatched,Diğer
+DSNY SWEEP,3,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+E AMB,3,2,OTHER,unmatched,Diğer
+E350,3,1,OTHER,unmatched,Diğer
+ELECTRIC B,3,2,OTHER,unmatched,Diğer
+EMS A,3,1,OTHER,unmatched,Diğer
+EMT AMBULA,3,2,EMERGENCY,emergency,Acil durum aracı
+ESCAVATOR,3,3,OTHER,unmatched,Diğer
+F1,3,1,OTHER,unmatched,Diğer
+FD AMBULAN,3,2,EMERGENCY,emergency,Acil durum aracı
+FDNY EMT,3,1,EMERGENCY,emergency,Acil durum aracı
+FED EX,3,1,OTHER,unmatched,Diğer
+FED EX TRU,3,2,OTHER,unmatched,Diğer
+FED EX VAN,3,2,VAN,van,Van / minibüs
+FEDER,3,2,OTHER,unmatched,Diğer
+FEDEX BOX,3,3,OTHER,unmatched,Diğer
+FIRE DEPT,3,1,EMERGENCY,emergency,Acil durum aracı
+FORD AMBUL,3,1,EMERGENCY,emergency,Acil durum aracı
+FRHT,3,1,OTHER,unmatched,Diğer
+FRONT LOAD,3,2,OTHER,unmatched,Diğer
+G PSD,3,1,OTHER,unmatched,Diğer
+GARBAGE,3,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+GMC,3,1,OTHER,unmatched,Diğer
+GMC V,3,1,OTHER,unmatched,Diğer
+GRAY,3,1,OTHER,unmatched,Diğer
+GREEN,3,2,OTHER,unmatched,Diğer
+H1,3,2,OTHER,unmatched,Diğer
+HEAVY,3,1,OTHER,unmatched,Diğer
+HI-LO,3,2,OTHER,unmatched,Diğer
+HOVERBOARD,3,2,OTHER,unmatched,Diğer
+ISUZU,3,3,OTHER,unmatched,Diğer
+JOHND,3,2,OTHER,unmatched,Diğer
+KICK SCOOT,3,3,OTHER,unmatched,Diğer
+LADDER,3,2,OTHER,unmatched,Diğer
+LAWN MOWER,3,1,OTHER,unmatched,Diğer
+LIME SCOOT,3,2,OTHER,unmatched,Diğer
+LMB,3,2,OTHER,unmatched,Diğer
+LTR,3,1,OTHER,unmatched,Diğer
+MAN L,3,1,OTHER,unmatched,Diğer
+MARKE,3,2,OTHER,unmatched,Diğer
+MARKED VAN,3,2,VAN,van,Van / minibüs
+MECHANICAL,3,1,OTHER,unmatched,Diğer
+MERCEDES,3,2,OTHER,unmatched,Diğer
+MOPED CLAS,3,2,MOTORCYCLE,motorcycle,Motosiklet / moped
+MOPET,3,2,OTHER,unmatched,Diğer
+MOTORHOME,3,3,OTHER,unmatched,Diğer
+MOVING VAN,3,2,VAN,van,Van / minibüs
+MTA TRANSI,3,2,OTHER,unmatched,Diğer
+MTA TRUCK,3,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+NAVIG,3,2,OTHER,unmatched,Diğer
+NONE,3,2,UNKNOWN,unknown_tokens,Bilinmiyor
+NYC,3,2,OTHER,unmatched,Diğer
+NYC A,3,3,OTHER,unmatched,Diğer
+NYC S,3,2,OTHER,unmatched,Diğer
+NYFD,3,2,OTHER,unmatched,Diğer
+NYPD VAN,3,1,EMERGENCY,emergency,Acil durum aracı
+OMS,3,1,OTHER,unmatched,Diğer
+ONE WHEEL,3,2,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+PARKE,3,1,OTHER,unmatched,Diğer
+PICKUP TOW,3,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+POLIC,3,2,EMERGENCY,emergency,Acil durum aracı
+POSTAL SER,3,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+POSTAL VAN,3,2,VAN,van,Van / minibüs
+PROGRESSIV,3,1,OTHER,unmatched,Diğer
+PU,3,1,OTHER,unmatched,Diğer
+PUMP,3,2,OTHER,unmatched,Diğer
+PUMPER,3,2,OTHER,unmatched,Diğer
+PUSH,3,2,OTHER,unmatched,Diğer
+REVEL,3,2,OTHER,unmatched,Diğer
+REVEL MOPE,3,1,OTHER,unmatched,Diğer
+SC,3,1,OTHER,unmatched,Diğer
+SCHOOL VAN,3,3,BUS,bus,Otobüs
+SCHOOLBUS,3,2,BUS,bus,Otobüs
+SCISS,3,3,OTHER,unmatched,Diğer
+SCOO,3,2,OTHER,unmatched,Diğer
+SCOOTER GA,3,3,OTHER,ambiguous_scooter,Diğer
+SKATE BOAR,3,2,OTHER,unmatched,Diğer
+SKID LOADE,3,1,OTHER,unmatched,Diğer
+SPEC,3,2,OTHER,unmatched,Diğer
+SPECIAL PU,3,1,OTHER,unmatched,Diğer
+SS,3,1,OTHER,unmatched,Diğer
+ST,3,2,OTHER,unmatched,Diğer
+STERL,3,2,OTHER,unmatched,Diğer
+TOW-TRUCK,3,3,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOYOTA,3,1,OTHER,unmatched,Diğer
+TRT,3,2,OTHER,unmatched,Diğer
+TRUCK CRAN,3,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+U HAU,3,1,OTHER,unmatched,Diğer
+U-HAUL TRU,3,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+U-HAUL VAN,3,2,VAN,van,Van / minibüs
+UHAUL BOX,3,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UHAUL TRAI,3,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPOS,3,1,OTHER,unmatched,Diğer
+VAN C,3,2,VAN,van,Van / minibüs
+VAV,3,2,OTHER,unmatched,Diğer
+VMS,3,1,OTHER,unmatched,Diğer
+WASTE,3,2,OTHER,unmatched,Diğer
+WHEEL,3,3,OTHER,unmatched,Diğer
+.,2,1,OTHER,unmatched,Diğer
+00,2,1,OTHER,unmatched,Diğer
+0000,2,1,OTHER,unmatched,Diğer
+16M,2,2,OTHER,unmatched,Diğer
+2015,2,1,OTHER,unmatched,Diğer
+4,2,1,OTHER,unmatched,Diğer
+4 DOOR,2,1,OTHER,unmatched,Diğer
+4DOOR,2,1,OTHER,unmatched,Diğer
+5,2,1,OTHER,unmatched,Diğer
+50CC SCOOT,2,2,OTHER,unmatched,Diğer
+600AJ,2,1,OTHER,unmatched,Diğer
+994,2,1,OTHER,unmatched,Diğer
+ABULANCE,2,2,OTHER,unmatched,Diğer
+ADC,2,1,OTHER,unmatched,Diğer
+ALL-TERRAIN VEHICLE,2,1,OTHER,unmatched,Diğer
+AMBULANCES,2,1,EMERGENCY,emergency,Acil durum aracı
+AMBULANCE`,2,1,EMERGENCY,emergency,Acil durum aracı
+AMULANCE,2,2,OTHER,unmatched,Diğer
+APP,2,1,OTHER,unmatched,Diğer
+APPORTIONE,2,2,OTHER,unmatched,Diğer
+ARMORED TR,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BARRI,2,2,OTHER,unmatched,Diğer
+BICYC,2,2,BICYCLE,bicycle,Bisiklet
+BOB C,2,1,OTHER,unmatched,Diğer
+BOX CAR,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BOXTRUCK,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BROOM,2,2,OTHER,unmatched,Diğer
+BSD,2,1,OTHER,unmatched,Diğer
+BULL DOZER,2,2,OTHER,unmatched,Diğer
+BUSS,2,1,OTHER,unmatched,Diğer
+C,2,1,OTHER,unmatched,Diğer
+C2,2,1,OTHER,unmatched,Diğer
+CAMP,2,1,OTHER,unmatched,Diğer
+CARGO TRUC,2,2,OTHER,unmatched,Diğer
+CARRIER,2,2,OTHER,unmatched,Diğer
+CATERPILLA,2,1,OTHER,unmatched,Diğer
+CEMENT MIX,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+CHART,2,1,OTHER,unmatched,Diğer
+CHARTER BU,2,1,OTHER,unmatched,Diğer
+CHASSIS &,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+CHEVR,2,2,OTHER,unmatched,Diğer
+CITY MTA B,2,2,OTHER,unmatched,Diğer
+CITY OWNED,2,2,OTHER,unmatched,Diğer
+CITY VEHIC,2,2,OTHER,unmatched,Diğer
+CLEAN,2,1,OTHER,unmatched,Diğer
+COLLECTION,2,2,OTHER,unmatched,Diğer
+COMER,2,1,OTHER,unmatched,Diğer
+COMM TRUCK,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMMAND PO,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMMERIAL,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMPA,2,1,OTHER,unmatched,Diğer
+CONT,2,1,OTHER,unmatched,Diğer
+CONTA,2,1,OTHER,unmatched,Diğer
+CONV,2,1,OTHER,unmatched,Diğer
+D,2,2,OTHER,unmatched,Diğer
+D2,2,2,OTHER,unmatched,Diğer
+DEL,2,2,OTHER,unmatched,Diğer
+DELIE,2,2,OTHER,unmatched,Diğer
+DELV.,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DEPAR,2,2,OTHER,unmatched,Diğer
+DIESE,2,1,OTHER,unmatched,Diğer
+DODGE RAM,2,2,OTHER,unmatched,Diğer
+DOLLY,2,1,OTHER,unmatched,Diğer
+DOT,2,2,OTHER,unmatched,Diğer
+DOT TOW TR,2,2,OTHER,unmatched,Diğer
+DOT VEHICL,2,1,OTHER,unmatched,Diğer
+DRONE,2,2,OTHER,unmatched,Diğer
+DUMPSTER T,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DUMPTRUCK,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+E BIKE W P,2,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+E SKATEBOA,2,2,OTHER,unmatched,Diğer
+E WHEELCHA,2,1,OTHER,unmatched,Diğer
+E250,2,1,OTHER,unmatched,Diğer
+E450,2,1,OTHER,unmatched,Diğer
+EC3,2,1,OTHER,unmatched,Diğer
+ECOLINE VA,2,1,OTHER,unmatched,Diğer
+ECOM,2,1,OTHER,unmatched,Diğer
+ELEC,2,1,OTHER,unmatched,Diğer
+ELECR,2,1,OTHER,unmatched,Diğer
+ELECTRICUN,2,2,OTHER,unmatched,Diğer
+ELECTRONIC,2,2,OTHER,unmatched,Diğer
+EMS B,2,2,OTHER,unmatched,Diğer
+EMS FDNY,2,1,EMERGENCY,emergency,Acil durum aracı
+EMS T,2,2,OTHER,unmatched,Diğer
+ESU REP,2,1,OTHER,unmatched,Diğer
+ESU T,2,1,OTHER,unmatched,Diğer
+EXPRE,2,1,OTHER,unmatched,Diğer
+F350,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FARM VEHICLE,2,1,OTHER,unmatched,Diğer
+FD ENGINE,2,2,OTHER,unmatched,Diğer
+FD LA,2,1,OTHER,unmatched,Diğer
+FD LADDER,2,2,OTHER,unmatched,Diğer
+FDNY EMS T,2,2,EMERGENCY,emergency,Acil durum aracı
+FDNY FERRA,2,2,EMERGENCY,emergency,Acil durum aracı
+FDNY RIG,2,1,EMERGENCY,emergency,Acil durum aracı
+FLAT/,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FLATBED TO,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FOOD TRAIL,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FOOT,2,1,OTHER,unmatched,Diğer
+FORD EC2,2,2,OTHER,unmatched,Diğer
+FORD SPRIN,2,2,OTHER,unmatched,Diğer
+FORKLIFT T,2,2,OTHER,special_equipment,Diğer
+FRONT END,2,2,OTHER,unmatched,Diğer
+FRT,2,1,OTHER,unmatched,Diğer
+FUEL,2,1,OTHER,unmatched,Diğer
+G PAS,2,1,OTHER,unmatched,Diğer
+G SCL,2,2,OTHER,unmatched,Diğer
+GAS BICYCL,2,2,OTHER,unmatched,Diğer
+GAS BIKE,2,1,OTHER,unmatched,Diğer
+GAS T,2,2,OTHER,unmatched,Diğer
+GO KART,2,1,OTHER,unmatched,Diğer
+GOV,2,1,OTHER,unmatched,Diğer
+GOV V,2,2,OTHER,unmatched,Diğer
+GOVT,2,2,OTHER,unmatched,Diğer
+GRUMMAN LL,2,1,OTHER,unmatched,Diğer
+HARVE,2,2,OTHER,unmatched,Diğer
+HEARSE,2,2,OTHER,unmatched,Diğer
+HEAVY TRUC,2,1,OTHER,unmatched,Diğer
+HORSE DRAW,2,1,OTHER,special_equipment,Diğer
+INTL,2,1,OTHER,unmatched,Diğer
+IP,2,1,OTHER,unmatched,Diğer
+J1,2,1,OTHER,unmatched,Diğer
+JETSKI,2,1,OTHER,unmatched,Diğer
+KME,2,1,OTHER,unmatched,Diğer
+LAWNMOWER,2,2,OTHER,unmatched,Diğer
+LIEBH,2,2,OTHER,unmatched,Diğer
+LIGHT TOWE,2,2,OTHER,unmatched,Diğer
+LIMOUSINE,2,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+LOADE,2,1,OTHER,unmatched,Diğer
+LSA,2,1,OTHER,unmatched,Diğer
+LTRL,2,2,OTHER,unmatched,Diğer
+MAC T,2,1,OTHER,unmatched,Diğer
+ME/BE,2,2,OTHER,unmatched,Diğer
+MINI BUS,2,2,BUS,bus,Otobüs
+MINI SCHOO,2,1,OTHER,unmatched,Diğer
+MOBILE FOO,2,1,OTHER,unmatched,Diğer
+MOPED BIKE,2,1,MOTORCYCLE,motorcycle,Motosiklet / moped
+MOT S,2,2,OTHER,unmatched,Diğer
+MOTOR UNIC,2,1,OTHER,unmatched,Diğer
+MOTOR WHEE,2,2,OTHER,unmatched,Diğer
+NMPC,2,1,OTHER,unmatched,Diğer
+NYC B,2,2,OTHER,unmatched,Diğer
+NYC BUS,2,1,BUS,bus,Otobüs
+NYC D,2,2,OTHER,unmatched,Diğer
+NYC EMS,2,2,OTHER,unmatched,Diğer
+NYC M,2,2,OTHER,unmatched,Diğer
+NYCHA,2,2,OTHER,unmatched,Diğer
+NYCTA,2,2,OTHER,unmatched,Diğer
+OFF R,2,1,OTHER,unmatched,Diğer
+OMNI,2,2,OTHER,unmatched,Diğer
+P PSD,2,1,OTHER,unmatched,Diğer
+PAS V,2,1,OTHER,unmatched,Diğer
+PAVIN,2,1,OTHER,unmatched,Diğer
+PEDESTRIAN,2,1,OTHER,unmatched,Diğer
+PEDI CAB,2,1,OTHER,unmatched,Diğer
+PENSKE BOX,2,2,OTHER,unmatched,Diğer
+PERM,2,2,OTHER,unmatched,Diğer
+PIGGY BACK,2,1,OTHER,unmatched,Diğer
+PLOW TRUCK,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+POSTOFFICE,2,2,OTHER,unmatched,Diğer
+PSH,2,1,OTHER,unmatched,Diğer
+PUMPE,2,1,OTHER,unmatched,Diğer
+PZ,2,1,OTHER,unmatched,Diğer
+RDS,2,2,OTHER,unmatched,Diğer
+RED T,2,2,OTHER,unmatched,Diğer
+RENTAL TRU,2,1,OTHER,unmatched,Diğer
+RGS,2,2,OTHER,unmatched,Diğer
+RZ,2,1,OTHER,unmatched,Diğer
+SBN,2,1,OTHER,unmatched,Diğer
+SCHOOL BU,2,1,BUS,bus,Otobüs
+SCOOTER/MO,2,2,OTHER,ambiguous_scooter,Diğer
+SEAGRAVE T,2,2,OTHER,unmatched,Diğer
+SEATED SCO,2,2,OTHER,unmatched,Diğer
+SEGWA,2,1,OTHER,unmatched,Diğer
+SEGWAY,2,2,OTHER,unmatched,Diğer
+SELF-,2,1,OTHER,unmatched,Diğer
+SELF-INSUR,2,2,OTHER,unmatched,Diğer
+SEMI TRUCK,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SEMI-TRUCK,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SEMITRAILE,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SHUTTLE BU,2,1,OTHER,unmatched,Diğer
+SKYWATCH,2,2,OTHER,unmatched,Diğer
+SNOW,2,2,OTHER,unmatched,Diğer
+SP PURPOSE,2,1,OTHER,unmatched,Diğer
+SPECIAL CO,2,2,OTHER,unmatched,Diğer
+SRF,2,2,OTHER,unmatched,Diğer
+STAKE TRUC,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+STATE FARM,2,1,OTHER,unmatched,Diğer
+STATION WA,2,2,OTHER,unmatched,Diğer
+SUBR,2,2,OTHER,unmatched,Diğer
+SW/SUV,2,1,OTHER,unmatched,Diğer
+SYBN,2,2,OTHER,unmatched,Diğer
+T/CR,2,1,OTHER,unmatched,Diğer
+TANK TRUCK,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TCN,2,1,OTHER,unmatched,Diğer
+TL TR,2,1,OTHER,unmatched,Diğer
+TL TRAILER,2,1,OTHER,unmatched,Diğer
+TOOLCAT,2,2,OTHER,unmatched,Diğer
+TOUR,2,2,OTHER,unmatched,Diğer
+TR/C,2,1,OTHER,unmatched,Diğer
+TRAILER NO,2,2,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRIAL,2,2,OTHER,unmatched,Diğer
+U HAUL TRU,2,2,OTHER,unmatched,Diğer
+UD,2,1,OTHER,unmatched,Diğer
+UHAL,2,1,OTHER,unmatched,Diğer
+UK,2,1,OTHER,unmatched,Diğer
+UNK L,2,1,OTHER,unmatched,Diğer
+UNK/L,2,1,OTHER,unmatched,Diğer
+UNKNOW,2,1,OTHER,unmatched,Diğer
+UNKNW,2,1,OTHER,unmatched,Diğer
+UPS,2,1,OTHER,unmatched,Diğer
+UPS VAN,2,2,VAN,van,Van / minibüs
+US,2,1,OTHER,unmatched,Diğer
+US GO,2,1,OTHER,unmatched,Diğer
+US MA,2,2,OTHER,unmatched,Diğer
+USPS DELIV,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTIL WH,2,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTLIT,2,2,OTHER,unmatched,Diğer
+VAN (,2,1,VAN,van,Van / minibüs
+VAN (TRANS,2,2,VAN,van,Van / minibüs
+VAN A,2,2,VAN,van,Van / minibüs
+VAN F,2,1,VAN,van,Van / minibüs
+VAN W,2,2,VAN,van,Van / minibüs
+VEHICLE TR,2,2,OTHER,unmatched,Diğer
+VERIZON TR,2,1,OTHER,unmatched,Diğer
+VERIZON VA,2,2,OTHER,unmatched,Diğer
+VOLVO,2,2,OTHER,unmatched,Diğer
+VPG,2,1,OTHER,unmatched,Diğer
+WESCO,2,2,OTHER,unmatched,Diğer
+WHITE SUBU,2,2,OTHER,unmatched,Diğer
+WHITE WORK,2,2,OTHER,unmatched,Diğer
+WORKH,2,1,OTHER,unmatched,Diğer
+X AMB,2,2,OTHER,unmatched,Diğer
+YELLOW CAB,2,2,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+''LIME MOPE,1,1,OTHER,unmatched,Diğer
+(CEME,1,1,OTHER,unmatched,Diğer
+-,1,1,OTHER,unmatched,Diğer
+00000,1,1,OTHER,unmatched,Diğer
+013,1,1,OTHER,unmatched,Diğer
+09,1,1,OTHER,unmatched,Diğer
+10 PAASENG,1,1,OTHER,unmatched,Diğer
+100TH TRUC,1,1,OTHER,unmatched,Diğer
+11 PA,1,1,OTHER,unmatched,Diğer
+11-VA,1,1,OTHER,unmatched,Diğer
+11111,1,1,OTHER,unmatched,Diğer
+12 FE,1,1,OTHER,unmatched,Diğer
+12 PASS VA,1,1,OTHER,unmatched,Diğer
+12 PASSAGE,1,1,OTHER,unmatched,Diğer
+12' O,1,1,OTHER,unmatched,Diğer
+13,1,1,OTHER,unmatched,Diğer
+17,1,1,OTHER,unmatched,Diğer
+18 WEELER,1,1,OTHER,unmatched,Diğer
+18 WHEEL,1,1,OTHER,unmatched,Diğer
+197209,1,1,OTHER,unmatched,Diğer
+1C,1,1,OTHER,unmatched,Diğer
+1S,1,1,OTHER,unmatched,Diğer
+2 DR,1,1,PASSENGER_CAR,passenger_car,Binek otomobil
+2 HOR,1,1,OTHER,unmatched,Diğer
+2 TON,1,1,OTHER,unmatched,Diğer
+2 WHE,1,1,OTHER,unmatched,Diğer
+2 WHEEL SC,1,1,OTHER,unmatched,Diğer
+2- TO,1,1,OTHER,unmatched,Diğer
+2000,1,1,OTHER,unmatched,Diğer
+2003,1,1,OTHER,unmatched,Diğer
+250-3,1,1,OTHER,unmatched,Diğer
+26 FT,1,1,OTHER,unmatched,Diğer
+263,1,1,OTHER,unmatched,Diğer
+2DCP,1,1,OTHER,unmatched,Diğer
+2DR,1,1,OTHER,unmatched,Diğer
+2TON,1,1,OTHER,unmatched,Diğer
+2YDSWHEELL,1,1,OTHER,unmatched,Diğer
+3 DOO,1,1,OTHER,unmatched,Diğer
+3 WHEEL SC,1,1,OTHER,unmatched,Diğer
+3 WHEEL VE,1,1,OTHER,unmatched,Diğer
+315 E,1,1,OTHER,unmatched,Diğer
+325FLCR,1,1,OTHER,unmatched,Diğer
+340AJ,1,1,OTHER,unmatched,Diğer
+35 FT,1,1,OTHER,unmatched,Diğer
+38AB-,1,1,OTHER,unmatched,Diğer
+3DC-,1,1,OTHER,unmatched,Diğer
+3DOOR,1,1,OTHER,unmatched,Diğer
+4 AXE,1,1,OTHER,unmatched,Diğer
+4 RUN,1,1,OTHER,unmatched,Diğer
+4 WHEELER,1,1,OTHER,unmatched,Diğer
+430,1,1,OTHER,unmatched,Diğer
+4SEDN,1,1,OTHER,unmatched,Diğer
+4WHEE,1,1,OTHER,unmatched,Diğer
+50 CC MOTO,1,1,OTHER,unmatched,Diğer
+50CC MINI,1,1,OTHER,unmatched,Diğer
+52? T,1,1,OTHER,unmatched,Diğer
+5X8 T,1,1,OTHER,unmatched,Diğer
+7,1,1,OTHER,unmatched,Diğer
+72000,1,1,OTHER,unmatched,Diğer
+7532433,1,1,OTHER,unmatched,Diğer
+787,1,1,OTHER,unmatched,Diğer
+8X20,1,1,OTHER,unmatched,Diğer
+985,1,1,OTHER,unmatched,Diğer
+997,1,1,OTHER,unmatched,Diğer
+9999,1,1,OTHER,unmatched,Diğer
+99999,1,1,OTHER,unmatched,Diğer
+?OMME,1,1,OTHER,unmatched,Diğer
+A BULANCE,1,1,OTHER,unmatched,Diğer
+"A,N",1,1,OTHER,unmatched,Diğer
+A-ONE,1,1,OTHER,unmatched,Diğer
+ABMU,1,1,OTHER,unmatched,Diğer
+ABULA,1,1,OTHER,unmatched,Diğer
+ACCEE,1,1,OTHER,unmatched,Diğer
+ACCESS RID,1,1,OTHER,unmatched,Diğer
+ACCESS-A-,1,1,OTHER,unmatched,Diğer
+ACCESS-ARI,1,1,OTHER,unmatched,Diğer
+ACUR,1,1,OTHER,unmatched,Diğer
+AERIA,1,1,OTHER,unmatched,Diğer
+AERIAL LIF,1,1,OTHER,unmatched,Diğer
+ALL TERRAI,1,1,OTHER,unmatched,Diğer
+ALMBULANCE,1,1,OTHER,unmatched,Diğer
+ALUMI,1,1,OTHER,unmatched,Diğer
+AM/TR,1,1,OTHER,unmatched,Diğer
+AMABU,1,1,OTHER,unmatched,Diğer
+AMAZON DEL,1,1,OTHER,unmatched,Diğer
+AMAZON SPR,1,1,OTHER,unmatched,Diğer
+AMBALANCE,1,1,OTHER,unmatched,Diğer
+AMBIANCE,1,1,OTHER,unmatched,Diğer
+AMBLUANCE,1,1,OTHER,unmatched,Diğer
+AMBUKANCE,1,1,OTHER,unmatched,Diğer
+AMBULAMCE,1,1,EMERGENCY,emergency,Acil durum aracı
+AMBULANVE,1,1,EMERGENCY,emergency,Acil durum aracı
+AMBULCANCE,1,1,EMERGENCY,emergency,Acil durum aracı
+AMDU,1,1,OTHER,unmatched,Diğer
+AMSGC,1,1,OTHER,unmatched,Diğer
+AMUBL,1,1,OTHER,unmatched,Diğer
+AMUBULANCE,1,1,OTHER,unmatched,Diğer
+AMULA,1,1,OTHER,unmatched,Diğer
+ANBUL,1,1,OTHER,unmatched,Diğer
+AP,1,1,OTHER,unmatched,Diğer
+APORT,1,1,OTHER,unmatched,Diğer
+APP C,1,1,OTHER,unmatched,Diğer
+APURP,1,1,OTHER,unmatched,Diğer
+ARCIMOTO,1,1,OTHER,unmatched,Diğer
+ARIEL,1,1,OTHER,unmatched,Diğer
+ARMY,1,1,OTHER,unmatched,Diğer
+ART M,1,1,OTHER,unmatched,Diğer
+ASPHA,1,1,OTHER,unmatched,Diğer
+ASPHALT PA,1,1,OTHER,unmatched,Diğer
+ASPHALT RO,1,1,OTHER,unmatched,Diğer
+ASTRO,1,1,OTHER,unmatched,Diğer
+ATTAC,1,1,OTHER,unmatched,Diğer
+ATTECHMENT,1,1,OTHER,unmatched,Diğer
+ATV P,1,1,OTHER,unmatched,Diğer
+AUTOTRLR T,1,1,OTHER,unmatched,Diğer
+AXO,1,1,OTHER,unmatched,Diğer
+B,1,1,OTHER,unmatched,Diğer
+B5-44,1,1,OTHER,unmatched,Diğer
+B55 EXCAVA,1,1,OTHER,special_equipment,Diğer
+BACK HO,1,1,OTHER,unmatched,Diğer
+BACKHOE RE,1,1,OTHER,special_equipment,Diğer
+BASIC PSD,1,1,OTHER,unmatched,Diğer
+BAY CRANE,1,1,OTHER,special_equipment,Diğer
+BEARCAT,1,1,OTHER,unmatched,Diğer
+BED,1,1,OTHER,unmatched,Diğer
+BED T,1,1,OTHER,unmatched,Diğer
+BEYOND SCO,1,1,OTHER,unmatched,Diğer
+BIG R,1,1,OTHER,unmatched,Diğer
+BKHOE,1,1,OTHER,unmatched,Diğer
+BLACK MOPE,1,1,OTHER,unmatched,Diğer
+BLACK SCOO,1,1,OTHER,unmatched,Diğer
+BLACK SUV,1,1,OTHER,unmatched,Diğer
+BLOCK,1,1,OTHER,unmatched,Diğer
+BLU BUS,1,1,BUS,bus,Otobüs
+BLUE,1,1,OTHER,unmatched,Diğer
+BLUE CHEVY,1,1,OTHER,unmatched,Diğer
+BMW,1,1,OTHER,unmatched,Diğer
+BMW MOPED,1,1,OTHER,unmatched,Diğer
+BOB CAT,1,1,OTHER,unmatched,Diğer
+BOB CAT MA,1,1,OTHER,unmatched,Diğer
+BOBBY,1,1,OTHER,unmatched,Diğer
+BOBCAT 216,1,1,OTHER,special_equipment,Diğer
+BOBCAT FOR,1,1,OTHER,special_equipment,Diğer
+BOBCAT S63,1,1,OTHER,special_equipment,Diğer
+BOBCAT SNO,1,1,OTHER,special_equipment,Diğer
+BOBCAT T76,1,1,OTHER,special_equipment,Diğer
+BOBCAT/FOR,1,1,OTHER,special_equipment,Diğer
+BOBCT,1,1,OTHER,unmatched,Diğer
+BOOM 60FT,1,1,OTHER,unmatched,Diğer
+BOOM CRANE,1,1,OTHER,special_equipment,Diğer
+BOOM LIFT/,1,1,OTHER,unmatched,Diğer
+BOOM MOPED,1,1,OTHER,unmatched,Diğer
+BOOM SKY R,1,1,OTHER,unmatched,Diğer
+BOOML,1,1,OTHER,unmatched,Diğer
+BOX CARGO,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BOX H,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BOX M,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BOX MAIL T,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BOX P,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BOX TRUCKI,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+BREAD TRUC,1,1,OTHER,unmatched,Diğer
+BRONX CARE,1,1,OTHER,unmatched,Diğer
+BROWN,1,1,OTHER,unmatched,Diğer
+BTM,1,1,OTHER,unmatched,Diğer
+BUCKETLOAD,1,1,OTHER,unmatched,Diğer
+BUDGET TRU,1,1,OTHER,unmatched,Diğer
+BULDOZER,1,1,OTHER,unmatched,Diğer
+BUMP,1,1,OTHER,unmatched,Diğer
+BURG,1,1,OTHER,unmatched,Diğer
+BUS (OMNIB,1,1,BUS,bus,Otobüs
+BUS M,1,1,BUS,bus,Otobüs
+BUS Y,1,1,BUS,bus,Otobüs
+BUSV,1,1,OTHER,unmatched,Diğer
+C 1,1,1,OTHER,unmatched,Diğer
+C-1,1,1,OTHER,unmatched,Diğer
+C0MME,1,1,OTHER,unmatched,Diğer
+C40,1,1,OTHER,unmatched,Diğer
+C45 BOC TR,1,1,OTHER,unmatched,Diğer
+C7C,1,1,OTHER,unmatched,Diğer
+CABIN,1,1,OTHER,unmatched,Diğer
+CADET,1,1,OTHER,unmatched,Diğer
+CADIL,1,1,OTHER,unmatched,Diğer
+CAMPER,1,1,OTHER,unmatched,Diğer
+CAMPER VAN,1,1,VAN,van,Van / minibüs
+CAR,1,1,OTHER,unmatched,Diğer
+CAR CARRIE,1,1,OTHER,unmatched,Diğer
+CAR HAULER,1,1,OTHER,unmatched,Diğer
+CAR T,1,1,OTHER,unmatched,Diğer
+CAR/SUV,1,1,OTHER,unmatched,Diğer
+CARAVAN,1,1,OTHER,unmatched,Diğer
+CARGO TRAI,1,1,OTHER,unmatched,Diğer
+CARRIAGE,1,1,OTHER,special_equipment,Diğer
+CARRY ON T,1,1,OTHER,unmatched,Diğer
+CAT 3,1,1,OTHER,unmatched,Diğer
+CAT 4,1,1,OTHER,unmatched,Diğer
+CAT 9,1,1,OTHER,unmatched,Diğer
+CAT CATERP,1,1,OTHER,unmatched,Diğer
+CAT ESCABA,1,1,OTHER,unmatched,Diğer
+CAT FORKLI,1,1,OTHER,special_equipment,Diğer
+CAT P,1,1,OTHER,unmatched,Diğer
+CAT PAYLOA,1,1,OTHER,unmatched,Diğer
+CAT.,1,1,OTHER,unmatched,Diğer
+CAT32,1,1,OTHER,unmatched,Diğer
+CATAPILLAR,1,1,OTHER,unmatched,Diğer
+CATE,1,1,OTHER,unmatched,Diğer
+CATIP,1,1,OTHER,unmatched,Diğer
+CB534,1,1,OTHER,unmatched,Diğer
+CHERR,1,1,OTHER,unmatched,Diğer
+CHERV,1,1,OTHER,unmatched,Diğer
+CHEVY CARG,1,1,OTHER,unmatched,Diğer
+CHEVY EXPR,1,1,OTHER,unmatched,Diğer
+CHEVY VAN,1,1,VAN,van,Van / minibüs
+CHURC,1,1,OTHER,unmatched,Diğer
+CHVEY,1,1,OTHER,unmatched,Diğer
+CI,1,1,OTHER,unmatched,Diğer
+CITI BIKE,1,1,OTHER,unmatched,Diğer
+CITIBIKE,1,1,OTHER,unmatched,Diğer
+CITY BUS,1,1,BUS,bus,Otobüs
+CITY CARE,1,1,OTHER,unmatched,Diğer
+CITY TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+CITYWIDE,1,1,OTHER,unmatched,Diğer
+CLUB,1,1,OTHER,unmatched,Diğer
+CM,1,1,OTHER,unmatched,Diğer
+CMIXER,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+CMS-T,1,1,OTHER,unmatched,Diğer
+COACH,1,1,OTHER,unmatched,Diğer
+COLL,1,1,OTHER,unmatched,Diğer
+COLUMBIA U,1,1,OTHER,unmatched,Diğer
+COM DELIVE,1,1,OTHER,unmatched,Diğer
+COM TRANS,1,1,OTHER,unmatched,Diğer
+COM V,1,1,OTHER,unmatched,Diğer
+COM VAN,1,1,VAN,van,Van / minibüs
+COM.,1,1,OTHER,unmatched,Diğer
+COM/A,1,1,OTHER,unmatched,Diğer
+COMB,1,1,OTHER,unmatched,Diğer
+COMBINATIO,1,1,OTHER,unmatched,Diğer
+COMERCIAL,1,1,OTHER,unmatched,Diğer
+COMIX,1,1,OTHER,unmatched,Diğer
+COMM FOOD,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMM TRAIL,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMM TRK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMM VEHIC,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMM.,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMMER VEH,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMMERICIA,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMMM,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMMMERICA,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMMU,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+COMP SKID,1,1,OTHER,unmatched,Diğer
+COMPACT LO,1,1,OTHER,unmatched,Diğer
+CON E,1,1,OTHER,unmatched,Diğer
+CON ED BOX,1,1,OTHER,unmatched,Diğer
+CON EDISON,1,1,OTHER,unmatched,Diğer
+CON/A,1,1,OTHER,unmatched,Diğer
+CONCRETE M,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+CONEDISON,1,1,OTHER,unmatched,Diğer
+CONST EQUI,1,1,OTHER,unmatched,Diğer
+CONSTRUCT,1,1,OTHER,unmatched,Diğer
+CONT-,1,1,OTHER,unmatched,Diğer
+CONTAINER,1,1,OTHER,unmatched,Diğer
+CONTI,1,1,OTHER,unmatched,Diğer
+CONTR,1,1,OTHER,unmatched,Diğer
+CONTRUCTIO,1,1,OTHER,unmatched,Diğer
+CONVE,1,1,OTHER,unmatched,Diğer
+COT,1,1,OTHER,unmatched,Diğer
+COUPE,1,1,PASSENGER_CAR,passenger_car,Binek otomobil
+CP,1,1,OTHER,unmatched,Diğer
+CRANE BOOM,1,1,OTHER,special_equipment,Diğer
+CRANE TRUC,1,1,OTHER,special_equipment,Diğer
+CRF CARRIA,1,1,OTHER,unmatched,Diğer
+CROSS,1,1,OTHER,unmatched,Diğer
+CRWZK,1,1,OTHER,unmatched,Diğer
+CT,1,1,OTHER,unmatched,Diğer
+CUSHM,1,1,OTHER,unmatched,Diğer
+D/V WB,1,1,OTHER,unmatched,Diğer
+DARK COLOR,1,1,OTHER,unmatched,Diğer
+DART BIKE,1,1,OTHER,unmatched,Diğer
+DB,1,1,OTHER,unmatched,Diğer
+DEAGR,1,1,OTHER,unmatched,Diğer
+DEI V,1,1,OTHER,unmatched,Diğer
+DEIV,1,1,OTHER,unmatched,Diğer
+DEL T,1,1,OTHER,unmatched,Diğer
+DEL TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DELIVERY W,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+DELIVRY TR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DELV BR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DELV WH,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DELVI,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DELVIERY,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DELVR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DEMA-,1,1,OTHER,unmatched,Diğer
+DENT AND S,1,1,OTHER,unmatched,Diğer
+DEP V,1,1,OTHER,unmatched,Diğer
+DEPT,1,1,OTHER,unmatched,Diğer
+DEPT TOW T,1,1,OTHER,unmatched,Diğer
+DEPT VAN,1,1,VAN,van,Van / minibüs
+DEPT VAN #,1,1,VAN,van,Van / minibüs
+DERELICT V,1,1,OTHER,unmatched,Diğer
+DHL T,1,1,OTHER,unmatched,Diğer
+DIG-I,1,1,OTHER,unmatched,Diğer
+DILEVERY T,1,1,OTHER,unmatched,Diğer
+DIRT-,1,1,OTHER,unmatched,Diğer
+DISTRIBUTO,1,1,OTHER,unmatched,Diğer
+DL,1,1,OTHER,unmatched,Diğer
+DLEV,1,1,OTHER,unmatched,Diğer
+DLVR,1,1,OTHER,unmatched,Diğer
+DOOSK,1,1,OTHER,unmatched,Diğer
+DOS TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DOT #,1,1,OTHER,unmatched,Diğer
+DOT EQUIPM,1,1,OTHER,unmatched,Diğer
+DOT MACK T,1,1,OTHER,unmatched,Diğer
+DOT R,1,1,OTHER,unmatched,Diğer
+DOT RENTAL,1,1,OTHER,unmatched,Diğer
+DOT SAFETY,1,1,OTHER,unmatched,Diğer
+DOT V,1,1,OTHER,unmatched,Diğer
+DRILL RIG,1,1,OTHER,unmatched,Diğer
+DSNY GARBA,1,1,OTHER,unmatched,Diğer
+DSNY SANIT,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DUAL,1,1,OTHER,unmatched,Diğer
+DUMB TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DUMP GR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DUMP TRUK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DUMPE,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DUMPSTER,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+DUNBA,1,1,OTHER,unmatched,Diğer
+E,1,1,OTHER,unmatched,Diğer
+E - B,1,1,OTHER,unmatched,Diğer
+E - MOPED,1,1,OTHER,unmatched,Diğer
+E BIKE NO,1,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+E BIKE UNI,1,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+E MOPED,1,1,OTHER,unmatched,Diğer
+E MOTORCYC,1,1,OTHER,unmatched,Diğer
+E ONE,1,1,OTHER,unmatched,Diğer
+E PAS,1,1,OTHER,unmatched,Diğer
+E REVEL SC,1,1,OTHER,unmatched,Diğer
+E SKATE BO,1,1,OTHER,unmatched,Diğer
+E TOW,1,1,OTHER,unmatched,Diğer
+E- BI,1,1,OTHER,unmatched,Diğer
+E- MOTOR B,1,1,OTHER,unmatched,Diğer
+E- SCOOTER,1,1,OTHER,unmatched,Diğer
+E-350,1,1,OTHER,unmatched,Diğer
+E-BIKE NO,1,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+E-MOT,1,1,OTHER,unmatched,Diğer
+E-SCOTER,1,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+E-SKA,1,1,OTHER,unmatched,Diğer
+E-SOOTER,1,1,OTHER,unmatched,Diğer
+E.M.S,1,1,OTHER,unmatched,Diğer
+E/BIK,1,1,OTHER,unmatched,Diğer
+E3,1,1,OTHER,unmatched,Diğer
+EAMB,1,1,OTHER,unmatched,Diğer
+EAST,1,1,OTHER,unmatched,Diğer
+EC2,1,1,OTHER,unmatched,Diğer
+ECOLI,1,1,OTHER,unmatched,Diğer
+ELE MOTORC,1,1,OTHER,unmatched,Diğer
+ELE. UNICY,1,1,OTHER,unmatched,Diğer
+ELEC.,1,1,OTHER,unmatched,Diğer
+ELEC. UNIC,1,1,OTHER,unmatched,Diğer
+ELECRIC MO,1,1,OTHER,unmatched,Diğer
+ELECTRIC C,1,1,OTHER,unmatched,Diğer
+ELECTRICT,1,1,OTHER,unmatched,Diğer
+ELETR,1,1,OTHER,unmatched,Diğer
+ELETRIC BI,1,1,OTHER,unmatched,Diğer
+EMBULANCE,1,1,OTHER,unmatched,Diğer
+EMERGANCY,1,1,OTHER,unmatched,Diğer
+EMERGENCY,1,1,OTHER,unmatched,Diğer
+EMI- TRAIL,1,1,OTHER,unmatched,Diğer
+EMPTYBOX T,1,1,OTHER,unmatched,Diğer
+EMRGN,1,1,OTHER,unmatched,Diğer
+EMS -BUS,1,1,BUS,bus,Otobüs
+EMS AMBULE,1,1,EMERGENCY,emergency,Acil durum aracı
+EMS FDNY B,1,1,EMERGENCY,emergency,Acil durum aracı
+EMS H,1,1,OTHER,unmatched,Diğer
+EMS/VAN,1,1,VAN,van,Van / minibüs
+EMT,1,1,OTHER,unmatched,Diğer
+EMT TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+ENCLO,1,1,OTHER,unmatched,Diğer
+ENCLOSED T,1,1,OTHER,unmatched,Diğer
+ENGI,1,1,OTHER,unmatched,Diğer
+ENGINE,1,1,OTHER,unmatched,Diğer
+ENGINE 26,1,1,OTHER,unmatched,Diğer
+ENGINE SP0,1,1,OTHER,unmatched,Diğer
+ENTERPRISE,1,1,OTHER,unmatched,Diğer
+EPO,1,1,OTHER,unmatched,Diğer
+ES,1,1,OTHER,unmatched,Diğer
+ESCAVATER,1,1,OTHER,unmatched,Diğer
+ESCOO,1,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+ESCOOTER W,1,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+ESCOOTERSI,1,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+ESCOVATOR,1,1,E_MICROMOBILITY,e_micromobility,Elektrikli mikromobilite
+ESU,1,1,OTHER,unmatched,Diğer
+ESU RESCUE,1,1,OTHER,unmatched,Diğer
+EVOLVESKAT,1,1,OTHER,unmatched,Diğer
+EXCABATOR,1,1,OTHER,unmatched,Diğer
+EZ GO,1,1,OTHER,unmatched,Diğer
+F,1,1,OTHER,unmatched,Diğer
+F 55 TOW T,1,1,OTHER,unmatched,Diğer
+F-250,1,1,OTHER,unmatched,Diğer
+F15,1,1,OTHER,unmatched,Diğer
+F150XL PIC,1,1,OTHER,unmatched,Diğer
+F45,1,1,OTHER,unmatched,Diğer
+F550 ESU R,1,1,OTHER,unmatched,Diğer
+F650,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FARM,1,1,OTHER,unmatched,Diğer
+FARM VEHIC,1,1,OTHER,unmatched,Diğer
+FD APPARAT,1,1,OTHER,unmatched,Diğer
+FD FI,1,1,OTHER,unmatched,Diğer
+FD NY,1,1,OTHER,unmatched,Diğer
+FD PICKUP,1,1,OTHER,unmatched,Diğer
+FDNY #226,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY 245 E,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY 331 K,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY AMBU,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY BUS,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY CHIEF,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY EMS#1,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY ENG.,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY FRIE,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY INSUR,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY LADER,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY MECHA,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY PICKU,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY SP200,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY SUPER,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY UTILI,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY VAN,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY- FIRE,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNY285 EN,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNYEMSAMB,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNYLADDER,1,1,EMERGENCY,emergency,Acil durum aracı
+FDNYTRUCKF,1,1,EMERGENCY,emergency,Acil durum aracı
+FED,1,1,OTHER,unmatched,Diğer
+FEDERAL EX,1,1,OTHER,unmatched,Diğer
+FEDEX BOXT,1,1,OTHER,unmatched,Diğer
+FEDEX VAN,1,1,VAN,van,Van / minibüs
+FEDX,1,1,OTHER,unmatched,Diğer
+FEIG,1,1,OTHER,unmatched,Diğer
+FIRE BUS,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRE DEPAR,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRE LADDE,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRE RIG T,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRE RUCK,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRE TRUVK,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRE TURCK,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRE-TRUCK,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRER,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRET TRUC,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRETURCK,1,1,EMERGENCY,emergency,Acil durum aracı
+FIRTRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FLAT-,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FLATBED FR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FLATBED PI,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FLED,1,1,OTHER,unmatched,Diğer
+FLLET,1,1,OTHER,unmatched,Diğer
+FLTRL,1,1,OTHER,unmatched,Diğer
+FLY BIRD,1,1,OTHER,unmatched,Diğer
+FLYWING,1,1,OTHER,unmatched,Diğer
+FLYWING MO,1,1,OTHER,unmatched,Diğer
+FNDY EMS,1,1,OTHER,unmatched,Diğer
+FOGLIFT,1,1,OTHER,unmatched,Diğer
+FOLK LIFT,1,1,OTHER,unmatched,Diğer
+FOOD DELIV,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FOOD VENDE,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FOOR,1,1,OTHER,unmatched,Diğer
+FOR,1,1,OTHER,unmatched,Diğer
+FOR VAN,1,1,VAN,van,Van / minibüs
+FORD BLACK,1,1,OTHER,unmatched,Diğer
+FORD COURI,1,1,OTHER,unmatched,Diğer
+FORD ECONO,1,1,OTHER,unmatched,Diğer
+FORD F-150,1,1,OTHER,unmatched,Diğer
+FORD F150,1,1,OTHER,unmatched,Diğer
+FORD FF,1,1,OTHER,unmatched,Diğer
+FORD NONTR,1,1,OTHER,unmatched,Diğer
+FORD PICK,1,1,OTHER,unmatched,Diğer
+FORD PICKU,1,1,OTHER,unmatched,Diğer
+FORD SUPER,1,1,OTHER,unmatched,Diğer
+FORD TWO T,1,1,OTHER,unmatched,Diğer
+FORD-TCN,1,1,OTHER,unmatched,Diğer
+FORK-,1,1,OTHER,special_equipment,Diğer
+FORKLIFT L,1,1,OTHER,special_equipment,Diğer
+FORKLIFT V,1,1,OTHER,special_equipment,Diğer
+FORLIFT,1,1,OTHER,unmatched,Diğer
+FORTL,1,1,OTHER,unmatched,Diğer
+FRE T,1,1,OTHER,unmatched,Diğer
+FREE,1,1,OTHER,unmatched,Diğer
+FREIG DELV,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FREIGHNTLI,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FREIGHT FL,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FREIGHT LI,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FREIGHT TO,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+FREIGT VAN,1,1,VAN,van,Van / minibüs
+FREIH,1,1,OTHER,unmatched,Diğer
+FRH,1,1,OTHER,unmatched,Diğer
+FRHT TRAIL,1,1,OTHER,unmatched,Diğer
+FRHT VEHIC,1,1,OTHER,unmatched,Diğer
+FRHT-SPR,1,1,OTHER,unmatched,Diğer
+FRIEGHTLIN,1,1,OTHER,unmatched,Diğer
+FRONT-LOAD,1,1,OTHER,unmatched,Diğer
+FR`,1,1,OTHER,unmatched,Diğer
+FTL,1,1,OTHER,unmatched,Diğer
+FUSION,1,1,OTHER,unmatched,Diğer
+FUSO,1,1,OTHER,unmatched,Diğer
+FUSO TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+G,1,1,OTHER,unmatched,Diğer
+G CO,1,1,OTHER,unmatched,Diğer
+G OMR,1,1,OTHER,unmatched,Diğer
+G OMT,1,1,OTHER,unmatched,Diğer
+G SEM,1,1,OTHER,unmatched,Diğer
+G SPC,1,1,OTHER,unmatched,Diğer
+G1,1,1,OTHER,unmatched,Diğer
+G1`,1,1,OTHER,unmatched,Diğer
+G2,1,1,OTHER,unmatched,Diğer
+GARAB,1,1,OTHER,unmatched,Diğer
+GARAGE,1,1,OTHER,unmatched,Diğer
+GARBAGE ST,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+GARBAGE VE,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+GARGAGE TR,1,1,OTHER,unmatched,Diğer
+GAS DIRT B,1,1,OTHER,unmatched,Diğer
+GAS MO PED,1,1,OTHER,unmatched,Diğer
+GAS MO-PED,1,1,OTHER,unmatched,Diğer
+GAS POWERE,1,1,OTHER,unmatched,Diğer
+GAS PWR SC,1,1,OTHER,unmatched,Diğer
+GAS S,1,1,OTHER,unmatched,Diğer
+GATOR 4X4,1,1,OTHER,unmatched,Diğer
+GE/SC,1,1,OTHER,unmatched,Diğer
+GEN AMBUL,1,1,EMERGENCY,emergency,Acil durum aracı
+GENE,1,1,OTHER,unmatched,Diğer
+GENIE,1,1,OTHER,unmatched,Diğer
+GENUI,1,1,OTHER,unmatched,Diğer
+GLNEN,1,1,OTHER,unmatched,Diğer
+GLP050VXEV,1,1,OTHER,unmatched,Diğer
+GMC DELIVE,1,1,OTHER,unmatched,Diğer
+GMC ECOM,1,1,OTHER,unmatched,Diğer
+GMC PICK U,1,1,OTHER,unmatched,Diğer
+GMC SAVANN,1,1,OTHER,unmatched,Diğer
+GMC SIENNA,1,1,OTHER,unmatched,Diğer
+GMC T,1,1,OTHER,unmatched,Diğer
+GMC TRAILE,1,1,OTHER,unmatched,Diğer
+GMC VAN,1,1,VAN,van,Van / minibüs
+GOKAR,1,1,OTHER,unmatched,Diğer
+GOLF CAR,1,1,OTHER,special_equipment,Diğer
+GOLF KART,1,1,OTHER,special_equipment,Diğer
+GOLFCART,1,1,OTHER,special_equipment,Diğer
+GOV OWNED,1,1,OTHER,unmatched,Diğer
+GOV VEHICL,1,1,OTHER,unmatched,Diğer
+GOV'T,1,1,OTHER,unmatched,Diğer
+GOVENMENT,1,1,OTHER,unmatched,Diğer
+GOVERMENT,1,1,OTHER,unmatched,Diğer
+GOVT P/U T,1,1,OTHER,unmatched,Diğer
+GOVT.,1,1,OTHER,unmatched,Diğer
+GR HS,1,1,OTHER,unmatched,Diğer
+GRAIL,1,1,OTHER,unmatched,Diğer
+GRATER,1,1,OTHER,unmatched,Diğer
+GREEB,1,1,OTHER,unmatched,Diğer
+GRUMM,1,1,OTHER,unmatched,Diğer
+GSPC,1,1,OTHER,unmatched,Diğer
+GTH-1056,1,1,OTHER,unmatched,Diğer
+H CARRIAGE,1,1,OTHER,special_equipment,Diğer
+H3,1,1,OTHER,unmatched,Diğer
+HANDICAP S,1,1,OTHER,unmatched,Diğer
+HAUL FOR H,1,1,OTHER,unmatched,Diğer
+HD,1,1,OTHER,unmatched,Diğer
+HD TO,1,1,OTHER,unmatched,Diğer
+HDC,1,1,OTHER,unmatched,Diğer
+HEIL,1,1,OTHER,unmatched,Diğer
+HERTZ RAM,1,1,OTHER,unmatched,Diğer
+HI LO,1,1,OTHER,unmatched,Diğer
+HI TA,1,1,OTHER,unmatched,Diğer
+HIGH,1,1,OTHER,unmatched,Diğer
+HIGHL,1,1,OTHER,unmatched,Diğer
+HILOW,1,1,OTHER,unmatched,Diğer
+HINO MOTOR,1,1,OTHER,unmatched,Diğer
+HINO TANK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+HINO TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+HISTORICAL,1,1,OTHER,unmatched,Diğer
+HOE-L,1,1,OTHER,unmatched,Diğer
+HOME MADE,1,1,OTHER,unmatched,Diğer
+HONDA HRV,1,1,OTHER,unmatched,Diğer
+HOOK,1,1,OTHER,unmatched,Diğer
+HOSRE,1,1,OTHER,unmatched,Diğer
+HOSRE DRAW,1,1,OTHER,unmatched,Diğer
+HOTDO,1,1,OTHER,unmatched,Diğer
+HUMME,1,1,OTHER,unmatched,Diğer
+HUMVEE,1,1,OTHER,unmatched,Diğer
+HURSE,1,1,OTHER,unmatched,Diğer
+HWH,1,1,OTHER,unmatched,Diğer
+HWY C,1,1,OTHER,unmatched,Diğer
+HYSTER FOR,1,1,OTHER,unmatched,Diğer
+HYUND,1,1,OTHER,unmatched,Diğer
+I-HAUL,1,1,OTHER,unmatched,Diğer
+IC,1,1,OTHER,unmatched,Diğer
+ICECR,1,1,OTHER,unmatched,Diğer
+ICECREAM T,1,1,OTHER,unmatched,Diğer
+IMPAL,1,1,OTHER,unmatched,Diğer
+IN LINE SK,1,1,OTHER,unmatched,Diğer
+INDUSTRIAL,1,1,OTHER,unmatched,Diğer
+INTE TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+INTER TRAC,1,1,OTHER,unmatched,Diğer
+INTERNATIO,1,1,OTHER,unmatched,Diğer
+ITAS,1,1,OTHER,unmatched,Diğer
+J I CASE C,1,1,OTHER,unmatched,Diğer
+J3,1,1,OTHER,unmatched,Diğer
+JCB40,1,1,OTHER,unmatched,Diğer
+JJ150T-4A,1,1,OTHER,unmatched,Diğer
+JLG B,1,1,OTHER,unmatched,Diğer
+JLG L,1,1,OTHER,unmatched,Diğer
+JLG M,1,1,OTHER,unmatched,Diğer
+JLG ULTRA,1,1,OTHER,unmatched,Diğer
+JO/DE,1,1,OTHER,unmatched,Diğer
+JOHN DEER,1,1,OTHER,unmatched,Diğer
+JOHNDEERE,1,1,OTHER,unmatched,Diğer
+JUNST,1,1,OTHER,unmatched,Diğer
+KEN,1,1,OTHER,unmatched,Diğer
+KENWORTH T,1,1,OTHER,unmatched,Diğer
+KME/F,1,1,OTHER,unmatched,Diğer
+KOMATSU LO,1,1,OTHER,unmatched,Diğer
+KP160,1,1,OTHER,unmatched,Diğer
+KUBOT,1,1,OTHER,unmatched,Diğer
+KUBOTA BAC,1,1,OTHER,unmatched,Diğer
+KW,1,1,OTHER,unmatched,Diğer
+KW TR,1,1,OTHER,unmatched,Diğer
+LADD,1,1,OTHER,unmatched,Diğer
+LADDER 169,1,1,OTHER,unmatched,Diğer
+LADDER 34,1,1,OTHER,unmatched,Diğer
+LADDER CO,1,1,OTHER,unmatched,Diğer
+LANDSCAPIN,1,1,OTHER,unmatched,Diğer
+LATERAL TR,1,1,OTHER,unmatched,Diğer
+LAUND,1,1,OTHER,unmatched,Diğer
+LAWN,1,1,OTHER,unmatched,Diğer
+LCOMM,1,1,OTHER,unmatched,Diğer
+LD,1,1,OTHER,unmatched,Diğer
+LEASED AMB,1,1,OTHER,unmatched,Diğer
+LEFT THE S,1,1,OTHER,unmatched,Diğer
+LEU,1,1,OTHER,unmatched,Diğer
+LIABITIY,1,1,OTHER,unmatched,Diğer
+LIBER,1,1,OTHER,unmatched,Diğer
+LIMIT USE,1,1,OTHER,unmatched,Diğer
+LIMO VAN,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+LIMO/,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+LIT DIRECT,1,1,OTHER,unmatched,Diğer
+LIVERY,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+LIVERY BUS,1,1,BUS,bus,Otobüs
+LIVERY OMN,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+LLV,1,1,OTHER,unmatched,Diğer
+LLV MAIL T,1,1,OTHER,unmatched,Diğer
+LMA,1,1,OTHER,unmatched,Diğer
+LMTV,1,1,OTHER,unmatched,Diğer
+LOCOMOTIVE,1,1,OTHER,unmatched,Diğer
+LP,1,1,OTHER,unmatched,Diğer
+LULL,1,1,OTHER,unmatched,Diğer
+LUMBE,1,1,OTHER,unmatched,Diğer
+LUV,1,1,OTHER,unmatched,Diğer
+M/A,1,1,OTHER,unmatched,Diğer
+M/C,1,1,OTHER,unmatched,Diğer
+M2,1,1,OTHER,unmatched,Diğer
+M21,1,1,OTHER,unmatched,Diğer
+MAC,1,1,OTHER,unmatched,Diğer
+MAC 1,1,1,OTHER,unmatched,Diğer
+MAC F,1,1,OTHER,unmatched,Diğer
+MACK DUMP,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MACKTRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MAIL CARRI,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MAILVAN#55,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MAINT. TRU,1,1,OTHER,unmatched,Diğer
+MAINTENANC,1,1,OTHER,unmatched,Diğer
+MAN B,1,1,OTHER,unmatched,Diğer
+MANPOWER S,1,1,OTHER,unmatched,Diğer
+MANUAL SCO,1,1,OTHER,unmatched,Diğer
+MARK,1,1,OTHER,unmatched,Diğer
+MARKED RMP,1,1,OTHER,unmatched,Diğer
+"MARSH ,OPE",1,1,OTHER,unmatched,Diğer
+MAXIM,1,1,OTHER,unmatched,Diğer
+MCR,1,1,OTHER,unmatched,Diğer
+MCY B,1,1,OTHER,unmatched,Diğer
+MDX,1,1,OTHER,unmatched,Diğer
+ME/BE SUBN,1,1,OTHER,unmatched,Diğer
+MEDALLION,1,1,OTHER,unmatched,Diğer
+MESSAGE SI,1,1,OTHER,unmatched,Diğer
+METAL,1,1,OTHER,unmatched,Diğer
+METRO TRAN,1,1,OTHER,unmatched,Diğer
+METROTECH,1,1,OTHER,unmatched,Diğer
+MI/FU,1,1,OTHER,unmatched,Diğer
+MILITARY,1,1,OTHER,unmatched,Diğer
+MILITARY V,1,1,OTHER,unmatched,Diğer
+MILLI,1,1,OTHER,unmatched,Diğer
+MINI MOTOR,1,1,OTHER,unmatched,Diğer
+MINI PACKE,1,1,OTHER,unmatched,Diğer
+MINI TRUC,1,1,OTHER,unmatched,Diğer
+MINI TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+MINI VAHN,1,1,OTHER,unmatched,Diğer
+MIXER,1,1,OTHER,unmatched,Diğer
+MNI-MOTORC,1,1,OTHER,unmatched,Diğer
+MO PA,1,1,OTHER,unmatched,Diğer
+MO PE,1,1,OTHER,unmatched,Diğer
+MO PED,1,1,OTHER,unmatched,Diğer
+MO-PE,1,1,OTHER,unmatched,Diğer
+MO-PED,1,1,OTHER,unmatched,Diğer
+MOBILE,1,1,OTHER,unmatched,Diğer
+MOBILITY,1,1,OTHER,unmatched,Diğer
+MOBILTY SC,1,1,OTHER,unmatched,Diğer
+MOOPER,1,1,OTHER,unmatched,Diğer
+MOP,1,1,OTHER,unmatched,Diğer
+MOP PAD,1,1,OTHER,unmatched,Diğer
+MOPED 150C,1,1,MOTORCYCLE,motorcycle,Motosiklet / moped
+MOPED ELEC,1,1,MOTORCYCLE,motorcycle,Motosiklet / moped
+MOPED GAS,1,1,MOTORCYCLE,motorcycle,Motosiklet / moped
+MOPED GASO,1,1,MOTORCYCLE,motorcycle,Motosiklet / moped
+MOPED/SCOO,1,1,MOTORCYCLE,motorcycle,Motosiklet / moped
+MOPEN,1,1,OTHER,unmatched,Diğer
+MOPER,1,1,OTHER,unmatched,Diğer
+MOPOED,1,1,OTHER,unmatched,Diğer
+MOTER,1,1,OTHER,unmatched,Diğer
+MOTO-SCOOT,1,1,OTHER,unmatched,Diğer
+MOTOR DIRT,1,1,OTHER,unmatched,Diğer
+MOTOR SKAT,1,1,OTHER,unmatched,Diğer
+MOTOR. SCO,1,1,OTHER,unmatched,Diğer
+MOTORED SC,1,1,OTHER,unmatched,Diğer
+MOTORIST S,1,1,OTHER,unmatched,Diğer
+MOUNTAIN A,1,1,OTHER,unmatched,Diğer
+MOVIE,1,1,OTHER,unmatched,Diğer
+MOWER,1,1,OTHER,unmatched,Diğer
+MP,1,1,OTHER,unmatched,Diğer
+MTA BUS 4,1,1,BUS,bus,Otobüs
+MTA BUS 40,1,1,BUS,bus,Otobüs
+MTA BUS CO,1,1,BUS,bus,Otobüs
+MTA C,1,1,OTHER,unmatched,Diğer
+MTA CITY B,1,1,OTHER,unmatched,Diğer
+MTA ESU VE,1,1,OTHER,unmatched,Diğer
+MTA NYC BU,1,1,OTHER,unmatched,Diğer
+MTA T,1,1,OTHER,unmatched,Diğer
+MTA U,1,1,OTHER,unmatched,Diğer
+MTA V,1,1,OTHER,unmatched,Diğer
+MTA VAN,1,1,VAN,van,Van / minibüs
+MTA WORK T,1,1,OTHER,unmatched,Diğer
+MTABUS,1,1,OTHER,unmatched,Diğer
+MTR H,1,1,OTHER,unmatched,Diğer
+MTR S,1,1,OTHER,unmatched,Diğer
+MTRIZ,1,1,OTHER,unmatched,Diğer
+MVP,1,1,OTHER,unmatched,Diğer
+N?A,1,1,OTHER,unmatched,Diğer
+NAA,1,1,OTHER,unmatched,Diğer
+NAT GRID T,1,1,OTHER,unmatched,Diğer
+ND,1,1,OTHER,unmatched,Diğer
+NE/FL,1,1,OTHER,unmatched,Diğer
+NEW FLYER,1,1,OTHER,unmatched,Diğer
+NICE BUS,1,1,BUS,bus,Otobüs
+NINEBOT,1,1,OTHER,unmatched,Diğer
+NISSAN,1,1,OTHER,unmatched,Diğer
+NIU,1,1,OTHER,unmatched,Diğer
+NJ TRANSIT,1,1,OTHER,unmatched,Diğer
+NO/BU,1,1,OTHER,unmatched,Diğer
+NONMOTORDS,1,1,OTHER,unmatched,Diğer
+NOVA,1,1,OTHER,unmatched,Diğer
+NS AM,1,1,OTHER,unmatched,Diğer
+NT TR,1,1,OTHER,unmatched,Diğer
+NTTRL,1,1,OTHER,unmatched,Diğer
+NV CA,1,1,OTHER,unmatched,Diğer
+NV150,1,1,OTHER,unmatched,Diğer
+NY CITY MT,1,1,OTHER,unmatched,Diğer
+NY EMS,1,1,OTHER,unmatched,Diğer
+NYC ACS VA,1,1,OTHER,unmatched,Diğer
+NYC DOT,1,1,OTHER,unmatched,Diğer
+NYC FD,1,1,OTHER,unmatched,Diğer
+NYC FDNY,1,1,EMERGENCY,emergency,Acil durum aracı
+NYC FDNY #,1,1,EMERGENCY,emergency,Acil durum aracı
+NYC FIRE D,1,1,EMERGENCY,emergency,Acil durum aracı
+NYC FIRETR,1,1,EMERGENCY,emergency,Acil durum aracı
+NYC G,1,1,OTHER,unmatched,Diğer
+NYC MTA BU,1,1,OTHER,unmatched,Diğer
+NYC PARKS,1,1,OTHER,unmatched,Diğer
+NYC SCHOOL,1,1,OTHER,unmatched,Diğer
+NYC TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+NYC VAN,1,1,VAN,van,Van / minibüs
+NYC-S,1,1,OTHER,unmatched,Diğer
+NYCFIREDEP,1,1,EMERGENCY,emergency,Acil durum aracı
+NYCHA BOBC,1,1,OTHER,unmatched,Diğer
+NYCHA FORK,1,1,OTHER,special_equipment,Diğer
+NYCHA VAN,1,1,VAN,van,Van / minibüs
+NYFD AMBUL,1,1,EMERGENCY,emergency,Acil durum aracı
+NYNJ RAIL,1,1,OTHER,unmatched,Diğer
+NYPD ESU T,1,1,EMERGENCY,emergency,Acil durum aracı
+NYPD RMP,1,1,EMERGENCY,emergency,Acil durum aracı
+NYPD SIGNA,1,1,EMERGENCY,emergency,Acil durum aracı
+NYPD TOWTR,1,1,EMERGENCY,emergency,Acil durum aracı
+NYPD TRAFF,1,1,EMERGENCY,emergency,Acil durum aracı
+NYPD TRUCK,1,1,EMERGENCY,emergency,Acil durum aracı
+NYS A,1,1,OTHER,unmatched,Diğer
+NYS INSURA,1,1,OTHER,unmatched,Diğer
+NYU S,1,1,OTHER,unmatched,Diğer
+OBJEC,1,1,OTHER,unmatched,Diğer
+OFFIC,1,1,OTHER,unmatched,Diğer
+OFFICE TRA,1,1,OTHER,unmatched,Diğer
+OIL TANKER,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+OLC,1,1,OTHER,unmatched,Diğer
+OLD REPUBL,1,1,OTHER,unmatched,Diğer
+OLM,1,1,OTHER,unmatched,Diğer
+OMC,1,1,OTHER,unmatched,Diğer
+OML/,1,1,OTHER,unmatched,Diğer
+OML/OMNIBU,1,1,OTHER,unmatched,Diğer
+OMNI BUS,1,1,BUS,bus,Otobüs
+OMT/T,1,1,OTHER,unmatched,Diğer
+ORANGE JLG,1,1,OTHER,unmatched,Diğer
+ORION,1,1,OTHER,unmatched,Diğer
+ORV,1,1,OTHER,unmatched,Diğer
+OTH,1,1,OTHER,unmatched,Diğer
+OZ MO,1,1,OTHER,unmatched,Diğer
+P/SE,1,1,OTHER,unmatched,Diğer
+P/SH YW,1,1,OTHER,special_equipment,Diğer
+P/V,1,1,OTHER,unmatched,Diğer
+PA,1,1,OTHER,unmatched,Diğer
+PALFINGER,1,1,OTHER,unmatched,Diğer
+PALLE,1,1,OTHER,unmatched,Diğer
+PALLET JAC,1,1,OTHER,unmatched,Diğer
+PANEL VAN,1,1,VAN,van,Van / minibüs
+PARCE,1,1,OTHER,unmatched,Diğer
+PARKED,1,1,OTHER,unmatched,Diğer
+PARKS GOLF,1,1,OTHER,special_equipment,Diğer
+PAS (4DR S,1,1,OTHER,unmatched,Diğer
+PAS 5,1,1,OTHER,unmatched,Diğer
+PASORGVWOR,1,1,OTHER,unmatched,Diğer
+PASS VAN,1,1,VAN,van,Van / minibüs
+PASS-,1,1,OTHER,unmatched,Diğer
+PASSA,1,1,OTHER,unmatched,Diğer
+PAY LOADER,1,1,OTHER,special_equipment,Diğer
+PAYLOADER,1,1,OTHER,special_equipment,Diğer
+PCH,1,1,OTHER,unmatched,Diğer
+PEDAL BIKE,1,1,OTHER,unmatched,Diğer
+PEPSI DELI,1,1,OTHER,unmatched,Diğer
+PET,1,1,OTHER,unmatched,Diğer
+PETER,1,1,OTHER,unmatched,Diğer
+PETIT CAB,1,1,OTHER,unmatched,Diğer
+PI,1,1,OTHER,unmatched,Diğer
+PICK RD,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICK TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICK WH,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICK-UP F-,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICKUP SL,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICKUP TRA,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICKUP W/T,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PICKUP-TOW,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+PISH,1,1,OTHER,unmatched,Diğer
+PLATF,1,1,OTHER,unmatched,Diğer
+PLOW TRUC,1,1,OTHER,unmatched,Diğer
+POIS,1,1,OTHER,unmatched,Diğer
+POLICE REP,1,1,EMERGENCY,emergency,Acil durum aracı
+POLICE VAN,1,1,EMERGENCY,emergency,Acil durum aracı
+PORTA,1,1,OTHER,unmatched,Diğer
+POSTAL BOX,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+POSTAL BUS,1,1,BUS,bus,Otobüs
+POSTAL CAR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+POSTALVAN,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+POSTO,1,1,OTHER,unmatched,Diğer
+POTAL,1,1,OTHER,unmatched,Diğer
+POWER LADD,1,1,OTHER,unmatched,Diğer
+PRATT CRAN,1,1,OTHER,unmatched,Diğer
+PRINCIPLE,1,1,OTHER,unmatched,Diğer
+PRIV AMBUL,1,1,EMERGENCY,emergency,Acil durum aracı
+PRIVA,1,1,OTHER,unmatched,Diğer
+PRIVATE,1,1,OTHER,unmatched,Diğer
+PRIVATE AM,1,1,OTHER,unmatched,Diğer
+PRKS,1,1,OTHER,unmatched,Diğer
+PRO MASTER,1,1,OTHER,unmatched,Diğer
+PROGR,1,1,OTHER,unmatched,Diğer
+PROMASTER,1,1,OTHER,unmatched,Diğer
+PS,1,1,OTHER,unmatched,Diğer
+PSP,1,1,OTHER,unmatched,Diğer
+PSR,1,1,OTHER,unmatched,Diğer
+PSVAN,1,1,OTHER,unmatched,Diğer
+PUMPER TRU,1,1,OTHER,unmatched,Diğer
+PUSH CART,1,1,OTHER,unmatched,Diğer
+PV HOLDING,1,1,OTHER,unmatched,Diğer
+PVT AMBULA,1,1,EMERGENCY,emergency,Acil durum aracı
+QBE I,1,1,OTHER,unmatched,Diğer
+QMZ,1,1,OTHER,unmatched,Diğer
+QUAD,1,1,OTHER,unmatched,Diğer
+QUADRICYCL,1,1,OTHER,unmatched,Diğer
+QUALITY TR,1,1,OTHER,unmatched,Diğer
+R.M.P.,1,1,OTHER,unmatched,Diğer
+R/V C,1,1,OTHER,unmatched,Diğer
+RAM COMM.,1,1,OTHER,unmatched,Diğer
+RAM FB,1,1,OTHER,unmatched,Diğer
+RAM PRM,1,1,OTHER,unmatched,Diğer
+RAM PROMAS,1,1,OTHER,unmatched,Diğer
+RANGE,1,1,OTHER,unmatched,Diğer
+RAZOR,1,1,OTHER,unmatched,Diğer
+RAZOR150 M,1,1,OTHER,unmatched,Diğer
+RBM,1,1,OTHER,unmatched,Diğer
+RD BLDNG M,1,1,OTHER,unmatched,Diğer
+REAR END,1,1,OTHER,unmatched,Diğer
+REC VEHICL,1,1,OTHER,unmatched,Diğer
+RED,1,1,OTHER,unmatched,Diğer
+RED M,1,1,OTHER,unmatched,Diğer
+RED MOPED,1,1,OTHER,unmatched,Diğer
+RED SCOOTE,1,1,OTHER,unmatched,Diğer
+RED TRAILE,1,1,OTHER,unmatched,Diğer
+RED VEHICL,1,1,OTHER,unmatched,Diğer
+"RED,",1,1,OTHER,unmatched,Diğer
+REF BOX TR,1,1,OTHER,unmatched,Diğer
+REF G,1,1,OTHER,unmatched,Diğer
+REFG/,1,1,TRUCK_COMMERCIAL,refrigerated_truck,Kamyon / ticari
+REFQ,1,1,OTHER,unmatched,Diğer
+REFR,1,1,OTHER,unmatched,Diğer
+REFRG,1,1,OTHER,unmatched,Diğer
+REFRIGER T,1,1,OTHER,unmatched,Diğer
+REFUSE TRU,1,1,OTHER,unmatched,Diğer
+REG,1,1,OTHER,unmatched,Diğer
+REG.AMBULA,1,1,EMERGENCY,emergency,Acil durum aracı
+REN,1,1,OTHER,unmatched,Diğer
+RENTAL VAN,1,1,VAN,van,Van / minibüs
+RENTED BOO,1,1,OTHER,unmatched,Diğer
+REPAI,1,1,OTHER,unmatched,Diğer
+RESCUE TRU,1,1,OTHER,unmatched,Diğer
+REVEL MO'E,1,1,OTHER,unmatched,Diğer
+RGR,1,1,OTHER,unmatched,Diğer
+RIDE ON SC,1,1,OTHER,unmatched,Diğer
+RIDGELINE,1,1,OTHER,unmatched,Diğer
+RIDINGMOWN,1,1,OTHER,unmatched,Diğer
+RINGO,1,1,OTHER,unmatched,Diğer
+RIV 2022,1,1,OTHER,unmatched,Diğer
+RMB,1,1,OTHER,unmatched,Diğer
+RMP VEHICL,1,1,OTHER,unmatched,Diğer
+ROAD BUILD,1,1,OTHER,unmatched,Diğer
+ROADROLLER,1,1,OTHER,unmatched,Diğer
+ROADS,1,1,OTHER,unmatched,Diğer
+ROLLE,1,1,OTHER,unmatched,Diğer
+ROLLERBLAD,1,1,OTHER,unmatched,Diğer
+ROLLI,1,1,OTHER,unmatched,Diğer
+ROLLOFF,1,1,OTHER,unmatched,Diğer
+ROOD,1,1,OTHER,unmatched,Diğer
+RORO,1,1,OTHER,unmatched,Diğer
+RT,1,1,OTHER,unmatched,Diğer
+RUBBE,1,1,OTHER,unmatched,Diğer
+RV MOTOR H,1,1,OTHER,unmatched,Diğer
+RV MOTORHO,1,1,OTHER,unmatched,Diğer
+RV/TR,1,1,OTHER,unmatched,Diğer
+RV/VAN,1,1,VAN,van,Van / minibüs
+RYDER,1,1,OTHER,unmatched,Diğer
+S,1,1,OTHER,unmatched,Diğer
+S/SP,1,1,OTHER,unmatched,Diğer
+SAFET,1,1,OTHER,unmatched,Diğer
+SALT,1,1,OTHER,unmatched,Diğer
+SALTSPREAD,1,1,OTHER,unmatched,Diğer
+SANAT,1,1,OTHER,unmatched,Diğer
+SAND TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SANITAION,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SANITATON,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SANMEN COU,1,1,OTHER,unmatched,Diğer
+SANTA,1,1,OTHER,unmatched,Diğer
+SANTI,1,1,OTHER,unmatched,Diğer
+SANTIATION,1,1,OTHER,unmatched,Diğer
+SAVANA,1,1,OTHER,unmatched,Diğer
+SAVANA VAN,1,1,VAN,van,Van / minibüs
+SCAFF,1,1,OTHER,unmatched,Diğer
+SCAVA,1,1,OTHER,unmatched,Diğer
+SCHO,1,1,OTHER,unmatched,Diğer
+SCHOO LBUS,1,1,BUS,bus,Otobüs
+SCOMM,1,1,OTHER,unmatched,Diğer
+SCOOC,1,1,OTHER,unmatched,Diğer
+SCOOTER (G,1,1,OTHER,ambiguous_scooter,Diğer
+SCOOTER BI,1,1,OTHER,ambiguous_scooter,Diğer
+SCOOTER NO,1,1,OTHER,ambiguous_scooter,Diğer
+SCOOTER SI,1,1,OTHER,ambiguous_scooter,Diğer
+SCOOTER W,1,1,OTHER,ambiguous_scooter,Diğer
+SCOOTOR,1,1,OTHER,ambiguous_scooter,Diğer
+SCOTTER,1,1,OTHER,unmatched,Diğer
+SD,1,1,OTHER,unmatched,Diğer
+SEA,1,1,OTHER,unmatched,Diğer
+SEAGR,1,1,OTHER,unmatched,Diğer
+SEDONA,1,1,OTHER,unmatched,Diğer
+SEM,1,1,OTHER,unmatched,Diğer
+SEMI COMM,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SEN,1,1,OTHER,unmatched,Diğer
+SENIORCARE,1,1,OTHER,unmatched,Diğer
+SERVI,1,1,OTHER,unmatched,Diğer
+SFI,1,1,OTHER,unmatched,Diğer
+SGWS,1,1,OTHER,unmatched,Diğer
+SHCOO,1,1,OTHER,unmatched,Diğer
+SHORT,1,1,OTHER,unmatched,Diğer
+SHORT BUS,1,1,BUS,bus,Otobüs
+SHORT SCHO,1,1,OTHER,unmatched,Diğer
+SHOVE,1,1,OTHER,unmatched,Diğer
+SHOVEL,1,1,OTHER,unmatched,Diğer
+SIERRA,1,1,OTHER,unmatched,Diğer
+SILVE,1,1,OTHER,unmatched,Diğer
+SINGLE UNI,1,1,OTHER,unmatched,Diğer
+SITING MOP,1,1,OTHER,unmatched,Diğer
+SKATBOARD,1,1,OTHER,unmatched,Diğer
+SKID-,1,1,OTHER,unmatched,Diğer
+SKIDSTEERL,1,1,OTHER,unmatched,Diğer
+SLINGSHOOT,1,1,OTHER,unmatched,Diğer
+SLINGSHOT,1,1,OTHER,unmatched,Diğer
+SM YW,1,1,OTHER,unmatched,Diğer
+SMALL BUS,1,1,BUS,bus,Otobüs
+SMALL FOOD,1,1,OTHER,unmatched,Diğer
+SMALL SCHO,1,1,OTHER,unmatched,Diğer
+SMALL TRAC,1,1,OTHER,unmatched,Diğer
+SMART CAR,1,1,OTHER,unmatched,Diğer
+SMYELLSCHO,1,1,OTHER,unmatched,Diğer
+SNOW MINI,1,1,OTHER,unmatched,Diğer
+SNOW PLOWE,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SOCCER,1,1,OTHER,unmatched,Diğer
+SOLID WAST,1,1,OTHER,unmatched,Diğer
+SONATA,1,1,OTHER,unmatched,Diğer
+SPARK150 S,1,1,OTHER,unmatched,Diğer
+SPC P,1,1,OTHER,unmatched,Diğer
+SPEAC,1,1,OTHER,unmatched,Diğer
+SPEC-,1,1,OTHER,unmatched,Diğer
+SPECI,1,1,OTHER,unmatched,Diğer
+SPECIAL MO,1,1,OTHER,unmatched,Diğer
+SPINTER VA,1,1,OTHER,unmatched,Diğer
+SPR,1,1,OTHER,unmatched,Diğer
+SPRINTER 2,1,1,VAN,van,Van / minibüs
+SPRINTER W,1,1,VAN,van,Van / minibüs
+ST CLEAN T,1,1,OTHER,unmatched,Diğer
+ST150,1,1,OTHER,unmatched,Diğer
+STACK,1,1,OTHER,unmatched,Diğer
+STAKE,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+STAND-UP S,1,1,OTHER,unmatched,Diğer
+STANDUP SC,1,1,OTHER,unmatched,Diğer
+STARC,1,1,OTHER,unmatched,Diğer
+STATE,1,1,OTHER,unmatched,Diğer
+STATE NATI,1,1,OTHER,unmatched,Diğer
+STRAIGHT T,1,1,OTHER,unmatched,Diğer
+STREET,1,1,OTHER,unmatched,Diğer
+SUBAR,1,1,OTHER,unmatched,Diğer
+SUBN - AMB,1,1,OTHER,unmatched,Diğer
+SUBN TN,1,1,OTHER,unmatched,Diğer
+SUBN WHI,1,1,OTHER,unmatched,Diğer
+SUBN-,1,1,OTHER,unmatched,Diğer
+SUBN/,1,1,OTHER,unmatched,Diğer
+SUBN/AMBUL,1,1,EMERGENCY,emergency,Acil durum aracı
+SUBN/VAN,1,1,VAN,van,Van / minibüs
+SUDAN,1,1,OTHER,unmatched,Diğer
+SUDN,1,1,OTHER,unmatched,Diğer
+SUPERCAB,1,1,OTHER,unmatched,Diğer
+SURBURBAN,1,1,OTHER,unmatched,Diğer
+SURET,1,1,OTHER,unmatched,Diğer
+SUV /,1,1,OTHER,unmatched,Diğer
+SW/VAN,1,1,VAN,van,Van / minibüs
+SWEEPER TR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+SWEPE,1,1,OTHER,unmatched,Diğer
+SWINGLOADE,1,1,OTHER,unmatched,Diğer
+T/ CR,1,1,OTHER,unmatched,Diğer
+T2,1,1,OTHER,unmatched,Diğer
+T350HD,1,1,OTHER,unmatched,Diğer
+T630 FORKL,1,1,OTHER,special_equipment,Diğer
+T650,1,1,OTHER,unmatched,Diğer
+T880,1,1,OTHER,unmatched,Diğer
+TAC,1,1,OTHER,unmatched,Diğer
+TAILG,1,1,OTHER,unmatched,Diğer
+TAN P,1,1,OTHER,unmatched,Diğer
+TANDU,1,1,OTHER,unmatched,Diğer
+TANK WH,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TARILER,1,1,OTHER,unmatched,Diğer
+TC,1,1,OTHER,unmatched,Diğer
+TCM,1,1,OTHER,unmatched,Diğer
+TCR,1,1,OTHER,unmatched,Diğer
+TE,1,1,OTHER,unmatched,Diğer
+TELEHANDLE,1,1,OTHER,unmatched,Diğer
+THOMAS,1,1,OTHER,unmatched,Diğer
+TILLA,1,1,OTHER,unmatched,Diğer
+TILT TANDE,1,1,OTHER,unmatched,Diğer
+TIR,1,1,OTHER,unmatched,Diğer
+TKP,1,1,OTHER,unmatched,Diğer
+TKTR,1,1,OTHER,unmatched,Diğer
+TLC P,1,1,OTHER,unmatched,Diğer
+TLC V,1,1,OTHER,unmatched,Diğer
+TOKEN,1,1,OTHER,unmatched,Diğer
+TOOLCAT FO,1,1,OTHER,unmatched,Diğer
+TOUR BUS,1,1,BUS,bus,Otobüs
+TOW R,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOW TRICK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOW TRK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOW-T,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOW4,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOWE,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOWE TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOWIN,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOWING TRU,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOWMA,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOWTRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TOY MINI V,1,1,OTHER,unmatched,Diğer
+TR-TRAILER,1,1,OTHER,unmatched,Diğer
+TR/C RD,1,1,OTHER,unmatched,Diğer
+TR/KI,1,1,OTHER,unmatched,Diğer
+TR/TR,1,1,OTHER,unmatched,Diğer
+TRA,1,1,OTHER,unmatched,Diğer
+TRA/R,1,1,OTHER,unmatched,Diğer
+TRAC.,1,1,OTHER,unmatched,Diğer
+TRACK EXCA,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRACK TRAI,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRACKTOR T,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRACTOR CR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAFFIC,1,1,OTHER,unmatched,Diğer
+TRAFFIC TO,1,1,OTHER,unmatched,Diğer
+TRAI,1,1,OTHER,unmatched,Diğer
+TRAILEE,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILER BO,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILER CA,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILER FL,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILER VE,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILER-VA,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILER.,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILER/FL,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAILER/TR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRAIN CART,1,1,OTHER,unmatched,Diğer
+TRALI,1,1,OTHER,unmatched,Diğer
+TRALIER,1,1,OTHER,unmatched,Diğer
+TRAM,1,1,OTHER,unmatched,Diğer
+TRANSIT MT,1,1,OTHER,unmatched,Diğer
+TRANSPORTE,1,1,OTHER,unmatched,Diğer
+TRASH,1,1,OTHER,unmatched,Diğer
+TRC M,1,1,OTHER,unmatched,Diğer
+TRCIC,1,1,OTHER,unmatched,Diğer
+TREE CUTTE,1,1,OTHER,unmatched,Diğer
+TRIALER,1,1,OTHER,unmatched,Diğer
+TRIM,1,1,OTHER,unmatched,Diğer
+TRK-M1,1,1,OTHER,unmatched,Diğer
+TRLPM,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+"TRLR PLT,",1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TROLLEY,1,1,OTHER,unmatched,Diğer
+TROLLEY RI,1,1,OTHER,unmatched,Diğer
+TROPICANA,1,1,OTHER,unmatched,Diğer
+TRUC,1,1,OTHER,unmatched,Diğer
+TRUCJ,1,1,OTHER,unmatched,Diğer
+TRUCK 18 W,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRUCK COMM,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRUCK FLAT,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRUCK LADD,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRUCK TRAC,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRUCK VAN,1,1,VAN,van,Van / minibüs
+TRUCK W/TR,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+TRUCK/BUS,1,1,BUS,bus,Otobüs
+TRUCK/VAN,1,1,VAN,van,Van / minibüs
+TRUCTOR TR,1,1,OTHER,unmatched,Diğer
+TT,1,1,OTHER,unmatched,Diğer
+TTAILER,1,1,OTHER,unmatched,Diğer
+TTRAILER,1,1,OTHER,unmatched,Diğer
+TUCK,1,1,OTHER,unmatched,Diğer
+TUGGE,1,1,OTHER,unmatched,Diğer
+TWO WHEEL,1,1,OTHER,unmatched,Diğer
+U HAUL MOV,1,1,OTHER,unmatched,Diğer
+U HAUL TRA,1,1,OTHER,unmatched,Diğer
+U-HAL,1,1,OTHER,unmatched,Diğer
+U-HAUL BOX,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+U-HAUL MIN,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+U-TRU,1,1,OTHER,unmatched,Diğer
+U.S P,1,1,OTHER,unmatched,Diğer
+U.S. POSTA,1,1,OTHER,unmatched,Diğer
+U.S.P,1,1,OTHER,unmatched,Diğer
+U/K,1,1,OTHER,unmatched,Diğer
+UBER,1,1,OTHER,unmatched,Diğer
+UHAL RENTA,1,1,OTHER,unmatched,Diğer
+UHAL TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UHAULWTOWD,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+ULILI,1,1,OTHER,unmatched,Diğer
+ULITI,1,1,OTHER,unmatched,Diğer
+UNATTACHED,1,1,OTHER,unmatched,Diğer
+UNI,1,1,OTHER,unmatched,Diğer
+UNI E-BIKE,1,1,OTHER,unmatched,Diğer
+UNK BOX TR,1,1,OTHER,unmatched,Diğer
+UNK FEMALE,1,1,OTHER,unmatched,Diğer
+UNK MOTOR,1,1,OTHER,unmatched,Diğer
+UNK T,1,1,OTHER,unmatched,Diğer
+UNK VEHICL,1,1,OTHER,unmatched,Diğer
+"UNK,",1,1,OTHER,unmatched,Diğer
+UNK.,1,1,OTHER,unmatched,Diğer
+UNKL,1,1,OTHER,unmatched,Diğer
+UNKNOWN CA,1,1,OTHER,unmatched,Diğer
+UNKOWM,1,1,OTHER,unmatched,Diğer
+UNKOWN VEH,1,1,OTHER,unmatched,Diğer
+UNKW,1,1,OTHER,unmatched,Diğer
+UNKWN,1,1,OTHER,unmatched,Diğer
+UNKWOWN,1,1,OTHER,unmatched,Diğer
+UNL,1,1,OTHER,unmatched,Diğer
+UNLNO,1,1,OTHER,unmatched,Diğer
+UNMARKED V,1,1,OTHER,unmatched,Diğer
+UNNKO,1,1,OTHER,unmatched,Diğer
+UNNOWN,1,1,OTHER,unmatched,Diğer
+UPS M,1,1,OTHER,unmatched,Diğer
+UPS VAN TR,1,1,VAN,van,Van / minibüs
+US GOVERME,1,1,OTHER,unmatched,Diğer
+US GOVT VE,1,1,OTHER,unmatched,Diğer
+US MAIL #1,1,1,OTHER,unmatched,Diğer
+US MAIL TR,1,1,OTHER,unmatched,Diğer
+US SANITAT,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USAA,1,1,OTHER,unmatched,Diğer
+USP M,1,1,OTHER,unmatched,Diğer
+USPCS,1,1,OTHER,unmatched,Diğer
+USPCS TRUC,1,1,OTHER,unmatched,Diğer
+USPS # 487,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS #6530,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS #7530,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS 88716,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS BOX T,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS MAILT,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS POST,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS SELF,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS SMALL,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS SUV,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+"USPS TRUC,",1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS#,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS/GOVT,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPS2,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+USPST,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTIL TRUCK,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTIL.,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTILITY CA,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTILITY WH,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTILITY.,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTILT,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+UTILTY VAN,1,1,VAN,van,Van / minibüs
+UTLL,1,1,OTHER,unmatched,Diğer
+UTV BOBCAT,1,1,OTHER,special_equipment,Diğer
+UTYLI,1,1,OTHER,unmatched,Diğer
+VA,1,1,OTHER,unmatched,Diğer
+VAB,1,1,OTHER,unmatched,Diğer
+VAGON,1,1,OTHER,unmatched,Diğer
+VAM,1,1,OTHER,unmatched,Diğer
+VAN BOX TR,1,1,VAN,van,Van / minibüs
+VAN BUS,1,1,BUS,bus,Otobüs
+VAN E,1,1,VAN,van,Van / minibüs
+VAN FORD,1,1,VAN,van,Van / minibüs
+VAN H,1,1,VAN,van,Van / minibüs
+VAN S,1,1,VAN,van,Van / minibüs
+VAN U,1,1,VAN,van,Van / minibüs
+VAN U-HAUL,1,1,VAN,van,Van / minibüs
+VAN WH,1,1,VAN,van,Van / minibüs
+VAN/,1,1,VAN,van,Van / minibüs
+VAN/B,1,1,VAN,van,Van / minibüs
+VAN/R,1,1,VAN,van,Van / minibüs
+VAN/TRANSI,1,1,VAN,van,Van / minibüs
+VANET,1,1,OTHER,unmatched,Diğer
+VANG,1,1,OTHER,unmatched,Diğer
+VANT,1,1,OTHER,unmatched,Diğer
+VAN`,1,1,VAN,van,Van / minibüs
+VAS,1,1,OTHER,unmatched,Diğer
+VEH L,1,1,OTHER,unmatched,Diğer
+VEHIC,1,1,OTHER,unmatched,Diğer
+VEHICLE 2,1,1,OTHER,unmatched,Diğer
+VEND,1,1,OTHER,unmatched,Diğer
+VENDOR CHA,1,1,OTHER,unmatched,Diğer
+VENDOR FOO,1,1,OTHER,unmatched,Diğer
+VERZION VA,1,1,OTHER,unmatched,Diğer
+VMS SIGN,1,1,OTHER,unmatched,Diğer
+VMS T,1,1,OTHER,unmatched,Diğer
+VN,1,1,OTHER,unmatched,Diğer
+VOL,1,1,OTHER,unmatched,Diğer
+VOLKS,1,1,OTHER,unmatched,Diğer
+VS2,1,1,OTHER,unmatched,Diğer
+WAG,1,1,OTHER,unmatched,Diğer
+WANC,1,1,OTHER,unmatched,Diğer
+WASTE TRUC,1,1,OTHER,unmatched,Diğer
+WC,1,1,OTHER,unmatched,Diğer
+WELLS,1,1,OTHER,unmatched,Diğer
+WG,1,1,OTHER,unmatched,Diğer
+WH,1,1,OTHER,unmatched,Diğer
+WH FORD CO,1,1,OTHER,unmatched,Diğer
+WHBL,1,1,OTHER,unmatched,Diğer
+WHEEL BARR,1,1,OTHER,unmatched,Diğer
+WHEEL LOAD,1,1,OTHER,unmatched,Diğer
+WHIT,1,1,OTHER,unmatched,Diğer
+WHITE AMBU,1,1,OTHER,unmatched,Diğer
+WHITE BOX,1,1,OTHER,unmatched,Diğer
+WHITE CAR,1,1,OTHER,unmatched,Diğer
+WHITE DODG,1,1,OTHER,unmatched,Diğer
+WHITE FORD,1,1,OTHER,unmatched,Diğer
+WHITE TOW,1,1,OTHER,unmatched,Diğer
+WHITE TRUC,1,1,OTHER,unmatched,Diğer
+WINEB,1,1,OTHER,unmatched,Diğer
+WINNIEBAGO,1,1,OTHER,unmatched,Diğer
+WOOD CHIPP,1,1,OTHER,unmatched,Diğer
+WORKCART,1,1,OTHER,unmatched,Diğer
+WORKH UTIL,1,1,TRUCK_COMMERCIAL,truck_commercial,Kamyon / ticari
+WORKHORSE,1,1,OTHER,special_equipment,Diğer
+WORKM,1,1,OTHER,unmatched,Diğer
+WSTR,1,1,OTHER,unmatched,Diğer
+WUBN,1,1,OTHER,unmatched,Diğer
+X,1,1,OTHER,unmatched,Diğer
+X TOW,1,1,OTHER,unmatched,Diğer
+X TRAILER,1,1,OTHER,unmatched,Diğer
+X TRL,1,1,OTHER,unmatched,Diğer
+YALE,1,1,OTHER,unmatched,Diğer
+YALE FORK,1,1,OTHER,special_equipment,Diğer
+YAMAH,1,1,OTHER,unmatched,Diğer
+YAMAHA,1,1,OTHER,unmatched,Diğer
+YELLOW SCH,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+YELLOW TAX,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+YELLOWBUS,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+YELLOWPOWE,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+YELLOWSCHO,1,1,TAXI_FOR_HIRE,taxi_for_hire,Taksi / kiralık araç
+YLL P,1,1,OTHER,unmatched,Diğer
+YNK,1,1,OTHER,unmatched,Diğer
+YPS,1,1,OTHER,unmatched,Diğer
+YW,1,1,OTHER,unmatched,Diğer
+YW PO,1,1,OTHER,unmatched,Diğer
+YW SCHOOL,1,1,OTHER,unmatched,Diğer
+YY,1,1,OTHER,unmatched,Diğer
+OMM,1,1,OTHER,unmatched,Diğer
+ХР06,1,1,OTHER,unmatched,Diğer
+�MBU,1,1,OTHER,unmatched,Diğer

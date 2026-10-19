@@ -57,3 +57,68 @@ Her kararda dört bilgi kaydedilir: bağlam, karar, gerekçe ve değerlendirilen
 ### K-10 — Defterde elle yazılmış istatistik yok (2026-10-19, Faz 1)
 - **Karar:** Defterdeki markdown hücreleri yalnızca yöntem ve yorum içerir. Tüm sayılar kod hücresi çıktılarında, `saferoute` paketinin fonksiyonlarıyla hesaplanır.
 - **Gerekçe:** Anlık görüntü değişirse metindeki sayılar eskimez. Ayrıca iş mantığı defterde tekrar edilmez.
+
+---
+
+## Faz 2 kararları
+
+### K-11 — Katman yapısı ve idempotentlik (2026-10-19, Faz 2)
+- **Karar:** `raw → interim → processed → features` katmanları kullanılır. Her Parquet dosyasının yanında bir yan kayıt (sidecar) bulunur: kaynak SHA-256, ilçe sınırı SHA-256, yapılandırma ve özeti, hat sürümü, satır/sütun sayısı, dosya SHA-256 ve içerik özeti.
+- **Atlama koşulu:** Bu kimlik bilgileri değişmediyse ve dosya özetleri doğrulanıyorsa hat atlanır.
+- **Doğrulama:** `--force` ile yeniden üretilen çıktının içerik özeti öncekiyle aynı çıkar; bu testle doğrulandı.
+
+### K-12 — İlçe çıkarımında yüklem: `covered_by` (intersects) ve belirsizlik politikası (2026-10-19, Faz 2)
+- **Karar:** Bir nokta tam olarak tek bir ilçe poligonunu kapsıyorsa (iç veya sınır, `intersects_xy`) o ilçe atanır.
+- **Belirsiz ve dış noktalar:** İki veya daha fazla ilçeyle kesişen nokta `boundary_ambiguous` olur ve atama yapılmaz. Poligon dışındaki noktalar, kıyıya yakın olsalar bile, **hiçbir ilçeye atanmaz**.
+- **Ölçüm:** Gerçek veride 349.140 benzersiz noktada `intersects` ve `contains` sonuçları aynı çıktı; sınır çizgisi üstünde ya da birden fazla ilçede nokta yok. Yüklem seçimi bu veride sonucu değiştirmiyor; politika yine de testlerle sabitlendi.
+
+### K-13 — Kıyıya yakınlık tamponu 500 m (2026-10-19, Faz 2)
+- **Bağlam:** Resmî poligonlar su alanlarını hariç tutar. Köprü ve kıyı yolu kazaları poligon dışında kalır; en çok tekrarlanan konumlar arasında Verrazzano (887 kaza) ve Whitestone (477) köprüleri var.
+- **Karar:** Poligon dışında ve NYC karasına en fazla 500 m uzaklıktaki noktalar `outside_nyc_nearshore` olarak sınıflanır. Bu noktalar geçerli coğrafi kayıttır ve kümelemeye alınır, ama ilçeleri atanmaz.
+- **Gerekçe:** Gerçek mesafe dağılımında 500–1000 m arasında hiç nokta yok; bu doğal bir kırılma. Uzak kalan 46 kayıt ise yaklaşık 3.600 km'ye kadar uzanıyor.
+- **Esneklik:** `clustering_include_nearshore` ayarıyla bu noktalar kümelemeden çıkarılabilir; bu davranış test edildi.
+
+### K-14 — Eksik değer doldurma yapılmaz (2026-10-19, Faz 2)
+- **Karar:** Koordinat, saat, ilçe ve yaralı/ölü değerleri **doldurulmaz**. İlçe yalnızca resmî poligondan çıkarılır. Diğer eksikler bayrakla işaretlenir veya gerekçesiyle dışlanır.
+- **Gerekçe:** Uydurulan bir konum ya da saat, yoğunluk tabanlı kümelemede gerçekte olmayan yoğunluklar üretir.
+
+### K-15 — Bildirilen ilçe çelişkide korunur (2026-10-19, Faz 2)
+- **Karar:** `borough_final` alanı bildirilen değeri, yoksa poligonla çıkarılan değeri taşır. Çelişki durumunda bildirilen değer korunur ve `borough_conflict_flag` işaretlenir.
+- **Gerekçe:** Çelişkilerin bir kısmında koordinatın kendisi hatalı (bkz. K-16), bir kısmında ise idari ilçe coğrafi ilçeden farklı (Marble Hill). Kaynağın hangisinin doğru olduğu kayıt düzeyinde bilinemez; bu yüzden sessiz düzeltme yapılmaz.
+
+### K-16 — Yedek geokodlama şüphesi bayrağı (2026-10-19, Faz 2)
+- **Bulgu:** Bazı tekil koordinatlarda beş farklı ilçeden bildirilmiş kazalar var. Örneğin 40.7136, −74.0091 noktasında 192 kayıt bulunuyor ve hepsi 2016 yılına ait. Tek bir fiziksel nokta en fazla iki ilçenin ortak sınırında olabilir.
+- **Karar:** Aynı koordinatta en az 3 farklı bildirilmiş ilçe varsa `geocode_fallback_suspect_flag` işaretlenir: 15 konum, 1.844 kayıt.
+- **Kapsam:** Kayıtlar silinmez ve kümeleme uygunluğundan çıkarılmaz. Faz 3'te bu kayıtlarla ve onlarsız duyarlılık analizi yapılacak.
+
+### K-17 — 00:00 kayıtları: bayrak, dönüşüm yok (2026-10-19, Faz 2)
+- **Bulgu:** Tüm saatlerde tam saate yuvarlama alışkanlığı var; diğer saatlerin HH:00 oranının medyanı 13,3. 00:00'da bu oran 28,3.
+- **Karar:** Kesin 00:00 kayıtları `midnight_suspect_flag` ile işaretlenir; kayıtlar silinmez ve saatleri değiştirilmez.
+- **Kapsam:** Zaman kullanmayan A, B ve C modelleri bu bayraktan etkilenmez. D modeli için 00:00 hariç bir duyarlılık seti ayrıca üretildi.
+
+### K-18 — Araç türü eşlemesi: sıralı açık kurallar, zorla atama yok (2026-10-19, Faz 2)
+- **Karar:** Etiketler önce normalize edilir: kırpma, boşluk tekleme, büyük harf.
+- **Kurallar:** 15 sıralı düzenli ifade kuralı uygulanır ve ilk eşleşen kazanır. Hiçbir kurala uymayan etiket `OTHER/unmatched` olarak tutulur ve ayrıca raporlanır.
+- **Sonuç:** 3.149 ham etiket → 2.165 normalize etiket → 12 kategori. Eşleşmeyen etiket sayısı 1.473; bunlar etiket geçişlerinin yalnızca %0,14'ü.
+- Tam tablo `reports/phase2/vehicle_type_mapping.csv` dosyasında.
+
+### K-19 — Koordinat temsilleri ve ölçekleme yok (2026-10-19, Faz 2)
+- **Karar:**
+  - A ve C modelleri: `[lat_rad, lon_rad]` (scikit-learn haversine sırası).
+  - B modeli: EPSG:32618 `[x_m, y_m]`.
+  - Standartlaştırma (z-skoru) uygulanmaz.
+- **Doğrulama** (WGS84 jeodezik mesafeye göre):
+  - UTM hatası: medyan %0,030.
+  - Haversine'in küre yaklaşımı hatası: medyan %0,11.
+  - Bu, 100 m'lik `eps` için yaklaşık 0,1 m demek; ihmal edilebilir.
+
+### K-20 — Ağırlıklı benzersiz konum temsili (2026-10-19, Faz 2)
+- **Karar:** A ve B modelleri için kayıt düzeyi matrislere ek olarak benzersiz konum + ağırlık matrisleri de üretilir: 349.122 satır, ağırlık toplamı 2.020.638.
+- **Ağırlık desteği** (scikit-learn 1.9.1 imzalarıyla doğrulandı):
+  - `DBSCAN.fit` ve `KMeans.fit`: `sample_weight` destekliyor.
+  - `HDBSCAN.fit`: desteklemiyor. Bu yüzden C modeli yalnızca kayıt düzeyinde.
+- **Eşdeğerlik:** Ağırlıklı DBSCAN'in kayıt düzeyiyle aynı bölümlemeyi verdiği sentetik testte doğrulandı. Gerçek veride doğrulama Faz 3'e bırakıldı.
+
+### K-21 — Graphify tarihli yedekleri git dışında (2026-10-19, Faz 2)
+- **Bulgu:** `graphify-out/2026-10-19/` klasörü, `graphify update`'in otomatik oluşturduğu ve Faz 1 öncesindeki 19 düğümlü grafiğin yedeği. Aynı içerik git geçmişinde (commit `0fce519`) de var.
+- **Karar:** Klasör silinmedi. Bu ve benzeri tarihli klasörler `.gitignore` ile git dışında tutuluyor. Aktif kaynak `graphify-out/graph.json`.
