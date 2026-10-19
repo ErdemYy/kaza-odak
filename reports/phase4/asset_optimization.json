@@ -1,0 +1,421 @@
+{
+  "generated_at": "2026-10-19T21:05:44.999Z",
+  "tool": "gltf-transform 4.5.1 + meshoptimizer 1.3.0",
+  "models": [
+    {
+      "id": "sedan",
+      "before": {
+        "bytes_original_glb": 172236,
+        "bytes_embedded": 181568,
+        "triangles": 2032,
+        "degenerate_triangles": 6,
+        "vertices": 3184,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 31344,
+        "triangles": 2032,
+        "degenerate_triangles": 6,
+        "vertices": 1956,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": {
+        "file": "models/sedan.lod1.glb",
+        "bytes": 28312,
+        "triangles": 1596,
+        "sha256": "5e96c5baf7db6368246174eb9af5be9cd67f6274e73459c9a168ca99b0661072"
+      },
+      "size_reduction_vs_embedded": 0.8273704617553754,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    },
+    {
+      "id": "taxi",
+      "before": {
+        "bytes_original_glb": 175600,
+        "bytes_embedded": 184956,
+        "triangles": 2072,
+        "degenerate_triangles": 6,
+        "vertices": 3250,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 30624,
+        "triangles": 2072,
+        "degenerate_triangles": 6,
+        "vertices": 2022,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": {
+        "file": "models/taxi.lod1.glb",
+        "bytes": 27728,
+        "triangles": 1630,
+        "sha256": "6b9b50ad6041fe17eb869feefaf9e9e5081778d51950c639a3f9e715977b5d5d"
+      },
+      "size_reduction_vs_embedded": 0.8344254849802115,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    },
+    {
+      "id": "suv",
+      "before": {
+        "bytes_original_glb": 207588,
+        "bytes_embedded": 216340,
+        "triangles": 2474,
+        "degenerate_triangles": 8,
+        "vertices": 3836,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 35516,
+        "triangles": 2474,
+        "degenerate_triangles": 8,
+        "vertices": 2384,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": {
+        "file": "models/suv.lod1.glb",
+        "bytes": 33324,
+        "triangles": 1947,
+        "sha256": "1790856c33aa999205f86027e51dff39c8c4309d513a92776dd9bda7b07dee0f"
+      },
+      "size_reduction_vs_embedded": 0.8358324859018212,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    },
+    {
+      "id": "truck",
+      "before": {
+        "bytes_original_glb": 176376,
+        "bytes_embedded": 185676,
+        "triangles": 2082,
+        "degenerate_triangles": 7,
+        "vertices": 3264,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 31976,
+        "triangles": 2082,
+        "degenerate_triangles": 7,
+        "vertices": 2018,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": {
+        "file": "models/truck.lod1.glb",
+        "bytes": 28756,
+        "triangles": 1618,
+        "sha256": "02901f2d83c5847328f0be8bb484d399304d3cdb4d363cae46943a7448bccaeb"
+      },
+      "size_reduction_vs_embedded": 0.8277860358904758,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    },
+    {
+      "id": "delivery",
+      "before": {
+        "bytes_original_glb": 240296,
+        "bytes_embedded": 249504,
+        "triangles": 2476,
+        "degenerate_triangles": 15,
+        "vertices": 4530,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 34552,
+        "triangles": 2476,
+        "degenerate_triangles": 15,
+        "vertices": 2644,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": {
+        "file": "models/delivery.lod1.glb",
+        "bytes": 31772,
+        "triangles": 1719,
+        "sha256": "8128e0ce337a09ebf0692355d45d2182bae5573012cc23f6f0250318c2d8e926"
+      },
+      "size_reduction_vs_embedded": 0.8615172502244453,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    },
+    {
+      "id": "traffic-light",
+      "before": {
+        "bytes_original_glb": 20344,
+        "bytes_embedded": 31524,
+        "triangles": 212,
+        "degenerate_triangles": 6,
+        "vertices": 360,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 16676,
+        "triangles": 212,
+        "degenerate_triangles": 6,
+        "vertices": 264,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": null,
+      "size_reduction_vs_embedded": 0.47100621748509075,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    },
+    {
+      "id": "road-sign-stop",
+      "before": {
+        "bytes_original_glb": 10720,
+        "bytes_embedded": 21900,
+        "triangles": 104,
+        "degenerate_triangles": 0,
+        "vertices": 180,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 15512,
+        "triangles": 104,
+        "degenerate_triangles": 0,
+        "vertices": 132,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": null,
+      "size_reduction_vs_embedded": 0.291689497716895,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    },
+    {
+      "id": "road-sign-warning",
+      "before": {
+        "bytes_original_glb": 11496,
+        "bytes_embedded": 22676,
+        "triangles": 104,
+        "degenerate_triangles": 0,
+        "vertices": 196,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 15564,
+        "triangles": 104,
+        "degenerate_triangles": 0,
+        "vertices": 132,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": null,
+      "size_reduction_vs_embedded": 0.31363556182748276,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    },
+    {
+      "id": "construction-barrier",
+      "before": {
+        "bytes_original_glb": 7052,
+        "bytes_embedded": 18132,
+        "triangles": 60,
+        "degenerate_triangles": 0,
+        "vertices": 104,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 14676,
+        "triangles": 60,
+        "degenerate_triangles": 0,
+        "vertices": 52,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": null,
+      "size_reduction_vs_embedded": 0.1906022501654533,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    },
+    {
+      "id": "construction-cone",
+      "before": {
+        "bytes_original_glb": 7056,
+        "bytes_embedded": 18136,
+        "triangles": 66,
+        "degenerate_triangles": 0,
+        "vertices": 104,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "after": {
+        "bytes": 14752,
+        "triangles": 66,
+        "degenerate_triangles": 0,
+        "vertices": 72,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ]
+      },
+      "lod1": null,
+      "size_reduction_vs_embedded": 0.18659020732245257,
+      "geometry_note": "LOD0'da çizilen üçgen sayısı değişmez (dedup özdeş tekerlek mesh'lerini paylaştırır). Nicemleme konum hatası 16 bitte model boyutunun ~1/65535'i. Doku 512×512 paletli PNG (~11 KB); küçültme palet renklerinde sızma riski taşıdığı için yapılmadı."
+    }
+  ]
+}

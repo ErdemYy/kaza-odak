@@ -1,0 +1,162 @@
+{
+  "source": "https://tiles.openfreemap.org/planet",
+  "tiles_template": "https://tiles.openfreemap.org/planet/20261011_080001_pt/{z}/{x}/{y}.pbf",
+  "zoom": 14,
+  "generated_at": "2026-10-19T21:02:42.811Z",
+  "boroughs": {
+    "MANHATTAN": {
+      "tiles": 3,
+      "buildings": 10548,
+      "hide_3d": 89,
+      "share_render_height_5": 0.051194539249146756,
+      "median": 21,
+      "max": 541,
+      "most_common": [
+        {
+          "render_height": 18,
+          "share": 0.08399696624952598
+        },
+        {
+          "render_height": 5,
+          "share": 0.051194539249146756
+        },
+        {
+          "render_height": 17,
+          "share": 0.04854000758437618
+        },
+        {
+          "render_height": 19,
+          "share": 0.043515358361774746
+        },
+        {
+          "render_height": 15,
+          "share": 0.03962836556693212
+        }
+      ]
+    },
+    "BROOKLYN": {
+      "tiles": 3,
+      "buildings": 20859,
+      "hide_3d": 0,
+      "share_render_height_5": 0.03336689198906947,
+      "median": 10,
+      "max": 324,
+      "most_common": [
+        {
+          "render_height": 8,
+          "share": 0.1425284050050338
+        },
+        {
+          "render_height": 9,
+          "share": 0.09775157006567908
+        },
+        {
+          "render_height": 13,
+          "share": 0.09348482669351359
+        },
+        {
+          "render_height": 10,
+          "share": 0.08907426051105038
+        },
+        {
+          "render_height": 11,
+          "share": 0.07785608130782876
+        }
+      ]
+    },
+    "QUEENS": {
+      "tiles": 3,
+      "buildings": 10881,
+      "hide_3d": 0,
+      "share_render_height_5": 0.09208712434518886,
+      "median": 9,
+      "max": 96,
+      "most_common": [
+        {
+          "render_height": 9,
+          "share": 0.1830714088778605
+        },
+        {
+          "render_height": 8,
+          "share": 0.14631008179395277
+        },
+        {
+          "render_height": 10,
+          "share": 0.12213950923628343
+        },
+        {
+          "render_height": 4,
+          "share": 0.12030144288208805
+        },
+        {
+          "render_height": 5,
+          "share": 0.09208712434518886
+        }
+      ]
+    },
+    "BRONX": {
+      "tiles": 3,
+      "buildings": 11726,
+      "hide_3d": 0,
+      "share_render_height_5": 0.0605492068906703,
+      "median": 9,
+      "max": 81,
+      "most_common": [
+        {
+          "render_height": 9,
+          "share": 0.19418386491557224
+        },
+        {
+          "render_height": 10,
+          "share": 0.13960429814088351
+        },
+        {
+          "render_height": 8,
+          "share": 0.08945932116663824
+        },
+        {
+          "render_height": 11,
+          "share": 0.08451304792768208
+        },
+        {
+          "render_height": 4,
+          "share": 0.07172096196486441
+        }
+      ]
+    },
+    "STATEN ISLAND": {
+      "tiles": 3,
+      "buildings": 11215,
+      "hide_3d": 0,
+      "share_render_height_5": 0.1028979045920642,
+      "median": 8,
+      "max": 59,
+      "most_common": [
+        {
+          "render_height": 8,
+          "share": 0.20838163174320107
+        },
+        {
+          "render_height": 9,
+          "share": 0.17592510031208203
+        },
+        {
+          "render_height": 10,
+          "share": 0.13820775746767722
+        },
+        {
+          "render_height": 5,
+          "share": 0.1028979045920642
+        },
+        {
+          "render_height": 7,
+          "share": 0.09790459206419973
+        }
+      ]
+    }
+  },
+  "overall": {
+    "buildings": 65229,
+    "share_render_height_5": 0.06288613960048445
+  }
+}

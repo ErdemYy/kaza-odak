@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0b1120;
+  --color-surface: #111c30;
+  --color-surface-2: #16233b;
+  --color-line: #22314d;
+  --color-primary: #38bdf8;
+  --color-warning: #f59e0b;
+  --color-hotspot: #f87171;
+  --color-text: #e2e8f0;
+  --color-muted: #94a3b8;
+  --color-subtle: #64748b;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Yüzer paneller: ince kenarlık, ölçülü saydamlık; haritayı gereksiz kapatmaz */
+.panel {
+  background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.panel-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 10px;
+  transition: background 150ms, border-color 150ms, color 150ms;
+  cursor: pointer;
+}
+.btn:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 55%, var(--color-line));
+}
+.btn:focus-visible,
+.chip:focus-visible,
+.switch:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.btn[aria-pressed="true"],
+.chip[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--color-primary) 18%, var(--color-surface-2));
+  border-color: var(--color-primary);
+  color: #e0f2fe;
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.chip {
+  border: 1px solid var(--color-line);
+  background: transparent;
+  color: var(--color-text);
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 11px;
+  cursor: pointer;
+  transition: all 150ms;
+}
+.chip:hover {
+  border-color: var(--color-primary);
+}
+
+.switch {
+  position: relative;
+  width: 30px;
+  height: 17px;
+  border-radius: 999px;
+  background: #23324f;
+  border: 1px solid var(--color-line);
+  transition: background 150ms;
+  flex: none;
+  cursor: pointer;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  background: var(--color-muted);
+  transition: transform 160ms, background 160ms;
+}
+.switch[aria-checked="true"] {
+  background: color-mix(in srgb, var(--color-primary) 40%, #0b1120);
+}
+.switch[aria-checked="true"]::after {
+  transform: translateX(13px);
+  background: #e0f2fe;
+}
+
+.maplibregl-ctrl-attrib {
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent) !important;
+  color: var(--color-muted) !important;
+  font-size: 10.5px !important;
+  border-radius: 8px 0 0 0;
+}
+.maplibregl-ctrl-attrib a {
+  color: var(--color-muted) !important;
+}
+.maplibregl-canvas:focus-visible {
+  outline: 2px solid var(--color-primary);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade-in {
+  animation: fade-in 220ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
+}
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #2a3b5c transparent;
+}

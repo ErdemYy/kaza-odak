@@ -133,3 +133,23 @@ Her kararda dört bilgi kaydedilir: bağlam, karar, gerekçe ve değerlendirilen
 
 ### K-24 — Faz 4 devri SHA-256 bildirimiyle (2026-10-19, Faz 3)
 - **Karar:** Faz 4'e devredilen olay düzeyi üyelikler, küme profilleri ve geometriler `phase4_manifest.json` içinde SHA-256, boyut ve satır sayısıyla kaydedilir; büyük dosyalar git dışında kalır.
+
+### K-25 — Harita karo kaynağı: OpenFreeMap (2026-10-20, Faz 4)
+- **Karar:** MapLibre GL JS yalnızca çizim motorudur; vektör karolar OpenFreeMap genel örneğinden (`tiles.openfreemap.org/planet`, OpenMapTiles şeması, OSM verisi) alınır. Stil (gece/gündüz) projede tanımlıdır.
+- **Gerekçe:** API anahtarı, kayıt veya çerez yok; görüntüleme/istek sınırı yok; ticari kullanım serbest (openfreemap.org, 2026-10-20). Bina ayak izleri ve `render_height` içerir.
+- **Koşullar:** Atıf zorunlu (MapLibre atıf denetimi otomatik gösterir). SLA yok. Çevrimdışı indirme 3.000 karo / 50 MB, en fazla 4 paralel istek ile sınırlı. Kesinti riski için kendi barındırma (haftalık planet MBTiles) seçeneği vardır.
+
+### K-26 — Yüksekliği bilinmeyen binalar extrüde edilmez (2026-10-20, Faz 4)
+- **Bulgu:** OpenMapTiles, OSM'de `height`/`building:levels` olmayan binalara `render_height = 5` atar. Beş ilçeden 15 z14 karosundaki 65.229 bina poligonunda bu değer %6,3 (Manhattan %5,1 … Staten Island %10,3); `reports/phase4/building_height_audit.json`.
+- **Karar:** `render_height = 5` ve tabanı 0 olan binalar düz, ayrı renkte ("yükseklik verisi yok") çizilir; diğerleri gerçek `render_height` ile extrüde edilir. Gerçekten 5 m olan az sayıdaki bina da bu gruba düşer (muhafazakâr yaklaşım).
+
+### K-27 — Nokta sunumu: benzersiz konum, bbox ve sunucu özeti (2026-10-20, Faz 4)
+- **Karar:** 2.020.638 olay tarayıcıya gönderilmez. Ağırlıklı DBSCAN'de aynı konumdaki olaylar aynı etiketi aldığından olaylar 349.122 benzersiz konuma kayıpsız indirgenir (her konumda tek etiket doğrulanır). Düşük zoomda küme merkezleri (4.179) ve 1 km / 250 m UTM ızgara yoğunluk özeti; zoom ≥ 15'te yalnızca görünen bbox (≤ 0,05°) içindeki konumlar, en fazla 8.000; kesilen yanıtta gerçek toplamlar ayrıca gösterilir.
+
+### K-28 — 3D varlıklar: Kenney CC0; lisansı belirsiz paket kullanılmaz (2026-10-20, Faz 4)
+- **Karar:** Kenney Car Kit 2.0 ve City Kit (Roads) 2.2 (CC0) modelleri gltf-transform ile optimize edilir. `Cars Bundle-glb.zip` lisans/yazar bilgisi içermediği için kullanılmaz. Ayrıntı: `assets/3d/README.md`.
+
+### K-29 — Three.js özel katmanı ve temsili trafik (2026-10-20, Faz 4)
+- **Karar:** Modeller tek bir MapLibre özel katmanında (renderingMode "3d", ortak WebGL bağlamı ve derinlik tamponu) çizilir. Çapa noktası seçili küme merkezidir; nesne konumu mercator farkının çapa ölçeğine bölünmesiyle bulunur (konum hatasız, yalnızca boyut ~1e-5 oranında değişir). Doğrulama: model ekran konumu ile `map.project` farkı < 1,5 px (E2E).
+- **Temsili trafik:** Araçlar küme merkezine 60 m içindeki gerçek bir OSM yol çizgisinde, en fazla 6 adet, sağ şeritte hareket eder; arayüzde "temsili simülasyon, geçmiş kaza hareketi değildir" notu gösterilir. Uygun yol yoksa araç gösterilmez.
+- **Bağlam kaybı:** MapLibre stili geri yüklerken özel katmanları geri getirmez; katman, veri kaynakları ve seçim durumu `style.load` sonrasında yeniden kurulur (GLB'ler bellekteki ArrayBuffer önbelleğinden).

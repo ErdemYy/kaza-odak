@@ -1,0 +1,655 @@
+{
+  "generated_at": "2026-10-19T21:05:44.999Z",
+  "tool": "gltf-transform 4.5.1 + meshoptimizer 1.3.0",
+  "archives": {
+    "kenney_car-kit.zip": {
+      "sha256": "f8a69b83fbf94c9850079bc6e078ea3d8ba4c7393dd9f57f8ba544963d1b1d14",
+      "bytes": 3668013,
+      "pack": "Car Kit 2.0",
+      "source_url": "https://kenney.nl/assets/car-kit",
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica)."
+    },
+    "kenney_city-kit-roads.zip": {
+      "sha256": "374a4552115cbd11b4ec5c930ee31a533562dc78a09af249a655d03f7ea3b959",
+      "bytes": 2852289,
+      "pack": "City Kit (Roads) 2.2",
+      "source_url": "https://kenney.nl/assets/city-kit-roads",
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica)."
+    }
+  },
+  "not_used": [
+    {
+      "file": "Cars Bundle-glb.zip",
+      "reason": "Arşivde lisans, yazar veya kaynak bilgisi yok; GLB meta verisi yalnızca 'obj2gltf' üreticisini içeriyor. Lisans doğrulanamadığı için kullanılmadı."
+    }
+  ],
+  "models": [
+    {
+      "id": "sedan",
+      "name_tr": "Otomobil (sedan)",
+      "category": "vehicle",
+      "file": "models/sedan.glb",
+      "lod1": {
+        "file": "models/sedan.lod1.glb",
+        "bytes": 28312,
+        "triangles": 1596,
+        "sha256": "5e96c5baf7db6368246174eb9af5be9cd67f6274e73459c9a168ca99b0661072"
+      },
+      "source": {
+        "pack": "Car Kit 2.0",
+        "archive": "kenney_car-kit.zip",
+        "archive_sha256": "f8a69b83fbf94c9850079bc6e078ea3d8ba4c7393dd9f57f8ba544963d1b1d14",
+        "entry": "Models/GLB format/sedan.glb",
+        "source_url": "https://kenney.nl/assets/car-kit",
+        "original_bytes": 172236,
+        "original_sha256": "9ff651a3f038306d32e953bd5fa33a942ea8de48c6a53671edb0a5ddd0cba8d5",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 31344,
+        "sha256": "d459da851988c8f3e76449b36d3a883ca8f17a42a6d9b31f97c3fbe122636c93",
+        "triangles": 2032,
+        "vertices": 1956,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": "+Z"
+      },
+      "native_size": [
+        1.5,
+        1.299999988079071,
+        2.549999952316284
+      ],
+      "real_size_m": 4.8,
+      "measure": "length",
+      "scale": 1.8823529763755231,
+      "ground_offset": 1.1920928966180355e-8,
+      "animated_nodes": [
+        "wheel-back-left",
+        "wheel-back-right",
+        "wheel-front-left",
+        "wheel-front-right"
+      ],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt) + LOD1 (%50 sadeleştirme)"
+    },
+    {
+      "id": "taxi",
+      "name_tr": "Taksi",
+      "category": "vehicle",
+      "file": "models/taxi.glb",
+      "lod1": {
+        "file": "models/taxi.lod1.glb",
+        "bytes": 27728,
+        "triangles": 1630,
+        "sha256": "6b9b50ad6041fe17eb869feefaf9e9e5081778d51950c639a3f9e715977b5d5d"
+      },
+      "source": {
+        "pack": "Car Kit 2.0",
+        "archive": "kenney_car-kit.zip",
+        "archive_sha256": "f8a69b83fbf94c9850079bc6e078ea3d8ba4c7393dd9f57f8ba544963d1b1d14",
+        "entry": "Models/GLB format/taxi.glb",
+        "source_url": "https://kenney.nl/assets/car-kit",
+        "original_bytes": 175600,
+        "original_sha256": "b5d942a8b289a4bdc6b1eafaa0383077277617f751845f35c007d40da4a60bf9",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 30624,
+        "sha256": "66088d9ee643298b9c673c1f08c42298103773db570e52631db9efbeb3312fa7",
+        "triangles": 2072,
+        "vertices": 2022,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": "+Z"
+      },
+      "native_size": [
+        1.5,
+        1.4999999165534972,
+        2.749999761581421
+      ],
+      "real_size_m": 5,
+      "measure": "length",
+      "scale": 1.8181819758139504,
+      "ground_offset": 1.1920928966180355e-8,
+      "animated_nodes": [
+        "wheel-front-right",
+        "wheel-front-left",
+        "wheel-back-right",
+        "wheel-back-left"
+      ],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt) + LOD1 (%50 sadeleştirme)"
+    },
+    {
+      "id": "suv",
+      "name_tr": "SUV",
+      "category": "vehicle",
+      "file": "models/suv.glb",
+      "lod1": {
+        "file": "models/suv.lod1.glb",
+        "bytes": 33324,
+        "triangles": 1947,
+        "sha256": "1790856c33aa999205f86027e51dff39c8c4309d513a92776dd9bda7b07dee0f"
+      },
+      "source": {
+        "pack": "Car Kit 2.0",
+        "archive": "kenney_car-kit.zip",
+        "archive_sha256": "f8a69b83fbf94c9850079bc6e078ea3d8ba4c7393dd9f57f8ba544963d1b1d14",
+        "entry": "Models/GLB format/suv.glb",
+        "source_url": "https://kenney.nl/assets/car-kit",
+        "original_bytes": 207588,
+        "original_sha256": "787d024349cc38cd0346b93f357a4136f6b1ca5f611cdf69916cdc027ba26d9f",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 35516,
+        "sha256": "7005c1113e68da28c71de404f4be72ef77de4c327a9b749b6e5a71633585100b",
+        "triangles": 2474,
+        "vertices": 2384,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": "+Z"
+      },
+      "native_size": [
+        1.5,
+        1.3000000357627868,
+        2.6999999543790434
+      ],
+      "real_size_m": 4.9,
+      "measure": "length",
+      "scale": 1.8148148454791073,
+      "ground_offset": 1.1920928966180355e-8,
+      "animated_nodes": [
+        "wheel-back",
+        "wheel-back-right",
+        "wheel-front-left",
+        "wheel-front-right",
+        "wheel-back-left"
+      ],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt) + LOD1 (%50 sadeleştirme)"
+    },
+    {
+      "id": "truck",
+      "name_tr": "Kamyonet",
+      "category": "vehicle",
+      "file": "models/truck.glb",
+      "lod1": {
+        "file": "models/truck.lod1.glb",
+        "bytes": 28756,
+        "triangles": 1618,
+        "sha256": "02901f2d83c5847328f0be8bb484d399304d3cdb4d363cae46943a7448bccaeb"
+      },
+      "source": {
+        "pack": "Car Kit 2.0",
+        "archive": "kenney_car-kit.zip",
+        "archive_sha256": "f8a69b83fbf94c9850079bc6e078ea3d8ba4c7393dd9f57f8ba544963d1b1d14",
+        "entry": "Models/GLB format/truck.glb",
+        "source_url": "https://kenney.nl/assets/car-kit",
+        "original_bytes": 176376,
+        "original_sha256": "c3402b7d80837ab1da8aa61612c05d277288ad0c901cf7c8dc506484062700d0",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 31976,
+        "sha256": "c198288d90d73326e29869f9a40f652658a043a760c8972847b450a5c7d5edba",
+        "triangles": 2082,
+        "vertices": 2018,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": "+Z"
+      },
+      "native_size": [
+        1.5,
+        1.299999988079071,
+        2.9499995708465576
+      ],
+      "real_size_m": 5.6,
+      "measure": "length",
+      "scale": 1.8983053609031457,
+      "ground_offset": 1.1920928966180355e-8,
+      "animated_nodes": [
+        "wheel-front-left",
+        "wheel-back-left",
+        "wheel-back-right",
+        "wheel-front-right"
+      ],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt) + LOD1 (%50 sadeleştirme)"
+    },
+    {
+      "id": "delivery",
+      "name_tr": "Teslimat kamyonu",
+      "category": "vehicle",
+      "file": "models/delivery.glb",
+      "lod1": {
+        "file": "models/delivery.lod1.glb",
+        "bytes": 31772,
+        "triangles": 1719,
+        "sha256": "8128e0ce337a09ebf0692355d45d2182bae5573012cc23f6f0250318c2d8e926"
+      },
+      "source": {
+        "pack": "Car Kit 2.0",
+        "archive": "kenney_car-kit.zip",
+        "archive_sha256": "f8a69b83fbf94c9850079bc6e078ea3d8ba4c7393dd9f57f8ba544963d1b1d14",
+        "entry": "Models/GLB format/delivery.glb",
+        "source_url": "https://kenney.nl/assets/car-kit",
+        "original_bytes": 240296,
+        "original_sha256": "a40e322fe1f208791aecfb0f164f1f3e5099dfd6d2ead86566258138eea3c72d",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 34552,
+        "sha256": "87a0524b8f10f33b48e23241a5370c02b976d85b71f158c06afbaed7fe82c518",
+        "triangles": 2476,
+        "vertices": 2644,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11634,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": "+Z"
+      },
+      "native_size": [
+        1.5,
+        1.6499998927116393,
+        3.249999761581421
+      ],
+      "real_size_m": 6.5,
+      "measure": "length",
+      "scale": 2.0000001467191364,
+      "ground_offset": 1.1920928966180355e-8,
+      "animated_nodes": [
+        "wheel-back-left",
+        "wheel-back-right",
+        "wheel-front-left",
+        "wheel-front-right"
+      ],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt) + LOD1 (%50 sadeleştirme)"
+    },
+    {
+      "id": "traffic-light",
+      "name_tr": "Trafik lambası",
+      "category": "prop",
+      "file": "models/traffic-light.glb",
+      "lod1": null,
+      "source": {
+        "pack": "City Kit (Roads) 2.2",
+        "archive": "kenney_city-kit-roads.zip",
+        "archive_sha256": "374a4552115cbd11b4ec5c930ee31a533562dc78a09af249a655d03f7ea3b959",
+        "entry": "Models/GLB format/traffic-light.glb",
+        "source_url": "https://kenney.nl/assets/city-kit-roads",
+        "original_bytes": 20344,
+        "original_sha256": "6c9ee253b7370e1043168493b2e662b349484a0cdd02100cff04d9d8d1bd9abb",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 16676,
+        "sha256": "63917445a169b648734ee48fcf22301a1a87d59f4f790d626057153888c5f039",
+        "triangles": 212,
+        "vertices": 264,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": null
+      },
+      "native_size": [
+        0.11759999766945839,
+        0.5149999856948853,
+        0.08999999612569809
+      ],
+      "real_size_m": 4.6,
+      "measure": "height",
+      "scale": 8.932039083056008,
+      "ground_offset": -2.2558181451276527e-17,
+      "animated_nodes": [],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt)"
+    },
+    {
+      "id": "road-sign-stop",
+      "name_tr": "DUR levhası",
+      "category": "prop",
+      "file": "models/road-sign-stop.glb",
+      "lod1": null,
+      "source": {
+        "pack": "City Kit (Roads) 2.2",
+        "archive": "kenney_city-kit-roads.zip",
+        "archive_sha256": "374a4552115cbd11b4ec5c930ee31a533562dc78a09af249a655d03f7ea3b959",
+        "entry": "Models/GLB format/road-sign-stop.glb",
+        "source_url": "https://kenney.nl/assets/city-kit-roads",
+        "original_bytes": 10720,
+        "original_sha256": "0991181f37171daf8d2501e436a688e46ea2bcebb5e27aa451640fcbaab107ef",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 15512,
+        "sha256": "d3914f145b27807bb24a975a874c847c56ad0637d0eefd366301ea0869ec66ff",
+        "triangles": 104,
+        "vertices": 132,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": null
+      },
+      "native_size": [
+        0.07750000432133675,
+        0.49407491087913513,
+        0.13821236789226532
+      ],
+      "real_size_m": 2.4,
+      "measure": "height",
+      "scale": 4.857562987218974,
+      "ground_offset": 0,
+      "animated_nodes": [],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt)"
+    },
+    {
+      "id": "road-sign-warning",
+      "name_tr": "Uyarı levhası",
+      "category": "prop",
+      "file": "models/road-sign-warning.glb",
+      "lod1": null,
+      "source": {
+        "pack": "City Kit (Roads) 2.2",
+        "archive": "kenney_city-kit-roads.zip",
+        "archive_sha256": "374a4552115cbd11b4ec5c930ee31a533562dc78a09af249a655d03f7ea3b959",
+        "entry": "Models/GLB format/road-sign-warning.glb",
+        "source_url": "https://kenney.nl/assets/city-kit-roads",
+        "original_bytes": 11496,
+        "original_sha256": "db8049a51eb60c77e40253e8b5a9d41359a49d2a9083223dce361cfb0605c3a9",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 15564,
+        "sha256": "4cf2c4ac1b7f4268086bd080481c42b7161c26b46d617ed4fc5cde0fa20c5b36",
+        "triangles": 104,
+        "vertices": 132,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": null
+      },
+      "native_size": [
+        0.07734602689743042,
+        0.4985623359680176,
+        0.1471872329711914
+      ],
+      "real_size_m": 2.4,
+      "measure": "height",
+      "scale": 4.8138413731958245,
+      "ground_offset": 0,
+      "animated_nodes": [],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt)"
+    },
+    {
+      "id": "construction-barrier",
+      "name_tr": "Bariyer",
+      "category": "prop",
+      "file": "models/construction-barrier.glb",
+      "lod1": null,
+      "source": {
+        "pack": "City Kit (Roads) 2.2",
+        "archive": "kenney_city-kit-roads.zip",
+        "archive_sha256": "374a4552115cbd11b4ec5c930ee31a533562dc78a09af249a655d03f7ea3b959",
+        "entry": "Models/GLB format/construction-barrier.glb",
+        "source_url": "https://kenney.nl/assets/city-kit-roads",
+        "original_bytes": 7052,
+        "original_sha256": "906f73a6d62d8de58a4c5a19e76ff95b460c42b37e5fa37478b8612f06793f26",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 14676,
+        "sha256": "9501ee1458d26e3bf048eaf7c027648513abfe3d8acfe3ea5dbbdf0fb090e905",
+        "triangles": 60,
+        "vertices": 52,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": null
+      },
+      "native_size": [
+        0.1354999989271164,
+        0.12999999523162842,
+        0.22499999403953552
+      ],
+      "real_size_m": 1,
+      "measure": "height",
+      "scale": 7.692307974459867,
+      "ground_offset": 0,
+      "animated_nodes": [],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt)"
+    },
+    {
+      "id": "construction-cone",
+      "name_tr": "Trafik konisi",
+      "category": "prop",
+      "file": "models/construction-cone.glb",
+      "lod1": null,
+      "source": {
+        "pack": "City Kit (Roads) 2.2",
+        "archive": "kenney_city-kit-roads.zip",
+        "archive_sha256": "374a4552115cbd11b4ec5c930ee31a533562dc78a09af249a655d03f7ea3b959",
+        "entry": "Models/GLB format/construction-cone.glb",
+        "source_url": "https://kenney.nl/assets/city-kit-roads",
+        "original_bytes": 7056,
+        "original_sha256": "50ceae45cd1d71f738a8f7c40f8b6b46f360063c2754bf717aae54013d6f2ee4",
+        "external_texture": "Textures/colormap.png"
+      },
+      "author": "Kenney (www.kenney.nl)",
+      "license": "CC0 1.0 Universal (Kamu malı adanması)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Zorunlu değil; kaynak olarak 'Kenney' belirtilir (lisans dosyasındaki isteğe bağlı rica).",
+      "optimized": {
+        "bytes": 14752,
+        "sha256": "79d0f1c64e87cfa97f1441361272722aedcd7ddcbf7bff585e195769a492f4bf",
+        "triangles": 66,
+        "vertices": 72,
+        "textures": [
+          {
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 11428,
+            "mime": "image/png"
+          }
+        ],
+        "extensions": [
+          "KHR_texture_transform",
+          "KHR_mesh_quantization",
+          "EXT_meshopt_compression"
+        ]
+      },
+      "axes": {
+        "up": "+Y",
+        "forward": null
+      },
+      "native_size": [
+        0.07500000298023224,
+        0.09375,
+        0.07500000298023224
+      ],
+      "real_size_m": 0.7,
+      "measure": "height",
+      "scale": 7.466666666666666,
+      "ground_offset": 0,
+      "animated_nodes": [],
+      "optimization_status": "optimize edildi (dedup, prune, weld, reorder, quantize, meshopt)"
+    }
+  ]
+}

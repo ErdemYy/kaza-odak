@@ -3,7 +3,7 @@
 New York City'de polise raporlanmış motorlu taşıt kazalarının mekânsal yoğunlaşmalarını denetimsiz öğrenme (DBSCAN; karşılaştırma için K-Means ve HDBSCAN) ile keşfeden ve sonuçları gerçek coğrafyaya hizalı 3B bir şehir haritasında sunan akademik makine öğrenmesi projesi.
 
 - **Kalıcı şartname:** [`PROJECT_SPEC.md`](PROJECT_SPEC.md)
-- **Güncel durum:** Faz 2 (Ön İşleme, Öznitelik Mühendisliği ve Seçimi) tamamlandı. Raporlar: [`docs/phase1/TEKNIK_RAPOR.md`](docs/phase1/TEKNIK_RAPOR.md), [`docs/phase2/TEKNIK_RAPOR.md`](docs/phase2/TEKNIK_RAPOR.md)
+- **Güncel durum:** Faz 4 (Gerçek NYC 3D şehir görüntüleyici ve lisanslı GLB varlıkları) uygulandı; faz onayı bekleniyor. Raporlar: [`docs/phase1/TEKNIK_RAPOR.md`](docs/phase1/TEKNIK_RAPOR.md), [`docs/phase2/TEKNIK_RAPOR.md`](docs/phase2/TEKNIK_RAPOR.md), [`docs/phase3/TEKNIK_RAPOR.md`](docs/phase3/TEKNIK_RAPOR.md), [`docs/phase4/TEKNIK_RAPOR.md`](docs/phase4/TEKNIK_RAPOR.md)
 
 > Kaza yoğunluğu tek başına risk değildir. Bu proje trafik kazası **tahmini yapmaz**; kaydedilmiş kazaların mekânsal yoğunlaşmalarını inceler.
 
@@ -16,16 +16,22 @@ backend/                 Python paketi (saferoute): veri hattı, doğrulama, EDA
   src/saferoute/eda/     profile, figures, report, dictionary
   src/saferoute/preprocess/  Faz 2: standardize, boundaries, geo, temporal, vehicles, casualties,
                          coordinates, duplicates, features, pipeline, report
-notebooks/               01_dataset_exploration.ipynb, 02_preprocessing_feature_engineering.ipynb
+  src/saferoute/clustering/  Faz 3: deney kaydı, DBSCAN/K-Means/HDBSCAN, değerlendirme, raporlar
+  src/saferoute/viz/     Faz 4: manifest doğrulamalı coğrafi katmanlar + FastAPI katman API'si
+notebooks/               01_dataset_exploration, 02_preprocessing_feature_engineering, 03_clustering_experiments
 data/raw/                Değişmez ham anlık görüntüler: kazalar + resmî ilçe sınırları (git dışı)
 data/interim/            Kayıpsız metin Parquet + türleri doğrulanmış interim katman (git dışı)
 data/processed/          İşlenmiş katman, konum tablosu, model öznitelik matrisleri (git dışı)
 data/metadata/           Edinim ve kaynak durumu kayıtları (git'te izlenir)
 reports/phase1/          Otomatik EDA raporu, özet JSON, manifest kopyası, şekiller
 reports/phase2/          Ön işleme raporu, özet JSON, eşleme/çelişki/tekrar tabloları, şekiller
+reports/phase3/          Kümeleme raporu, akademik tablolar, şekiller, Faz 4 manifest kopyası
+reports/phase4/          Ekran görüntüleri, varlık optimizasyonu, bina yüksekliği denetimi, ölçümler
 docs/                    Veri sözlüğü, köken, kalite, özellik adayları, karar günlüğü, faz raporları
 scripts/                 Faz 1 hattını uçtan uca çalıştıran betikler
-frontend/                Faz 5'te oluşturulacak (şimdilik yalnızca README)
+frontend/                Faz 4 görüntüleyici: React + TypeScript + Vite + Tailwind + MapLibre + Three.js
+  public/models/         Optimize GLB modeller + varlık/lisans kaydı (registry.json)
+assets/3d/               Varlık kaydı açıklaması; indirilen ZIP paketleri (downloads/) git dışı
 ```
 
 Şartnamedeki örnek yapıdan bilinçli farklar `docs/decision_log.md` içinde açıklanmıştır (ör. `analysis/eda.py` yerine `eda/` paketi, şekillerin `reports/phase1/figures/` altında tutulması).
@@ -82,6 +88,36 @@ Defter: `backend/.venv/Scripts/python.exe scripts/execute_notebook.py notebooks/
 
 Testler (ağ gerektirmez): `cd backend && .venv/Scripts/python.exe -m pytest`
 
+### Faz 3
+
+```bash
+backend/.venv/Scripts/saferoute.exe cluster                     # kayıtlı başarılı deneyler yeniden çalıştırılmaz
+backend/.venv/Scripts/saferoute.exe cluster --stages profiles   # yalnızca belirli aşamalar (kontrol noktasından)
+```
+
+Defter: `notebooks/03_clustering_experiments.ipynb` (sunum + çapraz doğrulama; model eğitmez).
+
+### Faz 4 — 3D şehir görüntüleyici
+
+Ek gereksinim: Node.js ≥ 20. Harita karoları için ağ erişimi (OpenFreeMap, API anahtarı gerekmez).
+
+```bash
+cd backend && uv pip install -e ".[dev,api]" --python .venv/Scripts/python.exe && cd ..
+backend/.venv/Scripts/saferoute.exe viz-build     # Faz 3 manifestini SHA-256 ile doğrular, katmanları üretir
+cd frontend && npm ci && npm run build && cd ..
+backend/.venv/Scripts/saferoute.exe serve         # http://127.0.0.1:8000 (API + derlenmiş ön yüz)
+```
+
+Tek komut: `bash scripts/run_phase4.sh` (Windows: `scriptsun_phase4.ps1`). Geliştirme: `saferoute serve` + `cd frontend && npm run dev` (http://127.0.0.1:5173, `/api` vekili).
+
+| Komut | Ne yapar |
+|---|---|
+| `npm run assets` | Kenney (CC0) GLB'lerini ZIP'ten okur, optimize eder, LOD ve lisans kaydı üretir |
+| `npm run tiles:audit` | OpenFreeMap bina yüksekliği verisini NYC karolarında denetler |
+| `npm test` | Birim testleri (Vitest) |
+| `npm run e2e` | Gerçek çalışan uygulamada Playwright testleri + ekran görüntüleri |
+| `saferoute viz-bench` | API gecikme/yük ölçümü |
+
 **Yeniden üretilebilirlik notu:** Yeni bir indirme, kaynak bu arada güncellendiyse farklı bir anlık görüntü üretir. Raporlanan sonuçlar, `data/metadata/acquisition_snapshot_20261019T155113Z.json` içindeki SHA-256 değerine sahip anlık görüntüye aittir.
 
 ## Belgeler
@@ -92,7 +128,8 @@ Testler (ağ gerektirmez): `cd backend && .venv/Scripts/python.exe -m pytest`
 | [`docs/data_dictionary.md`](docs/data_dictionary.md) | Her sütun: tür, eksik sayı/oran, kullanım, not (otomatik) |
 | [`docs/data_quality.md`](docs/data_quality.md) | Veri kalitesi bulguları ve etkileri |
 | [`docs/feature_candidates.md`](docs/feature_candidates.md) | Özellik sınıflandırması ve önerilen deneyler |
-| [`docs/decision_log.md`](docs/decision_log.md) | Teknik kararlar ve gerekçeleri (K-01…K-21) |
+| [`docs/decision_log.md`](docs/decision_log.md) | Teknik kararlar ve gerekçeleri (K-01…K-29) |
+| [`assets/3d/README.md`](assets/3d/README.md) | 3D varlık kaydı: kaynak, lisans, optimizasyon |
 | [`docs/feature_selection_report.md`](docs/feature_selection_report.md) | Faz 2 öznitelik seçimi tablosu (otomatik) |
 | [`reports/phase2/ON_ISLEME_RAPORU.md`](reports/phase2/ON_ISLEME_RAPORU.md) | Otomatik ön işleme raporu ve şekiller |
 | [`reports/phase1/EDA_RAPORU.md`](reports/phase1/EDA_RAPORU.md) | Otomatik EDA raporu ve şekiller |
@@ -101,3 +138,5 @@ Testler (ağ gerektirmez): `cd backend && .venv/Scripts/python.exe -m pytest`
 
 - NYC Open Data — *Motor Vehicle Collisions - Crashes* (`h9gi-nx95`), New York City Police Department (NYPD). https://data.cityofnewyork.us/d/h9gi-nx95
 - NYC Open Data — *Borough Boundaries* (`gthc-hcne`), Department of City Planning (DCP). https://data.cityofnewyork.us/City-Government/Borough-Boundaries/gthc-hcne
+- Harita karoları: [OpenFreeMap](https://openfreemap.org) · © [OpenMapTiles](https://www.openmaptiles.org/) · Veri © [OpenStreetMap katkıcıları](https://www.openstreetmap.org/copyright) (ODbL)
+- 3D modeller: [Kenney](https://kenney.nl) — Car Kit, City Kit (Roads), CC0 1.0

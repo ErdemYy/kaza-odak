@@ -54,3 +54,8 @@ dist/
 .ruff_cache/
 .coverage
 htmlcov/
+
+# --- Faz 4: 3D varlıklar ---
+# İndirilen kaynak paketler (ZIP) büyük ve üçüncü taraf dağıtımıdır; depoya eklenmez.
+# Kaynak, SHA-256 ve lisans bilgisi frontend/public/models/registry.json içinde kayıtlıdır.
+/assets/3d/downloads/

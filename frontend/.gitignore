@@ -1,0 +1,7 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+# QA karşılaştırması için üretilen optimize edilmemiş referans modeller (npm run assets ile yeniden üretilir)
+public/models/reference/
+tsconfig.tsbuildinfo

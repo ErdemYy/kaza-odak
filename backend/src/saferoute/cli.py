@@ -10,6 +10,8 @@ Kullanım:
     saferoute boundaries               Resmî ilçe sınırlarını indir (gthc-hcne)
     saferoute preprocess [--force]     Faz 2 hattı + raporlar
     saferoute cluster [--force]        Faz 3 kümeleme deneyleri + raporlar
+    saferoute viz-build                Faz 4 coğrafi sunum katmanları (manifest doğrulamalı)
+    saferoute serve [--port 8000]      Faz 4 katman API'si (+ derlenmiş ön yüz)
 """
 
 from __future__ import annotations
@@ -146,6 +148,34 @@ def _cmd_cluster(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_viz_build(args: argparse.Namespace) -> int:
+    from saferoute.viz.layers import build_layers
+
+    build_layers(out_dir=Path(args.out) if args.out else None)
+    return 0
+
+
+def _cmd_serve(args: argparse.Namespace) -> int:
+    import uvicorn
+
+    from saferoute.viz.api import create_app
+
+    frontend = Path(args.frontend) if args.frontend else config.REPO_ROOT / "frontend" / "dist"
+    app = create_app(Path(args.layers) if args.layers else None, frontend_dir=frontend)
+    print(f"Ön yüz: {frontend if frontend.exists() else 'derlenmemiş (yalnızca API)'}")
+    uvicorn.run(app, host=args.host, port=args.port, log_level="warning")
+    return 0
+
+
+def _cmd_viz_bench(args: argparse.Namespace) -> int:
+    from saferoute.viz.benchmark import run_benchmark
+
+    res = run_benchmark(repeats=args.repeats)
+    for name, r in res["requests"].items():
+        print(f"{name:28s} {r['status']} medyan {r['median_ms']} ms · gzip {r['wire_bytes_gzip']} B")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="saferoute", description="SafeRoute 3D veri hattı")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -194,6 +224,21 @@ def main(argv: list[str] | None = None) -> int:
                    help="Virgülle ayrılmış aşamalar (ör. hdbscan,evaluate); önceki aşamalar kontrol noktasından okunur")
     p.add_argument("--skip-reports", action="store_true")
     p.set_defaults(func=_cmd_cluster)
+
+    p = sub.add_parser("viz-build", help="Faz 4: Faz 3 çıktılarından doğrulanmış coğrafi sunum katmanları")
+    p.add_argument("--out", default=None, help="Çıktı dizini (varsayılan: <processed>/phase4)")
+    p.set_defaults(func=_cmd_viz_build)
+
+    p = sub.add_parser("serve", help="Faz 4: katman API'si ve derlenmiş ön yüz")
+    p.add_argument("--host", default="127.0.0.1")
+    p.add_argument("--port", type=int, default=8000)
+    p.add_argument("--layers", default=None, help="Katman dizini (varsayılan: <processed>/phase4)")
+    p.add_argument("--frontend", default=None, help="Derlenmiş ön yüz (varsayılan: frontend/dist)")
+    p.set_defaults(func=_cmd_serve)
+
+    p = sub.add_parser("viz-bench", help="Faz 4: API gecikme/yük ölçümü (reports/phase4/api_benchmark.json)")
+    p.add_argument("--repeats", type=int, default=15)
+    p.set_defaults(func=_cmd_viz_bench)
 
     args = parser.parse_args(argv)
     return args.func(args)

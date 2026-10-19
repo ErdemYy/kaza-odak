@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-10-20T01:17:38+0300",
+  "repeats": 15,
+  "startup_s": 0.37,
+  "server_peak_memory_mb": 221.4,
+  "note": "Süreç içi TestClient; ağ gecikmesi hariç.",
+  "requests": {
+    "meta": {
+      "url": "/api/meta",
+      "status": 200,
+      "median_ms": 4.2,
+      "p95_ms": 4.9,
+      "json_bytes": 2242,
+      "wire_bytes_gzip": 1266
+    },
+    "kume_merkezleri": {
+      "url": "/api/clusters",
+      "status": 200,
+      "median_ms": 49.4,
+      "p95_ms": 106.0,
+      "json_bytes": 1061797,
+      "wire_bytes_gzip": 120604,
+      "returned": 4179
+    },
+    "kume_geometrileri": {
+      "url": "/api/clusters/geometries",
+      "status": 200,
+      "median_ms": 341.3,
+      "p95_ms": 349.0,
+      "json_bytes": 2261672,
+      "wire_bytes_gzip": 359929,
+      "returned": 4179
+    },
+    "ilce_sinirlari": {
+      "url": "/api/boroughs",
+      "status": 200,
+      "median_ms": 114.0,
+      "p95_ms": 118.0,
+      "json_bytes": 363279,
+      "wire_bytes_gzip": 141531
+    },
+    "yogunluk_1km": {
+      "url": "/api/density?cell=1000",
+      "status": 200,
+      "median_ms": 22.5,
+      "p95_ms": 25.0,
+      "json_bytes": 123109,
+      "wire_bytes_gzip": 15081,
+      "total_events": 2020638
+    },
+    "yogunluk_250m": {
+      "url": "/api/density?cell=250",
+      "status": 200,
+      "median_ms": 181.0,
+      "p95_ms": 257.3,
+      "json_bytes": 1489000,
+      "wire_bytes_gzip": 137293,
+      "total_events": 2020638
+    },
+    "noktalar_midtown_z16": {
+      "url": "/api/points?bbox=-73.990,40.752,-73.978,40.762&kind=all",
+      "status": 200,
+      "median_ms": 46.3,
+      "p95_ms": 49.3,
+      "json_bytes": 323779,
+      "wire_bytes_gzip": 20227,
+      "total_locations": 1996,
+      "total_events": 18150,
+      "returned_locations": 1996,
+      "truncated": false
+    },
+    "noktalar_midtown_genis": {
+      "url": "/api/points?bbox=-74.000,40.740,-73.960,40.780&kind=all",
+      "status": 200,
+      "median_ms": 157.0,
+      "p95_ms": 240.5,
+      "json_bytes": 1301224,
+      "wire_bytes_gzip": 96447,
+      "total_locations": 14814,
+      "total_events": 144982,
+      "returned_locations": 8000,
+      "truncated": true
+    },
+    "noktalar_brooklyn_gurultu": {
+      "url": "/api/points?bbox=-73.990,40.690,-73.978,40.700&kind=noise",
+      "status": 200,
+      "median_ms": 21.1,
+      "p95_ms": 22.2,
+      "json_bytes": 111034,
+      "wire_bytes_gzip": 7191,
+      "total_locations": 687,
+      "total_events": 3029,
+      "returned_locations": 687,
+      "truncated": false
+    },
+    "kume_ayrintisi": {
+      "url": "/api/clusters/1344",
+      "status": 200,
+      "median_ms": 7.8,
+      "p95_ms": 8.4,
+      "json_bytes": 1617,
+      "wire_bytes_gzip": 1617
+    }
+  }
+}

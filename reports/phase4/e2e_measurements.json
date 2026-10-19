@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-10-19T22:24:28.614Z",
+  "renderer": "Chromium headless (SwiftShader yazılım WebGL, GPU yok)",
+  "viewport": "1600×960",
+  "initial_load_ms": 5029,
+  "initial_api_bytes": {
+    "/api/density": 15081,
+    "/api/meta": 2532,
+    "/api/clusters": 120604,
+    "/api/boroughs": 141531
+  },
+  "cluster_scene_objects": [
+    "vehicle:taxi:0",
+    "vehicle:sedan:1",
+    "vehicle:suv:2",
+    "vehicle:truck:3",
+    "vehicle:delivery:4",
+    "vehicle:taxi:5",
+    "prop:traffic-light",
+    "prop:road-sign-stop"
+  ],
+  "model_drift_px": {
+    "max": 2.98400145517491e-8,
+    "samples": [
+      2.98400145517491e-8,
+      8.20572898288673e-9,
+      3.9842488542663215e-9,
+      2.8297371731527823e-8
+    ]
+  },
+  "eval_latency_ms": [
+    30,
+    9,
+    6,
+    12,
+    20
+  ],
+  "pan_route_ms": 68519,
+  "long_tasks": {
+    "count": 5,
+    "max_ms": 272
+  },
+  "js_heap_mb": 69,
+  "point_requests": 5,
+  "max_point_features": 2807
+}
