@@ -1,0 +1,178 @@
+{
+  "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+  "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+  "config_path": "C:\\Proje\\SAFEROUTE 3D\\backend\\configs\\phase3.toml",
+  "config_sha256": "977132f9821d5b0a6ac1545424ea361e9e201e8dc86664dafb26f7e3a23768d9",
+  "software": {
+    "python": "3.12.10",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "hdbscan": "0.8.44"
+  },
+  "rows": [
+    {
+      "algorithm": "dbscan",
+      "experiment_id": "dbscan-52abd2c018",
+      "parameters": {
+        "eps_m": 25,
+        "min_samples": 100
+      },
+      "fit_scope": "tam veri (ağırlıklı benzersiz konum)",
+      "features": "A_dbscan_haversine_weighted",
+      "n_clusters_full": 4179,
+      "noise_ratio_full": 0.5968708892933816,
+      "largest_cluster_share_full": 0.0007146257766111495,
+      "eval_set_n_clusters": 4171,
+      "eval_set_noise_ratio": 0.59554,
+      "eval_set_largest_cluster_share": 0.00085,
+      "silhouette_common": {
+        "value": 0.9450519619258265,
+        "status": "ok",
+        "metric": "euclidean",
+        "n_used": 19279,
+        "n_clusters_used": 4030,
+        "noise_excluded_ratio": 0.59554,
+        "sampling": "kümelere göre orantılı tabakalı",
+        "seed": 42
+      },
+      "silhouette_native": {
+        "value": 0.945106403440002,
+        "status": "ok",
+        "metric": "haversine",
+        "n_used": 19279,
+        "n_clusters_used": 4030,
+        "noise_excluded_ratio": 0.59554,
+        "sampling": "kümelere göre orantılı tabakalı",
+        "seed": 42
+      },
+      "davies_bouldin": {
+        "value": 0.09020433290631046,
+        "status": "ok",
+        "metric": "euclidean",
+        "n_used": 19279,
+        "noise_excluded_ratio": 0.59554,
+        "seed": 42
+      },
+      "dbcv": {
+        "value": 0.39421456871808075,
+        "status": "ok",
+        "metric": "euclidean",
+        "n_used": 4038,
+        "n_clusters_used": 552,
+        "seed": 42,
+        "warnings": []
+      },
+      "parameter_stability_ari": 0.4804263314862045,
+      "runtime_s": 3.87,
+      "peak_memory_mb": 962.0,
+      "fit_memory_mb": 138.4,
+      "admissible": true,
+      "rejection_reasons": []
+    },
+    {
+      "algorithm": "kmeans",
+      "experiment_id": "kmeans-24c07e9946",
+      "parameters": {
+        "k": 5
+      },
+      "fit_scope": "tam veri (ağırlıklı benzersiz konum)",
+      "features": "B_kmeans_projected_weighted",
+      "n_clusters_full": 5,
+      "noise_ratio_full": 0.0,
+      "largest_cluster_share_full": 0.2815204900630395,
+      "eval_set_n_clusters": 5,
+      "eval_set_noise_ratio": 0.0,
+      "eval_set_largest_cluster_share": 0.28035,
+      "silhouette_common": {
+        "value": 0.4578249842623036,
+        "status": "ok",
+        "metric": "euclidean",
+        "n_used": 20000,
+        "n_clusters_used": 5,
+        "noise_excluded_ratio": 0.0,
+        "sampling": "kümelere göre orantılı tabakalı",
+        "seed": 42
+      },
+      "silhouette_native": null,
+      "davies_bouldin": {
+        "value": 0.6908335931313279,
+        "status": "ok",
+        "metric": "euclidean",
+        "n_used": 20000,
+        "noise_excluded_ratio": 0.0,
+        "seed": 42
+      },
+      "dbcv": {
+        "value": -0.8516957690848278,
+        "status": "ok",
+        "metric": "euclidean",
+        "n_used": 4000,
+        "n_clusters_used": 5,
+        "seed": 42,
+        "warnings": []
+      },
+      "parameter_stability_ari": null,
+      "runtime_s": 0.796,
+      "peak_memory_mb": 965.4,
+      "fit_memory_mb": 139.4,
+      "admissible": false,
+      "rejection_reasons": [
+        "küme sayısı 5 < 20",
+        "en büyük küme payı 0.282 > 0.05"
+      ]
+    },
+    {
+      "algorithm": "hdbscan",
+      "experiment_id": "hdbscan-ba3a1ff58d",
+      "parameters": {
+        "min_cluster_size": 25,
+        "min_samples": 25
+      },
+      "fit_scope": "örneklem (100k olay)",
+      "features": "B_kmeans_projected",
+      "n_clusters_full": null,
+      "noise_ratio_full": null,
+      "largest_cluster_share_full": null,
+      "eval_set_n_clusters": 768,
+      "eval_set_noise_ratio": 0.54708,
+      "eval_set_largest_cluster_share": 0.00852,
+      "silhouette_common": {
+        "value": 0.6006224850512439,
+        "status": "ok",
+        "metric": "euclidean",
+        "n_used": 19987,
+        "n_clusters_used": 768,
+        "noise_excluded_ratio": 0.54708,
+        "sampling": "kümelere göre orantılı tabakalı",
+        "seed": 42
+      },
+      "silhouette_native": null,
+      "davies_bouldin": {
+        "value": 0.4769550523071712,
+        "status": "ok",
+        "metric": "euclidean",
+        "n_used": 19987,
+        "noise_excluded_ratio": 0.54708,
+        "seed": 42
+      },
+      "dbcv": {
+        "value": 0.26028168600793383,
+        "status": "ok",
+        "metric": "euclidean",
+        "n_used": 3994,
+        "n_clusters_used": 502,
+        "seed": 42,
+        "warnings": []
+      },
+      "parameter_stability_ari": null,
+      "runtime_s": 68.883,
+      "peak_memory_mb": 965.1,
+      "fit_memory_mb": 179.8,
+      "admissible": true,
+      "rejection_reasons": []
+    }
+  ]
+}

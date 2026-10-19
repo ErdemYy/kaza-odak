@@ -122,3 +122,14 @@ Her kararda dört bilgi kaydedilir: bağlam, karar, gerekçe ve değerlendirilen
 ### K-21 — Graphify tarihli yedekleri git dışında (2026-10-19, Faz 2)
 - **Bulgu:** `graphify-out/2026-10-19/` klasörü, `graphify update`'in otomatik oluşturduğu ve Faz 1 öncesindeki 19 düğümlü grafiğin yedeği. Aynı içerik git geçmişinde (commit `0fce519`) de var.
 - **Karar:** Klasör silinmedi. Bu ve benzeri tarihli klasörler `.gitignore` ile git dışında tutuluyor. Aktif kaynak `graphify-out/graph.json`.
+
+### K-22 — DBSCAN seçimi yeniden sınandı, kural değiştirilmedi (2026-10-19, Faz 3)
+- **Bulgu:** Önceden tanımlı kural eps=25 m, min_samples=100'ü seçti (komşu ARI 0,480). Kayıtlı etiketlerden yapı tanıları: en geniş küme köşegeni 174 m (eps=50 adaylarında 4,4–7,5 km zincirlenme), medyan 8 konum / 41 m (kavşak ölçeği), kümelerin %85'i 13 yılın tamamında etkin; gürültü %59,7.
+- **Karar:** Seçim korunur; sonuçlar görüldükten sonra kural değiştirilmez. Model "kronik kavşak sıcak noktası" katmanı olarak etiketlenir. Daha geniş kapsam için eps=25/ms=50 alternatif olarak raporlanır (Faz 4 kullanım kararı).
+
+### K-23 — Yıllık sabit eşik kararlılık ölçüsü sayılmaz (2026-10-19, Faz 3)
+- **Bulgu:** ms=100 tek bir yılın hacmiyle neredeyse hiç sağlanmaz; 2020 sonrası hacim yarıya inince yıllık küme sayısı 0–1'e düşer.
+- **Karar:** Zamansal kararlılık hacme ölçekli eşik (c) ve tam veri kümelerinin kalıcılığı (b) ile yorumlanır; (a) yalnızca hacim etkisini göstermek için raporlanır.
+
+### K-24 — Faz 4 devri SHA-256 bildirimiyle (2026-10-19, Faz 3)
+- **Karar:** Faz 4'e devredilen olay düzeyi üyelikler, küme profilleri ve geometriler `phase4_manifest.json` içinde SHA-256, boyut ve satır sayısıyla kaydedilir; büyük dosyalar git dışında kalır.

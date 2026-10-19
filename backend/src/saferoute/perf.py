@@ -8,6 +8,71 @@ from contextlib import contextmanager
 from typing import Iterator
 
 
+def available_memory_mb() -> float | None:
+    """Sistemde kullanılabilir fiziksel bellek (MB). Windows: GlobalMemoryStatusEx, Unix: /proc/meminfo."""
+    try:
+        if sys.platform == "win32":
+            import ctypes
+
+            class _MS(ctypes.Structure):
+                _fields_ = [("dwLength", ctypes.c_ulong), ("dwMemoryLoad", ctypes.c_ulong),
+                            ("ullTotalPhys", ctypes.c_ulonglong), ("ullAvailPhys", ctypes.c_ulonglong),
+                            ("ullTotalPageFile", ctypes.c_ulonglong), ("ullAvailPageFile", ctypes.c_ulonglong),
+                            ("ullTotalVirtual", ctypes.c_ulonglong), ("ullAvailVirtual", ctypes.c_ulonglong),
+                            ("ullAvailExtendedVirtual", ctypes.c_ulonglong)]
+
+            ms = _MS()
+            ms.dwLength = ctypes.sizeof(ms)
+            if not ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(ms)):
+                return None
+            return round(ms.ullAvailPhys / 2**20, 1)
+        with open("/proc/meminfo") as f:
+            for line in f:
+                if line.startswith("MemAvailable:"):
+                    return round(int(line.split()[1]) / 1024, 1)
+    except Exception:
+        return None
+    return None
+
+
+def _win_process_counters():
+    """Windows PROCESS_MEMORY_COUNTERS (K32GetProcessMemoryInfo); başarısızsa None."""
+    import ctypes
+    import ctypes.wintypes as wt
+
+    class _PMC(ctypes.Structure):
+        _fields_ = [
+            ("cb", wt.DWORD), ("PageFaultCount", wt.DWORD),
+            ("PeakWorkingSetSize", ctypes.c_size_t), ("WorkingSetSize", ctypes.c_size_t),
+            ("QuotaPeakPagedPoolUsage", ctypes.c_size_t), ("QuotaPagedPoolUsage", ctypes.c_size_t),
+            ("QuotaPeakNonPagedPoolUsage", ctypes.c_size_t), ("QuotaNonPagedPoolUsage", ctypes.c_size_t),
+            ("PagefileUsage", ctypes.c_size_t), ("PeakPagefileUsage", ctypes.c_size_t),
+        ]
+
+    pmc = _PMC()
+    pmc.cb = ctypes.sizeof(pmc)
+    k32 = ctypes.windll.kernel32
+    k32.GetCurrentProcess.restype = wt.HANDLE
+    k32.K32GetProcessMemoryInfo.argtypes = [wt.HANDLE, ctypes.c_void_p, wt.DWORD]
+    if not k32.K32GetProcessMemoryInfo(k32.GetCurrentProcess(), ctypes.byref(pmc), pmc.cb):
+        return None
+    return pmc
+
+
+def current_memory_mb() -> float | None:
+    """Sürecin ŞU ANKİ fiziksel bellek kullanımı (MB; Windows WorkingSetSize, Unix: /proc veya None)."""
+    try:
+        if sys.platform == "win32":
+            pmc = _win_process_counters()
+            return None if pmc is None else round(pmc.WorkingSetSize / 2**20, 1)
+        import os
+
+        with open("/proc/self/statm") as f:
+            return round(int(f.read().split()[1]) * os.sysconf("SC_PAGE_SIZE") / 2**20, 1)
+    except Exception:
+        return None
+
+
 def peak_memory_mb() -> float | None:
     """Sürecin şimdiye kadarki en yüksek fiziksel bellek kullanımı (MB). Ölçülemezse None.
 
@@ -16,26 +81,8 @@ def peak_memory_mb() -> float | None:
     """
     try:
         if sys.platform == "win32":
-            import ctypes
-            import ctypes.wintypes as wt
-
-            class _PMC(ctypes.Structure):
-                _fields_ = [
-                    ("cb", wt.DWORD), ("PageFaultCount", wt.DWORD),
-                    ("PeakWorkingSetSize", ctypes.c_size_t), ("WorkingSetSize", ctypes.c_size_t),
-                    ("QuotaPeakPagedPoolUsage", ctypes.c_size_t), ("QuotaPagedPoolUsage", ctypes.c_size_t),
-                    ("QuotaPeakNonPagedPoolUsage", ctypes.c_size_t), ("QuotaNonPagedPoolUsage", ctypes.c_size_t),
-                    ("PagefileUsage", ctypes.c_size_t), ("PeakPagefileUsage", ctypes.c_size_t),
-                ]
-
-            pmc = _PMC()
-            pmc.cb = ctypes.sizeof(pmc)
-            k32 = ctypes.windll.kernel32
-            k32.GetCurrentProcess.restype = wt.HANDLE
-            k32.K32GetProcessMemoryInfo.argtypes = [wt.HANDLE, ctypes.c_void_p, wt.DWORD]
-            if not k32.K32GetProcessMemoryInfo(k32.GetCurrentProcess(), ctypes.byref(pmc), pmc.cb):
-                return None
-            return round(pmc.PeakWorkingSetSize / 2**20, 1)
+            pmc = _win_process_counters()
+            return None if pmc is None else round(pmc.PeakWorkingSetSize / 2**20, 1)
         import resource
 
         rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss

@@ -1,0 +1,121 @@
+# SafeRoute 3D — Faz 3 kümeleme deney yapılandırması.
+# Tüm deney parametreleri burada tanımlanır; kodda dağınık sabit yoktur.
+# Bu dosyanın SHA-256 özeti her deney kaydına yazılır.
+
+[meta]
+config_version = "3.0.0"
+random_seed = 42
+
+[resources]
+# Bir DBSCAN koşusundan önce BallTree ile komşu çifti sayısı (yalnızca sayım) tahmin edilir.
+# Sınırı aşan koşu çalıştırılmaz, "skipped_resource_limit" olarak kaydedilir.
+# 300 milyon çift ≈ 2,3 GiB komşuluk indeksi (int64); 15 GB RAM'li makinede güvenli tavan.
+max_neighbor_pairs = 300_000_000
+# Her deney ayrı bir süreçte çalışır: süre ve bellek tepe değeri o deneye aittir,
+# bellek hatası ana süreci düşürmez.
+isolate_experiments = true
+# Bellek kapısı: bir deney başlatılmadan önce sistemde en az bu kadar boş fiziksel bellek olmalı.
+# Gerekçe: tamamlanan deneylerin süreç tepe değeri ≤ ~2,2 GB; +~1,3 GB pay (ana süreç ve diğer uygulamalar).
+# Sağlanmazsa deney ÇALIŞTIRILMAZ ve "skipped_resource_limit" olarak ölçülen değerle kaydedilir.
+min_free_memory_mb = 3500
+# scikit-learn parçalı ikili uzaklık hesabının (siluet) bellek tavanı (MB).
+sklearn_working_memory_mb = 256
+
+[equivalence]
+# Gerçek veride kayıt düzeyi DBSCAN ile ağırlıklı benzersiz konum DBSCAN'in karşılaştırılması.
+# Farklı yoğunluk/tekrar profillerinde dört bölge (WGS84 dikdörtgenleri).
+eps_m = [50, 100]
+min_samples = [10, 25]
+# Şehir ölçeğinde karşılaştırma: tek bir tam yılın tüm olayları (kayıt düzeyi uygulanabilir boyutta).
+city_wide_years = [2019]
+city_wide_eps_m = 50
+city_wide_min_samples = 10
+# Tam veri kayıt düzeyi denemesi (kaynak sınırını belgelemek için; sınır aşılırsa çalıştırılmaz).
+full_records_eps_m = 50
+full_records_min_samples = 10
+regions = [
+  { name = "midtown_manhattan",   label = "Midtown Manhattan (çok yoğun)",       min_lat = 40.750, max_lat = 40.765, min_lon = -73.995, max_lon = -73.975 },
+  { name = "downtown_brooklyn",   label = "Downtown Brooklyn (yoğun tekrar)",    min_lat = 40.688, max_lat = 40.700, min_lon = -73.992, max_lon = -73.978 },
+  { name = "jamaica_queens",      label = "Jamaica, Queens (orta yoğunluk)",     min_lat = 40.695, max_lat = 40.712, min_lon = -73.815, max_lon = -73.785 },
+  { name = "staten_island_north", label = "Staten Island kuzey (seyrek)",        min_lat = 40.620, max_lat = 40.645, min_lon = -74.120, max_lon = -74.075 },
+]
+
+[kdistance]
+# Ağırlıklı k-mesafe: rastgele olayların k'ıncı en yakın OLAYA uzaklığı (aynı konumdaki olaylar dahil).
+sample_events = 20000
+k_values = [10, 25, 50, 100]
+max_unique_neighbors = 400
+
+[dbscan]
+feature_set = "A_dbscan_haversine_weighted"
+# Başlangıç adaylarına 25 m eklendi: ağırlıklı k-mesafe analizinde k<=25 için olayların çoğunun
+# k'ıncı komşusu 0 m'de (aynı koordinat); kavşak ölçeği ayrıca denenmeli.
+eps_m = [25, 50, 100, 200, 350]
+min_samples = [10, 25, 50, 100]
+
+[kmeans]
+feature_set = "B_kmeans_projected_weighted"
+k = [5, 10, 20, 40, 80]
+n_init = 10
+max_iter = 300
+
+[hdbscan]
+# scikit-learn HDBSCAN sample_weight desteklemez ve tam veride (2,02 milyon olay) yaklaşık
+# karesel ölçeklenir (pilot: 25k->4 sn, 50k->17 sn, 100k->66 sn). Bu nedenle sabit tohumlu,
+# basit rastgele bir OLAY örneklemi kullanılır (yoğunluk oranlarını korur).
+# Metrik: EPSG:32618 metre + Öklid (KD-ağacı; UTM hatası %0,03). Haversine BallTree ile
+# pilotta 3,5 kat daha yavaştır.
+feature_set = "B_kmeans_projected"
+sample_events = 100000
+min_cluster_size = [25, 50, 100, 250]
+min_samples = [5, 10, 25]
+cluster_selection_method = "eom"
+
+[evaluation]
+# Ortak değerlendirme kümesi = HDBSCAN örneklemiyle AYNI olaylar (adil karşılaştırma).
+# Siluet: gürültü hariç, kümelere göre orantılı tabakalı örneklem.
+silhouette_sample = 20000
+# DBCV (hdbscan.validity.validity_index) O(n²); küçük tabakalı örneklemde hesaplanır.
+dbcv_sample = 4000
+# Ortak metrik temsil: EPSG:32618 metre, Öklid (A/C'nin haversine skorları ayrıca raporlanır).
+common_metric_space = "projected_euclidean_m"
+
+[selection]
+# Seçim ölçütleri sonuçlar görülmeden ÖNCE tanımlandı.
+# 1) Kabul edilebilirlik: başarılı koşu, en büyük küme olayların %5'inden fazlasını içermez
+#    (şehir ölçeğinde birleşmiş blok sıcak nokta değildir), en az 20 küme.
+max_largest_cluster_share = 0.05
+min_clusters = 20
+# 2) Sıralama: komşu ızgara konfigürasyonlarıyla ortalama ARI (parametre kararlılığı) en yüksek;
+#    eşitlikte ortak metrikte siluet.
+ranking = ["parameter_stability_ari", "silhouette_common"]
+# K-Means k seçimi: ortak metrikte en yüksek siluet (dirsek noktası ayrıca raporlanır).
+kmeans_rule = "silhouette_common"
+# HDBSCAN seçimi: aynı kabul ölçütleri, ardından en yüksek DBCV (HDBSCAN'in yoğunluk temelli doğası).
+hdbscan_rule = "dbcv"
+
+[temporal]
+# Tam yıllar; 2012 (Temmuz–Aralık) ve 2026 (kısmi) karşılaştırma dışı.
+years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+# (a) Yıllık yeniden fit: seçilen DBSCAN/K-Means parametreleri her yıl AYNEN uygulanır ("yıllık sıcak nokta").
+#     Pilotta min_samples'ı yıllık hacme ölçeklemek eşiği 3-5'e düşürüp zincirlenmiş dev kümeler üretti;
+#     bu yüzden ölçekleme kullanılmaz. Yıllık hacim farkı (ör. 2020 sonrası) sonuçlarla birlikte raporlanır.
+# (b) Kalıcılık: tam veri modelinin kümelerinin yıllara göre olay sayıları (aynı koşu, kimlikler geçerli).
+persistence_top_n = 50
+# (c) Hacme ölçeklenmiş yeniden fit: ms_yıl = max(taban, round(ms · N_yıl / N_toplam)). Pilotta eps=100 m ile
+#     zincirlenme görülmüştü; seçilen eps=25 m'de tam veride ms=10 bile en büyük küme payını %0,2'de tuttu.
+#     (a) sabit eşik hacim düşüşünü (2020 sonrası) kararlılıkla karıştırdığı için (c) ayrıca raporlanır.
+scaled_refit = true
+min_samples_floor = 3
+# Kapsama karşılaştırması için UTM ızgara hücresi (m).
+grid_cell_m = 100
+
+[sensitivity]
+# Seçilen DBSCAN konfigürasyonu şu kayıtlar hariç tutularak yeniden çalıştırılır (ham veri silinmez).
+variants = ["exclude_geocode_fallback", "exclude_borough_conflict", "exclude_nearshore", "cap_repeated_weights"]
+# Tekrarlı konum ağırlığı bu yüzdelik dilimde kırpılır.
+weight_cap_percentile = 99.0
+
+[profiles]
+top_clusters_geojson = 0          # 0 = tüm kümeler
+hull_buffer_m = 15                 # tek noktalı/doğrusal kümeler için görselleştirme tamponu

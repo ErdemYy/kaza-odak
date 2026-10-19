@@ -1,0 +1,41 @@
+{
+  "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+  "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+  "config_path": "C:\\Proje\\SAFEROUTE 3D\\backend\\configs\\phase3.toml",
+  "config_sha256": "977132f9821d5b0a6ac1545424ea361e9e201e8dc86664dafb26f7e3a23768d9",
+  "software": {
+    "python": "3.12.10",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "hdbscan": "0.8.44"
+  },
+  "selected": {
+    "dbscan": {
+      "experiment_id": "dbscan-52abd2c018",
+      "parameters": {
+        "eps_m": 25,
+        "min_samples": 100
+      }
+    },
+    "kmeans": {
+      "experiment_id": "kmeans-24c07e9946",
+      "parameters": {
+        "k": 5
+      }
+    },
+    "hdbscan": {
+      "experiment_id": "hdbscan-ba3a1ff58d",
+      "parameters": {
+        "min_cluster_size": 25,
+        "min_samples": 25
+      }
+    }
+  },
+  "primary_model": "dbscan",
+  "label_semantics": "-1 = gürültü; küme numaraları anlamsal sınıf değildir ve koşular arasında eşleştirilemez.",
+  "eps_conversion": "eps_rad = eps_m / 6371008.8 (haversine, [enlem, boylam] radyan)",
+  "geometry_semantics": "Üye benzersiz konumların dışbükey zarfı (görselleştirme sınırı); istatistiksel yoğunluk konturu değildir."
+}

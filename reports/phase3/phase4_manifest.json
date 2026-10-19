@@ -1,0 +1,87 @@
+{
+  "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+  "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+  "config_path": "C:\\Proje\\SAFEROUTE 3D\\backend\\configs\\phase3.toml",
+  "config_sha256": "977132f9821d5b0a6ac1545424ea361e9e201e8dc86664dafb26f7e3a23768d9",
+  "selected": {
+    "criteria": {
+      "max_largest_cluster_share": 0.05,
+      "min_clusters": 20,
+      "ranking": [
+        "parameter_stability_ari",
+        "silhouette_common"
+      ],
+      "kmeans_rule": "silhouette_common",
+      "hdbscan_rule": "dbcv"
+    },
+    "dbscan": "dbscan-52abd2c018",
+    "kmeans": "kmeans-24c07e9946",
+    "hdbscan": "hdbscan-ba3a1ff58d",
+    "hdbscan_admissible_count": 5,
+    "kmeans_elbow_k": 20,
+    "dbscan_admissible": [
+      "dbscan-a3d6331c4d",
+      "dbscan-92b7d618c2",
+      "dbscan-cef8c0d213",
+      "dbscan-52abd2c018",
+      "dbscan-e777e2e1a4",
+      "dbscan-76502b2d93"
+    ]
+  },
+  "files": {
+    "cluster_points_dbscan": {
+      "path": "data/processed/h9gi-nx95/snapshot_20261019T155113Z/phase3/cluster_points_dbscan.parquet",
+      "sha256": "7f8b923db50d0146eb84cae3350d76b4bf52a0eb2bac76d8066b90078027445b",
+      "bytes": 12512064,
+      "rows": 2020638
+    },
+    "cluster_summary_dbscan": {
+      "path": "data/processed/h9gi-nx95/snapshot_20261019T155113Z/phase3/cluster_summary_dbscan.parquet",
+      "sha256": "11319b4ee9e7f1518b109b4dbbe8ff01825a22e3dba397185b5b9edf69d07397",
+      "bytes": 1196717,
+      "rows": 4179
+    },
+    "cluster_geometries_dbscan": {
+      "path": "data/processed/h9gi-nx95/snapshot_20261019T155113Z/phase3/cluster_geometries_dbscan.geojson",
+      "sha256": "72718479205c09ceb98350caf2706aca2303a2e4b8c346493e196c475a17021c",
+      "bytes": 2434030,
+      "rows": 4179
+    },
+    "cluster_points_kmeans": {
+      "path": "data/processed/h9gi-nx95/snapshot_20261019T155113Z/phase3/cluster_points_kmeans.parquet",
+      "sha256": "c40ab439f3044661d5987c473c0a3614ca3e46e0897dae0985885349f510ce7f",
+      "bytes": 10866719,
+      "rows": 2020638
+    },
+    "cluster_summary_kmeans": {
+      "path": "data/processed/h9gi-nx95/snapshot_20261019T155113Z/phase3/cluster_summary_kmeans.parquet",
+      "sha256": "66d0e8b805d4d8a2740303ef2c47bb01cd4e627087fec40ac893de99e40fe973",
+      "bytes": 28632,
+      "rows": 5
+    },
+    "cluster_geometries_kmeans": {
+      "path": "data/processed/h9gi-nx95/snapshot_20261019T155113Z/phase3/cluster_geometries_kmeans.geojson",
+      "sha256": "ba822ba2585cdfb6acbee7b2bab5e4db9546bc938a8f3135f945a856171f2bc5",
+      "bytes": 7148,
+      "rows": 5
+    },
+    "experiments": {
+      "path": "data/processed/h9gi-nx95/snapshot_20261019T155113Z/phase3/experiments.json",
+      "sha256": "a8d1d511faa4b0e679c0462dc44672887c1b55458ee942a098b87c8dd3a3d82b",
+      "bytes": 163409,
+      "rows": null
+    },
+    "algorithm_comparison": {
+      "path": "data/processed/h9gi-nx95/snapshot_20261019T155113Z/phase3/algorithm_comparison.json",
+      "sha256": "fe97ae1f58bb9103b0812499bb7d368a5b66ec2546a5636b79f77129fd976ae6",
+      "bytes": 5427,
+      "rows": null
+    },
+    "model_metadata": {
+      "path": "data/processed/h9gi-nx95/snapshot_20261019T155113Z/phase3/model_metadata.json",
+      "sha256": "6df2169ae96819ccfda2556a2ea0036233ab1755ba12edb4bbd30feafdddfe06",
+      "bytes": 1379,
+      "rows": null
+    }
+  }
+}

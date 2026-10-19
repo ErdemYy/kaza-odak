@@ -1,0 +1,5449 @@
+[
+  {
+    "experiment_id": "dbscan-04d4d5e145",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.75,
+          "max_lat": 40.765,
+          "min_lon": -73.995,
+          "max_lon": -73.975
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 44073,
+    "n_unique_locations": 4798,
+    "metrics": {
+      "n_neighbor_pairs": 33922131
+    },
+    "runtime_s": 1.484,
+    "peak_memory_mb": 1251.7,
+    "memory_before_fit_mb": 785.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 5.1 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-04d4d5e145.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:22:56.218265+00:00"
+  },
+  {
+    "experiment_id": "dbscan-084664003e",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 3329062
+    },
+    "runtime_s": 4.496,
+    "peak_memory_mb": 986.6,
+    "memory_before_fit_mb": 848.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 10.3 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-084664003e.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:27:01.074459+00:00"
+  },
+  {
+    "experiment_id": "dbscan-08bf53f7b3",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.62,
+          "max_lat": 40.645,
+          "min_lon": -74.12,
+          "max_lon": -74.075
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 11913,
+    "n_unique_locations": 3824,
+    "metrics": {
+      "n_neighbor_pairs": 579569
+    },
+    "runtime_s": 0.135,
+    "peak_memory_mb": 971.9,
+    "memory_before_fit_mb": 789.4,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.6 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-08bf53f7b3.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:15.730554+00:00"
+  },
+  {
+    "experiment_id": "dbscan-0a6ab5b951",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.62,
+          "max_lat": 40.645,
+          "min_lon": -74.12,
+          "max_lon": -74.075
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 11913,
+    "n_unique_locations": 3824,
+    "metrics": {
+      "weight_sum": 11913.0,
+      "n_neighbor_pairs": 80692
+    },
+    "runtime_s": 0.074,
+    "peak_memory_mb": 980.9,
+    "memory_before_fit_mb": 798.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-0a6ab5b951.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:41.509016+00:00"
+  },
+  {
+    "experiment_id": "dbscan-0df36ab66d",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.695,
+          "max_lat": 40.712,
+          "min_lon": -73.815,
+          "max_lon": -73.785
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 21177,
+    "n_unique_locations": 3683,
+    "metrics": {
+      "n_neighbor_pairs": 5715195
+    },
+    "runtime_s": 0.446,
+    "peak_memory_mb": 971.9,
+    "memory_before_fit_mb": 789.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 4.0 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-0df36ab66d.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:08.552940+00:00"
+  },
+  {
+    "experiment_id": "dbscan-1050bd4ff8",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2016
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 192150,
+    "n_unique_locations": 84066,
+    "metrics": {
+      "weight_sum": 192150.0,
+      "n_neighbor_pairs": 183418
+    },
+    "runtime_s": 0.653,
+    "peak_memory_mb": 969.1,
+    "memory_before_fit_mb": 793.3,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn",
+      "başlangıçta boş sistem belleği 6970.1 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-1050bd4ff8.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:16.239191+00:00"
+  },
+  {
+    "experiment_id": "dbscan-116c87897a",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.695,
+          "max_lat": 40.712,
+          "min_lon": -73.815,
+          "max_lon": -73.785
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 21177,
+    "n_unique_locations": 3683,
+    "metrics": {
+      "n_neighbor_pairs": 2702077
+    },
+    "runtime_s": 0.241,
+    "peak_memory_mb": 990.3,
+    "memory_before_fit_mb": 808.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.6 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-116c87897a.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:53.556747+00:00"
+  },
+  {
+    "experiment_id": "dbscan-181e726b9f",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 5
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2021
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 100896,
+    "n_unique_locations": 53217,
+    "metrics": {
+      "weight_sum": 100896.0,
+      "n_neighbor_pairs": 88645
+    },
+    "runtime_s": 0.438,
+    "peak_memory_mb": 969.2,
+    "memory_before_fit_mb": 790.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.3 sn",
+      "başlangıçta boş sistem belleği 6966.3 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-181e726b9f.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:33.829973+00:00"
+  },
+  {
+    "experiment_id": "dbscan-26f9aa88fe",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.75,
+          "max_lat": 40.765,
+          "min_lon": -73.995,
+          "max_lon": -73.975
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 44073,
+    "n_unique_locations": 4798,
+    "metrics": {
+      "weight_sum": 44073.0,
+      "n_neighbor_pairs": 285756
+    },
+    "runtime_s": 0.11,
+    "peak_memory_mb": 968.1,
+    "memory_before_fit_mb": 786.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.8 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-26f9aa88fe.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:08.992128+00:00"
+  },
+  {
+    "experiment_id": "dbscan-27ac47042b",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 10498524
+    },
+    "runtime_s": 6.194,
+    "peak_memory_mb": 1052.1,
+    "memory_before_fit_mb": 850.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 11.5 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-27ac47042b.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:27:44.845378+00:00"
+  },
+  {
+    "experiment_id": "dbscan-29e9a94cc6",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2019
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 193820,
+    "n_unique_locations": 67582,
+    "metrics": {
+      "weight_sum": 193820.0,
+      "n_neighbor_pairs": 177164
+    },
+    "runtime_s": 0.737,
+    "peak_memory_mb": 985.5,
+    "memory_before_fit_mb": 808.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 4.8 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-29e9a94cc6.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:54.484461+00:00"
+  },
+  {
+    "experiment_id": "dbscan-2dc51bf062",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2014
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 172751,
+    "n_unique_locations": 31958,
+    "metrics": {
+      "weight_sum": 172751.0,
+      "n_neighbor_pairs": 35522
+    },
+    "runtime_s": 0.249,
+    "peak_memory_mb": 971.6,
+    "memory_before_fit_mb": 792.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 5515.9 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-2dc51bf062.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:35.512556+00:00"
+  },
+  {
+    "experiment_id": "dbscan-2eb8abe46a",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 350,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 104672976
+    },
+    "runtime_s": 12.742,
+    "peak_memory_mb": 2034.2,
+    "memory_before_fit_mb": 863.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 27.6 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-2eb8abe46a.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:30:46.684016+00:00"
+  },
+  {
+    "experiment_id": "dbscan-2feea1a4ca",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2017
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 216917,
+    "n_unique_locations": 75463,
+    "metrics": {
+      "weight_sum": 216917.0,
+      "n_neighbor_pairs": 141945
+    },
+    "runtime_s": 0.655,
+    "peak_memory_mb": 996.6,
+    "memory_before_fit_mb": 820.3,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.7 sn",
+      "başlangıçta boş sistem belleği 5459.6 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-2feea1a4ca.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:55.868198+00:00"
+  },
+  {
+    "experiment_id": "dbscan-345379c5fa",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2019
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 193820,
+    "n_unique_locations": 67582,
+    "metrics": {
+      "weight_sum": 193820.0,
+      "n_neighbor_pairs": 116088
+    },
+    "runtime_s": 0.561,
+    "peak_memory_mb": 988.2,
+    "memory_before_fit_mb": 811.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn",
+      "başlangıçta boş sistem belleği 5503.8 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-345379c5fa.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:09.651902+00:00"
+  },
+  {
+    "experiment_id": "dbscan-3561817091",
+    "stage": "sensitivity",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": 73.0
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 1831947.0,
+      "n_neighbor_pairs": 1711182
+    },
+    "runtime_s": 3.031,
+    "peak_memory_mb": 1008.1,
+    "memory_before_fit_mb": 869.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 7.6 sn",
+      "başlangıçta boş sistem belleği 5764.7 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-3561817091.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:03:27.783399+00:00"
+  },
+  {
+    "experiment_id": "dbscan-35aaf57f4e",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 350,
+      "min_samples": 50
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 104672976
+    },
+    "runtime_s": 12.349,
+    "peak_memory_mb": 2193.8,
+    "memory_before_fit_mb": 858.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 26.6 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-35aaf57f4e.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:30:19.099409+00:00"
+  },
+  {
+    "experiment_id": "dbscan-388e36f0c5",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.695,
+          "max_lat": 40.712,
+          "min_lon": -73.815,
+          "max_lon": -73.785
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 21177,
+    "n_unique_locations": 3683,
+    "metrics": {
+      "n_neighbor_pairs": 5715195
+    },
+    "runtime_s": 0.37,
+    "peak_memory_mb": 967.8,
+    "memory_before_fit_mb": 785.3,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.9 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-388e36f0c5.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:00.861934+00:00"
+  },
+  {
+    "experiment_id": "dbscan-3918e90dff",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2023
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 89014,
+    "n_unique_locations": 45231,
+    "metrics": {
+      "weight_sum": 89014.0,
+      "n_neighbor_pairs": 66167
+    },
+    "runtime_s": 0.349,
+    "peak_memory_mb": 979.3,
+    "memory_before_fit_mb": 800.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 5458.4 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-3918e90dff.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:35.791563+00:00"
+  },
+  {
+    "experiment_id": "dbscan-3e41747834",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.688,
+          "max_lat": 40.7,
+          "min_lon": -73.992,
+          "max_lon": -73.978
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 15969,
+    "n_unique_locations": 1414,
+    "metrics": {
+      "n_neighbor_pairs": 9160813
+    },
+    "runtime_s": 0.451,
+    "peak_memory_mb": 943.2,
+    "memory_before_fit_mb": 760.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 4.0 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-3e41747834.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:38.667454+00:00"
+  },
+  {
+    "experiment_id": "dbscan-3e62e9c871",
+    "stage": "sensitivity",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "exclude": [
+          "nearshore"
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 2011244,
+    "n_unique_locations": 348824,
+    "metrics": {
+      "weight_sum": 2011244.0,
+      "n_neighbor_pairs": 1710222
+    },
+    "runtime_s": 3.015,
+    "peak_memory_mb": 999.1,
+    "memory_before_fit_mb": 860.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 7.5 sn",
+      "başlangıçta boş sistem belleği 5748.0 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-3e62e9c871.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:03:19.479586+00:00"
+  },
+  {
+    "experiment_id": "dbscan-423adf6076",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.62,
+          "max_lat": 40.645,
+          "min_lon": -74.12,
+          "max_lon": -74.075
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 11913,
+    "n_unique_locations": 3824,
+    "metrics": {
+      "weight_sum": 11913.0,
+      "n_neighbor_pairs": 29326
+    },
+    "runtime_s": 0.068,
+    "peak_memory_mb": 967.3,
+    "memory_before_fit_mb": 784.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-423adf6076.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:19.276736+00:00"
+  },
+  {
+    "experiment_id": "dbscan-429524f56f",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 200,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 36272318
+    },
+    "runtime_s": 8.106,
+    "peak_memory_mb": 1323.1,
+    "memory_before_fit_mb": 828.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 13.2 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-429524f56f.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:28:44.694890+00:00"
+  },
+  {
+    "experiment_id": "dbscan-43b1f90fa2",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.688,
+          "max_lat": 40.7,
+          "min_lon": -73.992,
+          "max_lon": -73.978
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 15969,
+    "n_unique_locations": 1414,
+    "metrics": {
+      "n_neighbor_pairs": 9160813
+    },
+    "runtime_s": 0.431,
+    "peak_memory_mb": 979.7,
+    "memory_before_fit_mb": 797.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 4.1 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-43b1f90fa2.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:30.872691+00:00"
+  },
+  {
+    "experiment_id": "dbscan-4a976b68a5",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.62,
+          "max_lat": 40.645,
+          "min_lon": -74.12,
+          "max_lon": -74.075
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 11913,
+    "n_unique_locations": 3824,
+    "metrics": {
+      "n_neighbor_pairs": 1180001
+    },
+    "runtime_s": 0.171,
+    "peak_memory_mb": 970.3,
+    "memory_before_fit_mb": 787.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.4 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-4a976b68a5.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:38.008784+00:00"
+  },
+  {
+    "experiment_id": "dbscan-4d427e5c58",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.688,
+          "max_lat": 40.7,
+          "min_lon": -73.992,
+          "max_lon": -73.978
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 15969,
+    "n_unique_locations": 1414,
+    "metrics": {
+      "weight_sum": 15969.0,
+      "n_neighbor_pairs": 14860
+    },
+    "runtime_s": 0.047,
+    "peak_memory_mb": 985.9,
+    "memory_before_fit_mb": 804.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.6 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-4d427e5c58.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:26.674060+00:00"
+  },
+  {
+    "experiment_id": "dbscan-5063895219",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.75,
+          "max_lat": 40.765,
+          "min_lon": -73.995,
+          "max_lon": -73.975
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 44073,
+    "n_unique_locations": 4798,
+    "metrics": {
+      "weight_sum": 44073.0,
+      "n_neighbor_pairs": 81890
+    },
+    "runtime_s": 0.106,
+    "peak_memory_mb": 987.2,
+    "memory_before_fit_mb": 805.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 4.3 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-5063895219.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:22:42.026698+00:00"
+  },
+  {
+    "experiment_id": "dbscan-52015c0387",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 50
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 10498524
+    },
+    "runtime_s": 5.955,
+    "peak_memory_mb": 1039.5,
+    "memory_before_fit_mb": 852.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 11.2 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-52015c0387.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:28:06.999035+00:00"
+  },
+  {
+    "experiment_id": "dbscan-52abd2c018",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 1711182
+    },
+    "runtime_s": 3.87,
+    "peak_memory_mb": 962.0,
+    "memory_before_fit_mb": 823.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 9.5 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-52abd2c018.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:26:50.756181+00:00"
+  },
+  {
+    "experiment_id": "dbscan-5318c88fda",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.688,
+          "max_lat": 40.7,
+          "min_lon": -73.992,
+          "max_lon": -73.978
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 15969,
+    "n_unique_locations": 1414,
+    "metrics": {
+      "n_neighbor_pairs": 6431439
+    },
+    "runtime_s": 0.367,
+    "peak_memory_mb": 993.1,
+    "memory_before_fit_mb": 810.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 4.2 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-5318c88fda.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:13.305701+00:00"
+  },
+  {
+    "experiment_id": "dbscan-574c7dfe7d",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.695,
+          "max_lat": 40.712,
+          "min_lon": -73.815,
+          "max_lon": -73.785
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 21177,
+    "n_unique_locations": 3683,
+    "metrics": {
+      "weight_sum": 21177.0,
+      "n_neighbor_pairs": 108675
+    },
+    "runtime_s": 0.085,
+    "peak_memory_mb": 972.3,
+    "memory_before_fit_mb": 789.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.6 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-574c7dfe7d.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:12.120008+00:00"
+  },
+  {
+    "experiment_id": "dbscan-63cefd356e",
+    "stage": "sensitivity",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "exclude": [
+          "borough_conflict"
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 2018273,
+    "n_unique_locations": 348735,
+    "metrics": {
+      "weight_sum": 2018273.0,
+      "n_neighbor_pairs": 1708449
+    },
+    "runtime_s": 3.005,
+    "peak_memory_mb": 996.8,
+    "memory_before_fit_mb": 858.4,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 7.8 sn",
+      "başlangıçta boş sistem belleği 5528.4 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-63cefd356e.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:03:11.193046+00:00"
+  },
+  {
+    "experiment_id": "dbscan-66897838ab",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2024
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 83692,
+    "n_unique_locations": 49732,
+    "metrics": {
+      "weight_sum": 83692.0,
+      "n_neighbor_pairs": 82150
+    },
+    "runtime_s": 0.447,
+    "peak_memory_mb": 978.9,
+    "memory_before_fit_mb": 799.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn",
+      "başlangıçta boş sistem belleği 5522.8 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-66897838ab.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:42.411789+00:00"
+  },
+  {
+    "experiment_id": "dbscan-72e24df185",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2025
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 82704,
+    "n_unique_locations": 43912,
+    "metrics": {
+      "weight_sum": 82704.0,
+      "n_neighbor_pairs": 53348
+    },
+    "runtime_s": 0.356,
+    "peak_memory_mb": 982.5,
+    "memory_before_fit_mb": 804.4,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn",
+      "başlangıçta boş sistem belleği 5452.5 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-72e24df185.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:49.337119+00:00"
+  },
+  {
+    "experiment_id": "dbscan-73dcca9cdf",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.688,
+          "max_lat": 40.7,
+          "min_lon": -73.992,
+          "max_lon": -73.978
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 15969,
+    "n_unique_locations": 1414,
+    "metrics": {
+      "weight_sum": 15969.0,
+      "n_neighbor_pairs": 46220
+    },
+    "runtime_s": 0.045,
+    "peak_memory_mb": 984.1,
+    "memory_before_fit_mb": 801.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.7 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-73dcca9cdf.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:34.590399+00:00"
+  },
+  {
+    "experiment_id": "dbscan-76502b2d93",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 3329062
+    },
+    "runtime_s": 4.766,
+    "peak_memory_mb": 965.5,
+    "memory_before_fit_mb": 827.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 10.6 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-76502b2d93.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:27:33.380428+00:00"
+  },
+  {
+    "experiment_id": "dbscan-78116499e7",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.695,
+          "max_lat": 40.712,
+          "min_lon": -73.815,
+          "max_lon": -73.785
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 21177,
+    "n_unique_locations": 3683,
+    "metrics": {
+      "weight_sum": 21177.0,
+      "n_neighbor_pairs": 38285
+    },
+    "runtime_s": 0.057,
+    "peak_memory_mb": 969.6,
+    "memory_before_fit_mb": 787.4,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.4 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-78116499e7.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:56.910915+00:00"
+  },
+  {
+    "experiment_id": "dbscan-7c137de0b7",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 350,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 104672976
+    },
+    "runtime_s": 12.299,
+    "peak_memory_mb": 2158.6,
+    "memory_before_fit_mb": 847.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 17.3 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-7c137de0b7.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:29:28.570703+00:00"
+  },
+  {
+    "experiment_id": "dbscan-7ccee53527",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 4
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2024
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 83692,
+    "n_unique_locations": 49732,
+    "metrics": {
+      "weight_sum": 83692.0,
+      "n_neighbor_pairs": 82150
+    },
+    "runtime_s": 0.417,
+    "peak_memory_mb": 942.5,
+    "memory_before_fit_mb": 763.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 6874.7 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-7ccee53527.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:44.085759+00:00"
+  },
+  {
+    "experiment_id": "dbscan-7dbf20fda9",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 9
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2015
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 182992,
+    "n_unique_locations": 35539,
+    "metrics": {
+      "weight_sum": 182992.0,
+      "n_neighbor_pairs": 41503
+    },
+    "runtime_s": 0.289,
+    "peak_memory_mb": 994.1,
+    "memory_before_fit_mb": 815.3,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.1 sn",
+      "başlangıçta boş sistem belleği 6969.5 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-7dbf20fda9.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:12.560535+00:00"
+  },
+  {
+    "experiment_id": "dbscan-7e5f8a0889",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.62,
+          "max_lat": 40.645,
+          "min_lon": -74.12,
+          "max_lon": -74.075
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 11913,
+    "n_unique_locations": 3824,
+    "metrics": {
+      "n_neighbor_pairs": 1180001
+    },
+    "runtime_s": 0.192,
+    "peak_memory_mb": 1000.5,
+    "memory_before_fit_mb": 818.3,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-7e5f8a0889.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:30.689605+00:00"
+  },
+  {
+    "experiment_id": "dbscan-82a88983ae",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.695,
+          "max_lat": 40.712,
+          "min_lon": -73.815,
+          "max_lon": -73.785
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 21177,
+    "n_unique_locations": 3683,
+    "metrics": {
+      "weight_sum": 21177.0,
+      "n_neighbor_pairs": 38285
+    },
+    "runtime_s": 0.058,
+    "peak_memory_mb": 959.9,
+    "memory_before_fit_mb": 777.4,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.4 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-82a88983ae.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:49.878171+00:00"
+  },
+  {
+    "experiment_id": "dbscan-82f05c5351",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2016
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 192150,
+    "n_unique_locations": 84066,
+    "metrics": {
+      "weight_sum": 192150.0,
+      "n_neighbor_pairs": 183418
+    },
+    "runtime_s": 0.656,
+    "peak_memory_mb": 965.7,
+    "memory_before_fit_mb": 789.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.6 sn",
+      "başlangıçta boş sistem belleği 5450.8 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-82f05c5351.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:48.903549+00:00"
+  },
+  {
+    "experiment_id": "dbscan-848ee8e085",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.62,
+          "max_lat": 40.645,
+          "min_lon": -74.12,
+          "max_lon": -74.075
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 11913,
+    "n_unique_locations": 3824,
+    "metrics": {
+      "n_neighbor_pairs": 579569
+    },
+    "runtime_s": 0.151,
+    "peak_memory_mb": 978.4,
+    "memory_before_fit_mb": 795.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.7 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-848ee8e085.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:23.035837+00:00"
+  },
+  {
+    "experiment_id": "dbscan-89570d3913",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "skipped_resource_limit",
+    "error": "Tahmini komşu çifti 310,691,918 > sınır 300,000,000 (~2.3 GiB yalnızca indeks); koşu çalıştırılmadı.",
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {},
+    "runtime_s": null,
+    "peak_memory_mb": 988.2,
+    "memory_before_fit_mb": null,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 43.4 sn",
+      "başlangıçta boş sistem belleği 5985.8 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": null,
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:06:32.635617+00:00"
+  },
+  {
+    "experiment_id": "dbscan-8c8c0a6d94",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 4
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2025
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 82704,
+    "n_unique_locations": 43912,
+    "metrics": {
+      "weight_sum": 82704.0,
+      "n_neighbor_pairs": 53348
+    },
+    "runtime_s": 0.352,
+    "peak_memory_mb": 1009.4,
+    "memory_before_fit_mb": 831.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 6854.9 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-8c8c0a6d94.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:47.362443+00:00"
+  },
+  {
+    "experiment_id": "dbscan-8f825fd2e9",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.695,
+          "max_lat": 40.712,
+          "min_lon": -73.815,
+          "max_lon": -73.785
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 21177,
+    "n_unique_locations": 3683,
+    "metrics": {
+      "weight_sum": 21177.0,
+      "n_neighbor_pairs": 108675
+    },
+    "runtime_s": 0.071,
+    "peak_memory_mb": 981.9,
+    "memory_before_fit_mb": 799.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.7 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-8f825fd2e9.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:04.549385+00:00"
+  },
+  {
+    "experiment_id": "dbscan-90d143c24e",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 10498524
+    },
+    "runtime_s": 5.881,
+    "peak_memory_mb": 1045.8,
+    "memory_before_fit_mb": 870.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 11.6 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-90d143c24e.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:28:18.606815+00:00"
+  },
+  {
+    "experiment_id": "dbscan-92b7d618c2",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 1711182
+    },
+    "runtime_s": 4.079,
+    "peak_memory_mb": 973.2,
+    "memory_before_fit_mb": 834.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 9.8 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-92b7d618c2.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:26:31.740137+00:00"
+  },
+  {
+    "experiment_id": "dbscan-93116c3e55",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 9
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2014
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 172751,
+    "n_unique_locations": 31958,
+    "metrics": {
+      "weight_sum": 172751.0,
+      "n_neighbor_pairs": 35522
+    },
+    "runtime_s": 0.252,
+    "peak_memory_mb": 988.2,
+    "memory_before_fit_mb": 808.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 6957.4 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-93116c3e55.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:09.246627+00:00"
+  },
+  {
+    "experiment_id": "dbscan-939ed918d3",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 11
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2017
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 216917,
+    "n_unique_locations": 75463,
+    "metrics": {
+      "weight_sum": 216917.0,
+      "n_neighbor_pairs": 141945
+    },
+    "runtime_s": 0.649,
+    "peak_memory_mb": 978.1,
+    "memory_before_fit_mb": 802.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.6 sn",
+      "başlangıçta boş sistem belleği 6972.3 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-939ed918d3.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:19.941753+00:00"
+  },
+  {
+    "experiment_id": "dbscan-96a23e4020",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 200,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 36272318
+    },
+    "runtime_s": 7.971,
+    "peak_memory_mb": 1302.8,
+    "memory_before_fit_mb": 807.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 13.0 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-96a23e4020.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:29:11.164303+00:00"
+  },
+  {
+    "experiment_id": "dbscan-96b1e012f7",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 4
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2023
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 89014,
+    "n_unique_locations": 45231,
+    "metrics": {
+      "weight_sum": 89014.0,
+      "n_neighbor_pairs": 66167
+    },
+    "runtime_s": 0.371,
+    "peak_memory_mb": 995.4,
+    "memory_before_fit_mb": 817.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn",
+      "başlangıçta boş sistem belleği 6970.1 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-96b1e012f7.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:40.713529+00:00"
+  },
+  {
+    "experiment_id": "dbscan-98529ddf95",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2022
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 93080,
+    "n_unique_locations": 46085,
+    "metrics": {
+      "weight_sum": 93080.0,
+      "n_neighbor_pairs": 67349
+    },
+    "runtime_s": 0.377,
+    "peak_memory_mb": 995.9,
+    "memory_before_fit_mb": 818.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 5510.2 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-98529ddf95.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:29.272036+00:00"
+  },
+  {
+    "experiment_id": "dbscan-a3d6331c4d",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 1711182
+    },
+    "runtime_s": 4.255,
+    "peak_memory_mb": 994.1,
+    "memory_before_fit_mb": 855.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 10.3 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-a3d6331c4d.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:26:21.978285+00:00"
+  },
+  {
+    "experiment_id": "dbscan-a690d8076b",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 350,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 104672976
+    },
+    "runtime_s": 12.115,
+    "peak_memory_mb": 2175.1,
+    "memory_before_fit_mb": 837.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 23.8 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-a690d8076b.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:29:52.508835+00:00"
+  },
+  {
+    "experiment_id": "dbscan-a7f6030f72",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.75,
+          "max_lat": 40.765,
+          "min_lon": -73.995,
+          "max_lon": -73.975
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 44073,
+    "n_unique_locations": 4798,
+    "metrics": {
+      "n_neighbor_pairs": 13096575
+    },
+    "runtime_s": 1.022,
+    "peak_memory_mb": 941.9,
+    "memory_before_fit_mb": 759.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 6.4 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-a7f6030f72.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:22:37.763283+00:00"
+  },
+  {
+    "experiment_id": "dbscan-b00346547c",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 200,
+      "min_samples": 50
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 36272318
+    },
+    "runtime_s": 8.161,
+    "peak_memory_mb": 1322.8,
+    "memory_before_fit_mb": 828.4,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 13.4 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-b00346547c.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:28:58.111430+00:00"
+  },
+  {
+    "experiment_id": "dbscan-b18e6e009d",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.688,
+          "max_lat": 40.7,
+          "min_lon": -73.992,
+          "max_lon": -73.978
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 15969,
+    "n_unique_locations": 1414,
+    "metrics": {
+      "weight_sum": 15969.0,
+      "n_neighbor_pairs": 14860
+    },
+    "runtime_s": 0.051,
+    "peak_memory_mb": 972.3,
+    "memory_before_fit_mb": 789.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.9 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-b18e6e009d.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:17.228489+00:00"
+  },
+  {
+    "experiment_id": "dbscan-b789abce61",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2021
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 100896,
+    "n_unique_locations": 53217,
+    "metrics": {
+      "weight_sum": 100896.0,
+      "n_neighbor_pairs": 88645
+    },
+    "runtime_s": 0.444,
+    "peak_memory_mb": 985.7,
+    "memory_before_fit_mb": 807.4,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.4 sn",
+      "başlangıçta boş sistem belleği 5522.2 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-b789abce61.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:22.842143+00:00"
+  },
+  {
+    "experiment_id": "dbscan-b8a8491572",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.75,
+          "max_lat": 40.765,
+          "min_lon": -73.995,
+          "max_lon": -73.975
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 44073,
+    "n_unique_locations": 4798,
+    "metrics": {
+      "n_neighbor_pairs": 33922131
+    },
+    "runtime_s": 1.454,
+    "peak_memory_mb": 1249.9,
+    "memory_before_fit_mb": 781.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 5.1 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-b8a8491572.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:05.173319+00:00"
+  },
+  {
+    "experiment_id": "dbscan-b91304e623",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.688,
+          "max_lat": 40.7,
+          "min_lon": -73.992,
+          "max_lon": -73.978
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 15969,
+    "n_unique_locations": 1414,
+    "metrics": {
+      "n_neighbor_pairs": 6431439
+    },
+    "runtime_s": 0.37,
+    "peak_memory_mb": 1010.4,
+    "memory_before_fit_mb": 828.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 5.8 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-b91304e623.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:23.042066+00:00"
+  },
+  {
+    "experiment_id": "dbscan-bc95386027",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 11
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2018
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 216108,
+    "n_unique_locations": 71685,
+    "metrics": {
+      "weight_sum": 216108.0,
+      "n_neighbor_pairs": 125983
+    },
+    "runtime_s": 0.611,
+    "peak_memory_mb": 979.3,
+    "memory_before_fit_mb": 803.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn",
+      "başlangıçta boş sistem belleği 6970.6 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-bc95386027.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:23.597113+00:00"
+  },
+  {
+    "experiment_id": "dbscan-c4c1133412",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.695,
+          "max_lat": 40.712,
+          "min_lon": -73.815,
+          "max_lon": -73.785
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 21177,
+    "n_unique_locations": 3683,
+    "metrics": {
+      "n_neighbor_pairs": 2702077
+    },
+    "runtime_s": 0.322,
+    "peak_memory_mb": 977.8,
+    "memory_before_fit_mb": 795.3,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.9 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-c4c1133412.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:46.463635+00:00"
+  },
+  {
+    "experiment_id": "dbscan-c7b0d23c18",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 3329062
+    },
+    "runtime_s": 4.952,
+    "peak_memory_mb": 982.0,
+    "memory_before_fit_mb": 843.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 11.1 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-c7b0d23c18.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:27:12.148392+00:00"
+  },
+  {
+    "experiment_id": "dbscan-cac33d6634",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 9
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2013
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 171941,
+    "n_unique_locations": 30962,
+    "metrics": {
+      "weight_sum": 171941.0,
+      "n_neighbor_pairs": 33750
+    },
+    "runtime_s": 0.232,
+    "peak_memory_mb": 987.4,
+    "memory_before_fit_mb": 807.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.1 sn",
+      "başlangıçta boş sistem belleği 6966.6 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-cac33d6634.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:05.900320+00:00"
+  },
+  {
+    "experiment_id": "dbscan-cb3d884495",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 5
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2022
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 93080,
+    "n_unique_locations": 46085,
+    "metrics": {
+      "weight_sum": 93080.0,
+      "n_neighbor_pairs": 67349
+    },
+    "runtime_s": 0.368,
+    "peak_memory_mb": 985.0,
+    "memory_before_fit_mb": 806.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 6982.1 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-cb3d884495.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:37.100486+00:00"
+  },
+  {
+    "experiment_id": "dbscan-cc463804a3",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.75,
+          "max_lat": 40.765,
+          "min_lon": -73.995,
+          "max_lon": -73.975
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 44073,
+    "n_unique_locations": 4798,
+    "metrics": {
+      "weight_sum": 44073.0,
+      "n_neighbor_pairs": 285756
+    },
+    "runtime_s": 0.114,
+    "peak_memory_mb": 997.6,
+    "memory_before_fit_mb": 816.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.8 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-cc463804a3.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:00.044835+00:00"
+  },
+  {
+    "experiment_id": "dbscan-cef8c0d213",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 50
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 1711182
+    },
+    "runtime_s": 3.818,
+    "peak_memory_mb": 963.3,
+    "memory_before_fit_mb": 825.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 9.5 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-cef8c0d213.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:26:41.228297+00:00"
+  },
+  {
+    "experiment_id": "dbscan-d0eec4a25d",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 200,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 36272318
+    },
+    "runtime_s": 7.788,
+    "peak_memory_mb": 1336.7,
+    "memory_before_fit_mb": 839.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 12.9 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-d0eec4a25d.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:28:31.538234+00:00"
+  },
+  {
+    "experiment_id": "dbscan-d48e483fff",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "region": {
+          "min_lat": 40.75,
+          "max_lat": 40.765,
+          "min_lon": -73.995,
+          "max_lon": -73.975
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 44073,
+    "n_unique_locations": 4798,
+    "metrics": {
+      "n_neighbor_pairs": 13096575
+    },
+    "runtime_s": 0.932,
+    "peak_memory_mb": 969.5,
+    "memory_before_fit_mb": 787.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 4.7 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-d48e483fff.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:22:46.832387+00:00"
+  },
+  {
+    "experiment_id": "dbscan-d7a419bba2",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2020
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 103838,
+    "n_unique_locations": 48452,
+    "metrics": {
+      "weight_sum": 103838.0,
+      "n_neighbor_pairs": 70130
+    },
+    "runtime_s": 0.395,
+    "peak_memory_mb": 985.9,
+    "memory_before_fit_mb": 808.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.3 sn",
+      "başlangıçta boş sistem belleği 5507.5 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-d7a419bba2.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:16.316761+00:00"
+  },
+  {
+    "experiment_id": "dbscan-dbcc835abc",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 5
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2020
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 103838,
+    "n_unique_locations": 48452,
+    "metrics": {
+      "weight_sum": 103838.0,
+      "n_neighbor_pairs": 70130
+    },
+    "runtime_s": 0.4,
+    "peak_memory_mb": 996.8,
+    "memory_before_fit_mb": 817.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 6969.7 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-dbcc835abc.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:30.451917+00:00"
+  },
+  {
+    "experiment_id": "dbscan-ddd31d535f",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2015
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 182992,
+    "n_unique_locations": 35539,
+    "metrics": {
+      "weight_sum": 182992.0,
+      "n_neighbor_pairs": 41503
+    },
+    "runtime_s": 0.289,
+    "peak_memory_mb": 1003.8,
+    "memory_before_fit_mb": 825.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.3 sn",
+      "başlangıçta boş sistem belleği 5462.7 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-ddd31d535f.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:42.051599+00:00"
+  },
+  {
+    "experiment_id": "dbscan-e58050d844",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2013
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 171941,
+    "n_unique_locations": 30962,
+    "metrics": {
+      "weight_sum": 171941.0,
+      "n_neighbor_pairs": 33750
+    },
+    "runtime_s": 0.244,
+    "peak_memory_mb": 981.4,
+    "memory_before_fit_mb": 802.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.1 sn",
+      "başlangıçta boş sistem belleği 5564.3 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-e58050d844.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:29.089995+00:00"
+  },
+  {
+    "experiment_id": "dbscan-e777e2e1a4",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 50
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 3329062
+    },
+    "runtime_s": 4.743,
+    "peak_memory_mb": 966.3,
+    "memory_before_fit_mb": 827.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 10.6 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-e777e2e1a4.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:27:22.775950+00:00"
+  },
+  {
+    "experiment_id": "dbscan-ec4b3b66e4",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.62,
+          "max_lat": 40.645,
+          "min_lon": -74.12,
+          "max_lon": -74.075
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 11913,
+    "n_unique_locations": 3824,
+    "metrics": {
+      "weight_sum": 11913.0,
+      "n_neighbor_pairs": 29326
+    },
+    "runtime_s": 0.064,
+    "peak_memory_mb": 976.8,
+    "memory_before_fit_mb": 794.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 4.0 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-ec4b3b66e4.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:27.026919+00:00"
+  },
+  {
+    "experiment_id": "dbscan-eef9b91229",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.62,
+          "max_lat": 40.645,
+          "min_lon": -74.12,
+          "max_lon": -74.075
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 11913,
+    "n_unique_locations": 3824,
+    "metrics": {
+      "weight_sum": 11913.0,
+      "n_neighbor_pairs": 80692
+    },
+    "runtime_s": 0.085,
+    "peak_memory_mb": 962.7,
+    "memory_before_fit_mb": 780.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.8 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-eef9b91229.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:34.518485+00:00"
+  },
+  {
+    "experiment_id": "dbscan-f563828ff3",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2019
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:977132f9821d",
+    "status": "success",
+    "error": null,
+    "n_events": 193820,
+    "n_unique_locations": 67582,
+    "metrics": {
+      "weight_sum": 193820.0,
+      "n_neighbor_pairs": 116088
+    },
+    "runtime_s": 0.554,
+    "peak_memory_mb": 968.2,
+    "memory_before_fit_mb": 791.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.4 sn",
+      "başlangıçta boş sistem belleği 6970.8 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-f563828ff3.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:15:27.137935+00:00"
+  },
+  {
+    "experiment_id": "dbscan-f63c1b73bc",
+    "stage": "dbscan_grid",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "n_neighbor_pairs": 10498524
+    },
+    "runtime_s": 5.816,
+    "peak_memory_mb": 1037.7,
+    "memory_before_fit_mb": 844.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 10.9 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-f63c1b73bc.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:27:55.796750+00:00"
+  },
+  {
+    "experiment_id": "dbscan-f98dc4bb7c",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 10
+    },
+    "feature_set": "A_dbscan_haversine",
+    "scope": {
+      "kind": "dbscan_records",
+      "subset": {
+        "years": [
+          2019
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 193820,
+    "n_unique_locations": 67582,
+    "metrics": {
+      "n_neighbor_pairs": 3272374
+    },
+    "runtime_s": 3.973,
+    "peak_memory_mb": 992.3,
+    "memory_before_fit_mb": 814.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 8.1 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-f98dc4bb7c.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:24:49.635908+00:00"
+  },
+  {
+    "experiment_id": "dbscan-fb2593a9cb",
+    "stage": "temporal",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "years": [
+          2018
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 216108,
+    "n_unique_locations": 71685,
+    "metrics": {
+      "weight_sum": 216108.0,
+      "n_neighbor_pairs": 125983
+    },
+    "runtime_s": 0.615,
+    "peak_memory_mb": 955.9,
+    "memory_before_fit_mb": 779.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.6 sn",
+      "başlangıçta boş sistem belleği 5507.5 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-fb2593a9cb.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:02.797911+00:00"
+  },
+  {
+    "experiment_id": "dbscan-fc5617b334",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 100,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.688,
+          "max_lat": 40.7,
+          "min_lon": -73.992,
+          "max_lon": -73.978
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 15969,
+    "n_unique_locations": 1414,
+    "metrics": {
+      "weight_sum": 15969.0,
+      "n_neighbor_pairs": 46220
+    },
+    "runtime_s": 0.052,
+    "peak_memory_mb": 988.3,
+    "memory_before_fit_mb": 806.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.8 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-fc5617b334.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:23:42.508354+00:00"
+  },
+  {
+    "experiment_id": "dbscan-fe441d14a6",
+    "stage": "equivalence",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 50,
+      "min_samples": 25
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "region": {
+          "min_lat": 40.75,
+          "max_lat": 40.765,
+          "min_lon": -73.995,
+          "max_lon": -73.975
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 44073,
+    "n_unique_locations": 4798,
+    "metrics": {
+      "weight_sum": 44073.0,
+      "n_neighbor_pairs": 81890
+    },
+    "runtime_s": 0.114,
+    "peak_memory_mb": 981.3,
+    "memory_before_fit_mb": 800.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 4.2 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-fe441d14a6.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:22:51.008446+00:00"
+  },
+  {
+    "experiment_id": "dbscan-ff11611896",
+    "stage": "sensitivity",
+    "algorithm": "dbscan",
+    "params": {
+      "eps_m": 25,
+      "min_samples": 100
+    },
+    "feature_set": "A_dbscan_haversine_weighted",
+    "scope": {
+      "kind": "dbscan_weighted",
+      "subset": {
+        "exclude": [
+          "geocode_fallback"
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 2018794,
+    "n_unique_locations": 349107,
+    "metrics": {
+      "weight_sum": 2018794.0,
+      "n_neighbor_pairs": 1711059
+    },
+    "runtime_s": 3.372,
+    "peak_memory_mb": 1000.5,
+    "memory_before_fit_mb": 862.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 8.2 sn",
+      "başlangıçta boş sistem belleği 5406.9 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\dbscan-ff11611896.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:03:02.589314+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-115a1cd9f2",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 25,
+      "min_samples": 10
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 69.433,
+    "peak_memory_mb": 961.2,
+    "memory_before_fit_mb": 781.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 72.9 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-115a1cd9f2.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:34:11.687909+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-1ee225b757",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 100,
+      "min_samples": 5
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 64.036,
+    "peak_memory_mb": 942.5,
+    "memory_before_fit_mb": 762.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 67.5 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-1ee225b757.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:40:09.800506+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-47aec04ac5",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 50,
+      "min_samples": 10
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 69.394,
+    "peak_memory_mb": 936.0,
+    "memory_before_fit_mb": 756.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 73.3 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-47aec04ac5.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:37:49.609732+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-509d3c5030",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 250,
+      "min_samples": 10
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 53.052,
+    "peak_memory_mb": 990.3,
+    "memory_before_fit_mb": 810.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 56.1 sn",
+      "başlangıçta boş sistem belleği 5964.4 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-509d3c5030.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:51:09.345055+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-58f1df27d1",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 50,
+      "min_samples": 25
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 64.318,
+    "peak_memory_mb": 964.9,
+    "memory_before_fit_mb": 785.3,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 72.7 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-58f1df27d1.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:39:02.333254+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-5f11becd0f",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 250,
+      "min_samples": 5
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 53.85,
+    "peak_memory_mb": 964.7,
+    "memory_before_fit_mb": 786.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 56.8 sn",
+      "başlangıçta boş sistem belleği 6030.8 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-5f11becd0f.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:50:13.239777+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-65e7894612",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 100,
+      "min_samples": 10
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 53.23,
+    "peak_memory_mb": 996.9,
+    "memory_before_fit_mb": 816.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 56.2 sn",
+      "başlangıçta boş sistem belleği 6223.5 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-65e7894612.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:48:19.384901+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-6f1a31ac92",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 100,
+      "min_samples": 25
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 53.777,
+    "peak_memory_mb": 992.4,
+    "memory_before_fit_mb": 814.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 56.9 sn",
+      "başlangıçta boş sistem belleği 6150.3 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-6f1a31ac92.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:49:16.361523+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-8c7518c206",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 250,
+      "min_samples": 25
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 53.927,
+    "peak_memory_mb": 974.7,
+    "memory_before_fit_mb": 794.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 57.0 sn",
+      "başlangıçta boş sistem belleği 5962.5 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-8c7518c206.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:52:06.415552+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-b02895aa0f",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 25,
+      "min_samples": 5
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 70.103,
+    "peak_memory_mb": 993.4,
+    "memory_before_fit_mb": 814.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 73.4 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-b02895aa0f.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:32:58.748719+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-b74e8d8f3b",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 50,
+      "min_samples": 5
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 68.72,
+    "peak_memory_mb": 993.3,
+    "memory_before_fit_mb": 814.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 72.3 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-b74e8d8f3b.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:36:36.157951+00:00"
+  },
+  {
+    "experiment_id": "hdbscan-ba3a1ff58d",
+    "stage": "hdbscan_grid",
+    "algorithm": "hdbscan",
+    "params": {
+      "min_cluster_size": 25,
+      "min_samples": 25
+    },
+    "feature_set": "B_kmeans_projected",
+    "scope": {
+      "kind": "hdbscan_events",
+      "subset": {
+        "sample": {
+          "n": 100000,
+          "seed": 42
+        }
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 100000,
+    "n_unique_locations": 56969,
+    "metrics": {},
+    "runtime_s": 68.883,
+    "peak_memory_mb": 965.1,
+    "memory_before_fit_mb": 785.3,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 72.2 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\hdbscan-ba3a1ff58d.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:35:23.858065+00:00"
+  },
+  {
+    "experiment_id": "kmeans-0a1fd91d9d",
+    "stage": "kmeans_grid",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 80
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "inertia": 2430715386131.125,
+      "n_iter": 39
+    },
+    "runtime_s": 16.062,
+    "peak_memory_mb": 981.5,
+    "memory_before_fit_mb": 843.4,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 21.2 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-0a1fd91d9d.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:31:45.298464+00:00"
+  },
+  {
+    "experiment_id": "kmeans-16d3551fc1",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2018
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 216108,
+    "n_unique_locations": 71685,
+    "metrics": {
+      "weight_sum": 216108.0,
+      "inertia": 5040716245871.701,
+      "n_iter": 40
+    },
+    "runtime_s": 0.187,
+    "peak_memory_mb": 996.4,
+    "memory_before_fit_mb": 820.1,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 5509.8 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-16d3551fc1.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:06.055320+00:00"
+  },
+  {
+    "experiment_id": "kmeans-17925d2a2c",
+    "stage": "kmeans_grid",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 40
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "inertia": 5110699890401.829,
+      "n_iter": 48
+    },
+    "runtime_s": 7.111,
+    "peak_memory_mb": 998.7,
+    "memory_before_fit_mb": 860.3,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 12.1 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-17925d2a2c.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:31:24.079955+00:00"
+  },
+  {
+    "experiment_id": "kmeans-1979016cf0",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2023
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 89014,
+    "n_unique_locations": 45231,
+    "metrics": {
+      "weight_sum": 89014.0,
+      "inertia": 2083558052169.6248,
+      "n_iter": 11
+    },
+    "runtime_s": 0.158,
+    "peak_memory_mb": 986.2,
+    "memory_before_fit_mb": 808.7,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.0 sn",
+      "başlangıçta boş sistem belleği 5525.5 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-1979016cf0.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:38.872203+00:00"
+  },
+  {
+    "experiment_id": "kmeans-200083a04e",
+    "stage": "kmeans_grid",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 20
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "inertia": 10527194547034.125,
+      "n_iter": 43
+    },
+    "runtime_s": 3.225,
+    "peak_memory_mb": 968.8,
+    "memory_before_fit_mb": 830.4,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 8.3 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-200083a04e.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:31:11.968197+00:00"
+  },
+  {
+    "experiment_id": "kmeans-24c07e9946",
+    "stage": "kmeans_grid",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "inertia": 47103465694187.29,
+      "n_iter": 4
+    },
+    "runtime_s": 0.796,
+    "peak_memory_mb": 965.4,
+    "memory_before_fit_mb": 826.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 10.2 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-24c07e9946.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:30:56.899430+00:00"
+  },
+  {
+    "experiment_id": "kmeans-470434f678",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2013
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 171941,
+    "n_unique_locations": 30962,
+    "metrics": {
+      "weight_sum": 171941.0,
+      "inertia": 3882575708083.626,
+      "n_iter": 37
+    },
+    "runtime_s": 0.12,
+    "peak_memory_mb": 998.3,
+    "memory_before_fit_mb": 818.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.1 sn",
+      "başlangıçta boş sistem belleği 5535.2 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-470434f678.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:32.239124+00:00"
+  },
+  {
+    "experiment_id": "kmeans-4d59cc53a0",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2014
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 172751,
+    "n_unique_locations": 31958,
+    "metrics": {
+      "weight_sum": 172751.0,
+      "inertia": 3916157128995.703,
+      "n_iter": 6
+    },
+    "runtime_s": 0.11,
+    "peak_memory_mb": 984.8,
+    "memory_before_fit_mb": 805.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.1 sn",
+      "başlangıçta boş sistem belleği 5532.1 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-4d59cc53a0.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:38.714540+00:00"
+  },
+  {
+    "experiment_id": "kmeans-53acbc90d7",
+    "stage": "kmeans_grid",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 10
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {},
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:62eccf623d30",
+    "status": "success",
+    "error": null,
+    "n_events": 2020638,
+    "n_unique_locations": 349122,
+    "metrics": {
+      "weight_sum": 2020638.0,
+      "inertia": 22633290453983.79,
+      "n_iter": 36
+    },
+    "runtime_s": 1.699,
+    "peak_memory_mb": 963.0,
+    "memory_before_fit_mb": 824.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 6.7 sn"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-53acbc90d7.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T18:31:03.647197+00:00"
+  },
+  {
+    "experiment_id": "kmeans-5788e158ff",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2024
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 83692,
+    "n_unique_locations": 49732,
+    "metrics": {
+      "weight_sum": 83692.0,
+      "inertia": 2002840140090.8145,
+      "n_iter": 7
+    },
+    "runtime_s": 0.158,
+    "peak_memory_mb": 1004.7,
+    "memory_before_fit_mb": 826.6,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.3 sn",
+      "başlangıçta boş sistem belleği 5466.9 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-5788e158ff.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:45.787586+00:00"
+  },
+  {
+    "experiment_id": "kmeans-60bcbad136",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2025
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 82704,
+    "n_unique_locations": 43912,
+    "metrics": {
+      "weight_sum": 82704.0,
+      "inertia": 2016557093327.337,
+      "n_iter": 23
+    },
+    "runtime_s": 0.164,
+    "peak_memory_mb": 988.8,
+    "memory_before_fit_mb": 810.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.5 sn",
+      "başlangıçta boş sistem belleği 5438.1 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-60bcbad136.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:52.947545+00:00"
+  },
+  {
+    "experiment_id": "kmeans-81658397ef",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2015
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 182992,
+    "n_unique_locations": 35539,
+    "metrics": {
+      "weight_sum": 182992.0,
+      "inertia": 4225981202600.942,
+      "n_iter": 6
+    },
+    "runtime_s": 0.119,
+    "peak_memory_mb": 1002.0,
+    "memory_before_fit_mb": 823.0,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.1 sn",
+      "başlangıçta boş sistem belleği 5456.7 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-81658397ef.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:45.249122+00:00"
+  },
+  {
+    "experiment_id": "kmeans-85405b65dc",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2017
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 216917,
+    "n_unique_locations": 75463,
+    "metrics": {
+      "weight_sum": 216917.0,
+      "inertia": 5058569649293.119,
+      "n_iter": 9
+    },
+    "runtime_s": 0.183,
+    "peak_memory_mb": 998.8,
+    "memory_before_fit_mb": 822.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 5518.6 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-85405b65dc.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:59.110040+00:00"
+  },
+  {
+    "experiment_id": "kmeans-99a968ada6",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2019
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 193820,
+    "n_unique_locations": 67582,
+    "metrics": {
+      "weight_sum": 193820.0,
+      "inertia": 4501050488818.922,
+      "n_iter": 10
+    },
+    "runtime_s": 0.22,
+    "peak_memory_mb": 1009.0,
+    "memory_before_fit_mb": 832.5,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.2 sn",
+      "başlangıçta boş sistem belleği 5517.4 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-99a968ada6.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:12.908659+00:00"
+  },
+  {
+    "experiment_id": "kmeans-b921743624",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2016
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 192150,
+    "n_unique_locations": 84066,
+    "metrics": {
+      "weight_sum": 192150.0,
+      "inertia": 4428731147598.841,
+      "n_iter": 6
+    },
+    "runtime_s": 0.183,
+    "peak_memory_mb": 969.4,
+    "memory_before_fit_mb": 793.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.1 sn",
+      "başlangıçta boş sistem belleği 5516.2 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-b921743624.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:01:52.093669+00:00"
+  },
+  {
+    "experiment_id": "kmeans-bb3089102c",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2020
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 103838,
+    "n_unique_locations": 48452,
+    "metrics": {
+      "weight_sum": 103838.0,
+      "inertia": 2425613612643.762,
+      "n_iter": 21
+    },
+    "runtime_s": 0.173,
+    "peak_memory_mb": 990.5,
+    "memory_before_fit_mb": 811.9,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.0 sn",
+      "başlangıçta boş sistem belleği 5527.7 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-bb3089102c.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:19.414668+00:00"
+  },
+  {
+    "experiment_id": "kmeans-c4919e54fd",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2021
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 100896,
+    "n_unique_locations": 53217,
+    "metrics": {
+      "weight_sum": 100896.0,
+      "inertia": 2363999848301.4214,
+      "n_iter": 7
+    },
+    "runtime_s": 0.152,
+    "peak_memory_mb": 1003.6,
+    "memory_before_fit_mb": 825.2,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.1 sn",
+      "başlangıçta boş sistem belleği 5521.9 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-c4919e54fd.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:25.972509+00:00"
+  },
+  {
+    "experiment_id": "kmeans-f458312e4d",
+    "stage": "temporal",
+    "algorithm": "kmeans",
+    "params": {
+      "k": 5
+    },
+    "feature_set": "B_kmeans_projected_weighted",
+    "scope": {
+      "kind": "kmeans_weighted",
+      "subset": {
+        "years": [
+          2022
+        ]
+      },
+      "weight_cap": null
+    },
+    "dataset_version": "raw:2fe1297c24f7|p2cfg:c7ffbfdc478d|p2:2.1.1",
+    "processing_version": "phase3-code:3.0.0|phase3-config:deef7286bdd7",
+    "status": "success",
+    "error": null,
+    "n_events": 93080,
+    "n_unique_locations": 46085,
+    "metrics": {
+      "weight_sum": 93080.0,
+      "inertia": 2188537359911.1685,
+      "n_iter": 7
+    },
+    "runtime_s": 0.15,
+    "peak_memory_mb": 1009.7,
+    "memory_before_fit_mb": 829.8,
+    "warnings": [
+      "toplam süre (süreç başlatma + veri yükleme dahil) 3.1 sn",
+      "başlangıçta boş sistem belleği 5502.8 MB",
+      "çocuk süreç kapandı: True"
+    ],
+    "seed": 42,
+    "labels_path": "C:\\Proje\\SAFEROUTE 3D\\data\\processed\\h9gi-nx95\\snapshot_20261019T155113Z\\phase3\\labels\\kmeans-f458312e4d.npz",
+    "software": {
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "hdbscan": "0.8.44"
+    },
+    "created_at": "2026-10-19T19:02:32.479256+00:00"
+  }
+]

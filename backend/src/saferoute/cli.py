@@ -9,6 +9,7 @@ Kullanım:
     saferoute eda [--snapshot DIZIN] [--out DIZIN]
     saferoute boundaries               Resmî ilçe sınırlarını indir (gthc-hcne)
     saferoute preprocess [--force]     Faz 2 hattı + raporlar
+    saferoute cluster [--force]        Faz 3 kümeleme deneyleri + raporlar
 """
 
 from __future__ import annotations
@@ -127,6 +128,24 @@ def _cmd_preprocess(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_cluster(args: argparse.Namespace) -> int:
+    from saferoute.clustering.runner import Phase3Runner
+    from saferoute.clustering.settings import load_config
+
+    runner = Phase3Runner(load_config(Path(args.config)) if args.config else None, force=args.force)
+    stages = [s.strip() for s in args.stages.split(",")] if args.stages else None
+    results = runner.run_all(stages)
+    print(f"Hesaplanan aşamalar: {results['stages_computed_this_run']}; boş bellek (son): "
+          f"{results['meta']['available_memory_mb_end']} MB; orkestratör tepe: {results['meta']['orchestrator_peak_memory_mb']} MB")
+    if not args.skip_reports and "profiles" in results["stages_computed_this_run"]:
+        from saferoute.clustering.report import write_reports
+
+        figs = write_reports(results, runner)
+        print(f"Faz 3 raporları yazıldı ({len(figs)} şekil): {config.REPORTS_DIR / 'phase3'}")
+    print(f"Deney sayısı: {results['meta']['n_experiments']}, durumlar: {results['meta']['status_counts']}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="saferoute", description="SafeRoute 3D veri hattı")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -167,6 +186,14 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--force", action="store_true", help="Güncel olsa bile yeniden üret")
     p.add_argument("--skip-reports", action="store_true")
     p.set_defaults(func=_cmd_preprocess)
+
+    p = sub.add_parser("cluster", help="Faz 3: kümeleme deneyleri, değerlendirme ve sonuç dosyaları")
+    p.add_argument("--config", default=None, help="TOML yapılandırma (varsayılan: backend/configs/phase3.toml)")
+    p.add_argument("--force", action="store_true", help="Kayıtlı başarılı deneyleri de yeniden çalıştır")
+    p.add_argument("--stages", default=None,
+                   help="Virgülle ayrılmış aşamalar (ör. hdbscan,evaluate); önceki aşamalar kontrol noktasından okunur")
+    p.add_argument("--skip-reports", action="store_true")
+    p.set_defaults(func=_cmd_cluster)
 
     args = parser.parse_args(argv)
     return args.func(args)
