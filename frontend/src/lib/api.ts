@@ -51,10 +51,10 @@ export class ApiError extends Error {
   }
 }
 
-async function get<T>(path: string, signal?: AbortSignal): Promise<T> {
+async function get<T>(path: string, signal?: AbortSignal, init?: RequestInit): Promise<T> {
   let res: Response;
   try {
-    res = await fetch(path, { signal });
+    res = await fetch(path, { ...init, signal });
   } catch (e) {
     if ((e as Error).name === "AbortError") throw e;
     throw new ApiError(0, "Katman sunucusuna ulaşılamadı. 'saferoute serve' çalışıyor mu?");
@@ -72,6 +72,13 @@ async function get<T>(path: string, signal?: AbortSignal): Promise<T> {
 }
 
 const bboxParam = (b: BBox) => b.map((v) => v.toFixed(6)).join(",");
+
+/** Faz 5 uç noktaları için genel istemci (aynı hata modeli). */
+export const getJSON = <T,>(path: string, signal?: AbortSignal) => get<T>(path, signal);
+export const postJSON = <T,>(path: string, body: unknown, signal?: AbortSignal) =>
+  get<T>(path, signal, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+export const deleteJSON = <T,>(path: string) => get<T>(path, undefined, { method: "DELETE" });
+export { bboxParam };
 
 export const api = {
   meta: (s?: AbortSignal) => get<Meta>("/api/meta", s),

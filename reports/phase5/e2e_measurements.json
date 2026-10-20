@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-10-20T13:01:30.048Z",
+  "renderer": "Chromium headless (SwiftShader yazılım WebGL, GPU yok)",
+  "viewport": "1440×900 (aksi belirtilmedikçe)",
+  "overview_ready_ms": 1179,
+  "fonts": {
+    "jakarta": true,
+    "manrope": true,
+    "h1": "\"Plus Jakarta Sans\", ui-sans-serif, system-ui, sans-serif",
+    "body": "Manrope, ui-sans-serif, system-ui, sans-serif"
+  },
+  "filter_apply_to_layers_ms": 180,
+  "filter_change_api_requests": 4,
+  "dynamic_dbscan_job_ms": 409,
+  "dynamic_dbscan_worker": {
+    "status": "completed",
+    "runtime_s": 0.065,
+    "peak_memory_mb": 210.7,
+    "n_fit_rows": 3537,
+    "metrics": {
+      "metric": "Öklid (EPSG:32618 metre)",
+      "sampling": "gürültü hariç basit rastgele olay örneklemi",
+      "seed": 42,
+      "noise_excluded": 5001,
+      "silhouette": 0.9584547539988435,
+      "davies_bouldin": 0.08513314628946562,
+      "n_used": 1685,
+      "n_clusters_in_sample": 131,
+      "status": "ok"
+    },
+    "n_neighbor_pairs": 5171
+  },
+  "cancel_tested": true,
+  "axe": {
+    "overview": {
+      "violations": [],
+      "passes": 31
+    },
+    "explorer": {
+      "violations": [],
+      "passes": 31
+    },
+    "lab": {
+      "violations": [],
+      "passes": 32
+    },
+    "models": {
+      "violations": [],
+      "passes": 28
+    },
+    "data": {
+      "violations": [],
+      "passes": 28
+    }
+  }
+}

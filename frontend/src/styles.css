@@ -1,54 +1,147 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
+/* Karanlık tema önceliklidir: kök öğe her zaman .dark sınıfını taşır (shadcn dark: varyantları). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* SafeRoute 3D tasarım belirteçleri — "Premium Urban Intelligence".
+   Proje paleti (PROJECT_SPEC §9): Background #0B1120, Surface #111C30, Primary #38BDF8,
+   Warning #F59E0B, Hotspot #F87171, Text #E2E8F0. shadcn/ui semantik adları bu palete eşlenir.
+   Kontrast (WCAG 2.2, #0B1120 üzerinde): text 15,3 · muted-foreground 7,3 · subtle 6,1 · primary 8,8 ·
+   warning 8,8 · hotspot 6,8; giriş kenarlığı (input) yüzeyde ≥ 3:1. */
 @theme {
   --color-bg: #0b1120;
   --color-surface: #111c30;
   --color-surface-2: #16233b;
+  --color-surface-3: #1c2b47;
   --color-line: #22314d;
+  --color-line-strong: #2e4166;
   --color-primary: #38bdf8;
+  --color-primary-foreground: #04131f;
   --color-warning: #f59e0b;
   --color-hotspot: #f87171;
+  --color-success: #34d399;
   --color-text: #e2e8f0;
-  --color-muted: #94a3b8;
-  --color-subtle: #64748b;
+  --color-subtle: #8494aa;
+
+  /* shadcn/ui semantik eşlemesi */
+  --color-background: #0b1120;
+  --color-foreground: #e2e8f0;
+  --color-card: #111c30;
+  --color-card-foreground: #e2e8f0;
+  --color-popover: #111c30;
+  --color-popover-foreground: #e2e8f0;
+  --color-secondary: #16233b;
+  --color-secondary-foreground: #e2e8f0;
+  --color-muted: #16233b;
+  --color-muted-foreground: #94a3b8;
+  --color-accent: #1c2b47;
+  --color-accent-foreground: #e2e8f0;
+  --color-destructive: #f87171;
+  --color-border: #22314d;
+  --color-input: #516892;
+  --color-ring: #38bdf8;
+
+  --radius: 0.5rem;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+
   --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-enter: enter 200ms ease-out both;
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
-html,
-body,
-#root {
-  height: 100%;
-  margin: 0;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    overflow: hidden;
+    overflow-x: clip;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+  /* Radix bileşenleri kendi halkasını çizer; çift halka olmasın */
+  [data-slot]:focus-visible {
+    outline: none;
+  }
 }
 
 .tabular {
   font-variant-numeric: tabular-nums;
 }
 
-/* Yüzer paneller: ince kenarlık, ölçülü saydamlık; haritayı gereksiz kapatmaz */
+/* Harita üstü paneller: görünümde TEK bulanık katman (yalnızca 3D sahne üzerinde) */
 .panel {
-  background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
   border: 1px solid var(--color-line);
-  border-radius: 14px;
-  box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 28px -14px rgb(0 0 0 / 0.65);
   backdrop-filter: blur(10px);
 }
 
+/* Sayfa bölümleri: yüzey değişimi + ince çizgi (gölge yok) */
+.surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+/* Faz 4 bileşenleri için geriye dönük ad */
 .panel-title {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: var(--color-muted-foreground);
 }
 
+/* Faz 4 harita denetimleri (CameraControls, AssetInspector) — tasarım belirteçlerine bağlı */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -57,21 +150,16 @@ body,
   border: 1px solid var(--color-line);
   background: var(--color-surface-2);
   color: var(--color-text);
-  border-radius: 9px;
+  border-radius: var(--radius-md);
   font-size: 12.5px;
   font-weight: 600;
   padding: 6px 10px;
+  min-height: 32px;
   transition: background 150ms, border-color 150ms, color 150ms;
   cursor: pointer;
 }
 .btn:hover {
   border-color: color-mix(in srgb, var(--color-primary) 55%, var(--color-line));
-}
-.btn:focus-visible,
-.chip:focus-visible,
-.switch:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
 }
 .btn[aria-pressed="true"],
 .chip[aria-pressed="true"] {
@@ -79,11 +167,11 @@ body,
   border-color: var(--color-primary);
   color: #e0f2fe;
 }
-.btn:disabled {
+.btn:disabled,
+.chip:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
-
 .chip {
   border: 1px solid var(--color-line);
   background: transparent;
@@ -93,19 +181,18 @@ body,
   font-weight: 600;
   padding: 5px 11px;
   cursor: pointer;
-  transition: all 150ms;
+  transition: border-color 150ms, background 150ms;
 }
 .chip:hover {
   border-color: var(--color-primary);
 }
-
 .switch {
   position: relative;
   width: 30px;
   height: 17px;
   border-radius: 999px;
   background: #23324f;
-  border: 1px solid var(--color-line);
+  border: 1px solid var(--color-input);
   transition: background 150ms;
   flex: none;
   cursor: pointer;
@@ -118,7 +205,7 @@ body,
   width: 11px;
   height: 11px;
   border-radius: 999px;
-  background: var(--color-muted);
+  background: var(--color-muted-foreground);
   transition: transform 160ms, background 160ms;
 }
 .switch[aria-checked="true"] {
@@ -129,38 +216,73 @@ body,
   background: #e0f2fe;
 }
 
+/* Atlama bağlantısı: klavye kullanıcıları için ilk odaklanabilir öğe */
+.skip-link {
+  position: fixed;
+  left: 12px;
+  top: -48px;
+  z-index: 100;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-weight: 700;
+  transition: top 120ms;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
 .maplibregl-ctrl-attrib {
-  background: color-mix(in srgb, var(--color-surface) 80%, transparent) !important;
-  color: var(--color-muted) !important;
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent) !important;
+  color: var(--color-muted-foreground) !important;
   font-size: 10.5px !important;
-  border-radius: 8px 0 0 0;
+  border-radius: 6px 0 0 0;
 }
 .maplibregl-ctrl-attrib a {
-  color: var(--color-muted) !important;
+  color: var(--color-muted-foreground) !important;
 }
 .maplibregl-canvas:focus-visible {
   outline: 2px solid var(--color-primary);
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+/* Geriye dönük: Faz 4 bileşenlerindeki giriş animasyonu (tw-animate-css ile ad çakışmasın) */
+.enter {
+  animation: var(--animate-enter);
 }
-.fade-in {
-  animation: fade-in 220ms ease-out both;
+
+/* Gizli (arka planda korunan) 3D keşif ekranı: MapLibre denetimleri kendi visibility değerini verdiği için
+   alt öğeler de zorla gizlenir; odaklanamaz, tıklanamaz. */
+.explorer-hidden,
+.explorer-hidden * {
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
-@media (prefers-reduced-motion: reduce) {
-  .fade-in {
-    animation: none;
-  }
-}
+
 .scroll-thin {
   scrollbar-width: thin;
   scrollbar-color: #2a3b5c transparent;
+}
+
+/* Recharts: odak çerçevesi tarayıcı varsayılanı yerine belirteç */
+.recharts-wrapper:focus,
+.recharts-surface:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root[data-motion="off"] *,
+:root[data-motion="off"] *::before,
+:root[data-motion="off"] *::after {
+  animation-duration: 1ms !important;
+  transition-duration: 1ms !important;
 }

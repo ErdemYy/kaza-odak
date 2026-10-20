@@ -6,8 +6,11 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const SHOTS = resolve(HERE, "../../reports/phase4/screenshots");
-const PERF = resolve(HERE, "../../reports/phase4/e2e_measurements.json");
+// Faz 5: 3D şehir "/#/kesif" ekranındadır. Faz 4 artefaktlarının üzerine yazmamak için çıktı dizini
+// SAFEROUTE_PHASE4_OUT ile yönlendirilebilir (verilmezse Faz 4 yolu).
+const OUT = process.env.SAFEROUTE_PHASE4_OUT ? resolve(process.env.SAFEROUTE_PHASE4_OUT) : resolve(HERE, "../../reports/phase4");
+const SHOTS = resolve(OUT, "screenshots");
+const PERF = resolve(OUT, "e2e_measurements.json");
 mkdirSync(SHOTS, { recursive: true });
 const measurements: Record<string, unknown> = {};
 
@@ -23,13 +26,19 @@ async function idle(page: Page, extraMs = 600) {
 }
 
 async function open(page: Page) {
-  await page.goto("/");
+  await page.goto("/#/kesif");
   await expect(page.getByTestId("load-status")).toHaveAttribute("data-phase", "ready", { timeout: 90_000 });
   await idle(page, 1500);
 }
 
 const project = (page: Page, p: LngLat) =>
-  page.evaluate((q) => { const r = (window as any).__saferoute.map.project(q); return [r.x, r.y] as [number, number]; }, p);
+  page.evaluate((q) => {
+    // Sayfa koordinatı: harita tuvali sol gezinme ve panellerden dolayı sayfa başlangıcında değildir.
+    const m = (window as any).__saferoute.map;
+    const r = m.project(q);
+    const c = m.getCanvas().getBoundingClientRect();
+    return [r.x + c.left, r.y + c.top] as [number, number];
+  }, p);
 
 /** Three.js zincirinin hesapladığı ekran konumu ile MapLibre'nin aynı coğrafi nokta için verdiği konum farkı (px). */
 async function modelDrift(page: Page) {
@@ -373,7 +382,7 @@ test("WebGL bağlam kaybı sonrası 3D katman yeniden kurulur", async ({ page })
 
 test("Hata durumu: API'ye ulaşılamazsa kullanıcıya anlaşılır hata gösterilir", async ({ page }) => {
   await page.route("**/api/meta", (r) => r.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ detail: "Bakımda" }) }));
-  await page.goto("/");
+  await page.goto("/#/kesif");
   await expect(page.getByTestId("fatal-error")).toBeVisible({ timeout: 60_000 });
   await expect(page.getByTestId("fatal-error")).toContainText("Bakımda");
 });

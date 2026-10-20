@@ -1,22 +1,25 @@
-# SafeRoute 3D — Ön Yüz (Faz 4 görüntüleyici)
+# SafeRoute 3D — Ön Yüz (Faz 5 analiz uygulaması)
 
-Gerçek New York haritası üzerinde Faz 3 DBSCAN sonuçlarını ve lisanslı GLB modellerini gösteren temel 3D şehir
-görüntüleyicisi. Faz 5'in gösterge paneli, kümeleme laboratuvarı ve gelişmiş filtre ekranları henüz yoktur.
+Gerçek New York kaza kayıtları üzerinde beş ekranlı analiz uygulaması: Genel bakış, 3D Şehir Keşfi (Faz 4 harita
+motoru), Kümeleme Laboratuvarı, Model Karşılaştırma ve Veri Gezgini. Tüm sayılar arka uçtaki doğrulanmış Faz 1–4
+kayıtlarından ve canlı sunucu sorgularından gelir; sabit örnek değer yoktur.
 
 | Katman | Teknoloji |
 |---|---|
-| Arayüz | React 19, TypeScript 7, Vite 8, Tailwind CSS 4 (Plus Jakarta Sans + Manrope, yerel @fontsource) |
-| Harita | MapLibre GL JS 6.15 + OpenFreeMap vektör karoları (OpenMapTiles şeması, OSM verisi; API anahtarı yok) |
-| 3D | Three.js 0.186 — MapLibre özel katmanı (ortak WebGL bağlamı ve derinlik tamponu) |
-| Veri | FastAPI katman API'si (`saferoute serve`): doğrulanmış Faz 3 çıktıları, bbox sorguları |
+| Arayüz | React 19, TypeScript 7, Vite 8, Tailwind CSS 4, shadcn/ui (Radix), lucide ikonları |
+| Tipografi | Plus Jakarta Sans (başlık, metrik) + Manrope (gövde), yerel @fontsource |
+| Durum | Zustand (ekran, filtreler, veri kaynağı, katmanlar, zaman dilimi, aktif iş) |
+| Grafik | Recharts (tek seri, tek ton; çift eksen yok) |
+| Harita | MapLibre GL JS 6.15 + OpenFreeMap karoları; Three.js 0.186 GLB katmanı |
+| Veri | FastAPI (`saferoute serve`): Faz 4 katmanları + Faz 5 analitik API'si |
 
 ## Çalıştırma
 
 ```bash
 # depo kökünden
-backend/.venv/Scripts/saferoute.exe viz-build   # katmanlar (bir kez)
+backend/.venv/Scripts/saferoute.exe viz-build   # Faz 4 katmanları (bir kez)
 cd frontend && npm ci && npm run build && cd ..
-backend/.venv/Scripts/saferoute.exe serve       # http://127.0.0.1:8000
+backend/.venv/Scripts/saferoute.exe serve       # http://127.0.0.1:8000  (ekranlar: #/genel-bakis, #/kesif, #/laboratuvar, #/modeller, #/veri)
 ```
 
 Geliştirme: `saferoute serve` çalışırken `npm run dev` → http://127.0.0.1:5173 (`/api` 8000'e yönlendirilir).
@@ -26,20 +29,27 @@ Geliştirme: `saferoute serve` çalışırken `npm run dev` → http://127.0.0.1
 | Komut | İş |
 |---|---|
 | `npm run build` | Tip denetimi + üretim derlemesi (`dist/`) |
-| `npm test` | Vitest birim testleri (coğrafi dönüşüm, GLB/lisans, kamera, katmanlar, seçim, yol seçimi) |
-| `npm run e2e` | Playwright: gerçek çalışan uygulama; ekran görüntüleri `reports/phase4/screenshots/` |
-| `npm run assets` | GLB optimizasyonu + `public/models/registry.json` (kaynak ZIP'ler: `assets/3d/downloads/`) |
-| `npm run tiles:audit` | Bina yüksekliği veri denetimi → `reports/phase4/building_height_audit.json` |
+| `npm test` | Vitest: Faz 4 mantığı + Faz 5 filtre/laboratuvar formu/yönlendirme/önbellek + jsdom bileşen testleri |
+| `npx playwright test e2e/phase5.spec.ts` | Faz 5 uçtan uca (gerçek uygulama); ekran görüntüleri `reports/phase5/screenshots/` |
+| `SAFEROUTE_PHASE4_OUT=test-results/phase4-regression npx playwright test e2e/viewer.spec.ts` | Faz 4 regresyonu (Faz 4 artefaktlarının üzerine yazmaz) |
+| `npm run assets` / `npm run tiles:audit` | Faz 4 GLB hattı / bina yüksekliği denetimi |
 
 ## Yapı
 
 ```text
-src/lib/        geo (Mercator/çapa matrisi), api, camera, layers, glb, registry, format
-src/map/        style (gece/gündüz), dataLayers (Faz 3 katmanları), threeLayer (GLB sahnesi),
-                traffic (gerçek yol seçimi), picking (en yakın küme seçimi)
-src/components/ TopBar, SidePanel, ClusterPanel, Legend, CameraControls, AssetInspector
-tests/unit/     Vitest        e2e/   Playwright        scripts/   varlık hattı ve karo denetimi
+src/app/            store (Zustand + hash yönlendirme)
+src/components/     ui/ (shadcn), layout/ (Navigation), common (MetricCard, InfoTip, durumlar), charts, ExportMenu,
+                    Faz 4: CameraControls, Legend, AssetInspector
+src/features/
+  overview/         OverviewPage
+  explorer/         ExplorerPage, CityMap (Faz 4 motoru), FilterPanel, ViewPanel, ClusterDetails, TimeControls
+  lab/              LabPage, AlgorithmControls, labForm (doğrulama), ExperimentResults, SavedExperiments
+  models/           ModelsPage, ComparisonCharts
+  data/             DataPage, DataDictionary
+src/lib/            api, filters, query (önbellek/iptal), types, geo, camera, layers, glb, registry, format
+src/map/            style, dataLayers, threeLayer, traffic, picking (Faz 4)
 ```
 
-Ön yüz yalnızca arka uçtan gelen gerçek analiz sonuçlarını gösterir; metrikler sabit kodlanmaz. Araç hareketleri
-temsili simülasyondur ve arayüzde bu şekilde etiketlenir.
+**Filtre ≠ yeniden kümeleme.** "Mevcut kümelerde göster" filtrelenmiş gerçek kayıtları tam veri modelinin etiketleriyle
+gösterir; yeni kümeleme yalnızca Laboratuvar'da, sunucuda ayrı bir süreçte çalışan bir iş olarak başlatılır ve haritada
+"Dinamik analiz sonucu" olarak ayrıca etiketlenir. Araç hareketleri temsili simülasyondur.

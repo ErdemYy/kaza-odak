@@ -11,7 +11,8 @@ Kullanım:
     saferoute preprocess [--force]     Faz 2 hattı + raporlar
     saferoute cluster [--force]        Faz 3 kümeleme deneyleri + raporlar
     saferoute viz-build                Faz 4 coğrafi sunum katmanları (manifest doğrulamalı)
-    saferoute serve [--port 8000]      Faz 4 katman API'si (+ derlenmiş ön yüz)
+    saferoute serve [--port 8000]      Faz 4–5 API'si (+ derlenmiş ön yüz)
+    saferoute phase5-bench             Faz 5 filtre/laboratuvar API ölçümü
 """
 
 from __future__ import annotations
@@ -176,6 +177,18 @@ def _cmd_viz_bench(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_phase5_bench(args: argparse.Namespace) -> int:
+    from saferoute.analytics.benchmark import run_benchmark
+
+    res = run_benchmark(repeats=args.repeats)
+    print(f"Uygulama + olay deposu hazır: {res['app_and_store_ready_s']} sn · bellek {res['rss_after_store_mb']} MB")
+    for name, r in res["requests"].items():
+        print(f"{name:28s} {r['status']} ilk {r['first_ms']} ms · medyan {r['median_ms']} ms · gzip {r['wire_bytes_gzip']} B")
+    if "dynamic_job" in res:
+        print(f"Dinamik DBSCAN işi: {res['dynamic_job']['state']} ({res['dynamic_job']['source']}) {res['dynamic_job']['wall_s']} sn")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="saferoute", description="SafeRoute 3D veri hattı")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -239,6 +252,10 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("viz-bench", help="Faz 4: API gecikme/yük ölçümü (reports/phase4/api_benchmark.json)")
     p.add_argument("--repeats", type=int, default=15)
     p.set_defaults(func=_cmd_viz_bench)
+
+    p = sub.add_parser("phase5-bench", help="Faz 5: filtre/laboratuvar API ölçümü (reports/phase5/api_benchmark.json)")
+    p.add_argument("--repeats", type=int, default=10)
+    p.set_defaults(func=_cmd_phase5_bench)
 
     args = parser.parse_args(argv)
     return args.func(args)

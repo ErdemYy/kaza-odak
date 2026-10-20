@@ -10,7 +10,7 @@ export type ViewportInfo =
 
 export function Legend({ viewport }: { viewport: ViewportInfo }) {
   return (
-    <div className="pointer-events-auto flex-none panel px-3.5 py-3" data-testid="legend">
+    <div className="px-0.5" data-testid="legend">
       <h2 className="panel-title mb-2">Lejant</h2>
       <ul className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-[12px]">
         <li className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-primary" />Küme merkezi (küçük)</li>
@@ -24,16 +24,16 @@ export function Legend({ viewport }: { viewport: ViewportInfo }) {
         </li>
       </ul>
       <div className="mt-2.5 pt-2.5 border-t border-line text-[11.5px] tabular" data-testid="viewport-stats" data-state={viewport.state}>
-        {viewport.state === "zoom-in" && <span className="text-muted">Tekil noktalar için yakınlaştırın (zoom ≥ {viewport.minZoom}).</span>}
-        {viewport.state === "off" && <span className="text-muted">Nokta katmanları kapalı.</span>}
-        {viewport.state === "loading" && <span className="text-muted">Görünen alan sorgulanıyor…</span>}
+        {viewport.state === "zoom-in" && <span className="text-muted-foreground">Tekil noktalar için yakınlaştırın (zoom ≥ {viewport.minZoom}).</span>}
+        {viewport.state === "off" && <span className="text-muted-foreground">Nokta katmanları kapalı.</span>}
+        {viewport.state === "loading" && <span className="text-muted-foreground">Görünen alan sorgulanıyor…</span>}
         {viewport.state === "error" && <span className="text-hotspot">{viewport.message}</span>}
         {viewport.state === "ready" && (
           <span>
             Görünen alan: <b>{fmtInt(viewport.data.total_locations)}</b> konum · <b>{fmtInt(viewport.data.total_events)}</b> olay
             {viewport.data.truncated ? (
               <span className="block text-warning">Gösterilen: en yoğun {fmtInt(viewport.data.returned_locations)} konum ({fmtInt(viewport.data.returned_events)} olay). Tümü için yakınlaştırın.</span>
-            ) : viewport.data.total_locations === 0 ? <span className="block text-muted">Bu alanda kayıt yok.</span> : null}
+            ) : viewport.data.total_locations === 0 ? <span className="block text-muted-foreground">Bu alanda kayıt yok.</span> : null}
           </span>
         )}
       </div>

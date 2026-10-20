@@ -1,0 +1,185 @@
+{
+  "generated_at": "2026-10-20T16:03:12+0300",
+  "repeats": 10,
+  "app_and_store_ready_s": 0.97,
+  "event_store_load_s": 0.58,
+  "rss_after_store_mb": 431.0,
+  "note": "Süreç içi TestClient; ağ gecikmesi hariç. first_ms = ilk çağrı (filtre maskesi hesaplanır), median/p95 = tekrarlar.",
+  "requests": {
+    "genel_bakis": {
+      "url": "/api/overview",
+      "status": 200,
+      "first_ms": 350.6,
+      "median_ms": 7.0,
+      "p95_ms": 8.0,
+      "json_bytes": 8246,
+      "wire_bytes_gzip": 2953
+    },
+    "filtre_secenekleri": {
+      "url": "/api/filters/options",
+      "status": 200,
+      "first_ms": 97.2,
+      "median_ms": 3.5,
+      "p95_ms": 3.6,
+      "json_bytes": 4259,
+      "wire_bytes_gzip": 1567
+    },
+    "ozet_filtresiz": {
+      "url": "/api/records/summary",
+      "status": 200,
+      "first_ms": 4.1,
+      "median_ms": 3.6,
+      "p95_ms": 4.1,
+      "json_bytes": 4218,
+      "wire_bytes_gzip": 1781
+    },
+    "ozet_filtreli": {
+      "url": "/api/records/summary?boroughs=BROOKLYN&vehicles=BICYCLE&injury=injury",
+      "status": 200,
+      "first_ms": 61.1,
+      "median_ms": 4.0,
+      "p95_ms": 4.3,
+      "json_bytes": 3896,
+      "wire_bytes_gzip": 1564
+    },
+    "ozet_saat_gece": {
+      "url": "/api/records/summary?hour_from=22&hour_to=4&fatal=fatal",
+      "status": 200,
+      "first_ms": 21.8,
+      "median_ms": 3.7,
+      "p95_ms": 3.8,
+      "json_bytes": 3731,
+      "wire_bytes_gzip": 1538
+    },
+    "zaman_ay": {
+      "url": "/api/records/timeline?granularity=month&boroughs=BROOKLYN&vehicles=BICYCLE&injury=injury",
+      "status": 200,
+      "first_ms": 17.5,
+      "median_ms": 21.8,
+      "p95_ms": 29.0,
+      "json_bytes": 5263,
+      "wire_bytes_gzip": 965
+    },
+    "yogunluk_1km_filtreli": {
+      "url": "/api/records/density?cell=1000&boroughs=BROOKLYN&vehicles=BICYCLE&injury=injury",
+      "status": 200,
+      "first_ms": 16.2,
+      "median_ms": 15.7,
+      "p95_ms": 16.5,
+      "json_bytes": 27687,
+      "wire_bytes_gzip": 3355
+    },
+    "yogunluk_250m_filtreli": {
+      "url": "/api/records/density?cell=250&boroughs=BROOKLYN&vehicles=BICYCLE&injury=injury",
+      "status": 200,
+      "first_ms": 38.9,
+      "median_ms": 39.0,
+      "p95_ms": 52.8,
+      "json_bytes": 306271,
+      "wire_bytes_gzip": 23129
+    },
+    "kumeler_filtreli": {
+      "url": "/api/records/clusters?boroughs=BROOKLYN&vehicles=BICYCLE&injury=injury",
+      "status": 200,
+      "first_ms": 23.3,
+      "median_ms": 23.0,
+      "p95_ms": 23.7,
+      "json_bytes": 243194,
+      "wire_bytes_gzip": 29084
+    },
+    "noktalar_filtreli_brooklyn": {
+      "url": "/api/records/points?bbox=-73.990,40.690,-73.978,40.700&boroughs=BROOKLYN&vehicles=BICYCLE&injury=injury",
+      "status": 200,
+      "first_ms": 11.6,
+      "median_ms": 10.7,
+      "p95_ms": 11.1,
+      "json_bytes": 27177,
+      "wire_bytes_gzip": 2417
+    },
+    "kume_ayrintisi_filtreli": {
+      "url": "/api/records/clusters/1344?boroughs=BROOKLYN&vehicles=BICYCLE&injury=injury",
+      "status": 200,
+      "first_ms": 23.0,
+      "median_ms": 23.4,
+      "p95_ms": 27.7,
+      "json_bytes": 3099,
+      "wire_bytes_gzip": 1359
+    },
+    "model_karsilastirma": {
+      "url": "/api/models/comparison",
+      "status": 200,
+      "first_ms": 13.4,
+      "median_ms": 13.3,
+      "p95_ms": 14.1,
+      "json_bytes": 79375,
+      "wire_bytes_gzip": 13376
+    },
+    "deney_kaydi": {
+      "url": "/api/experiments",
+      "status": 200,
+      "first_ms": 24.4,
+      "median_ms": 23.2,
+      "p95_ms": 24.6,
+      "json_bytes": 117348,
+      "wire_bytes_gzip": 11232
+    },
+    "kayitli_sonuc_kmeans": {
+      "url": "/api/results/kmeans-24c07e9946/clusters",
+      "status": 200,
+      "first_ms": 1257.0,
+      "median_ms": 6.3,
+      "p95_ms": 6.5,
+      "json_bytes": 1336,
+      "wire_bytes_gzip": 1336
+    },
+    "veri_sozlugu": {
+      "url": "/api/data/dictionary",
+      "status": 200,
+      "first_ms": 22.8,
+      "median_ms": 8.6,
+      "p95_ms": 9.4,
+      "json_bytes": 68050,
+      "wire_bytes_gzip": 9780
+    }
+  },
+  "dynamic_job": {
+    "request": {
+      "algorithm": "dbscan",
+      "feature_set": "spatial_haversine",
+      "params": {
+        "eps_m": 35,
+        "min_samples": 15
+      },
+      "filters": {
+        "boroughs": "MANHATTAN",
+        "years": "2018"
+      }
+    },
+    "state": "completed",
+    "source": "dynamic",
+    "wall_s": 4.63,
+    "worker": {
+      "status": "completed",
+      "runtime_s": 0.255,
+      "peak_memory_mb": 681.5,
+      "n_fit_rows": 11290,
+      "metrics": {
+        "metric": "Öklid (EPSG:32618 metre)",
+        "sampling": "gürültü hariç basit rastgele olay örneklemi",
+        "seed": 42,
+        "noise_excluded": 21470,
+        "silhouette": 0.8309600138658038,
+        "davies_bouldin": 0.20374049588474757,
+        "n_used": 10000,
+        "n_clusters_in_sample": 737,
+        "status": "ok"
+      },
+      "n_neighbor_pairs": 31328
+    },
+    "n_events": 42712,
+    "n_fit_rows": 11290,
+    "n_clusters": 737,
+    "note": "source=cache ise sonuç daha önce hesaplanmıştı (önbellek); wall_s önbellekten okuma süresidir."
+  },
+  "server_peak_memory_mb": 857.4
+}

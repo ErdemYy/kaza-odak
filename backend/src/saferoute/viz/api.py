@@ -93,7 +93,8 @@ def _cluster_light(r: dict[str, Any]) -> dict[str, Any]:
                            "injury_crashes": r["injury_crashes"], "fatal_crashes": r["fatal_crashes"]}}
 
 
-def create_app(layers_dir: Path | None = None, frontend_dir: Path | None = None, verify: bool = True) -> FastAPI:
+def create_app(layers_dir: Path | None = None, frontend_dir: Path | None = None, verify: bool = True,
+               analytics: bool | dict[str, Any] = True) -> FastAPI:
     if layers_dir is None:
         from saferoute.clustering.data import processed_dir
 
@@ -203,6 +204,12 @@ def create_app(layers_dir: Path | None = None, frontend_dir: Path | None = None,
                                                  g["events"].tolist(), g["clustered"].tolist(), g["noise"].tolist())]
         return JSONResponse({"type": "FeatureCollection", "cell_m": cell, "total_events": int(g["events"].sum()),
                              "features": feats}, headers=cache if b is None else None)
+
+    if analytics:
+        # Faz 5: filtrelenmiş kayıtlar, kayıtlı/dinamik deneyler, veri sözlüğü, dışa aktarma
+        from saferoute.analytics.api import register
+
+        register(app, store, Path(layers_dir), **(analytics if isinstance(analytics, dict) else {}))
 
     if frontend_dir is not None and Path(frontend_dir).exists():
         from fastapi.staticfiles import StaticFiles

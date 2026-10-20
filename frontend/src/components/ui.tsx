@@ -8,7 +8,7 @@ export function Stat({ label, value, tone }: { label: string; value: ReactNode; 
   const color = tone === "hotspot" ? "text-hotspot" : tone === "warning" ? "text-warning" : tone === "primary" ? "text-primary" : "text-text";
   return (
     <div className="min-w-0">
-      <div className="text-[11px] text-muted leading-tight">{label}</div>
+      <div className="text-[11px] text-muted-foreground leading-tight">{label}</div>
       <div className={`font-display font-bold text-[15px] tabular leading-snug ${color}`}>{value}</div>
     </div>
   );
