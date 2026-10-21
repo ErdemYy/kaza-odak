@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -78,7 +79,11 @@ BUDGET = {
     "max_st_events": 300_000,              # uzay-zaman DBSCAN (kayıt düzeyi)
     "max_st_pairs": 40_000_000,
     "max_hdbscan_events": 100_000,         # Faz 3: 100k olay ≈ 69 sn
-    "min_free_memory_mb": 1500,
+    "min_free_memory_mb": 1500,            # iş başlatılmadan önce ölçülen boş fiziksel bellek alt sınırı
+    "max_worker_memory_mb": 4096,          # çalışan için sert bellek tavanı (Windows iş nesnesi, commit)
+    "min_worker_memory_mb": 1024,
+    "memory_headroom_mb": 768,             # tavan = min(üst sınır, boş bellek − pay): sistemin geri kalanı korunur
+    "worker_threads": max(1, min(4, os.cpu_count() or 1)),  # çalışanda BLAS/OpenMP iş parçacığı
     "timeout_s": 900,
     "metric_sample": 10_000,
 }

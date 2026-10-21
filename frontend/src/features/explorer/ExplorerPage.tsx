@@ -12,7 +12,7 @@ import { CameraControls } from "../../components/CameraControls";
 import { Legend, type ViewportInfo } from "../../components/Legend";
 import type { Meta } from "../../lib/api";
 import { BOROUGH_TR } from "../../lib/camera";
-import { activeCount, applySlice, describe, sliceLabel, toQuery } from "../../lib/filters";
+import { EMPTY_FILTERS, activeCount, applySlice, describe, sliceLabel, toQuery } from "../../lib/filters";
 import { trLabel } from "../../lib/format";
 import { POINT_MIN_ZOOM, type MotionLevel } from "../../lib/layers";
 import type { LngLat } from "../../lib/geo";
@@ -85,7 +85,20 @@ export function ExplorerPage({ active }: { active: boolean }) {
   }, [active, navCollapsed, toggleNav]);
 
   const resultMode = source.kind === "result";
-  const effective = useMemo(() => (resultMode ? applied : applySlice(applied, slice)), [applied, slice, resultMode]);
+  // Sonuç modunda kayıt filtreleri uygulanmaz (sonucun kendi kapsamı vardır); yalnızca zaman dilimi süzülür.
+  const effective = useMemo(() => applySlice(resultMode ? EMPTY_FILTERS : applied, slice), [applied, slice, resultMode]);
+  const setSlice = useApp((s) => s.setSlice);
+  const setPlaying = useApp((s) => s.setPlaying);
+  const sourceId = source.kind === "model" ? "model" : source.id;
+  const prevSource = useRef(sourceId);
+  useEffect(() => {
+    // Farklı deneyin zaman kapsamı farklıdır: kaynak değişince dilim ve oynatma sıfırlanır
+    if (prevSource.current !== sourceId) {
+      prevSource.current = sourceId;
+      setPlaying(false);
+      setSlice(null);
+    }
+  }, [sourceId, setPlaying, setSlice]);
   const filterQuery = toQuery(effective);
   const nFilters = activeCount(applied);
   const filtersTr = describe(applied, { borough: (b) => BOROUGH_TR[b] ?? b, vehicle: trLabel });
@@ -159,7 +172,7 @@ export function ExplorerPage({ active }: { active: boolean }) {
           <span className={cn("size-2 rounded-full shrink-0", dot)} aria-hidden />
           <span className="truncate">{load.message}</span>
         </div>
-        <ModeBanner mode={mode} source={source} filters={filtersTr} sliceText={!resultMode && slice ? sliceLabel(slice) : null}
+        <ModeBanner mode={mode} source={source} filters={filtersTr} sliceText={slice ? sliceLabel(slice) : null}
           onBack={() => setSource({ kind: "model" })} onLab={() => setRoute("lab")} />
         <div className="flex-1" />
         <div className="panel pointer-events-auto flex items-center gap-1 p-1 shrink-0">
@@ -204,8 +217,7 @@ export function ExplorerPage({ active }: { active: boolean }) {
       {/* Alt: zaman + kamera */}
       <div className={cn("absolute z-10 flex items-end gap-2", mobile ? "bottom-14 left-2 right-2 flex-col items-stretch" : "bottom-8 left-[344px] right-3")}>
         <div className="min-w-0 flex-1">
-          <TimeControls compact={mobile}
-            disabledReason={resultMode ? "Gösterilen sonuç sabit bir kapsama ait; oynatma yalnızca seçili modelin filtrelenmiş kayıtlarında çalışır." : null} />
+          <TimeControls compact={mobile} disabledReason={null} resultId={source.kind === "result" ? source.id : null} />
         </div>
         <div className={cn(mobile && "self-center")}>
           <CameraControls compact={mobile} bearing={view.bearing} readout={readout} onAction={(a) => {
@@ -262,6 +274,9 @@ function ModeBanner({ mode, source, filters, sliceText, onBack, onLab }: {
           <Badge variant="outline" className="border-warning/60 text-warning">{source.dynamic ? "Dinamik analiz sonucu" : "Kayıtlı deney"}</Badge>
           <span className="truncate"><b className="font-semibold">{source.algorithm.toUpperCase()}</b> · {source.label}</span>
           <Button size="xs" variant="ghost" onClick={onBack}><Undo2 /> Seçili model</Button>
+          <span className="basis-full text-[11.5px] text-subtle truncate" data-testid="result-scope-note">
+            Sonucun kendi veri kapsamı gösterilir; kayıt filtreleri bu görünüme uygulanmaz{sliceText ? ` · Zaman dilimi: ${sliceText} (üyelik sabit, yeniden kümeleme yok)` : ""}
+          </span>
         </div>
       ) : (
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">

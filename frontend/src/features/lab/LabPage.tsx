@@ -8,7 +8,8 @@ import { BOROUGH_TR } from "../../lib/camera";
 import { describe, isEmpty, toBody, toQuery } from "../../lib/filters";
 import { trLabel } from "../../lib/format";
 import { useQuery } from "../../lib/query";
-import type { Experiment, Job, LabCapabilities, RecordsSummary } from "../../lib/types";
+import { fmtInt } from "../../lib/format";
+import type { Experiment, Job, LabCapabilities, LabResources, RecordsSummary } from "../../lib/types";
 import { AlgorithmControls } from "./AlgorithmControls";
 import { JobView, SavedResultView, StateBadge } from "./ExperimentResults";
 import { defaultForm, validateForm, type LabForm } from "./labForm";
@@ -31,7 +32,9 @@ export default function LabPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [history, setHistory] = useState(0);
-  const jobs = useQuery<{ jobs: Job[] }>(tab === "history" ? `/api/lab/jobs?n=${history}` : null, { ttlMs: 0 });
+  const jobs = useQuery<{ jobs: Job[] }>(tab === "history" ? `/api/lab/jobs?limit=100&n=${history}` : null, { ttlMs: 0 });
+  // Kaynak durumu gönderimden hemen önce ölçülür (boş fiziksel bellek, çalışan bellek tavanı, kuyruk)
+  const resources = useQuery<LabResources>(`/api/lab/resources?n=${history}-${activeJobId ?? ""}`, { ttlMs: 0 });
 
   const validation = useMemo(() => (cap.data ? validateForm(form, cap.data) : null), [form, cap.data]);
   const filtersTr = describe(applied, { borough: (b) => BOROUGH_TR[b] ?? b, vehicle: trLabel });
@@ -72,6 +75,20 @@ export default function LabPage() {
       )}
       <div className="grid gap-5 lg:grid-cols-[400px_minmax(0,1fr)] items-start">
         <Section id="controls" title="Yeni analiz" className="lg:sticky lg:top-4">
+          {resources.data && (
+            resources.data.can_start ? (
+              <p className="mb-3 text-[11.5px] text-subtle tabular" data-testid="lab-resources" data-can-start="true">
+                Kaynak: boş bellek {resources.data.available_memory_mb != null ? `${fmtInt(resources.data.available_memory_mb)} MB` : "ölçülemedi"} ·
+                çalışan tavanı {fmtInt(resources.data.worker_memory_limit_mb)} MB · aynı anda {resources.data.max_concurrent} iş
+                {resources.data.running + resources.data.queued > 0 ? ` · şu an ${resources.data.running} çalışan, ${resources.data.queued} kuyrukta` : ""}
+              </p>
+            ) : (
+              <Note tone="warning" title="Bellek yetersiz — yeni iş şu an başlatılamaz" testId="lab-resources">
+                Kullanılabilir fiziksel bellek {fmtInt(resources.data.available_memory_mb ?? 0)} MB; en az {fmtInt(resources.data.min_free_memory_mb)} MB
+                gerekir. Gönderilen iş çalıştırılmadan "Kaynak sınırı" olarak kaydedilir. Kayıtlı Faz 3 deneyleri bellek gerektirmeden açılabilir.
+              </Note>
+            )
+          )}
           <AlgorithmControls form={form} setForm={setForm} cap={cap.data} validation={validation} scope={scope.data}
             filtersTr={filtersTr} filtersEmpty={isEmpty(applied)} experiments={experiments} submitting={submitting} submitError={submitError}
             onEditFilters={() => { setLeftPanel("filters"); setRoute("explorer"); }} onSubmit={submit} />
@@ -96,7 +113,7 @@ export default function LabPage() {
             </TabsContent>
             <TabsContent value="history">
               {jobs.status === "error" ? <ErrorBlock error={jobs.error} /> : !jobs.data ? <LoadingBlock lines={4} /> : jobs.data.jobs.length === 0 ? (
-                <EmptyBlock>Bu sunucu oturumunda iş yok. (Tamamlanan sonuçlar diskte önbelleklenir; aynı istek yeniden hesaplanmaz.)</EmptyBlock>
+                <EmptyBlock>Kayıtlı iş yok. İş geçmişi kalıcıdır: sunucu yeniden başlasa da korunur; tamamlanan sonuçlar diskte doğrulanarak saklanır ve aynı istek yeniden hesaplanmaz.</EmptyBlock>
               ) : (
                 <ul className="divide-y divide-line" data-testid="job-history">
                   {jobs.data.jobs.map((j) => (

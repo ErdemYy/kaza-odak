@@ -1,0 +1,391 @@
+{
+  "generated_at": "2026-10-21T08:04:04.303Z",
+  "measurements": {
+    "demo": {
+      "overview_ready_ms": 995,
+      "tillary": {
+        "cluster_id": 1344,
+        "n_events": 1444,
+        "injury_crashes": 203,
+        "peak_hour": 12
+      },
+      "saved_dbscan": {
+        "experiment_id": "dbscan-084664003e",
+        "params": {
+          "eps_m": 50,
+          "min_samples": 10
+        },
+        "n_clusters": 15038,
+        "noise_ratio": 0.034346082771877
+      },
+      "resources_at_submit": {
+        "available_memory_mb": 1729.3,
+        "min_free_memory_mb": 1500,
+        "can_start": true,
+        "worker_memory_limit_mb": 1024,
+        "max_concurrent": 1,
+        "max_pending": 3,
+        "running": 0,
+        "queued": 0,
+        "job_object": true,
+        "cpu_count": 16
+      },
+      "dynamic": {
+        "ms": 1103,
+        "job_id": "8a3508b5ece8",
+        "experiment_id": "dyn-ffa2ddf23cc1eeda",
+        "source": "cache",
+        "n_events": 42712,
+        "n_clusters": 737,
+        "noise_ratio": 0.5026690391459074,
+        "worker": {
+          "status": "completed",
+          "runtime_s": 0.291,
+          "peak_memory_mb": 681.6,
+          "n_fit_rows": 11290,
+          "metrics": {
+            "metric": "Öklid (EPSG:32618 metre)",
+            "sampling": "gürültü hariç basit rastgele olay örneklemi",
+            "seed": 42,
+            "noise_excluded": 21470,
+            "silhouette": 0.8309600138658038,
+            "davies_bouldin": 0.20374049588474757,
+            "n_used": 10000,
+            "n_clusters_in_sample": 737,
+            "status": "ok"
+          },
+          "n_neighbor_pairs": 31328
+        }
+      }
+    },
+    "time_playback": {
+      "experiment": "hdbscan-ba3a1ff58d",
+      "coverage": {
+        "n_events": 100000,
+        "date_min": "2012-07-01",
+        "date_max": "2026-06-10",
+        "event_time_mapping": "olay indeksi → işlenmiş kayıt tarih/saat alanları"
+      },
+      "steps": [
+        {
+          "year": "2012",
+          "visible_events": 4317,
+          "clusters_with_events": 643
+        },
+        {
+          "year": "2013",
+          "visible_events": 8608,
+          "clusters_with_events": 739
+        },
+        {
+          "year": "2014",
+          "visible_events": 8520,
+          "clusters_with_events": 732
+        }
+      ],
+      "reclustered": false
+    },
+    "mode_a": {
+      "returned": 1197,
+      "events_in_clusters": 222744
+    },
+    "webgl_recovery": {
+      "recovery_ms": 3791,
+      "after": {
+        "cityModels": true,
+        "centroids": 19,
+        "layerReady": true,
+        "contextLost": false
+      },
+      "glb_loaded": [
+        "taxi",
+        "sedan",
+        "suv",
+        "truck",
+        "delivery",
+        "traffic-light",
+        "road-sign-stop"
+      ],
+      "glb_requests": [
+        {
+          "file": "taxi.glb",
+          "ms": 10,
+          "bytes": 21546
+        },
+        {
+          "file": "taxi.lod1.glb",
+          "ms": 14,
+          "bytes": 20079
+        },
+        {
+          "file": "sedan.glb",
+          "ms": 14,
+          "bytes": 22092
+        },
+        {
+          "file": "sedan.lod1.glb",
+          "ms": 16,
+          "bytes": 20394
+        },
+        {
+          "file": "suv.glb",
+          "ms": 11,
+          "bytes": 23251
+        },
+        {
+          "file": "suv.lod1.glb",
+          "ms": 12,
+          "bytes": 21793
+        },
+        {
+          "file": "truck.glb",
+          "ms": 9,
+          "bytes": 22712
+        },
+        {
+          "file": "truck.lod1.glb",
+          "ms": 14,
+          "bytes": 20930
+        },
+        {
+          "file": "delivery.glb",
+          "ms": 14,
+          "bytes": 22906
+        },
+        {
+          "file": "delivery.lod1.glb",
+          "ms": 17,
+          "bytes": 21298
+        },
+        {
+          "file": "traffic-light.glb",
+          "ms": 9,
+          "bytes": 12853
+        },
+        {
+          "file": "road-sign-stop.glb",
+          "ms": 8,
+          "bytes": 12137
+        }
+      ]
+    },
+    "connection_loss": {
+      "blocked_job_requests": 1,
+      "recovered": true
+    },
+    "responsive_telefon": {
+      "overview": {
+        "doc": 0,
+        "body": 0
+      },
+      "explorer": {
+        "doc": 0,
+        "body": 0
+      },
+      "lab": {
+        "doc": 0,
+        "body": 0
+      },
+      "models": {
+        "doc": 0,
+        "body": 0
+      },
+      "data": {
+        "doc": 0,
+        "body": 0
+      }
+    },
+    "responsive_tablet": {
+      "overview": {
+        "doc": 0,
+        "body": 0
+      },
+      "explorer": {
+        "doc": 0,
+        "body": 0
+      },
+      "lab": {
+        "doc": 0,
+        "body": 0
+      },
+      "models": {
+        "doc": 0,
+        "body": 0
+      },
+      "data": {
+        "doc": 0,
+        "body": 0
+      }
+    },
+    "responsive_dizustu": {
+      "overview": {
+        "doc": 0,
+        "body": 0
+      },
+      "explorer": {
+        "doc": 0,
+        "body": 0
+      },
+      "lab": {
+        "doc": 0,
+        "body": 0
+      },
+      "models": {
+        "doc": 0,
+        "body": 0
+      },
+      "data": {
+        "doc": 0,
+        "body": 0
+      },
+      "boxes": {
+        "left-panel": {
+          "x": 76,
+          "y": 64,
+          "w": 320,
+          "h": 704
+        },
+        "right-panel": {
+          "x": 928,
+          "y": 64,
+          "w": 340,
+          "h": 84.875
+        },
+        "time-controls": {
+          "x": 408,
+          "y": 600.25,
+          "w": 413.984375,
+          "h": 167.75
+        },
+        "camera-controls": {
+          "x": 829.984375,
+          "y": 720,
+          "w": 438.015625,
+          "h": 48
+        }
+      }
+    },
+    "responsive_genis": {
+      "overview": {
+        "doc": 0,
+        "body": 0
+      },
+      "explorer": {
+        "doc": 0,
+        "body": 0
+      },
+      "lab": {
+        "doc": 0,
+        "body": 0
+      },
+      "models": {
+        "doc": 0,
+        "body": 0
+      },
+      "data": {
+        "doc": 0,
+        "body": 0
+      },
+      "boxes": {
+        "left-panel": {
+          "x": 76,
+          "y": 64,
+          "w": 320,
+          "h": 984
+        },
+        "right-panel": {
+          "x": 1568,
+          "y": 64,
+          "w": 340,
+          "h": 84.875
+        },
+        "time-controls": {
+          "x": 408,
+          "y": 908.25,
+          "w": 1053.984375,
+          "h": 139.75
+        },
+        "camera-controls": {
+          "x": 1469.984375,
+          "y": 1000,
+          "w": 438.015625,
+          "h": 48
+        }
+      }
+    },
+    "responsive_yuksek-cozunurluk": {
+      "overview": {
+        "doc": 0,
+        "body": 0
+      },
+      "explorer": {
+        "doc": 0,
+        "body": 0
+      },
+      "lab": {
+        "doc": 0,
+        "body": 0
+      },
+      "models": {
+        "doc": 0,
+        "body": 0
+      },
+      "data": {
+        "doc": 0,
+        "body": 0
+      },
+      "boxes": {
+        "left-panel": {
+          "x": 76,
+          "y": 64,
+          "w": 320,
+          "h": 1344
+        },
+        "right-panel": {
+          "x": 2208,
+          "y": 64,
+          "w": 340,
+          "h": 84.875
+        },
+        "time-controls": {
+          "x": 408,
+          "y": 1268.25,
+          "w": 1686.859375,
+          "h": 139.75
+        },
+        "camera-controls": {
+          "x": 2102.859375,
+          "y": 1360,
+          "w": 445.140625,
+          "h": 48
+        }
+      }
+    }
+  },
+  "a11y": {
+    "explorer-result-playback": {
+      "violations": [],
+      "passes": 31
+    },
+    "genel-bakis": {
+      "violations": [],
+      "passes": 31
+    },
+    "laboratuvar": {
+      "violations": [],
+      "passes": 30
+    },
+    "modeller": {
+      "violations": [],
+      "passes": 28
+    },
+    "veri": {
+      "violations": [],
+      "passes": 30
+    },
+    "kesif": {
+      "violations": [],
+      "passes": 31
+    }
+  }
+}

@@ -59,3 +59,6 @@ htmlcov/
 # İndirilen kaynak paketler (ZIP) büyük ve üçüncü taraf dağıtımıdır; depoya eklenmez.
 # Kaynak, SHA-256 ve lisans bilgisi frontend/public/models/registry.json içinde kayıtlıdır.
 /assets/3d/downloads/
+
+# --- Faz 6 çalışma zamanı (başlatma betiği PID/günlük) ---
+.saferoute/

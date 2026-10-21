@@ -7,7 +7,8 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const OUT = resolve(HERE, "../../reports/phase5");
+// SAFEROUTE_PHASE5_OUT ile yönlendirilebilir (Faz 6 regresyonu Faz 5 çıktılarını değiştirmesin; verilmezse Faz 5 yolu).
+const OUT = process.env.SAFEROUTE_PHASE5_OUT ? resolve(process.env.SAFEROUTE_PHASE5_OUT) : resolve(HERE, "../../reports/phase5");
 const SHOTS = resolve(OUT, "screenshots");
 mkdirSync(SHOTS, { recursive: true });
 const measurements: Record<string, unknown> = {};
@@ -203,8 +204,16 @@ test("4 — Laboratuvar: kayıtlı konfigürasyon, parametre denetimleri, bütç
   await page.getByTestId("lab-param-min_samples").fill("8");
   const prevJob = await page.getByTestId("job-view").getAttribute("data-job").catch(() => null);
   const t0 = Date.now();
+  // Faz 6: kaynak denetimi boş bellek yetersizse işi çalıştırmaz (resource_limited) — bu da doğrulanır
+  const res = await api(page, "/api/lab/resources");
   await page.getByTestId("lab-submit").click();
   await expect(page.getByTestId("job-view")).not.toHaveAttribute("data-job", prevJob ?? "-", { timeout: 30_000 });
+  if (!res.can_start) {
+    await expect(page.getByTestId("job-state")).toHaveAttribute("data-state", "resource_limited", { timeout: 30_000 });
+    await expect(page.getByTestId("job-rejected")).toContainText("Bellek yetersiz");
+    measurements.dynamic_dbscan_skipped = `boş bellek ${res.available_memory_mb} MB < ${res.min_free_memory_mb} MB`;
+    return;
+  }
   await expect(page.getByTestId("job-state")).toHaveAttribute("data-state", "completed", { timeout: 120_000 });
   measurements.dynamic_dbscan_job_ms = Date.now() - t0;
   const jobId = await page.getByTestId("job-view").getAttribute("data-job");
@@ -217,7 +226,8 @@ test("4 — Laboratuvar: kayıtlı konfigürasyon, parametre denetimleri, bütç
   await page.getByTestId("show-on-map").click();
   await expect(page.getByTestId("mode-banner")).toHaveAttribute("data-mode", "result");
   await expect(page.getByTestId("result-id")).toHaveText(`lab-${jobId}`);
-  await expect(page.getByTestId("time-controls")).toHaveAttribute("data-state", "disabled");
+  // Faz 6: sonuç modunda zaman oynatma açıktır (yalnızca deneyin kendi olayları; üyelik sabit)
+  await expect(page.getByTestId("time-coverage")).toBeVisible();
   await mapIdle(page, 1500);
   expect(await page.evaluate(() => new Set((window as any).__saferoute.map.querySourceFeatures("centroids").map((f: any) => f.properties.cluster_id)).size))
     .toBe(job.result.summary.n_clusters);
@@ -239,14 +249,15 @@ test("5 — Laboratuvar: kayıtlı deney seçimi, iş iptali, API hata durumu", 
   await page.getByTestId("lab-param-min_samples").fill("7");
   await page.getByTestId("lab-sample-n").fill("95000");
   await page.getByTestId("lab-submit").click();
-  await expect(page.getByTestId("job-state")).toHaveAttribute("data-state", /running|pending|completed/, { timeout: 30_000 });
+  await expect(page.getByTestId("job-state")).toHaveAttribute("data-state", /running|queued|completed|resource_limited/, { timeout: 30_000 });
   const state = await page.getByTestId("job-state").getAttribute("data-state");
-  if (state !== "completed") {
+  if (state === "running" || state === "queued") {
     await expect(page.getByTestId("job-stage")).toBeVisible();
     await page.getByTestId("job-cancel").click();
     await expect(page.getByTestId("job-state")).toHaveAttribute("data-state", "cancelled", { timeout: 30_000 });
   }
-  measurements.cancel_tested = state !== "completed";
+  measurements.cancel_tested = state === "running" || state === "queued";
+  measurements.cancel_state_seen = state;
   // Sunucu hatası: laboratuvar isteği 429 → kullanıcıya mesaj
   await page.route("**/api/lab/jobs", (r) => r.request().method() === "POST"
     ? r.fulfill({ status: 429, contentType: "application/json", body: JSON.stringify({ detail: "Kuyrukta 3 iş bekliyor" }) }) : r.continue());

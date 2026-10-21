@@ -3,7 +3,7 @@
 New York City'de polise raporlanmış motorlu taşıt kazalarının mekânsal yoğunlaşmalarını denetimsiz öğrenme (DBSCAN; karşılaştırma için K-Means ve HDBSCAN) ile keşfeden ve sonuçları gerçek coğrafyaya hizalı 3B bir şehir haritasında sunan akademik makine öğrenmesi projesi.
 
 - **Kalıcı şartname:** [`PROJECT_SPEC.md`](PROJECT_SPEC.md)
-- **Güncel durum:** Faz 4 (Gerçek NYC 3D şehir görüntüleyici ve lisanslı GLB varlıkları) uygulandı; faz onayı bekleniyor. Raporlar: [`docs/phase1/TEKNIK_RAPOR.md`](docs/phase1/TEKNIK_RAPOR.md), [`docs/phase2/TEKNIK_RAPOR.md`](docs/phase2/TEKNIK_RAPOR.md), [`docs/phase3/TEKNIK_RAPOR.md`](docs/phase3/TEKNIK_RAPOR.md), [`docs/phase4/TEKNIK_RAPOR.md`](docs/phase4/TEKNIK_RAPOR.md)
+- **Güncel durum:** Faz 6 (güvenilirlik, kalıcı iş kaydı, kaynak güvenliği, performans ölçümü, tek komutla çalıştırma) uygulandı; faz onayı bekleniyor. Raporlar: [`docs/phase1/TEKNIK_RAPOR.md`](docs/phase1/TEKNIK_RAPOR.md), [`docs/phase2/TEKNIK_RAPOR.md`](docs/phase2/TEKNIK_RAPOR.md), [`docs/phase3/TEKNIK_RAPOR.md`](docs/phase3/TEKNIK_RAPOR.md), [`docs/phase4/TEKNIK_RAPOR.md`](docs/phase4/TEKNIK_RAPOR.md), [`docs/phase5/TEKNIK_RAPOR.md`](docs/phase5/TEKNIK_RAPOR.md), [`docs/phase6/TEKNIK_RAPOR.md`](docs/phase6/TEKNIK_RAPOR.md)
 
 > Kaza yoğunluğu tek başına risk değildir. Bu proje trafik kazası **tahmini yapmaz**; kaydedilmiş kazaların mekânsal yoğunlaşmalarını inceler.
 
@@ -47,6 +47,35 @@ uv pip install -e ".[dev,notebook]" --python .venv/Scripts/python.exe   # Linux/
 ```
 
 İsteğe bağlı: Socrata kısıtlamalarını azaltmak için uygulama anahtarı. `.env.example` dosyasına bakın; anahtar yalnızca ortam değişkeninden okunur ve depoya yazılmaz.
+
+## Uygulamayı çalıştırma (Windows, tek komut)
+
+Veri hatları (Faz 1–4) bir kez çalıştırıldıktan sonra uygulama tek komutla açılır. Betik veri setini yeniden
+**indirmez** ve model eğitimini **başlatmaz**; yalnızca denetler, gerekirse ön yüzü derler ve sunucuyu başlatır.
+
+```powershell
+# Depo kökünden (PowerShell):
+powershell -ExecutionPolicy Bypass -File scripts\start_saferoute.ps1            # ön planda; Ctrl+C ile durur
+powershell -ExecutionPolicy Bypass -File scripts\start_saferoute.ps1 -Demo -Background -Open   # akademik demo profili
+powershell -ExecutionPolicy Bypass -File scripts\stop_saferoute.ps1             # arka plandaki sunucuyu durdurur
+```
+
+| Seçenek | Ne yapar |
+|---|---|
+| (yok) | Python ≥ 3.11 + paketler, Faz 2–4 veri/model dosyaları, GLB varlık kaydı, boş bellek ve harita karo erişimi denetlenir; ön yüz kaynakları derlemeden yeniyse `npm run build`; sunucu bu pencerede başlar, hazır olunca adres yazılır |
+| `-Demo` | Ek olarak genel bakış, model karşılaştırma, veri sözlüğü ve seçili üç modelin kayıtlı sonuçlarını önceden yükler; dinamik analiz için kaynak uygun mu söyler; demo planını gösterir |
+| `-Background` | Sunucuyu arka planda başlatır (PID `.saferoute\server.pid`, günlük `.saferoute\server.log`) |
+| `-Port 8010` | Farklı port (8000 başka bir uygulamadaysa o sürece dokunulmaz, hata verilir) |
+| `-Rebuild` / `-Open` | Ön yüzü her durumda derle / hazır olunca tarayıcıyı aç |
+
+- Adres: http://127.0.0.1:8000 (yalnızca bu bilgisayardan erişilir).
+- **İnternet:** altlık harita, 3D bina ve yol karoları OpenFreeMap'ten gelir ve ağ gerektirir. Ağ yoksa kaza
+  katmanları, kümeler ve tüm analiz ekranları yerel sunucudan çalışır; harita zemini boş görünür. Karo sağlayıcısının
+  izin vermediği çevrimdışı çoğaltma yapılmaz.
+- **Durdurma:** ön planda Ctrl+C; arka planda `stop_saferoute.ps1` (yalnızca kaydettiği ve komut satırı doğrulanan
+  SafeRoute sürecini durdurur). Sunucu kapanırken veya çökerse yarım kalan laboratuvar işleri bir sonraki açılışta
+  "Yarıda kaldı" olarak işaretlenir; kendiliğinden yeniden çalıştırılmaz (Laboratuvar → İş geçmişi → Yeniden dene).
+- Demo senaryosu ve beklenen sonuçlar: [`docs/phase6/DEMO_TEST_PLANI.md`](docs/phase6/DEMO_TEST_PLANI.md).
 
 ## Hatları çalıştırma
 
@@ -108,7 +137,7 @@ cd frontend && npm ci && npm run build && cd ..
 backend/.venv/Scripts/saferoute.exe serve         # http://127.0.0.1:8000 (API + derlenmiş ön yüz)
 ```
 
-Tek komut: `bash scripts/run_phase4.sh` (Windows: `scriptsun_phase4.ps1`). Geliştirme: `saferoute serve` + `cd frontend && npm run dev` (http://127.0.0.1:5173, `/api` vekili).
+Tek komut: `bash scripts/run_phase4.sh` (Windows: `scripts\run_phase4.ps1`). Geliştirme: `saferoute serve` + `cd frontend && npm run dev` (http://127.0.0.1:5173, `/api` vekili).
 
 | Komut | Ne yapar |
 |---|---|

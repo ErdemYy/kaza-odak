@@ -118,9 +118,12 @@ def _date(v: Any, name: str) -> str | None:
     if v in (None, ""):
         return None
     try:
-        return dt.date.fromisoformat(str(v)).isoformat()
+        d = dt.date.fromisoformat(str(v))
     except ValueError:
         raise FilterError(f"{name} YYYY-AA-GG biçiminde olmalı: {v!r}") from None
+    if not 1900 <= d.year <= 2100:
+        raise FilterError(f"{name} 1900–2100 aralığında olmalı: {v!r}")
+    return d.isoformat()
 
 
 def _hour(v: Any, name: str) -> int | None:

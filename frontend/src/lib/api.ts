@@ -42,7 +42,7 @@ export interface ClusterDetail {
 
 export interface PointsResponse extends GeoJSON.FeatureCollection<GeoJSON.Point> {
   experiment_id: string; kind: string; bbox: BBox; total_locations: number; total_events: number;
-  returned_locations: number; returned_events: number; truncated: boolean;
+  returned_locations: number; returned_events: number; truncated: boolean; limit?: number; offset?: number; next_offset?: number | null;
 }
 
 export class ApiError extends Error {

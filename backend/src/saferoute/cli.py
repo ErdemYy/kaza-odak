@@ -162,7 +162,8 @@ def _cmd_serve(args: argparse.Namespace) -> int:
     from saferoute.viz.api import create_app
 
     frontend = Path(args.frontend) if args.frontend else config.REPO_ROOT / "frontend" / "dist"
-    app = create_app(Path(args.layers) if args.layers else None, frontend_dir=frontend)
+    analytics: dict[str, object] | bool = {"lab_root": Path(args.lab_root)} if args.lab_root else True
+    app = create_app(Path(args.layers) if args.layers else None, frontend_dir=frontend, analytics=analytics)
     print(f"Ön yüz: {frontend if frontend.exists() else 'derlenmemiş (yalnızca API)'}")
     uvicorn.run(app, host=args.host, port=args.port, log_level="warning")
     return 0
@@ -247,6 +248,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--port", type=int, default=8000)
     p.add_argument("--layers", default=None, help="Katman dizini (varsayılan: <processed>/phase4)")
     p.add_argument("--frontend", default=None, help="Derlenmiş ön yüz (varsayılan: frontend/dist)")
+    p.add_argument("--lab-root", default=None,
+                   help="Laboratuvar iş kaydı + sonuç dizini (varsayılan: <processed>/phase5/lab_cache; yalıtılmış test/demo için)")
     p.set_defaults(func=_cmd_serve)
 
     p = sub.add_parser("viz-bench", help="Faz 4: API gecikme/yük ölçümü (reports/phase4/api_benchmark.json)")

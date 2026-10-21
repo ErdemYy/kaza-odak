@@ -273,7 +273,7 @@ def wait_job(c, jid, timeout=120):
         j = c.get(f"/api/lab/jobs/{jid}").json()
         if not states or states[-1] != j["state"]:
             states.append(j["state"])
-        if j["state"] in ("completed", "failed", "cancelled", "rejected_resource"):
+        if j["state"] in ("completed", "failed", "cancelled", "resource_limited"):
             return j, states
         time.sleep(0.1)
     raise AssertionError(f"iş bitmedi: {states}")
@@ -316,7 +316,7 @@ def test_api_saved_experiment_and_registry_reuse(api):
     # Filtreli aynı konfigürasyon kayıtlı sonuç DEĞİLDİR → yeni iş
     j2 = c.post("/api/lab/jobs", json={"algorithm": "dbscan", "feature_set": "spatial_haversine",
                                        "params": {"eps_m": 25, "min_samples": 5}, "filters": {"boroughs": "MANHATTAN"}}).json()
-    assert j2["source"] == "dynamic" and j2["state"] in ("pending", "running")
+    assert j2["source"] == "dynamic" and j2["state"] in ("queued", "running")
     c.delete(f"/api/lab/jobs/{j2['job_id']}")
 
 
@@ -358,12 +358,12 @@ def test_api_resource_rejection_and_empty_scope(api):
     jm.budget["max_hdbscan_events"] = 10
     r = c.post("/api/lab/jobs", json={"algorithm": "hdbscan", "feature_set": "spatial_projected",
                                       "params": {"min_cluster_size": 5}}).json()
-    assert r["state"] == "rejected_resource" and "örneklem" in r["error"]
+    assert r["state"] == "resource_limited" and "örneklem" in r["error"]
     jm.budget["max_neighbor_pairs"] = 1
     r = c.post("/api/lab/jobs", json={"algorithm": "dbscan", "feature_set": "spatial_haversine",
                                       "params": {"eps_m": 41, "min_samples": 6}}).json()
     job, _ = wait_job(c, r["job_id"])
-    assert job["state"] == "rejected_resource" and "komşu çifti" in job["error"]
+    assert job["state"] == "resource_limited" and "komşu çifti" in job["error"]
     e = c.post("/api/lab/jobs", json={"algorithm": "dbscan", "feature_set": "spatial_haversine",
                                       "params": {"eps_m": 25, "min_samples": 5}, "filters": {"years": "1999"}})
     assert e.status_code == 422 and "kayıt yok" in e.json()["detail"]

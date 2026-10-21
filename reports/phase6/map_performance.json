@@ -1,0 +1,635 @@
+{
+  "gpu-varsayilan": {
+    "project": "gpu-varsayilan (2. çalıştırma: Windows NVIDIA seçti)",
+    "measured_at": "2026-10-21T08:15:00.297Z",
+    "renderer": {
+      "webgl": true,
+      "vendor": "Google Inc. (NVIDIA)",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4050 Laptop GPU (0x000028E1) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    "software_webgl": false,
+    "note": "Donanım WebGL (GPU)",
+    "initial": {
+      "navigation": {
+        "dom_content_loaded_ms": 304,
+        "load_ms": 305
+      },
+      "load_status_ready_ms": 2088,
+      "first_map_idle_ms": 2939
+    },
+    "api_requests": [
+      {
+        "path": "/api/records/timeline?granularity=year",
+        "ms": 16,
+        "bytes": 702
+      },
+      {
+        "path": "/api/meta",
+        "ms": 22,
+        "bytes": 1266
+      },
+      {
+        "path": "/api/boroughs",
+        "ms": 93,
+        "bytes": 141531
+      },
+      {
+        "path": "/api/clusters",
+        "ms": 97,
+        "bytes": 120604
+      },
+      {
+        "path": "/api/density?cell=1000",
+        "ms": 61,
+        "bytes": 15081
+      }
+    ],
+    "camera_rotate_manhattan_3d": {
+      "frames": 511,
+      "fps": 96.3,
+      "median_ms": 7.1,
+      "p95_ms": 14,
+      "max_ms": 20.9,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "zoom_in": {
+      "frames": 615,
+      "fps": 143,
+      "median_ms": 6.9,
+      "p95_ms": 7,
+      "max_ms": 14.2,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "zoom_out": {
+      "frames": 613,
+      "fps": 142.6,
+      "median_ms": 6.9,
+      "p95_ms": 7,
+      "max_ms": 20.7,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "cluster_scene": {
+      "cluster_id": 1344,
+      "glb_ready_ms": 3785,
+      "glb_requests": [
+        {
+          "file": "taxi.glb",
+          "ms": 6,
+          "bytes": 21546
+        },
+        {
+          "file": "taxi.lod1.glb",
+          "ms": 6,
+          "bytes": 20079
+        },
+        {
+          "file": "sedan.glb",
+          "ms": 7,
+          "bytes": 22092
+        },
+        {
+          "file": "sedan.lod1.glb",
+          "ms": 7,
+          "bytes": 20394
+        },
+        {
+          "file": "suv.glb",
+          "ms": 8,
+          "bytes": 23251
+        },
+        {
+          "file": "suv.lod1.glb",
+          "ms": 7,
+          "bytes": 21793
+        },
+        {
+          "file": "truck.glb",
+          "ms": 7,
+          "bytes": 22712
+        },
+        {
+          "file": "truck.lod1.glb",
+          "ms": 7,
+          "bytes": 20930
+        },
+        {
+          "file": "delivery.glb",
+          "ms": 7,
+          "bytes": 22906
+        },
+        {
+          "file": "delivery.lod1.glb",
+          "ms": 7,
+          "bytes": 21298
+        },
+        {
+          "file": "traffic-light.glb",
+          "ms": 6,
+          "bytes": 12853
+        },
+        {
+          "file": "road-sign-stop.glb",
+          "ms": 6,
+          "bytes": 12137
+        }
+      ],
+      "rotate_with_models": {
+        "frames": 619,
+        "fps": 144,
+        "median_ms": 6.9,
+        "p95_ms": 7,
+        "max_ms": 7.1,
+        "long_frames_50ms": 0,
+        "long_frames_100ms": 0
+      }
+    },
+    "webgl_context_recovery_ms": 1274,
+    "js_heap": {
+      "used_mb": 66,
+      "total_mb": 159
+    },
+    "cdp": {
+      "JSHeapUsedSize_mb": 50,
+      "Nodes": 712,
+      "LayoutCount": 386
+    }
+  },
+  "gpu-yuksek-performans": {
+    "project": "gpu-yuksek-performans",
+    "measured_at": "2026-10-21T08:11:08.821Z",
+    "renderer": {
+      "webgl": true,
+      "vendor": "Google Inc. (NVIDIA)",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4050 Laptop GPU (0x000028E1) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    "software_webgl": false,
+    "note": "Donanım WebGL (GPU)",
+    "initial": {
+      "navigation": {
+        "dom_content_loaded_ms": 311,
+        "load_ms": 312
+      },
+      "load_status_ready_ms": 2175,
+      "first_map_idle_ms": 2719
+    },
+    "api_requests": [
+      {
+        "path": "/api/records/timeline?granularity=year",
+        "ms": 15,
+        "bytes": 702
+      },
+      {
+        "path": "/api/meta",
+        "ms": 15,
+        "bytes": 1266
+      },
+      {
+        "path": "/api/boroughs",
+        "ms": 75,
+        "bytes": 141531
+      },
+      {
+        "path": "/api/clusters",
+        "ms": 89,
+        "bytes": 120604
+      },
+      {
+        "path": "/api/density?cell=1000",
+        "ms": 54,
+        "bytes": 15081
+      }
+    ],
+    "camera_rotate_manhattan_3d": {
+      "frames": 553,
+      "fps": 104.4,
+      "median_ms": 7,
+      "p95_ms": 14,
+      "max_ms": 14,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "zoom_in": {
+      "frames": 607,
+      "fps": 140.9,
+      "median_ms": 6.9,
+      "p95_ms": 7.1,
+      "max_ms": 20.9,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "zoom_out": {
+      "frames": 608,
+      "fps": 141.2,
+      "median_ms": 6.9,
+      "p95_ms": 7.1,
+      "max_ms": 27.7,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "cluster_scene": {
+      "cluster_id": 1344,
+      "glb_ready_ms": 5547,
+      "glb_requests": [
+        {
+          "file": "taxi.glb",
+          "ms": 1843,
+          "bytes": 21546
+        },
+        {
+          "file": "taxi.lod1.glb",
+          "ms": 8,
+          "bytes": 20079
+        },
+        {
+          "file": "sedan.glb",
+          "ms": 8,
+          "bytes": 22092
+        },
+        {
+          "file": "sedan.lod1.glb",
+          "ms": 8,
+          "bytes": 20394
+        },
+        {
+          "file": "suv.glb",
+          "ms": 8,
+          "bytes": 23251
+        },
+        {
+          "file": "suv.lod1.glb",
+          "ms": 8,
+          "bytes": 21793
+        },
+        {
+          "file": "truck.glb",
+          "ms": 9,
+          "bytes": 22712
+        },
+        {
+          "file": "truck.lod1.glb",
+          "ms": 8,
+          "bytes": 20930
+        },
+        {
+          "file": "delivery.glb",
+          "ms": 8,
+          "bytes": 22906
+        },
+        {
+          "file": "delivery.lod1.glb",
+          "ms": 7,
+          "bytes": 21298
+        },
+        {
+          "file": "traffic-light.glb",
+          "ms": 6,
+          "bytes": 12853
+        },
+        {
+          "file": "road-sign-stop.glb",
+          "ms": 6,
+          "bytes": 12137
+        }
+      ],
+      "rotate_with_models": {
+        "frames": 603,
+        "fps": 140.3,
+        "median_ms": 6.9,
+        "p95_ms": 7.1,
+        "max_ms": 20.9,
+        "long_frames_50ms": 0,
+        "long_frames_100ms": 0
+      }
+    },
+    "webgl_context_recovery_ms": 1250,
+    "js_heap": {
+      "used_mb": 99,
+      "total_mb": 164
+    },
+    "cdp": {
+      "JSHeapUsedSize_mb": 66,
+      "Nodes": 739,
+      "LayoutCount": 387
+    }
+  },
+  "swiftshader-yazilim": {
+    "project": "swiftshader-yazilim",
+    "measured_at": "2026-10-21T08:12:50.295Z",
+    "renderer": {
+      "webgl": true,
+      "vendor": "Google Inc. (Google)",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    },
+    "software_webgl": true,
+    "note": "YAZILIM WebGL (CPU) — GPU performansı DEĞİLDİR",
+    "initial": {
+      "navigation": {
+        "dom_content_loaded_ms": 414,
+        "load_ms": 414
+      },
+      "load_status_ready_ms": 6962,
+      "first_map_idle_ms": 8874
+    },
+    "api_requests": [
+      {
+        "path": "/api/records/timeline?granularity=year",
+        "ms": 16,
+        "bytes": 702
+      },
+      {
+        "path": "/api/meta",
+        "ms": 46,
+        "bytes": 1266
+      },
+      {
+        "path": "/api/boroughs",
+        "ms": 144,
+        "bytes": 141531
+      },
+      {
+        "path": "/api/clusters",
+        "ms": 187,
+        "bytes": 120604
+      },
+      {
+        "path": "/api/density?cell=1000",
+        "ms": 119,
+        "bytes": 15081
+      }
+    ],
+    "camera_rotate_manhattan_3d": {
+      "frames": 12,
+      "fps": 2.6,
+      "median_ms": 416.6,
+      "p95_ms": 716.6,
+      "max_ms": 716.6,
+      "long_frames_50ms": 9,
+      "long_frames_100ms": 9
+    },
+    "zoom_in": {
+      "frames": 37,
+      "fps": 9.2,
+      "median_ms": 16.7,
+      "p95_ms": 516.6,
+      "max_ms": 533.4,
+      "long_frames_50ms": 9,
+      "long_frames_100ms": 9
+    },
+    "zoom_out": {
+      "frames": 19,
+      "fps": 4.7,
+      "median_ms": 166.6,
+      "p95_ms": 500,
+      "max_ms": 500,
+      "long_frames_50ms": 15,
+      "long_frames_100ms": 10
+    },
+    "cluster_scene": {
+      "cluster_id": 1344,
+      "glb_ready_ms": 6633,
+      "glb_requests": [
+        {
+          "file": "taxi.glb",
+          "ms": 26,
+          "bytes": 21546
+        },
+        {
+          "file": "taxi.lod1.glb",
+          "ms": 23,
+          "bytes": 20079
+        },
+        {
+          "file": "sedan.glb",
+          "ms": 43,
+          "bytes": 22092
+        },
+        {
+          "file": "sedan.lod1.glb",
+          "ms": 40,
+          "bytes": 20394
+        },
+        {
+          "file": "suv.glb",
+          "ms": 47,
+          "bytes": 23251
+        },
+        {
+          "file": "suv.lod1.glb",
+          "ms": 17,
+          "bytes": 21793
+        },
+        {
+          "file": "truck.glb",
+          "ms": 35,
+          "bytes": 22712
+        },
+        {
+          "file": "truck.lod1.glb",
+          "ms": 27,
+          "bytes": 20930
+        },
+        {
+          "file": "delivery.glb",
+          "ms": 29,
+          "bytes": 22906
+        },
+        {
+          "file": "delivery.lod1.glb",
+          "ms": 57,
+          "bytes": 21298
+        },
+        {
+          "file": "traffic-light.glb",
+          "ms": 22,
+          "bytes": 12853
+        },
+        {
+          "file": "road-sign-stop.glb",
+          "ms": 12,
+          "bytes": 12137
+        }
+      ],
+      "rotate_with_models": {
+        "frames": 32,
+        "fps": 7.6,
+        "median_ms": 116.7,
+        "p95_ms": 233.3,
+        "max_ms": 249.9,
+        "long_frames_50ms": 31,
+        "long_frames_100ms": 24
+      }
+    },
+    "webgl_context_recovery_ms": 3630,
+    "js_heap": {
+      "used_mb": 290,
+      "total_mb": 326
+    },
+    "cdp": {
+      "JSHeapUsedSize_mb": 166,
+      "Nodes": 765,
+      "LayoutCount": 122
+    }
+  },
+  "gpu-amd-tumlesik-ilk-calistirma": {
+    "project": "gpu-varsayilan (1. çalıştırma: Windows AMD tümleşik GPU seçti)",
+    "measured_at": "2026-10-21T08:10:04.168Z",
+    "renderer": {
+      "webgl": true,
+      "vendor": "Google Inc. (AMD)",
+      "renderer": "ANGLE (AMD, AMD Radeon(TM) Graphics (0x00001681) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    "software_webgl": false,
+    "note": "Donanım WebGL (GPU)",
+    "initial": {
+      "navigation": {
+        "dom_content_loaded_ms": 360,
+        "load_ms": 363
+      },
+      "load_status_ready_ms": 102693,
+      "first_map_idle_ms": 103790
+    },
+    "api_requests": [
+      {
+        "path": "/api/records/timeline?granularity=year",
+        "ms": 22,
+        "bytes": 702
+      },
+      {
+        "path": "/api/meta",
+        "ms": 1574,
+        "bytes": 1266
+      },
+      {
+        "path": "/api/boroughs",
+        "ms": 1628,
+        "bytes": 141531
+      },
+      {
+        "path": "/api/clusters",
+        "ms": 88,
+        "bytes": 120604
+      },
+      {
+        "path": "/api/density?cell=1000",
+        "ms": 52,
+        "bytes": 15081
+      }
+    ],
+    "camera_rotate_manhattan_3d": {
+      "frames": 406,
+      "fps": 76.5,
+      "median_ms": 13.9,
+      "p95_ms": 20.7,
+      "max_ms": 41.9,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "zoom_in": {
+      "frames": 430,
+      "fps": 99.8,
+      "median_ms": 7,
+      "p95_ms": 14,
+      "max_ms": 277.9,
+      "long_frames_50ms": 5,
+      "long_frames_100ms": 3
+    },
+    "zoom_out": {
+      "frames": 489,
+      "fps": 113.8,
+      "median_ms": 7,
+      "p95_ms": 13.8,
+      "max_ms": 493.2,
+      "long_frames_50ms": 3,
+      "long_frames_100ms": 2
+    },
+    "cluster_scene": {
+      "cluster_id": 1344,
+      "glb_ready_ms": 3849,
+      "glb_requests": [
+        {
+          "file": "taxi.glb",
+          "ms": 15,
+          "bytes": 21546
+        },
+        {
+          "file": "taxi.lod1.glb",
+          "ms": 16,
+          "bytes": 20079
+        },
+        {
+          "file": "sedan.glb",
+          "ms": 18,
+          "bytes": 22092
+        },
+        {
+          "file": "sedan.lod1.glb",
+          "ms": 15,
+          "bytes": 20394
+        },
+        {
+          "file": "suv.glb",
+          "ms": 16,
+          "bytes": 23251
+        },
+        {
+          "file": "suv.lod1.glb",
+          "ms": 16,
+          "bytes": 21793
+        },
+        {
+          "file": "truck.glb",
+          "ms": 17,
+          "bytes": 22712
+        },
+        {
+          "file": "truck.lod1.glb",
+          "ms": 17,
+          "bytes": 20930
+        },
+        {
+          "file": "delivery.glb",
+          "ms": 15,
+          "bytes": 22906
+        },
+        {
+          "file": "delivery.lod1.glb",
+          "ms": 16,
+          "bytes": 21298
+        },
+        {
+          "file": "traffic-light.glb",
+          "ms": 15,
+          "bytes": 12853
+        },
+        {
+          "file": "road-sign-stop.glb",
+          "ms": 16,
+          "bytes": 12137
+        }
+      ],
+      "rotate_with_models": {
+        "frames": 603,
+        "fps": 140.3,
+        "median_ms": 6.9,
+        "p95_ms": 7.1,
+        "max_ms": 14.3,
+        "long_frames_50ms": 0,
+        "long_frames_100ms": 0
+      }
+    },
+    "webgl_context_recovery_ms": 1113,
+    "js_heap": {
+      "used_mb": 431,
+      "total_mb": 473
+    },
+    "cdp": {
+      "JSHeapUsedSize_mb": 292,
+      "Nodes": 766,
+      "LayoutCount": 381
+    },
+    "note_outlier": "load_status_ready_ms 102.693 ms tek seferlik soğuk başlangıç aykırı değeri; /api/meta ve /api/boroughs 1,6 sn sürdü; tekrar ölçümde (NVIDIA) 2.088 ms. Kök neden doğrulanmadı."
+  }
+}

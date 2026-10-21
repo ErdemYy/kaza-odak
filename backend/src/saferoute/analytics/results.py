@@ -118,21 +118,75 @@ class LabelResult:
                 "date_max": days_to_date(int(t["date_max"][i])), "dominant_borough": BOROUGH_NAMES[b],
                 "dominant_borough_share": float(t["dominant_borough_share"][i]), "peak_hour": int(t["peak_hour"][i])}
 
-    def centroids(self, limit: int = 40000) -> dict[str, Any]:
+    def centroids(self, limit: int = 40000, sel: np.ndarray | None = None) -> dict[str, Any]:
+        """Küme merkezleri. ``sel`` (sonuç olayları üzerinde zaman dilimi maskesi) verilirse merkez konumu ve
+        üyelik DEĞİŞMEZ; ``n_events`` dilimdeki olay sayısıdır ve dilimde olayı olmayan kümeler çıkarılır."""
         t = self.table()
         order = np.lexsort((t["cluster_id"], -t["n_events"]))
         rank = np.empty(len(order), dtype=np.int64)
         rank[order] = np.arange(1, len(order) + 1)
-        take = order[:limit]
+        shown = t["n_events"] if sel is None else self.slice_counts(sel)
+        take = [i for i in order if shown[i] > 0][:limit]
         feats = [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [round(float(t["centroid_lon"][i]), 6),
                                                                                    round(float(t["centroid_lat"][i]), 6)]},
                   "properties": {"cluster_id": int(t["cluster_id"][i]), "experiment_id": self.result_id,
-                                 "n_events": int(t["n_events"][i]), "rank": int(rank[i]),
+                                 "n_events": int(shown[i]), "n_events_full": int(t["n_events"][i]), "rank": int(rank[i]),
                                  "borough": BOROUGH_NAMES[int(t["dominant_borough"][i])],
                                  "injury_crashes": int(t["injury_crashes"][i]), "fatal_crashes": int(t["fatal_crashes"][i])}}
                  for i in take]
-        return {"type": "FeatureCollection", "experiment_id": self.result_id, "total_clusters": self.n_clusters,
-                "returned": len(feats), "truncated": len(feats) < self.n_clusters, "features": feats}
+        out = {"type": "FeatureCollection", "experiment_id": self.result_id, "total_clusters": self.n_clusters,
+               "returned": len(feats), "truncated": len(feats) < int((shown > 0).sum()), "features": feats,
+               "membership": "sabit (yeniden kümeleme yok)"}
+        if sel is not None:
+            out["time_slice"] = {"visible_events": int(sel.sum()), "visible_clustered_events": int(shown.sum()),
+                                 "clusters_with_events": int((shown > 0).sum())}
+        return out
+
+    # ------------------------------------------------------------------ zaman dilimi (üyelik değişmez)
+    def event_mask(self) -> np.ndarray:
+        """Sonucun kapsadığı olaylar (tüm olay deposu üzerinde mantıksal maske)."""
+        m = np.zeros(self.store.n_events, dtype=bool)
+        m[self.event_index] = True
+        return m
+
+    def slice_counts(self, sel: np.ndarray) -> np.ndarray:
+        d = self.dense[sel]
+        return np.bincount(d[d >= 0], minlength=self.n_clusters)
+
+    def coverage(self) -> dict[str, Any]:
+        """Sonucun gerçek veri kapsamı: olay sayısı ve tarih aralığı (oynatma bunun dışına çıkamaz)."""
+        days = self.store.c.days[self.event_index]
+        n = int(len(days))
+        return {"n_events": n, "date_min": days_to_date(int(days.min())) if n else None,
+                "date_max": days_to_date(int(days.max())) if n else None,
+                "event_time_mapping": "olay indeksi → işlenmiş kayıt tarih/saat alanları"}
+
+    def timeline(self, granularity: str) -> dict[str, Any]:
+        out = self.store.timeline_mask(self.event_mask(), granularity)
+        if granularity in ("year", "month"):
+            # Oynatma deneyin kapsamını aşmasın: kapsam dışındaki boş baş/son kovaları çıkarılır
+            nz = [i for i, b in enumerate(out["buckets"]) if b["count"]]
+            out["buckets"] = out["buckets"][nz[0]:nz[-1] + 1] if nz else []
+        return {**out, "result_id": self.result_id, "coverage": self.coverage(), "reclustered": False}
+
+    def density(self, cell: int, sel: np.ndarray | None = None) -> dict[str, Any]:
+        """Sonucun KENDİ olay kapsamının yoğunluğu (ör. HDBSCAN 100k örneklemi tüm NYC gibi gösterilmez);
+        ``clustered`` = bu sonuçta bir kümeye atanmış olaylar."""
+        s = self.store
+        if cell not in s.cell_index:
+            raise KeyError(cell)
+        loc = s.c.location[self.event_index]
+        keep = np.ones(len(loc), dtype=bool) if sel is None else sel
+        cidx = s.cell_index[cell]
+        k = len(s.cell_centers[cell])
+        ev = np.bincount(cidx[loc[keep]], minlength=k)
+        cl = np.bincount(cidx[loc[keep & (self.labels >= 0)]], minlength=k)
+        nz = np.flatnonzero(ev > 0)
+        ctr = s.cell_centers[cell]
+        feats = [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [round(float(ctr[i, 0]), 6), round(float(ctr[i, 1]), 6)]},
+                  "properties": {"events": int(ev[i]), "clustered": int(cl[i]), "noise": int(ev[i] - cl[i])}} for i in nz]
+        return {"type": "FeatureCollection", "cell_m": cell, "result_id": self.result_id, "total_events": int(ev.sum()),
+                "scope": "sonucun olay kapsamı", "max_events_per_cell": int(ev.max()) if len(nz) else 0, "features": feats}
 
     # ------------------------------------------------------------------ konum katmanı
     def locations(self) -> dict[str, np.ndarray]:
@@ -156,23 +210,30 @@ class LabelResult:
         self._loc = {"location": loc_ids, "label": ulab[first].astype(np.int32), "events": tot, "n_labels": nl}
         return self._loc
 
-    def points(self, bbox: tuple[float, float, float, float], limit: int) -> dict[str, Any]:
+    def points(self, bbox: tuple[float, float, float, float], limit: int, sel: np.ndarray | None = None,
+               offset: int = 0) -> dict[str, Any]:
+        """Görünen alandaki konumlar (baskın etiket = tam sonuçtaki etiket; dilimde DEĞİŞMEZ). Sıra deterministiktir
+        (olay sayısı azalan, sonra konum kimliği); ``offset`` ile sayfalanır."""
         s = self.store
         L = self.locations()
         w, so, e, n = bbox
         lon, lat = s.loc_lon[L["location"]], s.loc_lat[L["location"]]
-        sel = np.flatnonzero((lon >= w) & (lon <= e) & (lat >= so) & (lat <= n))
-        total_loc, total_ev = int(len(sel)), int(L["events"][sel].sum())
-        if len(sel) > limit:
-            sel = sel[np.lexsort((L["location"][sel], -L["events"][sel]))[:limit]]
+        events = L["events"]
+        if sel is not None:
+            events = np.bincount(s.c.location[self.event_index[sel]], minlength=s.n_locations)[L["location"]]
+        cand = np.flatnonzero((lon >= w) & (lon <= e) & (lat >= so) & (lat <= n) & (events > 0))
+        total_loc, total_ev = int(len(cand)), int(events[cand].sum())
+        cand = cand[np.lexsort((L["location"][cand], -events[cand]))][offset:offset + limit]
         feats = [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [float(lon[i]), float(lat[i])]},
                   "properties": {"location_id": int(L["location"][i]), "cluster_id": int(L["label"][i]),
-                                 "n_events": int(L["events"][i]), "noise": bool(L["label"][i] < 0),
-                                 "n_labels": int(L["n_labels"][i])}} for i in sel]
+                                 "n_events": int(events[i]), "noise": bool(L["label"][i] < 0),
+                                 "n_labels": int(L["n_labels"][i])}} for i in cand]
+        returned = len(feats)
         return {"type": "FeatureCollection", "experiment_id": self.result_id, "bbox": bbox, "total_locations": total_loc,
-                "total_events": total_ev, "returned_locations": len(feats),
+                "total_events": total_ev, "returned_locations": returned,
                 "returned_events": int(sum(f["properties"]["n_events"] for f in feats)),
-                "truncated": len(feats) < total_loc, "features": feats}
+                "limit": limit, "offset": offset, "next_offset": offset + returned if offset + returned < total_loc else None,
+                "truncated": returned < total_loc, "order": "olay sayısı azalan, sonra konum kimliği", "features": feats}
 
     def cluster_detail(self, cluster_id: int) -> dict[str, Any] | None:
         hit = np.flatnonzero(self.cluster_ids == cluster_id)

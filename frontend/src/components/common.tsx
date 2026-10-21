@@ -142,6 +142,11 @@ export function Section({ title, description, actions, children, className, id }
 }
 
 /** Tek sayının birden çok biçimde gösterimi için: tanımsız değerin nedeni. */
+/** Hesaplanmamış / kaynakta olmayan metrik (ör. dinamik işlerde DBCV). "Uygulanamaz"dan farklıdır. */
+export function NotAvailable({ reason }: { reason: string }) {
+  return <span className="text-subtle font-semibold" title={reason} aria-label={`N/A: ${reason}`} data-testid="metric-na">N/A</span>;
+}
+
 export function NotApplicable({ reason }: { reason: string }) {
   return <span className="text-subtle font-semibold" title={reason} aria-label={`Uygulanamaz: ${reason}`}>Uygulanamaz</span>;
 }

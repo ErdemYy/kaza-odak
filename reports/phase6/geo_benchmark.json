@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-10-21T11:13:04",
+  "server": "http://127.0.0.1:8000",
+  "viewports": 20,
+  "viewport_size_deg": [
+    0.04,
+    0.025
+  ],
+  "repeats": 5,
+  "A_bbox_api": {
+    "faz4_model_noktalar": {
+      "median_ms": 77.8,
+      "p95_ms": 120.4,
+      "median_gzip_bytes": 54296,
+      "max_gzip_bytes": 88213,
+      "median_json_bytes": 830606,
+      "median_returned_locations": 5139,
+      "max_total_locations": 8952,
+      "truncated_viewports": 2
+    },
+    "filtreli_kayit_noktalari_bisiklet": {
+      "median_ms": 17.5,
+      "p95_ms": 29.3,
+      "median_gzip_bytes": 10498,
+      "max_gzip_bytes": 27550,
+      "median_json_bytes": 135194,
+      "median_returned_locations": 829,
+      "max_total_locations": 2149,
+      "truncated_viewports": 0
+    },
+    "kayitli_hdbscan_noktalari": {
+      "median_ms": 15.1,
+      "p95_ms": 27.5,
+      "median_gzip_bytes": 11207,
+      "max_gzip_bytes": 21671,
+      "median_json_bytes": 162005,
+      "median_returned_locations": 923,
+      "max_total_locations": 1746,
+      "truncated_viewports": 0
+    },
+    "kayitli_hdbscan_2019_dilimi": {
+      "median_ms": 17.6,
+      "p95_ms": 20.6,
+      "median_gzip_bytes": 2136,
+      "max_gzip_bytes": 4106,
+      "median_json_bytes": 24265,
+      "median_returned_locations": 137,
+      "max_total_locations": 293,
+      "truncated_viewports": 0
+    }
+  },
+  "B_single_static_geojson": {
+    "locations": 349122,
+    "json_bytes": 51626464,
+    "gzip_bytes": 3319710,
+    "python_parse_ms": 805.8,
+    "note": "Yalnızca TEK model ve filtresiz durum için geçerlidir; her filtre/deney/zaman dilimi için ayrı dosya gerekir."
+  },
+  "C_vector_tiles_estimate": {
+    "z12": {
+      "tiles_with_points": 30,
+      "points_per_tile_median": 4378,
+      "points_per_tile_p95": 37353,
+      "points_per_tile_max": 43005
+    },
+    "z14": {
+      "tiles_with_points": 296,
+      "points_per_tile_median": 848,
+      "points_per_tile_p95": 3208,
+      "points_per_tile_max": 6100
+    },
+    "z16": {
+      "tiles_with_points": 3572,
+      "points_per_tile_median": 79,
+      "points_per_tile_p95": 253,
+      "points_per_tile_max": 556
+    },
+    "estimate": {
+      "assumption_bytes_per_point": 12,
+      "z14_median_tile_bytes_estimate": 10176,
+      "label": "TAHMİN — prototip üretilmedi; ölçüm değildir"
+    }
+  },
+  "conclusion": "Mevcut bbox API'si filtreli/kayıtlı/dinamik/zaman dilimli görünümlerin tamamını tek uç noktayla sunar; önceden üretilmiş PMTiles yalnızca tek bir sabit katmanı (filtresiz, tek model) hızlandırabilir. Ölçülen bbox yanıtları zaten onlarca milisaniye ve birkaç kilobayt düzeyinde olduğundan format değişikliği belirgin bir kazanç sağlamaz; mimari değiştirilmedi."
+}

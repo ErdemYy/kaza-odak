@@ -14,11 +14,11 @@ export interface LayerDef {
 /** Zoom düşükken özetler, yüksekken ayrıntılı noktalar (sunucu bbox sorgusu). */
 export const LAYERS: LayerDef[] = [
   { key: "boroughs", label: "İlçe sınırları", hint: "Resmî DCP sınırları (gthc-hcne)", minZoom: 0, maxZoom: 24, defaultOn: true },
-  { key: "density", label: "Yoğunluk", hint: "Tüm olaylar, sunucu tarafı ızgara özeti", minZoom: 0, maxZoom: 15, defaultOn: true },
-  { key: "centroids", label: "Küme merkezleri", hint: "Seçilen DBSCAN kümelerinin merkezleri", minZoom: 0, maxZoom: 24, defaultOn: true },
-  { key: "geometries", label: "Küme geometrileri", hint: "Üye konumların dışbükey zarfı", minZoom: 12, maxZoom: 24, defaultOn: true },
+  { key: "density", label: "Yoğunluk", hint: "Gösterilen kapsamdaki olaylar; sunucu tarafı ızgara özeti", minZoom: 0, maxZoom: 15, defaultOn: true },
+  { key: "centroids", label: "Küme merkezleri", hint: "Gösterilen modelin veya sonucun küme merkezleri", minZoom: 0, maxZoom: 24, defaultOn: true },
+  { key: "geometries", label: "Küme geometrileri", hint: "Üye konumların dışbükey zarfı; gerçek yoğunluk sınırı değildir", minZoom: 12, maxZoom: 24, defaultOn: true },
   { key: "clustered", label: "Kümelenmiş noktalar", hint: "Görünen alandaki konumlar (zoom ≥ 15)", minZoom: 15, maxZoom: 24, defaultOn: true },
-  { key: "noise", label: "Gürültü noktaları", hint: "DBSCAN gürültüsü (−1), zoom ≥ 15", minZoom: 15, maxZoom: 24, defaultOn: false },
+  { key: "noise", label: "Gürültü noktaları", hint: "Kümeye atanmayan konumlar (−1), zoom ≥ 15", minZoom: 15, maxZoom: 24, defaultOn: false },
   { key: "buildings", label: "3D binalar", hint: "OSM bina yükseklikleri", minZoom: 13, maxZoom: 24, defaultOn: true },
   { key: "models", label: "3D modeller", hint: "Seçili küme çevresinde temsili sahne", minZoom: 14, maxZoom: 24, defaultOn: true },
 ];

@@ -75,7 +75,7 @@ def run_benchmark(repeats: int = 10, out: Path | None = None, job: bool = True) 
                 "filters": {"boroughs": "MANHATTAN", "years": "2018"}}
         s = time.perf_counter()
         j = c.post("/api/lab/jobs", json=body).json()
-        while j["state"] in ("pending", "running"):
+        while j["state"] in ("queued", "running"):
             time.sleep(0.1)
             j = c.get(f"/api/lab/jobs/{j['job_id']}").json()
         wall = time.perf_counter() - s

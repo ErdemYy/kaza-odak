@@ -128,6 +128,9 @@ def run_job(job_dir: str) -> None:
         if free is not None and free < budget["min_free_memory_mb"]:
             raise ResourceRejected(f"Boş fiziksel bellek {free:.0f} MB < gereken {budget['min_free_memory_mb']} MB.")
         _stage(job, "estimating")
+        # Yalnızca testler: iptal/yeniden başlatma senaryosu için çalışanı gerçek bir süre canlı tutar.
+        if delay := float(os.environ.get("SAFEROUTE_LAB_TEST_DELAY_S") or 0):
+            time.sleep(min(delay, 120.0))
         extra: dict[str, Any] = {}
         if algo == "dbscan" and fs == "spatial_haversine":
             from saferoute.clustering import algorithms

@@ -95,7 +95,7 @@ export function ViewPanel({ meta, onBorough, zoom, layerCounts }: {
                 <Switch checked={visibility[l.key]} onCheckedChange={() => toggleLayer(l.key)} aria-label={l.label} />
                 <div className="min-w-0 flex-1" title={l.hint}>
                   <div className="text-[13px] font-semibold leading-tight" data-layer={l.key}>{l.label}</div>
-                  <div className={cn("text-[11.5px] leading-tight truncate", (outOfZoom && visibility[l.key]) || unavailable ? "text-warning" : "text-subtle")}>
+                  <div className={cn("text-[11.5px] leading-tight line-clamp-2", (outOfZoom && visibility[l.key]) || unavailable ? "text-warning" : "text-subtle")}>
                     {unavailable ? "Yalnızca seçili modelde (dışbükey zarf) mevcut"
                       : outOfZoom && visibility[l.key]
                         ? tooFar ? `Yakınlaştırınca görünür (zoom ≥ ${l.minZoom})` : `Uzaklaştırınca görünür (zoom ≤ ${l.maxZoom})`

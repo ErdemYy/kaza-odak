@@ -5,11 +5,17 @@ Ayrım ilkesi (arayüzde de aynı):
   etiketleridir. Yeniden kümeleme YAPILMAZ.
 * ``/api/lab/jobs`` — filtrelenmiş/örneklenmiş kapsam üzerinde YENİ kümeleme işi (ayrı süreç).
 * ``/api/results/{kimlik}/*`` — kayıtlı Faz 3 deneyinin veya tamamlanmış laboratuvar işinin sonuçları.
+  Bu uç noktalarda YALNIZCA zaman dilimi süzgeci (tarih, yıl, ay, gün, saat) kabul edilir: küme üyeliği sabit
+  kalır, olaylar gerçek tarih/saatlerine göre süzülür. Kayıt filtreleri (ilçe, araç …) sonuçla karıştırılmaz.
+
+Kimlikler: kayıtlı deney (ör. ``dbscan-52abd2c018``), laboratuvar işi sonucu ``lab-<iş kimliği>``, dinamik deney
+``dyn-<önbellek anahtarı>``. Biçime uymayan kimlikler dosya sistemine dokunulmadan 404 ile reddedilir.
 """
 
 from __future__ import annotations
 
 import json
+import re
 import threading
 import time
 from pathlib import Path
@@ -22,13 +28,16 @@ from saferoute.analytics import ANALYTICS_VERSION
 from saferoute.analytics.catalog import Phase3Catalog, data_dictionary, overview, scope_text, source_record
 from saferoute.analytics.events import EventStore
 from saferoute.analytics.filters import FilterError, FilterSpec, parse_filters
-from saferoute.analytics.jobs import EmptyScope, JobManager, QueueFull
+from saferoute.analytics.jobs import EmptyScope, JobManager, NotRetryable, QueueFull
 from saferoute.analytics.lab_spec import FEATURE_SETS, LabRequestError, capabilities, validate_request
 from saferoute.analytics.reporting import ReportDocument, render
 from saferoute.analytics.results import LabelResult
 
 FILTER_KEYS = ("boroughs", "date_from", "date_to", "years", "months", "dows", "hour_from", "hour_to", "vehicles",
                "factor", "injury", "fatal", "exclude_midnight")
+TIME_KEYS = ("date_from", "date_to", "years", "months", "dows", "hour_from", "hour_to")
+JOB_ID_RE = re.compile(r"^[0-9a-f]{12}$")
+RESULT_ID_RE = re.compile(r"^(lab-[0-9a-f]{12}|dyn-[0-9a-f]{16}|[a-z][a-z0-9]{1,20}-[A-Za-z0-9]{1,40})$")
 
 
 class Analytics:
@@ -86,6 +95,19 @@ class Analytics:
         except FilterError as exc:
             raise HTTPException(422, str(exc)) from None
 
+    def time_filters(self, request: Request) -> FilterSpec | None:
+        """Sonuç uç noktaları için yalnızca zaman dilimi; başka kayıt filtresi gelirse 422 (iki mod karışmaz)."""
+        store = self.require()
+        other = [k for k in FILTER_KEYS if k not in TIME_KEYS and request.query_params.get(k) not in (None, "")]
+        if other:
+            raise HTTPException(422, f"Sonuç görünümünde yalnızca zaman dilimi süzgeci uygulanır; kayıt filtreleri "
+                                     f"({', '.join(other)}) kayıtlı/dinamik sonuçla birleştirilmez.")
+        try:
+            spec = parse_filters({k: request.query_params.get(k) for k in TIME_KEYS}, set(store.factor_lookup))
+        except FilterError as exc:
+            raise HTTPException(422, str(exc)) from None
+        return None if spec.is_empty() else spec
+
     def dictionary(self) -> dict[str, Any]:
         if self._dictionary is None:
             self._dictionary = data_dictionary(self.pdir, self.prep)
@@ -113,14 +135,24 @@ def register(app: FastAPI, layer_store: Any, layers_dir: Path, **kw: Any) -> Ana
         return an.jobs
 
     def result_for(rid: str) -> tuple[LabelResult, dict[str, Any]]:
+        if not RESULT_ID_RE.match(rid):
+            raise HTTPException(404, "Geçersiz sonuç kimliği biçimi.")
         jm = jobs()
+        if rid.startswith("dyn-"):
+            job = jm.by_experiment(rid)
+            if job is None:
+                raise HTTPException(404, f"Tamamlanmış dinamik deney bulunamadı: {rid}")
+            rid = f"lab-{job.id}"
         if rid.startswith("lab-"):
             job = jm.get(rid[4:])
             if job is None:
                 raise HTTPException(404, f"Laboratuvar işi bulunamadı: {rid}")
             if job.state != "completed":
                 raise HTTPException(409, f"İş tamamlanmadı (durum: {job.state}); sonuç yok.")
-            res = jm.result(job.id)
+            try:
+                res = jm.result(job.id)
+            except (ValueError, OSError) as exc:
+                raise HTTPException(409, f"Sonuç dosyası doğrulanamadı: {exc}") from None
             assert res is not None
             res.result_id = rid
             return res, job.to_dict()
@@ -139,7 +171,15 @@ def register(app: FastAPI, layer_store: Any, layers_dir: Path, **kw: Any) -> Ana
     def status() -> dict[str, Any]:
         return {"ready": an.ready.is_set() and an.store is not None, "loading": not an.ready.is_set(),
                 "error": an.error, "load_seconds": an.load_seconds, "version": ANALYTICS_VERSION,
-                "n_events": an.store.n_events if an.store else None}
+                "n_events": an.store.n_events if an.store else None,
+                "job_recovery": an.jobs.recovery if an.jobs else None}
+
+    def _shutdown() -> None:
+        if an.jobs is not None:
+            an.jobs.shutdown()
+
+    if hasattr(app.state, "shutdown_hooks"):
+        app.state.shutdown_hooks.append(_shutdown)
 
     @app.get("/api/overview")
     def get_overview() -> dict[str, Any]:
@@ -183,11 +223,12 @@ def register(app: FastAPI, layer_store: Any, layers_dir: Path, **kw: Any) -> Ana
             raise HTTPException(422, f"Geçerli hücre boyutları: {sorted(store.cell_index)}") from None
 
     @app.get("/api/records/points")
-    def records_points(request: Request, bbox: str = Query(...), kind: Literal["clustered", "noise", "all"] = "all",
-                       limit: int = Query(DEFAULT_POINT_LIMIT, ge=1, le=MAX_POINT_LIMIT)) -> JSONResponse:
+    def records_points(request: Request, bbox: str = Query(..., max_length=200), kind: Literal["clustered", "noise", "all"] = "all",
+                       limit: int = Query(DEFAULT_POINT_LIMIT, ge=1, le=MAX_POINT_LIMIT),
+                       offset: int = Query(0, ge=0, le=10_000_000)) -> JSONResponse:
         store = an.require()
         spec = an.filters(request)
-        return JSONResponse(store.points(spec, _bbox(bbox, MAX_POINT_BBOX_SPAN_DEG), kind, limit))
+        return JSONResponse(store.points(spec, _bbox(bbox, MAX_POINT_BBOX_SPAN_DEG), kind, limit, offset))
 
     @app.get("/api/records/clusters")
     def records_clusters(request: Request) -> JSONResponse:
@@ -252,10 +293,32 @@ def register(app: FastAPI, layer_store: Any, layers_dir: Path, **kw: Any) -> Ana
         res, meta = result_for(rid)
         return {"result_id": rid, "summary": res.summary(), "meta": meta}
 
+    def _slice(res: LabelResult, request: Request) -> tuple[Any, FilterSpec | None]:
+        spec = an.time_filters(request)
+        return (None if spec is None else an.require().mask(spec)[res.event_index]), spec
+
     @app.get("/api/results/{rid}/clusters")
-    def result_clusters(rid: str) -> JSONResponse:
+    def result_clusters(rid: str, request: Request) -> JSONResponse:
         res, _ = result_for(rid)
-        return JSONResponse(res.centroids())
+        sel, spec = _slice(res, request)
+        out = res.centroids(sel=sel)
+        if spec is not None:
+            out["time_slice"] = {**out["time_slice"], "filters_tr": spec.describe_tr()}
+        return JSONResponse(out)
+
+    @app.get("/api/results/{rid}/timeline")
+    def result_timeline(rid: str, granularity: Literal["year", "month", "hour", "dow"] = "year") -> dict[str, Any]:
+        res, _ = result_for(rid)
+        return res.timeline(granularity)
+
+    @app.get("/api/results/{rid}/density")
+    def result_density(rid: str, request: Request, cell: int = 1000) -> JSONResponse:
+        res, _ = result_for(rid)
+        sel, _ = _slice(res, request)
+        try:
+            return JSONResponse(res.density(cell, sel))
+        except KeyError:
+            raise HTTPException(422, f"Geçerli hücre boyutları: {sorted(an.require().cell_index)}") from None
 
     @app.get("/api/results/{rid}/table")
     def result_table(rid: str, limit: int = Query(50, ge=1, le=500), offset: int = Query(0, ge=0),
@@ -264,10 +327,12 @@ def register(app: FastAPI, layer_store: Any, layers_dir: Path, **kw: Any) -> Ana
         return res.cluster_rows(limit, offset, sort)
 
     @app.get("/api/results/{rid}/points")
-    def result_points(rid: str, bbox: str = Query(...),
-                      limit: int = Query(DEFAULT_POINT_LIMIT, ge=1, le=MAX_POINT_LIMIT)) -> JSONResponse:
+    def result_points(rid: str, request: Request, bbox: str = Query(..., max_length=200),
+                      limit: int = Query(DEFAULT_POINT_LIMIT, ge=1, le=MAX_POINT_LIMIT),
+                      offset: int = Query(0, ge=0, le=10_000_000)) -> JSONResponse:
         res, _ = result_for(rid)
-        return JSONResponse(res.points(_bbox(bbox, MAX_POINT_BBOX_SPAN_DEG), limit))
+        sel, _ = _slice(res, request)
+        return JSONResponse(res.points(_bbox(bbox, MAX_POINT_BBOX_SPAN_DEG), limit, sel, offset))
 
     @app.get("/api/results/{rid}/clusters/{cluster_id}")
     def result_cluster(rid: str, cluster_id: int) -> dict[str, Any]:
@@ -278,6 +343,19 @@ def register(app: FastAPI, layer_store: Any, layers_dir: Path, **kw: Any) -> Ana
         return {"cluster": d, "meta": meta}
 
     # ------------------------------------------------------------------ laboratuvar işleri
+    def job_or_404(job_id: str):
+        if not JOB_ID_RE.match(job_id):
+            raise HTTPException(404, "Geçersiz iş kimliği biçimi.")
+        job = jobs().get(job_id)
+        if job is None:
+            raise HTTPException(404, f"İş bulunamadı: {job_id}")
+        return job
+
+    @app.get("/api/lab/resources")
+    def lab_resources() -> dict[str, Any]:
+        """Anlık kaynak durumu: boş fiziksel bellek, başlatılabilirlik, çalışan bellek tavanı, kuyruk."""
+        return jobs().resources()
+
     @app.get("/api/lab/capabilities")
     def lab_capabilities() -> dict[str, Any]:
         cap = capabilities()
@@ -302,22 +380,32 @@ def register(app: FastAPI, layer_store: Any, layers_dir: Path, **kw: Any) -> Ana
         return job.to_dict()
 
     @app.get("/api/lab/jobs")
-    def lab_list() -> dict[str, Any]:
-        return {"jobs": jobs().list()}
+    def lab_list(limit: int = Query(100, ge=1, le=500)) -> dict[str, Any]:
+        return {"jobs": jobs().list(limit)}
 
     @app.get("/api/lab/jobs/{job_id}")
     def lab_get(job_id: str) -> dict[str, Any]:
-        job = jobs().get(job_id)
-        if job is None:
-            raise HTTPException(404, f"İş bulunamadı: {job_id}")
-        return job.to_dict()
+        return job_or_404(job_id).to_dict()
 
     @app.delete("/api/lab/jobs/{job_id}")
     def lab_cancel(job_id: str) -> dict[str, Any]:
+        job_or_404(job_id)
         job = jobs().cancel(job_id)
-        if job is None:
-            raise HTTPException(404, f"İş bulunamadı: {job_id}")
+        assert job is not None
         return job.to_dict()
+
+    @app.post("/api/lab/jobs/{job_id}/retry", status_code=202)
+    def lab_retry(job_id: str) -> dict[str, Any]:
+        """Yarım kalmış/başarısız/iptal/kaynak sınırlı bir işi AÇIK kullanıcı isteğiyle yeni iş olarak başlatır."""
+        job_or_404(job_id)
+        try:
+            return jobs().retry(job_id, set(an.store.factor_lookup) if an.store else None).to_dict()
+        except NotRetryable as exc:
+            raise HTTPException(409, str(exc)) from None
+        except (LabRequestError, EmptyScope) as exc:
+            raise HTTPException(422, str(exc)) from None
+        except QueueFull as exc:
+            raise HTTPException(429, str(exc)) from None
 
     # ------------------------------------------------------------------ veri sözlüğü
     @app.get("/api/data/dictionary")

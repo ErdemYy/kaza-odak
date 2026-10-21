@@ -25,8 +25,9 @@ describe("MetricCard ve StateBadge", () => {
   });
   it("iş durumları Türkçe etiketlenir", async () => {
     const { StateBadge } = await import("../../src/features/lab/ExperimentResults");
-    wrap(<><StateBadge state="rejected_resource" /><StateBadge state="cancelled" /></>);
-    expect(screen.getByText("Kaynak yetersiz")).toBeTruthy();
+    wrap(<><StateBadge state="resource_limited" /><StateBadge state="cancelled" /><StateBadge state="interrupted" /></>);
+    expect(screen.getByText("Kaynak sınırı")).toBeTruthy();
+    expect(screen.getByText("Yarıda kaldı")).toBeTruthy();
     expect(screen.getByText("İptal edildi")).toBeTruthy();
   });
 });

@@ -92,11 +92,13 @@ const modeKey = (m: Mode) => `${m.source.kind === "model" ? "model" : m.source.i
 function endpoints(m: Mode) {
   const q = m.q ? `&${m.q}` : "";
   if (m.source.kind === "result") {
+    // Sonuç modu: q yalnızca zaman dilimidir (üyelik sabit). Yoğunluk da sonucun KENDİ olay kapsamından gelir
+    // (ör. HDBSCAN 100k örneklemi tüm NYC kayıtlarıyla birlikte gösterilmez).
     const id = encodeURIComponent(m.source.id);
     return {
-      centroids: `/api/results/${id}/clusters`,
-      density: (cell: number) => (m.q ? `/api/records/density?cell=${cell}${q}` : `/api/density?cell=${cell}`),
-      points: (b: BBox) => `/api/results/${id}/points?bbox=${bboxParam(b)}&limit=8000`,
+      centroids: `/api/results/${id}/clusters${m.q ? `?${m.q}` : ""}`,
+      density: (cell: number) => `/api/results/${id}/density?cell=${cell}${q}`,
+      points: (b: BBox) => `/api/results/${id}/points?bbox=${bboxParam(b)}&limit=8000${q}`,
     };
   }
   if (!m.q) {
@@ -118,6 +120,7 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
   const cb = useRef(props);
   cb.current = props;
   const motionRef = useRef<MotionLevel>(props.motion);
+  const activeRef = useRef(props.active);
   const visRef = useRef<Visibility>(props.visibility);
   const modeRef = useRef<Mode>({ source: props.source, q: props.filterQuery });
   const sceneRef = useRef<{ cluster: Parameters<CityModelsLayer["setClusterScene"]>[0]; inspector: InspectorPlacement | null }>({ cluster: null, inspector: null });
@@ -249,7 +252,8 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
       const label = mode.source.kind === "result" ? mode.source.label : mode.q ? "Filtrelenmiş kayıtlar" : "Seçili model";
       cb.current.onLayerCounts({ clusters: clusters.features.length, total: clusters.total_clusters, label });
       cb.current.onLoad({ phase: "ready", message: mode.source.kind === "result"
-        ? `${mode.source.label}: ${fmtInt(clusters.total_clusters)} küme`
+        ? (mode.q ? `${mode.source.label}: bu dilimde ${fmtInt(clusters.features.length)} / ${fmtInt(clusters.total_clusters)} küme`
+          : `${mode.source.label}: ${fmtInt(clusters.total_clusters)} küme`)
         : `Gerçek veri yüklendi: ${fmtInt(clusters.features.length)} küme · ${fmtInt(density.total_events)} olay (yoğunluk özeti)` });
     } catch (e) {
       if ((e as Error).name === "AbortError") return;
@@ -384,8 +388,15 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
       maxZoom: 20,
       attributionControl: { compact: true },
       canvasContextAttributes: { antialias: true },
+      // Boyut izleme elle yapılır: keşif ekranı gizliyken (diğer ekranlar) pencere/kap boyutu değişse de harita
+      // yeniden çizilmez ve yeni karo indirmez; ekran görünür olunca bir kez yeniden boyutlandırılır.
+      trackResize: false,
     });
     mapRef.current = map;
+    const resizeObserver = new ResizeObserver(() => {
+      if (activeRef.current) map.resize();
+    });
+    resizeObserver.observe(container.current);
     const ctrl = new AbortController();
 
     map.on("load", async () => {
@@ -478,6 +489,7 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
       mode: () => modeKey(modeRef.current),
     };
     return () => {
+      resizeObserver.disconnect();
       ctrl.abort();
       pointsAbort.current?.abort();
       dataAbort.current?.abort();
@@ -527,8 +539,10 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
     mapRef.current?.triggerRepaint();
   }, [props.motion, props.active]);
 
-  // Ekran görünür olunca kap boyutu değişmiş olabilir; gizliyken temsili animasyon durur (GPU boşta).
+  // Ekran görünür olunca kap boyutu değişmiş olabilir; gizliyken temsili animasyon durur ve yeniden boyutlandırma
+  // ertelenir (GPU boşta, karo indirilmez).
   useEffect(() => {
+    activeRef.current = props.active;
     if (props.active) mapRef.current?.resize();
   }, [props.active]);
 

@@ -12,13 +12,17 @@ Tüm sayılar ``layer_manifest.json`` ve doğrulanmış katman dosyalarından ge
 from __future__ import annotations
 
 import json
+import logging
+import os
+from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any, Literal
 
 import numpy as np
 import pandas as pd
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import JSONResponse
 
 from saferoute.viz.layers import sha256_file
@@ -27,6 +31,23 @@ from saferoute.viz.layers import sha256_file
 MAX_POINT_BBOX_SPAN_DEG = 0.05
 MAX_POINT_LIMIT = 20000
 DEFAULT_POINT_LIMIT = 8000
+# Faz 6 güvenlik sınırları (yerel kullanım; internete açık dağıtım için yeterli DEĞİLDİR — docs/phase6)
+MAX_BODY_BYTES = 64 * 1024
+LOCAL_HOSTS = ["127.0.0.1", "localhost", "[::1]", "::1", "testserver"]
+SECURITY_HEADERS = {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "no-referrer",
+    "Cross-Origin-Opener-Policy": "same-origin",
+}
+log = logging.getLogger("saferoute.api")
+
+
+def allowed_hosts() -> list[str]:
+    """Host başlığı izin listesi: yerel adresler + ``SAFEROUTE_ALLOWED_HOSTS`` (virgüllü). DNS yeniden bağlama
+    (DNS rebinding) ile kötü niyetli bir sitenin yerel API'ye istek göndermesini engeller."""
+    extra = [h.strip() for h in os.environ.get("SAFEROUTE_ALLOWED_HOSTS", "").split(",") if h.strip()]
+    return LOCAL_HOSTS + extra
 
 
 class LayerStore:
@@ -100,8 +121,36 @@ def create_app(layers_dir: Path | None = None, frontend_dir: Path | None = None,
 
         layers_dir = processed_dir() / "phase4"
     store = LayerStore(Path(layers_dir), verify=verify)
-    app = FastAPI(title="SafeRoute 3D — Faz 4 katman API'si", version=store.manifest["layer_version"])
+    @asynccontextmanager
+    async def lifespan(app: FastAPI) -> Any:
+        yield
+        # Kapanış: laboratuvar çalışanları sonlandırılır, etkin işler kalıcı kayıtta "interrupted" işaretlenir
+        for hook in app.state.shutdown_hooks:
+            hook()
+
+    app = FastAPI(title="SafeRoute 3D — Faz 4 katman API'si", version=store.manifest["layer_version"], lifespan=lifespan)
+    app.state.shutdown_hooks = []
     app.add_middleware(GZipMiddleware, minimum_size=2048)
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed_hosts())
+
+    @app.middleware("http")
+    async def guard(request: Request, call_next: Any) -> Any:
+        # Gövde boyutu sınırı (yalnızca küçük JSON istekleri beklenir); CORS başlığı EKLENMEZ: tarayıcılar başka
+        # kökenlerden gelen okuma ve JSON POST isteklerini (ön kontrol) engeller.
+        cl = request.headers.get("content-length")
+        if cl is not None and (not cl.isdigit() or int(cl) > MAX_BODY_BYTES):
+            return JSONResponse({"detail": f"İstek gövdesi çok büyük (en fazla {MAX_BODY_BYTES // 1024} KB)."}, status_code=413)
+        response = await call_next(request)
+        for k, v in SECURITY_HEADERS.items():
+            response.headers.setdefault(k, v)
+        return response
+
+    @app.exception_handler(Exception)
+    async def unexpected(request: Request, exc: Exception) -> JSONResponse:
+        # Beklenmeyen hata: ayrıntı (yol, yığın izi) yalnızca sunucu günlüğüne yazılır, istemciye sızdırılmaz.
+        log.exception("Beklenmeyen hata: %s %s", request.method, request.url.path)
+        return JSONResponse({"detail": "Beklenmeyen sunucu hatası. Ayrıntı sunucu günlüğündedir; isteği yeniden deneyin."},
+                            status_code=500)
     app.state.store = store
     cache = {"Cache-Control": "public, max-age=3600"}
 
@@ -164,9 +213,10 @@ def create_app(layers_dir: Path | None = None, frontend_dir: Path | None = None,
         return r
 
     @app.get("/api/points")
-    def points(bbox: str = Query(..., description="batı,güney,doğu,kuzey"),
+    def points(bbox: str = Query(..., description="batı,güney,doğu,kuzey", max_length=200),
                kind: Literal["clustered", "noise", "all"] = "all",
-               limit: int = Query(DEFAULT_POINT_LIMIT, ge=1, le=MAX_POINT_LIMIT)) -> JSONResponse:
+               limit: int = Query(DEFAULT_POINT_LIMIT, ge=1, le=MAX_POINT_LIMIT),
+               offset: int = Query(0, ge=0, le=10_000_000)) -> JSONResponse:
         b = parse_bbox(bbox, MAX_POINT_BBOX_SPAN_DEG)
         m = store.bbox_mask(b)
         if kind == "clustered":
@@ -175,8 +225,7 @@ def create_app(layers_dir: Path | None = None, frontend_dir: Path | None = None,
             m &= store.cluster < 0
         idx = np.flatnonzero(m)
         total_loc, total_ev = int(len(idx)), int(store.n[idx].sum())
-        if len(idx) > limit:
-            idx = idx[np.argsort(store.rank[idx], kind="stable")[:limit]]
+        idx = idx[np.argsort(store.rank[idx], kind="stable")[offset:offset + limit]]
         feats = [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [float(store.lon[i]),
                                                                                    float(store.lat[i])]},
                   "properties": {"location_id": int(store.loc_id[i]), "cluster_id": int(store.cluster[i]),
@@ -186,7 +235,8 @@ def create_app(layers_dir: Path | None = None, frontend_dir: Path | None = None,
                              "bbox": b, "total_locations": total_loc, "total_events": total_ev,
                              "returned_locations": len(feats),
                              "returned_events": int(sum(f["properties"]["n_events"] for f in feats)),
-                             "truncated": len(feats) < total_loc,
+                             "truncated": len(feats) < total_loc, "limit": limit, "offset": offset,
+                             "next_offset": offset + len(feats) if offset + len(feats) < total_loc else None,
                              "order": "olay sayısı azalan, sonra konum kimliği", "features": feats})
 
     @app.get("/api/density")

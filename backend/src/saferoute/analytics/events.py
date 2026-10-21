@@ -292,7 +292,11 @@ class EventStore:
 
     # ------------------------------------------------------------------ zaman çizelgesi
     def timeline(self, spec: FilterSpec, granularity: str) -> dict[str, Any]:
-        m = self.mask(spec)
+        out = self.timeline_mask(self.mask(spec), granularity)
+        return {**out, "filters": spec.to_dict()}
+
+    def timeline_mask(self, m: np.ndarray, granularity: str) -> dict[str, Any]:
+        """Verilen olay maskesinin zaman kovaları (filtre veya bir sonucun olay kapsamı)."""
         c = self.c
         if granularity == "year":
             y0 = int(c.year.min())
@@ -309,7 +313,7 @@ class EventStore:
             buckets = [{"key": str(d), "count": int(x)} for d, x in enumerate(np.bincount(c.dow[m], minlength=7)[:7])]
         else:
             raise ValueError("granularity: year, month, hour veya dow olmalı")
-        return {"granularity": granularity, "filters": spec.to_dict(), "n_events": int(m.sum()), "buckets": buckets}
+        return {"granularity": granularity, "n_events": int(m.sum()), "buckets": buckets}
 
     # ------------------------------------------------------------------ harita katmanları
     def location_counts(self, m: np.ndarray) -> np.ndarray:
@@ -331,7 +335,8 @@ class EventStore:
         return {"type": "FeatureCollection", "cell_m": cell, "total_events": int(ev.sum()),
                 "max_events_per_cell": int(ev.max()) if len(nz) else 0, "filters": spec.to_dict(), "features": feats}
 
-    def points(self, spec: FilterSpec, bbox: tuple[float, float, float, float], kind: str, limit: int) -> dict[str, Any]:
+    def points(self, spec: FilterSpec, bbox: tuple[float, float, float, float], kind: str, limit: int,
+               offset: int = 0) -> dict[str, Any]:
         """Görünen alandaki benzersiz konumlar; olay sayısı FİLTRELENMİŞ olay sayısıdır."""
         m = self.mask(spec)
         w, s, e, n = bbox
@@ -349,15 +354,16 @@ class EventStore:
             sel = np.ones(len(cand), dtype=bool)
         cand, loc_ev, lab = cand[sel], loc_ev[sel], lab[sel]
         total_loc, total_ev = int(len(cand)), int(loc_ev.sum())
-        if len(cand) > limit:
-            order = np.lexsort((cand, -loc_ev))[:limit]
-            cand, loc_ev, lab = cand[order], loc_ev[order], lab[order]
+        order = np.lexsort((cand, -loc_ev))[offset:offset + limit]
+        cand, loc_ev, lab = cand[order], loc_ev[order], lab[order]
         feats = [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [float(self.loc_lon[i]), float(self.loc_lat[i])]},
                   "properties": {"location_id": int(i), "cluster_id": int(l), "n_events": int(v), "noise": bool(l < 0)}}
                  for i, v, l in zip(cand, loc_ev, lab)]
         return {"type": "FeatureCollection", "experiment_id": self.experiment_id, "kind": kind, "bbox": bbox,
                 "filters": spec.to_dict(), "total_locations": total_loc, "total_events": total_ev,
                 "returned_locations": len(feats), "returned_events": int(loc_ev.sum()), "truncated": len(feats) < total_loc,
+                "limit": limit, "offset": offset,
+                "next_offset": offset + len(feats) if offset + len(feats) < total_loc else None,
                 "order": "filtrelenmiş olay sayısı azalan, sonra konum kimliği", "features": feats}
 
     def cluster_counts(self, spec: FilterSpec) -> np.ndarray:

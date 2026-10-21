@@ -115,17 +115,27 @@ export interface ResultSummary {
 export interface DynamicMetrics { silhouette: number | null; davies_bouldin: number | null; status: string; metric?: string;
   sampling?: string; n_used?: number; seed?: number; noise_excluded?: number; n_clusters_in_sample?: number }
 
-export type JobState = "pending" | "running" | "completed" | "failed" | "cancelled" | "rejected_resource";
+export type JobState = "queued" | "running" | "completed" | "failed" | "cancelled" | "interrupted" | "resource_limited";
+
+export interface WorkerMonitor { samples: number; peak_rss_mb: number | null; mean_cpu_percent: number | null; max_cpu_percent: number | null;
+  cpu_time_s: number | null; peak_commit_mb: number | null; available_memory_mb_at_start: number | null; exit_code: number | null;
+  guard: { job_object: boolean; kill_on_close: boolean; memory_limit_mb: number | null; error: string | null } }
+
+export interface LabResources { available_memory_mb: number | null; min_free_memory_mb: number; can_start: boolean;
+  worker_memory_limit_mb: number; max_concurrent: number; max_pending: number; running: number; queued: number;
+  job_object: boolean; cpu_count: number | null }
 
 export interface Job {
-  job_id: string; cache_key: string; state: JobState; stage: { stage: string; stage_label: string; at?: number } | null;
+  job_id: string; experiment_id: string; cache_key: string; state: JobState; stage: { stage: string; stage_label: string; at?: number } | null;
   request: { algorithm: string; feature_set: string; params: Record<string, number | string | null>; filters: Record<string, unknown>;
     sample: { n: number; seed: number } | null };
   filters_tr: string[]; feature_set: FeatureSetInfo; created_at: number; started_at: number | null; finished_at: number | null;
-  elapsed_s: number | null; error: string | null; source: "dynamic" | "cache" | "phase3_registry"; phase3_experiment: string | null;
+  elapsed_s: number | null; error: string | null; error_kind: string | null; retryable: boolean; retry_of: string | null;
+  recovered: boolean; output_sha256: string | null; source: "dynamic" | "cache" | "phase3_registry"; phase3_experiment: string | null;
   n_events: number | null; n_fit_rows: number | null;
   worker: { status: string; runtime_s?: number; peak_memory_mb?: number; note?: string; n_neighbor_pairs?: number;
-    n_spatial_pairs?: number; n_st_pairs?: number; inertia?: number } | null;
+    n_spatial_pairs?: number; n_st_pairs?: number; inertia?: number; monitor?: WorkerMonitor;
+    termination?: { verified: boolean; killed?: number } } | null;
   result: { summary: ResultSummary; metrics?: DynamicMetrics; phase3_metrics?: ExperimentMetrics } | null;
   code_version: string;
 }
