@@ -3,7 +3,7 @@
 New York City'de polise raporlanmış motorlu taşıt kazalarının mekânsal yoğunlaşmalarını denetimsiz öğrenme (DBSCAN; karşılaştırma için K-Means ve HDBSCAN) ile keşfeden ve sonuçları gerçek coğrafyaya hizalı 3B bir şehir haritasında sunan akademik makine öğrenmesi projesi.
 
 - **Kalıcı şartname:** [`PROJECT_SPEC.md`](PROJECT_SPEC.md)
-- **Güncel durum:** Faz 6 (güvenilirlik, kalıcı iş kaydı, kaynak güvenliği, performans ölçümü, tek komutla çalıştırma) uygulandı; faz onayı bekleniyor. Raporlar: [`docs/phase1/TEKNIK_RAPOR.md`](docs/phase1/TEKNIK_RAPOR.md), [`docs/phase2/TEKNIK_RAPOR.md`](docs/phase2/TEKNIK_RAPOR.md), [`docs/phase3/TEKNIK_RAPOR.md`](docs/phase3/TEKNIK_RAPOR.md), [`docs/phase4/TEKNIK_RAPOR.md`](docs/phase4/TEKNIK_RAPOR.md), [`docs/phase5/TEKNIK_RAPOR.md`](docs/phase5/TEKNIK_RAPOR.md), [`docs/phase6/TEKNIK_RAPOR.md`](docs/phase6/TEKNIK_RAPOR.md)
+- **Güncel durum:** Faz 7 (akademik sunum, proje raporu, kod açıklamaları, savunma soruları ve canlı demo rehberi) tamamlandı: [`deliverables/`](deliverables/README.md). Faz 6 (güvenilirlik, kalıcı iş kaydı, kaynak güvenliği, performans ölçümü, tek komutla çalıştırma) uygulandı. Raporlar: [`docs/phase1/TEKNIK_RAPOR.md`](docs/phase1/TEKNIK_RAPOR.md), [`docs/phase2/TEKNIK_RAPOR.md`](docs/phase2/TEKNIK_RAPOR.md), [`docs/phase3/TEKNIK_RAPOR.md`](docs/phase3/TEKNIK_RAPOR.md), [`docs/phase4/TEKNIK_RAPOR.md`](docs/phase4/TEKNIK_RAPOR.md), [`docs/phase5/TEKNIK_RAPOR.md`](docs/phase5/TEKNIK_RAPOR.md), [`docs/phase6/TEKNIK_RAPOR.md`](docs/phase6/TEKNIK_RAPOR.md)
 
 > Kaza yoğunluğu tek başına risk değildir. Bu proje trafik kazası **tahmini yapmaz**; kaydedilmiş kazaların mekânsal yoğunlaşmalarını inceler.
 
