@@ -1,0 +1,16 @@
+
+Running 11 tests using 1 worker
+
+  ✓   1 [chromium] › e2e\phase5.spec.ts:51:1 › 1 — Genel bakış: tüm sayılar API ile aynı, güncellik uyarısı, fontlar (2.7s)
+  ✓   2 [chromium] › e2e\phase5.spec.ts:82:1 › 2 — 3D Şehir: Faz 4 haritası korunur; filtre gerçek kayıtları sorgular; mod ayrımı açık (23.2s)
+  ✓   3 [chromium] › e2e\phase5.spec.ts:139:1 › 3 — Zaman oynatma gerçek kayıtlara dayanır; görünen kaza katmanı değişir (8.2s)
+  ✓   4 [chromium] › e2e\phase5.spec.ts:164:1 › 4 — Laboratuvar: kayıtlı konfigürasyon, parametre denetimleri, bütçe, dinamik iş, haritada sonuç (16.8s)
+  ✓   5 [chromium] › e2e\phase5.spec.ts:239:1 › 5 — Laboratuvar: kayıtlı deney seçimi, iş iptali, API hata durumu (4.2s)
+  ✓   6 [chromium] › e2e\phase5.spec.ts:272:1 › 6 — Model karşılaştırma: gerçek metrikler, kapsamlar, uygunsuz dönüşüm yok (2.4s)
+  ✓   7 [chromium] › e2e\phase5.spec.ts:287:1 › 7 — Veri gezgini: 29 ham / 87 işlenmiş sütun, öznitelik açıklaması, 00:00 bayrağı (3.0s)
+  ✓   8 [chromium] › e2e\phase5.spec.ts:308:1 › 8 — Klavye, azaltılmış hareket ve harita kalıcılığı (yeniden oluşturulmaz, GLB yeniden yüklenmez) (15.8s)
+  ✓   9 [chromium] › e2e\phase5.spec.ts:348:3 › 9 — Responsive (mobil 390×844): yatay taşma yok, çekmece düzeni (14.7s)
+  ✓  10 [chromium] › e2e\phase5.spec.ts:348:3 › 9 — Responsive (tablet 820×1180): yatay taşma yok, çekmece düzeni (14.7s)
+  ✓  11 [chromium] › e2e\phase5.spec.ts:381:1 › 10 — Geniş ekran 1920×1080 düzeni: paneller üst üste binmez (6.6s)
+
+  11 passed (1.9m)

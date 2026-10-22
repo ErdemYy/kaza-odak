@@ -20,6 +20,7 @@ interface Palette {
 
 // Faz 8B: zemin < yol < bina ışıklılık sıralaması. Faz 8'de gece yolları (#1C2A42) bina tabanıyla (#1A2740) aynı ton
 // bandındaydı ve gündüz binaları (#CBD3DE) zeminden (#E8EDF3) yalnızca ~%6 koyuydu; şehir dokusu okunmuyordu.
+// Kaza Odak geçişi: gündüz yüksek bina tepesi 1,19 → 1,34 kontrast (Faz 8 tek ton 1,28).
 // Yollar hafif nötr (desatüre arduvaz), binalar mavi tonlu: renk tonu ve ışıklılık birlikte ayrışır. Bina tonu
 // yükseklikle kontrollü biçimde açılır (alçak → yüksek); ayrıca neon/ışıma efekti yoktur.
 export const PALETTES: Record<Theme, Palette> = {
@@ -31,8 +32,8 @@ export const PALETTES: Record<Theme, Palette> = {
   },
   day: {
     background: "#E8EDF3", water: "#A8C7E2", park: "#CCDFC9", landuse: "#DCE2EA", road: "#FFFFFF", roadMajor: "#FFFFFF",
-    roadMotorway: "#F3D39A", roadCasing: "#B6C1CF", rail: "#AEB8C6", buildingLow: "#AAB7C8", building: "#BCC7D5",
-    buildingTop: "#D3DBE6", buildingUnknown: "#D2D9E2", buildingUnknownLine: "#AEBACA", label: "#2E3B4E", labelHalo: "#F8FAFC",
+    roadMotorway: "#F3D39A", roadCasing: "#B6C1CF", rail: "#AEB8C6", buildingLow: "#A2AFC1", building: "#B3BFCE",
+    buildingTop: "#C5CFDB", buildingUnknown: "#D2D9E2", buildingUnknownLine: "#AEBACA", label: "#2E3B4E", labelHalo: "#F8FAFC",
     waterLabel: "#3F6488",
   },
 };
@@ -78,7 +79,7 @@ export function themePaint(theme: Theme): Record<string, Record<string, unknown>
 export function themeLight(theme: Theme): LightSpecification {
   return theme === "night"
     ? { anchor: "map", position: [1.3, 210, 48], intensity: 0.6, color: "#F0F4FF" }
-    : { anchor: "map", position: [1.3, 210, 48], intensity: 0.42, color: "#FFFFFF" };
+    : { anchor: "map", position: [1.3, 210, 48], intensity: 0.48, color: "#FFFFFF" };
 }
 
 /** Eğik kamerada ufuk ve uzak sis (gece/gündüz). */
@@ -130,7 +131,7 @@ export function buildBaseStyle(theme: Theme): StyleSpecification {
   ];
   return {
     version: 8,
-    name: `SafeRoute 3D ${theme}`,
+    name: `Kaza Odak ${theme}`,
     glyphs: GLYPHS_URL,
     sky: themeSky(theme),
     // Extrüzyon gölgelemesi: haritaya bağlı ışık, duvarlar arasında yön farkı oluşur (temaya göre, bkz. themeLight)

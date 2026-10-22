@@ -8,6 +8,7 @@ import { useApp } from "../../app/store";
 import { ColumnChart } from "../../components/charts";
 import { ExportMenu } from "../../components/ExportMenu";
 import { ErrorBlock, InfoTip, LoadingBlock, MetricCard, PageHeader, Section } from "../../components/common";
+import { APP_NAME } from "../../lib/brand";
 import { BOROUGH_TR } from "../../lib/camera";
 import { fmtInt, fmtPct } from "../../lib/format";
 import { useQuery } from "../../lib/query";
@@ -48,7 +49,7 @@ export default function OverviewPage() {
 
   return (
     <div className="mx-auto w-full max-w-[1480px] p-4 sm:p-6 space-y-5" data-testid="overview">
-      <PageHeader eyebrow="NYC Motorlu Araç Kazaları" title="Genel bakış"
+      <PageHeader eyebrow={`${APP_NAME} · NYC motorlu araç kazaları`} title="Genel bakış"
         description={<>Kaynak: <a className="text-primary underline underline-offset-2 hover:decoration-2" href={o.source.source_url} target="_blank" rel="noopener">{o.source.dataset_name ?? o.source.dataset_id} <ExternalLink className="inline size-3" /></a> · {o.source.attribution ?? "NYPD"}</>}
         actions={<>
           <ExportMenu base="/api/export/records" label="Özeti dışa aktar" testId="overview-export" />
@@ -75,21 +76,23 @@ export default function OverviewPage() {
             </p>
           </div>
         )}
-        <div className="grid grid-cols-1 divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          <div className="px-4 py-2.5 min-w-0">
-            <div className="text-[11.5px] font-medium text-muted-foreground">Kaynak tarihi</div>
-            <div className="font-display font-bold text-[15px] tabular" data-testid="ov-source-date">{day(fr.rows_updated_at)}</div>
-            <div className="text-[11.5px] text-subtle truncate">son satır güncellemesi · indirme {day(o.source.acquisition?.retrieval_completed_utc as string | undefined)}</div>
+        {/* 390 px'te de üç sütun: hücreler alt alta dizilince ana sayı ~180 px aşağı iniyordu (Faz 8B bulgusu). Mobilde
+            değer sarılır, ikincil alt satır yalnızca ≥ 640 px'te görünür. */}
+        <div className="grid grid-cols-3 divide-x divide-line">
+          <div className="px-2.5 sm:px-4 py-2 sm:py-2.5 min-w-0">
+            <div className="text-[10.5px] sm:text-[11.5px] font-medium text-muted-foreground">Kaynak tarihi</div>
+            <div className="font-display font-bold text-[13px] sm:text-[15px] leading-tight tabular" data-testid="ov-source-date">{day(fr.rows_updated_at)}</div>
+            <div className="hidden sm:block text-[11.5px] text-subtle truncate">son satır güncellemesi · indirme {day(o.source.acquisition?.retrieval_completed_utc as string | undefined)}</div>
           </div>
-          <div className="px-4 py-2.5 min-w-0" data-testid="ov-coverage">
-            <div className="text-[11.5px] font-medium text-muted-foreground">Analiz kapsamı</div>
-            <div className="font-display font-bold text-[15px] tabular">{o.coverage.date_min} → {o.coverage.date_max}</div>
-            <div className="text-[11.5px] text-subtle">{o.coverage.partial_years.length ? `Kısmi yıllar: ${o.coverage.partial_years.map((p) => p.year).join(", ")}` : "Tam yıllar"}</div>
+          <div className="px-2.5 sm:px-4 py-2 sm:py-2.5 min-w-0" data-testid="ov-coverage">
+            <div className="text-[10.5px] sm:text-[11.5px] font-medium text-muted-foreground">Analiz kapsamı</div>
+            <div className="font-display font-bold text-[13px] sm:text-[15px] leading-tight tabular">{o.coverage.date_min} → {o.coverage.date_max}</div>
+            <div className="hidden sm:block text-[11.5px] text-subtle">{o.coverage.partial_years.length ? `Kısmi yıllar: ${o.coverage.partial_years.map((p) => p.year).join(", ")}` : "Tam yıllar"}</div>
           </div>
-          <div className="px-4 py-2.5 min-w-0" data-testid="ov-model-period">
-            <div className="text-[11.5px] font-medium text-muted-foreground">Modelin veri dönemi</div>
-            <div className="font-display font-bold text-[15px] tabular">{modelOnAllEligible ? `${o.coverage.date_min} → ${o.coverage.date_max}` : "—"}</div>
-            <div className="text-[11.5px] text-subtle">{modelOnAllEligible ? `Tüm uygun kayıtlar (${fmtInt(o.records.eligible)})` : "Kapsam meta verisinde doğrulanamadı"}</div>
+          <div className="px-2.5 sm:px-4 py-2 sm:py-2.5 min-w-0" data-testid="ov-model-period">
+            <div className="text-[10.5px] sm:text-[11.5px] font-medium text-muted-foreground">Modelin veri dönemi</div>
+            <div className="font-display font-bold text-[13px] sm:text-[15px] leading-tight tabular">{modelOnAllEligible ? `${o.coverage.date_min} → ${o.coverage.date_max}` : "—"}</div>
+            <div className="hidden sm:block text-[11.5px] text-subtle">{modelOnAllEligible ? `Tüm uygun kayıtlar (${fmtInt(o.records.eligible)})` : "Kapsam meta verisinde doğrulanamadı"}</div>
           </div>
         </div>
       </section>

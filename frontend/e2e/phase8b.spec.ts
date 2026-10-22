@@ -178,8 +178,8 @@ test("GLB önizleyici: seç, döndür, yakınlaştır, sıfırla, lisans, yerle�
   expect(dbg.live).toBe(0);
   expect(dbg.destroyed).toBe(dbg.created);
   expect(dbg.last.gpuGeometriesLeft).toBe(0);
-  // three.js sayacında model dışı tek bir doku kaydı düşmüyor (Faz 8B bulgusu, kaynağı doğrulanamadı); model başına
-  // büyümediği yukarıda doğrulandı ve bağlam zorla kaybedildiği için tarayıcı bağlamın tüm GPU belleğini bırakır.
+  // Kalan tek doku kaydı three.js'in paylaşılan DFG arama tablosudur (getDFGLUT, ≈ 1 KB, model dışı; MeshBasicMaterial
+  // deneyinde 0). Model başına büyümediği yukarıda doğrulandı; bağlam zorla kaybedilir.
   expect(dbg.last.gpuTexturesLeft).toBeLessThanOrEqual(1);
   expect(dbg.last.afterRenderer.geometries).toBe(0);
   expect(dbg.last.contextLost).toBe(true);
@@ -228,11 +228,8 @@ test("Yerleşim: sol panel daraltma, panel çakışması, responsive, axe", asyn
   await page.getByTestId("assets-toggle").click();
   await page.click('[data-model="taxi"]');
   await expect(page.getByTestId("glb-preview")).toHaveAttribute("data-state", "ready", { timeout: 60_000 });
-  // label-content-name-mismatch (tema düğmesi): Faz 8'den beri var; Faz 8 E-testi erişilebilir adı birebir "Gece moduna geç"
-  // olarak doğruladığı için bu fazda değiştirilmedi. Kural ayrı ölçülür ve raporlanır, gizlenmez.
-  const axeExplorerFull = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]).exclude(".maplibregl-canvas").analyze();
-  results.axe_known = axeExplorerFull.violations.filter((v) => v.id === "label-content-name-mismatch").map((v) => ({ id: v.id, targets: v.nodes.map((n) => n.target) }));
-  const axeExplorer = { violations: axeExplorerFull.violations.filter((v) => v.id !== "label-content-name-mismatch") };
+  // Kaza Odak geçişinde tema düğmesinin adı görünen metinle eşleştirildi: istisna yok, tam axe denetimi.
+  const axeExplorer = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]).exclude(".maplibregl-canvas").analyze();
   await page.goto("/#/genel-bakis");
   await expect(page.getByTestId("hero-eligible")).toBeVisible({ timeout: 60_000 });
   // Genel bakış: güncellik uyarısı + kapsam şeridi görünür; ikincil bilgiler açılır bölümde
@@ -246,6 +243,7 @@ test("Yerleşim: sol panel daraltma, panel çakışması, responsive, axe", asyn
   await expect(page.getByTestId("exclusion-details")).toContainText("Koordinat eksik");
   const axeOverview = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]).analyze();
   results.axe = { explorer: axeExplorer.violations.map((v) => v.id), overview: axeOverview.violations.map((v) => v.id) };
+  results.axe_known = [];
   expect(axeExplorer.violations.map((v) => `${v.id}: ${v.nodes[0]?.target}`)).toEqual([]);
   expect(axeOverview.violations.map((v) => `${v.id}: ${v.nodes[0]?.target}`)).toEqual([]);
 });

@@ -1,6 +1,8 @@
-// SafeRoute 3D marka simgesi (Faz 8). Kaynak: scripts/phase8_brand.py → assets/brand/ (aynı geometri).
+// Kaza Odak marka simgesi (Faz 8 "Kaçınan rota" geometrisi, değişmedi). Kaynak: scripts/phase8_brand.py (cand_a) →
+// scripts/kaza_odak_brand.py → assets/brand/kaza-odak-*.svg (aynı geometri).
 // Kavram: kavşak ölçeğindeki kaza yoğunlaşmasından (kırmızı nokta) uzaklaşan, şehir ızgarasına oturan güvenli rota.
 // ≤ 32 px'te ince ızgara çizgileri çizilmez (küçük boyutta piksel gürültüsü olur).
+import { APP_NAME } from "../../lib/brand";
 
 const C = { route: "#38BDF8", hot: "#F87171", halo: "#F59E0B", tile: "#111C30", grid: "#1E2D49", bg: "#0B1120" };
 
@@ -19,10 +21,11 @@ export function LogoMark({ size = 30, tile = true, grid = size > 32, title }: { 
   );
 }
 
-/** Wordmark: "SafeRoute" + vurgulu "3D" (Plus Jakarta Sans). Düz metindir; ekran okuyucu "SafeRoute 3D" okur
- *  (rolsüz öğeye aria-label verilmez — axe aria-prohibited-attr). */
+/** Wordmark: "Kaza" + vurgulu "Odak" (Plus Jakarta Sans; SVG kilidiyle aynı renk dengesi). Düz metindir; ekran okuyucu
+ *  "Kaza Odak" okur (rolsüz öğeye aria-label verilmez — axe aria-prohibited-attr). */
 export function Wordmark({ className }: { className?: string }) {
+  const [first, second] = APP_NAME.split(" ");
   return (
-    <span className={className} data-testid="brand-wordmark">SafeRoute <span className="text-primary">3D</span></span>
+    <span className={className} data-testid="brand-wordmark">{first} <span className="text-primary">{second}</span></span>
   );
 }

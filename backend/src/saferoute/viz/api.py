@@ -128,7 +128,7 @@ def create_app(layers_dir: Path | None = None, frontend_dir: Path | None = None,
         for hook in app.state.shutdown_hooks:
             hook()
 
-    app = FastAPI(title="SafeRoute 3D — Faz 4 katman API'si", version=store.manifest["layer_version"], lifespan=lifespan)
+    app = FastAPI(title="Kaza Odak — katman API'si", version=store.manifest["layer_version"], lifespan=lifespan)
     app.state.shutdown_hooks = []
     app.add_middleware(GZipMiddleware, minimum_size=2048)
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed_hosts())

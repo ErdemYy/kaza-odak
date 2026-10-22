@@ -1,0 +1,8 @@
+
+Running 3 tests using 1 worker
+
+  ✓  1 [chromium] › e2e\phase8b.spec.ts:38:1 › Harita: yeni küme katmanları, hover kartı, isabet alanı ve seçim vurgusu (29.5s)
+  ✓  2 [chromium] › e2e\phase8b.spec.ts:112:1 › GLB önizleyici: seç, döndür, yakınlaştır, sıfırla, lisans, yerleştir/kaldır, tekrar indirme yok, GPU temizliği (12.7s)
+  ✓  3 [chromium] › e2e\phase8b.spec.ts:193:1 › Yerleşim: sol panel daraltma, panel çakışması, responsive, axe (17.6s)
+
+  3 passed (1.0m)

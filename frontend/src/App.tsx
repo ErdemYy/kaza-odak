@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LoadingBlock } from "./components/common";
 import { Brand, Navigation, NavList } from "./components/layout/Navigation";
+import { APP_NAME } from "./lib/brand";
 import { ROUTES, routeFromHash, useApp } from "./app/store";
 import { ExplorerPage } from "./features/explorer/ExplorerPage";
 
@@ -33,7 +34,7 @@ export default function App() {
   useEffect(() => {
     if (route === "explorer") setExplorerMounted(true);
     const r = ROUTES.find((x) => x.id === route)!;
-    document.title = `${r.label} · SafeRoute 3D`;
+    document.title = `${r.label} · ${APP_NAME}`;
     // Ekran değişiminde odak ana içeriğe taşınır (klavye ve ekran okuyucu kullanıcıları yeni ekranın başında olur)
     if (firstRoute.current) firstRoute.current = false;
     else mainRef.current?.focus({ preventScroll: true });
@@ -79,8 +80,8 @@ export default function App() {
       <Sheet open={mobileSheet === "nav"} onOpenChange={(o) => setMobileSheet(o ? "nav" : null)}>
         <SheetContent side="left" className="w-[280px] bg-surface border-line p-0">
           <SheetHeader className="border-b border-line">
-            <SheetTitle><Brand /></SheetTitle>
-            <SheetDescription className="sr-only">Ekranlar arasında gezinme</SheetDescription>
+            <SheetTitle><Brand fullSubtitle /></SheetTitle>
+            <SheetDescription className="sr-only">{APP_NAME}: ekranlar arasında gezinme</SheetDescription>
           </SheetHeader>
           <div className="p-3"><NavList collapsed={false} onNavigate={() => setMobileSheet(null)} /></div>
         </SheetContent>

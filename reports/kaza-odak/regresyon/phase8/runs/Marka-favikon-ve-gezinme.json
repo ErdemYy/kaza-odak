@@ -1,0 +1,126 @@
+{
+  "test": "Marka, favikon ve gezinme",
+  "status": "passed",
+  "duration_ms": 10758,
+  "records": [
+    {
+      "id": "G01",
+      "screen": "Genel",
+      "component": "Navigation › Brand",
+      "expected": "Yeni SVG logo (simge + Kaza Odak wordmark) kenar çubuğunda görünür",
+      "actual": "simge 5 vektör öğe; wordmark \"Kaza Odak\"",
+      "result": "geçti",
+      "ms": 19,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G02",
+      "screen": "Genel",
+      "component": "index.html › favikon",
+      "expected": "SVG favikon ve PNG yedekleri 200 döner, <link rel=icon> bunları gösterir",
+      "actual": "/favicon.svg image/svg+xml · /brand/icon-32.png image/png · /brand/icon-180.png image/png",
+      "result": "geçti",
+      "ms": 46,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-overview",
+      "screen": "Genel",
+      "component": "Navigation › Genel bakış",
+      "expected": "Tıklayınca #/genel-bakis, başlık \"Genel bakış · Kaza Odak\", ekran içeriği görünür",
+      "actual": "URL #/genel-bakis, aria-current=page",
+      "result": "geçti",
+      "ms": 56,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-explorer",
+      "screen": "Genel",
+      "component": "Navigation › 3D Şehir Keşfi",
+      "expected": "Tıklayınca #/kesif, başlık \"3D Şehir Keşfi · Kaza Odak\", ekran içeriği görünür",
+      "actual": "URL #/kesif, aria-current=page",
+      "result": "geçti",
+      "ms": 326,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-lab",
+      "screen": "Genel",
+      "component": "Navigation › Kümeleme Laboratuvarı",
+      "expected": "Tıklayınca #/laboratuvar, başlık \"Kümeleme Laboratuvarı · Kaza Odak\", ekran içeriği görünür",
+      "actual": "URL #/laboratuvar, aria-current=page",
+      "result": "geçti",
+      "ms": 1154,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-models",
+      "screen": "Genel",
+      "component": "Navigation › Model Karşılaştırma",
+      "expected": "Tıklayınca #/modeller, başlık \"Model Karşılaştırma · Kaza Odak\", ekran içeriği görünür",
+      "actual": "URL #/modeller, aria-current=page",
+      "result": "geçti",
+      "ms": 518,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-data",
+      "screen": "Genel",
+      "component": "Navigation › Veri Gezgini",
+      "expected": "Tıklayınca #/veri, başlık \"Veri Gezgini · Kaza Odak\", ekran içeriği görünür",
+      "actual": "URL #/veri, aria-current=page",
+      "result": "geçti",
+      "ms": 485,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G04",
+      "screen": "Genel",
+      "component": "Navigation › Daralt/Genişlet",
+      "expected": "Kenar çubuğu 248↔64 px; daraltılmışken simge ve ipucu görünür",
+      "actual": "64 px (ipucu + simge) → 248 px",
+      "result": "geçti",
+      "ms": 1707,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G05",
+      "screen": "Genel",
+      "component": "Atlama bağlantısı",
+      "expected": "İlk Tab 'İçeriğe geç'e odaklanır; Enter odağı ana içeriğe taşır",
+      "actual": "odak #main",
+      "result": "geçti",
+      "ms": 2009,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G06",
+      "screen": "Genel",
+      "component": "Tarayıcı geri / doğrudan hash",
+      "expected": "Geri tuşu önceki ekrana döner; #/modeller doğrudan açılır",
+      "actual": "geri → Genel bakış; #/modeller → Model karşılaştırma",
+      "result": "geçti",
+      "ms": 577,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G07",
+      "screen": "Genel (mobil)",
+      "component": "Mobil üst çubuk › Menü çekmecesi",
+      "expected": "390 px'te menü düğmesi çekmeceyi açar; logo görünür; bağlantı ekranı değiştirip çekmeceyi kapatır",
+      "actual": "çekmece açıldı, Veri Gezgini'ne geçildi, çekmece kapandı",
+      "result": "geçti",
+      "ms": 2352,
+      "test": "Marka, favikon ve gezinme"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

@@ -80,6 +80,8 @@ describe("Faz 8B harita stili", () => {
     const phase8 = contrast("#CBD3DE", "#E8EDF3");
     expect(contrast(p.buildingLow, p.background)).toBeGreaterThan(phase8 * 1.25);
     expect(contrast(p.building, p.background)).toBeGreaterThan(phase8);
+    expect(contrast(p.buildingTop, p.background)).toBeGreaterThan(phase8); // Kaza Odak: en açık tepe de Faz 8'den ayrışık
+    expect(lum(p.buildingLow)).toBeLessThan(lum(p.buildingTop));
   });
 
   it("tema zemin renkleri Faz 4 sözleşmesiyle aynı (viewer.spec gece/gündüz denetimi)", () => {

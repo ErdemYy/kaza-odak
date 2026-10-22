@@ -1,4 +1,4 @@
-﻿# start_saferoute.ps1 ile başlatılan SafeRoute 3D sunucusunu durdurur. Depo kökünden:
+﻿# start_saferoute.ps1 ile başlatılan Kaza Odak sunucusunu durdurur. Depo kökünden:
 #   powershell -ExecutionPolicy Bypass -File scripts\stop_saferoute.ps1
 # Yalnızca .saferoute\server.pid içinde kayıtlı VE komut satırı "saferoute ... serve" olan süreç (ve onun
 # laboratuvar çalışanları) durdurulur; başka projelerin süreçlerine dokunulmaz.
@@ -9,7 +9,7 @@ $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $PidFile = Join-Path $Root ".saferoute\server.pid"
 
 if (-not (Test-Path $PidFile)) {
-    Write-Host "Kayıtlı SafeRoute sunucusu yok (.saferoute\server.pid bulunamadı). Ön planda çalışıyorsa o pencerede Ctrl+C kullanın."
+    Write-Host "Kayıtlı Kaza Odak sunucusu yok (.saferoute\server.pid bulunamadı). Ön planda çalışıyorsa o pencerede Ctrl+C kullanın."
     exit 0
 }
 $serverPid, $port = (Get-Content $PidFile -Raw).Trim().Split("|")
@@ -20,7 +20,7 @@ if (-not $p) {
     exit 0
 }
 if ($p.CommandLine -notmatch "saferoute" -or $p.CommandLine -notmatch "\bserve\b") {
-    Write-Host "PID $serverPid artık SafeRoute sunucusu değil ($($p.Name)); DOKUNULMADI. Kayıt temizlendi." -ForegroundColor Yellow
+    Write-Host "PID $serverPid artık Kaza Odak sunucusu değil ($($p.Name)); DOKUNULMADI. Kayıt temizlendi." -ForegroundColor Yellow
     Remove-Item $PidFile -ErrorAction SilentlyContinue
     exit 1
 }
@@ -39,4 +39,4 @@ if ($left.Count -gt 0) {
     Write-Host "Bazı süreçler hâlâ çalışıyor: $($left.Id -join ', ')" -ForegroundColor Red
     exit 1
 }
-Write-Host "SafeRoute sunucusu durduruldu (PID $serverPid, port $port)." -ForegroundColor Green
+Write-Host "Kaza Odak sunucusu durduruldu (PID $serverPid, port $port)." -ForegroundColor Green

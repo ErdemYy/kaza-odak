@@ -1,4 +1,4 @@
-# SafeRoute 3D — Ön Yüz (Faz 5 analiz uygulaması)
+# Kaza Odak — Ön Yüz (Faz 5 analiz uygulaması; önceki adı SafeRoute 3D)
 
 Gerçek New York kaza kayıtları üzerinde beş ekranlı analiz uygulaması: Genel bakış, 3D Şehir Keşfi (Faz 4 harita
 motoru), Kümeleme Laboratuvarı, Model Karşılaştırma ve Veri Gezgini. Tüm sayılar arka uçtaki doğrulanmış Faz 1–4

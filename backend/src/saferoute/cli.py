@@ -1,4 +1,4 @@
-"""SafeRoute 3D komut satırı arayüzü.
+"""Kaza Odak komut satırı arayüzü (teknik paket adı: saferoute).
 
 Kullanım:
     saferoute check-source             Kaynak erişilebilirliği ve güncellik kontrolü
@@ -191,7 +191,7 @@ def _cmd_phase5_bench(args: argparse.Namespace) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="saferoute", description="SafeRoute 3D veri hattı")
+    parser = argparse.ArgumentParser(prog="saferoute", description="Kaza Odak veri hattı")
     sub = parser.add_subparsers(dest="command", required=True)
 
     p = sub.add_parser("check-source", help="Resmi kaynağın erişilebilirliğini ve güncelliğini kontrol et")

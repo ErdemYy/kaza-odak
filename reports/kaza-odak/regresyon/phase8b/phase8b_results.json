@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-10-22T17:09:01.051Z",
+  "results": {
+    "hitbox": {
+      "n": 53,
+      "ok": 53,
+      "wrong": []
+    },
+    "hover": {
+      "hoverId": 1344,
+      "pickId": 1344,
+      "selected": 1344
+    },
+    "glb": {
+      "memOpen": {
+        "geometries": 4,
+        "textures": 2
+      },
+      "dispose": {
+        "live": 0,
+        "created": 1,
+        "destroyed": 1,
+        "last": {
+          "geometries": 3,
+          "textures": 1,
+          "gpuGeometriesLeft": 0,
+          "gpuTexturesLeft": 1,
+          "afterRenderer": {
+            "geometries": 0,
+            "textures": 1
+          },
+          "contextLost": true
+        }
+      },
+      "taxiDownloads": 1,
+      "glbRequests": [
+        "/models/taxi.glb",
+        "/models/taxi.lod1.glb",
+        "/models/sedan.glb",
+        "/models/sedan.lod1.glb"
+      ]
+    },
+    "layout": {
+      "1920x1080": {
+        "overflow": 0,
+        "mapCoverage": 0.656,
+        "cam": true
+      },
+      "1440x900": {
+        "overflow": 0,
+        "mapCoverage": 0.542,
+        "cam": true
+      },
+      "1280x720": {
+        "overflow": 0,
+        "mapCoverage": 0.484,
+        "cam": true
+      },
+      "768x1024": {
+        "overflow": 0
+      },
+      "390x844": {
+        "overflow": 0
+      }
+    },
+    "axe": {
+      "explorer": [],
+      "overview": []
+    },
+    "axe_known": []
+  }
+}

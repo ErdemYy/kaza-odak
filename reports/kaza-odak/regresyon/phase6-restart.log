@@ -1,0 +1,7 @@
+
+Running 1 test using 1 worker
+
+
+  ✓  1 [chromium] › e2e\phase6-restart.spec.ts:62:1 › Sunucu çökmesi → yetim süreç yok → iş 'Yarıda kaldı' → açık yeniden deneme (17.8s)
+
+  1 passed (18.5s)

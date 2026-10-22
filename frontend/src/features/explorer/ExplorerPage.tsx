@@ -213,7 +213,8 @@ export function ExplorerPage({ active }: { active: boolean }) {
             <Box /> 3D varlıklar
           </Button>
           <Button size="sm" variant="ghost" onClick={() => setTheme(theme === "night" ? "day" : "night")} data-testid="theme-toggle"
-            aria-label={theme === "night" ? "Gündüz moduna geç" : "Gece moduna geç"}>
+            // Erişilebilir ad görünen metinle başlar (WCAG 2.5.3 "Label in Name"); ardından eylemi söyler.
+            aria-label={theme === "night" ? "Gece modu — gündüz moduna geç" : "Gündüz modu — gece moduna geç"} title={theme === "night" ? "Gündüz moduna geç" : "Gece moduna geç"}>
             {theme === "night" ? <Moon /> : <Sun />} <span className="hidden sm:inline">{theme === "night" ? "Gece" : "Gündüz"}</span>
           </Button>
           <label className="sr-only" htmlFor="motion">Animasyon düzeyi</label>

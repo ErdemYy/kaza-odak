@@ -1,0 +1,256 @@
+{
+  "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon",
+  "status": "passed",
+  "duration_ms": 67113,
+  "records": [
+    {
+      "id": "E01",
+      "screen": "3D Şehir",
+      "component": "Sol panel sekmeleri (Görünüm/Filtreler)",
+      "expected": "Sekmeler panel içeriğini değiştirir",
+      "actual": "Filtreler ↔ Görünüm",
+      "result": "geçti",
+      "ms": 174,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E02",
+      "screen": "3D Şehir",
+      "component": "Araç çubuğu › Filtreler",
+      "expected": "Düğme Filtreler sekmesini açıp kapatır (aria-pressed)",
+      "actual": "aria-pressed true → false",
+      "result": "geçti",
+      "ms": 225,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-MANHATTAN",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › MANHATTAN",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -73.968, 40.771 · zoom 10.7",
+      "result": "geçti",
+      "ms": 2997,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-BROOKLYN",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › BROOKLYN",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -73.929, 40.644 · zoom 10.8",
+      "result": "geçti",
+      "ms": 3839,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-QUEENS",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › QUEENS",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -73.819, 40.657 · zoom 10.2",
+      "result": "geçti",
+      "ms": 3272,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-BRONX",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › BRONX",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -73.843, 40.843 · zoom 11.1",
+      "result": "geçti",
+      "ms": 3713,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-STATEN ISLAND",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › STATEN ISLAND",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -74.145, 40.563 · zoom 10.8",
+      "result": "geçti",
+      "ms": 3158,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-TUM",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › Tüm NYC",
+      "expected": "Kamera şehir ölçeğine döner",
+      "actual": "zoom 9.40",
+      "result": "geçti",
+      "ms": 2785,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-zoom",
+      "screen": "3D Şehir",
+      "component": "Kamera › Yakınlaştır / Uzaklaştır",
+      "expected": "Zoom +1 / −1",
+      "actual": "9.40 → 10.40 → 9.40",
+      "result": "geçti",
+      "ms": 3965,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-rotate",
+      "screen": "3D Şehir",
+      "component": "Kamera › Sola / Sağa döndür",
+      "expected": "Yön ∓30°",
+      "actual": "-17° → -47° → -17°",
+      "result": "geçti",
+      "ms": 3176,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-pitch",
+      "screen": "3D Şehir",
+      "component": "Kamera › Eğimi artır / azalt",
+      "expected": "Eğim ±10°",
+      "actual": "45° → 35° → 45°",
+      "result": "geçti",
+      "ms": 2305,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-north",
+      "screen": "3D Şehir",
+      "component": "Kamera › Kuzeye çevir",
+      "expected": "Yön 0°",
+      "actual": "yön 0.0°",
+      "result": "geçti",
+      "ms": 2596,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E17",
+      "screen": "3D Şehir",
+      "component": "Fareyle harita döndürme (sağ tık sürükle)",
+      "expected": "Sağ tuşla sürüklemek yönü değiştirir",
+      "actual": "yön 0.0° → 120.0°",
+      "result": "geçti",
+      "ms": 5038,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-reset",
+      "screen": "3D Şehir",
+      "component": "Kamera › Görünümü sıfırla",
+      "expected": "Tüm NYC görünümüne döner, ilçe seçimi temizlenir",
+      "actual": "zoom 9.40, Tüm NYC seçili",
+      "result": "geçti",
+      "ms": 6328,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-boroughs",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › İlçe sınırları",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (borough-line)",
+      "result": "geçti",
+      "ms": 516,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-density",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Yoğunluk",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (density-heat-1000)",
+      "result": "geçti",
+      "ms": 590,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-centroids",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Küme merkezleri",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (centroid-circle)",
+      "result": "geçti",
+      "ms": 668,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-geometries",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Küme geometrileri",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (geom-fill)",
+      "result": "geçti",
+      "ms": 885,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-clustered",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Kümelenmiş noktalar",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (points-clustered)",
+      "result": "geçti",
+      "ms": 1141,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-noise",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Gürültü noktaları",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "kapalı → visible → kapalı (points-noise)",
+      "result": "geçti",
+      "ms": 1103,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-buildings",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › 3D binalar",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (building-3d)",
+      "result": "geçti",
+      "ms": 924,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-models",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › 3D modeller",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (city-models)",
+      "result": "geçti",
+      "ms": 957,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E06",
+      "screen": "3D Şehir",
+      "component": "Gece/Gündüz düğmesi",
+      "expected": "Tema arka plan rengini değiştirir; etiket güncellenir",
+      "actual": "#0B1120 → #E8EDF3 → #0B1120",
+      "result": "geçti",
+      "ms": 5971,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E07",
+      "screen": "3D Şehir",
+      "component": "Animasyon düzeyi seçicisi",
+      "expected": "tam/azaltılmış/kapalı: belge ve 3D katman hareket düzeyi değişir",
+      "actual": "off → reduced → full",
+      "result": "geçti",
+      "ms": 122,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

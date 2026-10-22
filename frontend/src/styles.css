@@ -4,7 +4,7 @@
 /* Karanlık tema önceliklidir: kök öğe her zaman .dark sınıfını taşır (shadcn dark: varyantları). */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* SafeRoute 3D tasarım belirteçleri — "Premium Urban Intelligence".
+/* Kaza Odak tasarım belirteçleri — "Premium Urban Intelligence".
    Proje paleti (PROJECT_SPEC §9): Background #0B1120, Surface #111C30, Primary #38BDF8,
    Warning #F59E0B, Hotspot #F87171, Text #E2E8F0. shadcn/ui semantik adları bu palete eşlenir.
    Kontrast (WCAG 2.2, #0B1120 üzerinde): text 15,3 · muted-foreground 7,3 · subtle 6,1 · primary 8,8 ·

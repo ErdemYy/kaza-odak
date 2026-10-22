@@ -443,7 +443,7 @@ def register(app: FastAPI, layer_store: Any, layers_dir: Path, **kw: Any) -> Ana
                   "centroid_lon": layer_store.clusters[int(c)]["centroid_lon"],
                   "centroid_lat": layer_store.clusters[int(c)]["centroid_lat"]} for c in order if counts[c] > 0]
         doc = ReportDocument(
-            kind="filtered_records", title="SafeRoute 3D — Filtrelenmiş kayıt özeti", source=_source(),
+            kind="filtered_records", title="Kaza Odak — Filtrelenmiş kayıt özeti", source=_source(),
             data_version=layer_store.manifest.get("dataset_version"),
             algorithm={"name": model["algorithm"].upper(), "parameters": model["parameters"], "id": model["experiment_id"],
                        "features": FEATURE_SETS["spatial_haversine"]["label"], "metric": FEATURE_SETS["spatial_haversine"]["metric"],
@@ -487,7 +487,7 @@ def register(app: FastAPI, layer_store: Any, layers_dir: Path, **kw: Any) -> Ana
                 "gürültü_oranı": sm["noise_ratio"] if sm["noise_applicable"] else "uygulanamaz (K-Means)",
                 "en_büyük_küme_payı": sm["largest_cluster_share"],
                 **{k: v for k, v in metrics.items() if isinstance(v, (int, float)) and not isinstance(v, bool)}, **extra}
-        doc = ReportDocument(kind="clustering_result", title=f"SafeRoute 3D — Kümeleme sonucu {rid}", source=_source(),
+        doc = ReportDocument(kind="clustering_result", title=f"Kaza Odak — Kümeleme sonucu {rid}", source=_source(),
                              data_version=layer_store.manifest.get("dataset_version"), algorithm=algo, filters=filters,
                              n_records=sm["n_events"], metrics=flat,
                              limitations=["Dinamik metrikler basit rastgele örneklemle hesaplanır; Faz 3 ortak "

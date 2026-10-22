@@ -1,4 +1,4 @@
-﻿# SafeRoute 3D'yi tek komutla başlatır (Windows PowerShell 5.1+). Depo kökünden:
+﻿# Kaza Odak'ı (teknik ad: saferoute) tek komutla başlatır (Windows PowerShell 5.1+). Depo kökünden:
 #   powershell -ExecutionPolicy Bypass -File scripts\start_saferoute.ps1            # ön planda; Ctrl+C ile durur
 #   powershell -ExecutionPolicy Bypass -File scripts\start_saferoute.ps1 -Demo      # akademik demo profili
 #   powershell -ExecutionPolicy Bypass -File scripts\start_saferoute.ps1 -Background
@@ -36,7 +36,7 @@ function Get-Json([string]$path, [int]$timeoutSec = 5) {
     try { return Invoke-RestMethod -Uri "$Url$path" -TimeoutSec $timeoutSec -UseBasicParsing } catch { return $null }
 }
 
-Say "SafeRoute 3D — başlatma denetimi ($Root)" "Cyan"
+Say "Kaza Odak — başlatma denetimi ($Root)" "Cyan"
 
 # ---------------------------------------------------------------- 1) Python ortamı ve paketler
 if (-not (Test-Path $Py)) {
@@ -128,7 +128,7 @@ if ($problems.Count -gt 0) {
 $health = Get-Json "/api/health" 2
 if ($health -and $health.status -eq "ok") {
     Say ""
-    Say "SafeRoute zaten çalışıyor: $Url (model $($health.experiment_id))." "Cyan"
+    Say "Kaza Odak zaten çalışıyor: $Url (model $($health.experiment_id))." "Cyan"
     Say "Durdurmak için: powershell -ExecutionPolicy Bypass -File scripts\stop_saferoute.ps1 (veya çalıştığı pencerede Ctrl+C)"
     if ($Open) { Start-Process $Url }
     exit 0
@@ -159,7 +159,7 @@ function Wait-Ready([System.Diagnostics.Process]$proc) {
 
 function Show-Ready($st) {
     Say ""
-    Say "SafeRoute 3D hazır:  $Url" "Green"
+    Say "Kaza Odak hazır:  $Url" "Green"
     Say ("  Olay deposu: {0:N0} olay · yükleme {1} sn" -f $st.n_events, $st.load_seconds)
     $rec = $st.job_recovery
     if ($rec -and $rec.interrupted.Count -gt 0) {

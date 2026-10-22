@@ -1,7 +1,8 @@
 import { BarChart3, Database, FlaskConical, LayoutDashboard, Map as MapIcon, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import type { ComponentType } from "react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import { APP_NAME, APP_SUBTITLE } from "../../lib/brand";
 import { LogoMark, Wordmark } from "../brand/Logo";
 import { hashFor, ROUTES, useApp, type Route } from "../../app/store";
 
@@ -9,17 +10,33 @@ const ICONS: Record<Route, ComponentType<{ className?: string }>> = {
   overview: LayoutDashboard, explorer: MapIcon, lab: FlaskConical, models: BarChart3, data: Database,
 };
 
-export function Brand({ compact }: { compact?: boolean }) {
-  return (
+/** Marka kilidi. Kenar çubuğunda (açık/daraltılmış) üzerine gelince tam ad + akademik alt başlık ipucu gösterilir;
+ *  mobil çekmecede (fullSubtitle) alt başlık görünür metin olarak yazılır. */
+export function Brand({ compact, fullSubtitle }: { compact?: boolean; fullSubtitle?: boolean }) {
+  const lockup = (
     <div className="flex items-center gap-2.5 min-w-0" data-testid="brand">
-      <LogoMark size={compact ? 30 : 32} title={compact ? "SafeRoute 3D" : undefined} />
+      <LogoMark size={compact ? 30 : 32} title={compact ? APP_NAME : undefined} />
       {!compact && (
         <div className="min-w-0">
-          <Wordmark className="block font-display font-extrabold text-[15.5px] leading-none tracking-[-0.015em]" />
-          <div className="text-[11px] text-subtle leading-tight mt-1">NYC kaza analitiği</div>
+          <Wordmark className="block font-display font-extrabold text-[16px] leading-none tracking-[-0.015em]" />
+          <div className={cn("text-[11px] text-subtle leading-snug mt-1", !fullSubtitle && "truncate")} data-testid="brand-subtitle">
+            {fullSubtitle ? APP_SUBTITLE : "Mekânsal kaza analizi"}
+          </div>
         </div>
       )}
     </div>
+  );
+  if (fullSubtitle) return lockup;
+  // Kendi sağlayıcısı: bileşen uygulama kabuğu dışında (ör. birim testleri) da tek başına çalışır.
+  return (
+    <TooltipProvider delayDuration={250}>
+      <Tooltip>
+        <TooltipTrigger asChild>{lockup}</TooltipTrigger>
+        <TooltipContent side={compact ? "right" : "bottom"} className="max-w-[280px] text-[12px] leading-snug" data-testid="brand-tooltip">
+          <b className="font-display">{APP_NAME}</b> — {APP_SUBTITLE}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 }
 

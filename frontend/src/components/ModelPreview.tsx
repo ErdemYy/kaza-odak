@@ -120,7 +120,10 @@ export function ModelPreview({ record }: { record: AssetRecord }) {
       controls.dispose();
       const freed = e.model ? disposeObject(e.model) : { geometries: 0, textures: 0 };
       if (e.grid) disposeObject(e.grid);
-      // Sahne çizildikten sonra kalan GPU kaynakları sayılır (beklenen: 0 geometri, 0 doku)
+      // Sahne çizildikten sonra kalan GPU kaynakları sayılır. Beklenen: 0 geometri, 1 doku. Kalan doku modele ait değildir:
+      // three.js r186 fiziksel malzemeler için modül düzeyinde TEK bir DFG arama tablosu (getDFGLUT, 16×16 RG16F ≈ 1 KB)
+      // oluşturur ve tüm çiziciler paylaşır; bırakılmaz. Doğrulama (Kaza Odak geçişi): aynı model MeshBasicMaterial ile
+      // çizildiğinde kalan kayıt 0. Bağlam aşağıda zorla kaybedildiği için GPU tarafı tarayıcı tarafından bırakılır.
       const left = { gpuGeometriesLeft: renderer.info.memory.geometries, gpuTexturesLeft: renderer.info.memory.textures };
       renderer.dispose();
       // Çizicinin kendi iç kaynakları (ör. ton eşleme ara hedefi) renderer.dispose() ile bırakılır; ayrıca ölçülür

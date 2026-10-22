@@ -41,8 +41,8 @@ const json = (body: unknown) => new Response(JSON.stringify(body), { status: 200
 
 describe("Faz 8 logo", () => {
   it("simge: başlıkla görüntü rolü, başlıksız dekoratif; ızgara yalnızca > 32 px", () => {
-    const { container, rerender } = render(<LogoMark size={48} title="SafeRoute 3D" />);
-    expect(screen.getByRole("img", { name: "SafeRoute 3D" })).toBeTruthy();
+    const { container, rerender } = render(<LogoMark size={48} title="Kaza Odak" />);
+    expect(screen.getByRole("img", { name: "Kaza Odak" })).toBeTruthy();
     expect(container.querySelectorAll("path").length).toBe(2); // ızgara + rota
     rerender(<LogoMark size={28} />);
     const svg = container.querySelector("svg")!;
@@ -50,14 +50,14 @@ describe("Faz 8 logo", () => {
     expect(container.querySelectorAll("path").length).toBe(1); // yalnızca rota
   });
 
-  it("wordmark düz metin 'SafeRoute 3D' (rolsüz öğede aria-label yok); daraltılmış marka adlı görüntü", () => {
+  it("wordmark düz metin 'Kaza Odak' (rolsüz öğede aria-label yok); daraltılmış marka adlı görüntü", () => {
     render(<><Wordmark /><Brand /></>);
-    expect(screen.getAllByTestId("brand-wordmark").map((e) => e.textContent)).toEqual(["SafeRoute 3D", "SafeRoute 3D"]);
+    expect(screen.getAllByTestId("brand-wordmark").map((e) => e.textContent)).toEqual(["Kaza Odak", "Kaza Odak"]);
     expect(screen.getAllByTestId("brand-wordmark").every((e) => !e.hasAttribute("aria-label"))).toBe(true);
     cleanup();
     render(<Brand compact />);
-    expect(screen.getByRole("img", { name: "SafeRoute 3D" })).toBeTruthy();
-    expect(screen.queryByText("NYC kaza analitiği")).toBeNull();
+    expect(screen.getByRole("img", { name: "Kaza Odak" })).toBeTruthy();
+    expect(screen.queryByTestId("brand-subtitle")).toBeNull();
   });
 
   it("marka SVG dosyaları güvenli: betik, dış kaynak, foreignObject, olay özniteliği ve <text> yok; erişilebilir başlık var", () => {

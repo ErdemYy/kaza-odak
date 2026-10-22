@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-10-22T17:07:58.399Z",
+  "results": {
+    "titles": {
+      "overview": "Genel bakış · Kaza Odak",
+      "explorer": "3D Şehir Keşfi · Kaza Odak",
+      "lab": "Kümeleme Laboratuvarı · Kaza Odak",
+      "models": "Model Karşılaştırma · Kaza Odak",
+      "data": "Veri Gezgini · Kaza Odak"
+    },
+    "head": {
+      "icon": "/favicon.svg",
+      "desc": "Kaza Odak — Makine Öğrenmesi ile Trafik Kazalarının Mekânsal Analizi ve 3D Görselleştirilmesi (New York, NYC Open Data).",
+      "app": "Kaza Odak"
+    },
+    "theme": [
+      {
+        "visible": "Gece",
+        "name": "Gece modu — gündüz moduna geç",
+        "bg": "#0B1120"
+      },
+      {
+        "visible": "Gündüz",
+        "name": "Gündüz modu — gece moduna geç",
+        "bg": "#E8EDF3"
+      }
+    ],
+    "glb": {
+      "geometries": 3,
+      "textures": 1,
+      "gpuGeometriesLeft": 0,
+      "gpuTexturesLeft": 1,
+      "afterRenderer": {
+        "geometries": 0,
+        "textures": 1
+      },
+      "contextLost": true
+    },
+    "mobile": {
+      "heroTop": 456,
+      "scopeHeight": 159,
+      "overflow": 0
+    }
+  }
+}

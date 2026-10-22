@@ -1,9 +1,16 @@
-# SafeRoute 3D
+# Kaza Odak
+
+**Makine Öğrenmesi ile Trafik Kazalarının Mekânsal Analizi ve 3D Görselleştirilmesi**
+
+> Proje adı Faz 8B sonrasında **SafeRoute 3D → Kaza Odak** olarak değiştirildi. Teknik tanımlayıcılar (Python paketi
+> `saferoute`, `saferoute` komutu, `start_saferoute.ps1`, `.saferoute/` çalışma dizini, deney kimlikleri, dosya yolları)
+> bilinçli olarak korunmuştur; eski adla yazılmış faz raporları tarihsel kayıttır ve değiştirilmemiştir.
+> Marka geçişi raporu: [`docs/kaza-odak/MARKA_GECISI.md`](docs/kaza-odak/MARKA_GECISI.md).
 
 New York City'de polise raporlanmış motorlu taşıt kazalarının mekânsal yoğunlaşmalarını denetimsiz öğrenme (DBSCAN; karşılaştırma için K-Means ve HDBSCAN) ile keşfeden ve sonuçları gerçek coğrafyaya hizalı 3B bir şehir haritasında sunan akademik makine öğrenmesi projesi.
 
 - **Kalıcı şartname:** [`PROJECT_SPEC.md`](PROJECT_SPEC.md)
-- **Güncel durum:** Faz 7 (akademik sunum, proje raporu, kod açıklamaları, savunma soruları ve canlı demo rehberi) tamamlandı: [`deliverables/`](deliverables/README.md). Faz 6 (güvenilirlik, kalıcı iş kaydı, kaynak güvenliği, performans ölçümü, tek komutla çalıştırma) uygulandı. Raporlar: [`docs/phase1/TEKNIK_RAPOR.md`](docs/phase1/TEKNIK_RAPOR.md), [`docs/phase2/TEKNIK_RAPOR.md`](docs/phase2/TEKNIK_RAPOR.md), [`docs/phase3/TEKNIK_RAPOR.md`](docs/phase3/TEKNIK_RAPOR.md), [`docs/phase4/TEKNIK_RAPOR.md`](docs/phase4/TEKNIK_RAPOR.md), [`docs/phase5/TEKNIK_RAPOR.md`](docs/phase5/TEKNIK_RAPOR.md), [`docs/phase6/TEKNIK_RAPOR.md`](docs/phase6/TEKNIK_RAPOR.md)
+- **Güncel durum:** Kaza Odak teslim sürümleri [`deliverables/`](deliverables/README.md) içinde (`Kaza_Odak_*`); Faz 8 ve 8B arayüz cilası tamamlandı. Faz 7 (akademik sunum, proje raporu, kod açıklamaları, savunma soruları ve canlı demo rehberi) tamamlandı: [`deliverables/`](deliverables/README.md). Faz 6 (güvenilirlik, kalıcı iş kaydı, kaynak güvenliği, performans ölçümü, tek komutla çalıştırma) uygulandı. Raporlar: [`docs/phase1/TEKNIK_RAPOR.md`](docs/phase1/TEKNIK_RAPOR.md), [`docs/phase2/TEKNIK_RAPOR.md`](docs/phase2/TEKNIK_RAPOR.md), [`docs/phase3/TEKNIK_RAPOR.md`](docs/phase3/TEKNIK_RAPOR.md), [`docs/phase4/TEKNIK_RAPOR.md`](docs/phase4/TEKNIK_RAPOR.md), [`docs/phase5/TEKNIK_RAPOR.md`](docs/phase5/TEKNIK_RAPOR.md), [`docs/phase6/TEKNIK_RAPOR.md`](docs/phase6/TEKNIK_RAPOR.md)
 
 > Kaza yoğunluğu tek başına risk değildir. Bu proje trafik kazası **tahmini yapmaz**; kaydedilmiş kazaların mekânsal yoğunlaşmalarını inceler.
 
@@ -73,7 +80,7 @@ powershell -ExecutionPolicy Bypass -File scripts\stop_saferoute.ps1             
   katmanları, kümeler ve tüm analiz ekranları yerel sunucudan çalışır; harita zemini boş görünür. Karo sağlayıcısının
   izin vermediği çevrimdışı çoğaltma yapılmaz.
 - **Durdurma:** ön planda Ctrl+C; arka planda `stop_saferoute.ps1` (yalnızca kaydettiği ve komut satırı doğrulanan
-  SafeRoute sürecini durdurur). Sunucu kapanırken veya çökerse yarım kalan laboratuvar işleri bir sonraki açılışta
+  Kaza Odak (saferoute) sürecini durdurur). Sunucu kapanırken veya çökerse yarım kalan laboratuvar işleri bir sonraki açılışta
   "Yarıda kaldı" olarak işaretlenir; kendiliğinden yeniden çalıştırılmaz (Laboratuvar → İş geçmişi → Yeniden dene).
 - Demo senaryosu ve beklenen sonuçlar: [`docs/phase6/DEMO_TEST_PLANI.md`](docs/phase6/DEMO_TEST_PLANI.md).
 

@@ -1,0 +1,9 @@
+
+Running 4 tests using 1 worker
+
+  ✓  1 [chromium] › e2e\kaza-odak.spec.ts:24:1 › Masaüstü: beş ekran, sekme başlığı, marka kilidi, ipucu, favikon (16.9s)
+  ✓  2 [chromium] › e2e\kaza-odak.spec.ts:80:1 › Gece/Gündüz düğmesi: erişilebilir ad görünen metinle başlar; axe label-in-name 0 (9.4s)
+  ✓  3 [chromium] › e2e\kaza-odak.spec.ts:107:1 › GLB önizleme yeni markayla çalışır (8.1s)
+  ✓  4 [chromium] › e2e\kaza-odak.spec.ts:125:1 › Mobil 390 px: menü, marka, alt başlık ve Genel bakış yerleşimi (3.1s)
+
+  4 passed (38.4s)

@@ -119,12 +119,12 @@ test("Marka, favikon ve gezinme", async ({ page, browser }) => {
   await page.goto("/#/genel-bakis");
   await expect(page.getByTestId("hero-eligible")).toBeVisible({ timeout: 60_000 });
 
-  await step("G01", "Genel", "Navigation › Brand", "Yeni SVG logo (simge + SafeRoute 3D wordmark) kenar çubuğunda görünür", async () => {
+  await step("G01", "Genel", "Navigation › Brand", "Yeni SVG logo (simge + Kaza Odak wordmark) kenar çubuğunda görünür", async () => {
     const nav = page.getByTestId("navigation");
     await expect(nav.getByTestId("brand-mark")).toBeVisible();
-    await expect(nav.getByTestId("brand-wordmark")).toHaveText("SafeRoute 3D");
+    await expect(nav.getByTestId("brand-wordmark")).toHaveText("Kaza Odak");
     const paths = await nav.getByTestId("brand-mark").locator("path, circle").count();
-    return `simge ${paths} vektör öğe; wordmark "SafeRoute 3D"`;
+    return `simge ${paths} vektör öğe; wordmark "Kaza Odak"`;
   });
   await shot(page, "03-kenar-cubugu-logo.png");
   await page.screenshot({ path: `${SHOTS}/03b-logo-kenar-cubugu-yakin.png`, clip: { x: 0, y: 0, width: 250, height: 56 } });
@@ -146,10 +146,10 @@ test("Marka, favikon ve gezinme", async ({ page, browser }) => {
     ["lab", "laboratuvar", "Kümeleme Laboratuvarı", "lab"], ["models", "modeller", "Model Karşılaştırma", "models"], ["data", "veri", "Veri Gezgini", "data-explorer"],
   ];
   for (const [id, hash, label, tid] of routes) {
-    await step(`G03-${id}`, "Genel", `Navigation › ${label}`, `Tıklayınca #/${hash}, başlık "${label} · SafeRoute 3D", ekran içeriği görünür`, async () => {
+    await step(`G03-${id}`, "Genel", `Navigation › ${label}`, `Tıklayınca #/${hash}, başlık "${label} · Kaza Odak", ekran içeriği görünür`, async () => {
       await page.getByTestId("navigation").locator(`[data-route=${id}]`).click();
       await expect(page).toHaveURL(new RegExp(`#/${hash}$`));
-      await expect(page).toHaveTitle(`${label} · SafeRoute 3D`);
+      await expect(page).toHaveTitle(`${label} · Kaza Odak`);
       await expect(page.getByTestId(tid)).toBeVisible({ timeout: 60_000 });
       await expect(page.getByTestId("navigation").locator(`[data-route=${id}]`)).toHaveAttribute("aria-current", "page");
       return `URL #/${hash}, aria-current=page`;
@@ -205,7 +205,7 @@ test("Marka, favikon ve gezinme", async ({ page, browser }) => {
     await m.getByTestId("mobile-menu").click();
     const sheet = m.getByRole("dialog");
     await expect(sheet).toBeVisible();
-    await expect(sheet.getByTestId("brand-wordmark")).toHaveText("SafeRoute 3D");
+    await expect(sheet.getByTestId("brand-wordmark")).toHaveText("Kaza Odak");
     await m.screenshot({ path: `${SHOTS}/20-mobil-menu-cekmecesi.png` });
     await sheet.locator("[data-route=data]").click();
     await expect(sheet).toBeHidden();
@@ -412,7 +412,9 @@ test("3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon", async 
   await step("E06", "3D Şehir", "Gece/Gündüz düğmesi", "Tema arka plan rengini değiştirir; etiket güncellenir", async () => {
     const bg0 = await page.evaluate(() => (window as any).__saferoute.map.getPaintProperty("background", "background-color"));
     await page.getByTestId("theme-toggle").click();
-    await expect(page.getByTestId("theme-toggle")).toHaveAccessibleName("Gece moduna geç");
+    // Kaza Odak geçişi: erişilebilir ad görünen metinle başlar (WCAG 2.5.3); eski beklenti "Gece moduna geç" idi
+    await expect(page.getByTestId("theme-toggle")).toHaveAccessibleName("Gündüz modu — gece moduna geç");
+    await expect(page.getByTestId("theme-toggle")).toContainText("Gündüz");
     await mapIdle(page, 600);
     const bg1 = await page.evaluate(() => (window as any).__saferoute.map.getPaintProperty("background", "background-color"));
     expect(bg1).not.toEqual(bg0);
