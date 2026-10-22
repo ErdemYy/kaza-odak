@@ -1,0 +1,96 @@
+{
+  "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB",
+  "status": "passed",
+  "duration_ms": 101096,
+  "records": [
+    {
+      "id": "E09",
+      "screen": "3D Şehir",
+      "component": "Haritada küme merkezine tıklama",
+      "expected": "Tıklanan küme seçilir; panelde kimlik ve kayıt sayısı API ile aynı",
+      "actual": "Küme #1344: 1.444 kayıt, dbscan-52abd2c018",
+      "result": "geçti",
+      "ms": 11279,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E21",
+      "screen": "3D Şehir",
+      "component": "Seçim sonrası kamera / bina engeli",
+      "expected": "Kümeye yaklaşınca merkez bir 3D binanın arkasında kalmaz; temsili araç notu gösterilir",
+      "actual": "bina örtüşmesi 0, zoom 19.2, eğim 62° · not: \"6 temsili araç, küme yakınındaki gerçek bir yol (OSM) üzerinde hareket eden bir simülasyon…\"",
+      "result": "geçti",
+      "ms": 9141,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E22",
+      "screen": "3D Şehir",
+      "component": "Temsili araç sahnesi (GLB)",
+      "expected": "Seçili küme çevresinde GLB araçlar yüklenir; gerçek kaza animasyonu olarak sunulmaz",
+      "actual": "yüklenen GLB: taxi, sedan, suv, truck, delivery, traffic-light, road-sign-stop",
+      "result": "geçti",
+      "ms": 20,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E10",
+      "screen": "3D Şehir",
+      "component": "Küme ayrıntısı › Odakla",
+      "expected": "Kamera seçili kümeye geri uçar",
+      "actual": "merkeze uzaklık 0.00000°, zoom 19.2",
+      "result": "geçti",
+      "ms": 22356,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E11",
+      "screen": "3D Şehir",
+      "component": "Küme ayrıntısı › Kapat (X)",
+      "expected": "Seçim temizlenir, ipucu metni geri gelir",
+      "actual": "seçim yok",
+      "result": "geçti",
+      "ms": 584,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E12",
+      "screen": "3D Şehir",
+      "component": "Zoom'a göre nokta yükleme",
+      "expected": "zoom < 15 'yakınlaştırın'; zoom ≥ 15 görünen alan sayıları sunucudan gelir",
+      "actual": "Görünen alan: 290 konum · 10.431 olay",
+      "result": "geçti",
+      "ms": 38498,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E13",
+      "screen": "3D Şehir",
+      "component": "Gürültü noktaları anahtarı",
+      "expected": "Açılınca gürültü (−1) ve kümelenmiş noktalar ayrı katmanlarda; gürültüde küme kimliği yok",
+      "actual": "gürültü 1014 konum (küme kimliği yok), kümelenmiş 290 konum",
+      "result": "geçti",
+      "ms": 2696,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E08",
+      "screen": "3D Şehir",
+      "component": "3D varlıklar › model yerleştir / düzenle / kaldır",
+      "expected": "Panel açılır; model seçince GLB yerleştirilir; alanlar ve 'Harita merkezine taşı' çalışır; 'Modeli kaldır' sahneden siler",
+      "actual": "sedan yerleştirildi (1 nesne), yön 90°, merkeze taşındı, kaldırıldı (0 nesne), panel kapandı",
+      "result": "geçti",
+      "ms": 4758,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

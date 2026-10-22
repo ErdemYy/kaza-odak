@@ -1,0 +1,160 @@
+{
+  "gpu-varsayilan": {
+    "project": "gpu-varsayilan",
+    "measured_at": "2026-10-22T16:09:09.473Z",
+    "renderer": {
+      "webgl": true,
+      "vendor": "Google Inc. (NVIDIA)",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4050 Laptop GPU (0x000028E1) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    "software_webgl": false,
+    "note": "Donanım WebGL (GPU)",
+    "initial": {
+      "navigation": {
+        "dom_content_loaded_ms": 299,
+        "load_ms": 299
+      },
+      "load_status_ready_ms": 1001,
+      "first_map_idle_ms": 2334
+    },
+    "api_requests": [
+      {
+        "path": "/api/meta",
+        "ms": 28,
+        "bytes": 1266
+      },
+      {
+        "path": "/api/boroughs",
+        "ms": 115,
+        "bytes": 141531
+      },
+      {
+        "path": "/api/records/timeline?granularity=year",
+        "ms": 19,
+        "bytes": 702
+      },
+      {
+        "path": "/api/clusters",
+        "ms": 97,
+        "bytes": 120604
+      },
+      {
+        "path": "/api/density?cell=1000",
+        "ms": 56,
+        "bytes": 15081
+      }
+    ],
+    "camera_rotate_manhattan_3d": {
+      "frames": 503,
+      "fps": 94.8,
+      "median_ms": 13.8,
+      "p95_ms": 14,
+      "max_ms": 20.8,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "zoom_in": {
+      "frames": 582,
+      "fps": 135.3,
+      "median_ms": 6.9,
+      "p95_ms": 13.8,
+      "max_ms": 20.7,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "zoom_out": {
+      "frames": 554,
+      "fps": 128.7,
+      "median_ms": 7,
+      "p95_ms": 13.9,
+      "max_ms": 34.8,
+      "long_frames_50ms": 0,
+      "long_frames_100ms": 0
+    },
+    "cluster_scene": {
+      "cluster_id": 1344,
+      "glb_ready_ms": 3879,
+      "glb_requests": [
+        {
+          "file": "taxi.glb",
+          "ms": 6,
+          "bytes": 21546
+        },
+        {
+          "file": "taxi.lod1.glb",
+          "ms": 6,
+          "bytes": 20079
+        },
+        {
+          "file": "sedan.glb",
+          "ms": 6,
+          "bytes": 22092
+        },
+        {
+          "file": "sedan.lod1.glb",
+          "ms": 6,
+          "bytes": 20394
+        },
+        {
+          "file": "suv.glb",
+          "ms": 8,
+          "bytes": 23251
+        },
+        {
+          "file": "suv.lod1.glb",
+          "ms": 7,
+          "bytes": 21793
+        },
+        {
+          "file": "truck.glb",
+          "ms": 7,
+          "bytes": 22712
+        },
+        {
+          "file": "truck.lod1.glb",
+          "ms": 7,
+          "bytes": 20930
+        },
+        {
+          "file": "delivery.glb",
+          "ms": 7,
+          "bytes": 22906
+        },
+        {
+          "file": "delivery.lod1.glb",
+          "ms": 6,
+          "bytes": 21298
+        },
+        {
+          "file": "traffic-light.glb",
+          "ms": 6,
+          "bytes": 12853
+        },
+        {
+          "file": "road-sign-stop.glb",
+          "ms": 5,
+          "bytes": 12137
+        }
+      ],
+      "rotate_with_models": {
+        "frames": 602,
+        "fps": 139.8,
+        "median_ms": 6.9,
+        "p95_ms": 7.1,
+        "max_ms": 27.8,
+        "long_frames_50ms": 0,
+        "long_frames_100ms": 0
+      }
+    },
+    "webgl_context_recovery_ms": 1165,
+    "js_heap": {
+      "used_mb": 75,
+      "total_mb": 177
+    },
+    "cdp": {
+      "JSHeapUsedSize_mb": 44,
+      "Nodes": 873,
+      "LayoutCount": 999
+    }
+  }
+}

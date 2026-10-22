@@ -1,0 +1,85 @@
+{
+  "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler",
+  "status": "passed",
+  "duration_ms": 6586,
+  "records": [
+    {
+      "id": "M01",
+      "screen": "Model karşılaştırma",
+      "component": "Karşılaştırma tablosu",
+      "expected": "DBSCAN 4.179 küme / %59,7 / 0,945; K-Means k=5 gürültü 'Uygulanamaz'; HDBSCAN 100.000 örneklem",
+      "actual": "DBSCAN 4.179 / %59.69 / 0.945; K-Means k=5; HDBSCAN 100.000 olay",
+      "result": "geçti",
+      "ms": 20,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M02",
+      "screen": "Model karşılaştırma",
+      "component": "Siluet ≠ doğruluk",
+      "expected": "Sayfada 'doğruluk/accuracy' etiketli metrik yok; %94,5 yalnızca olumsuzlanmış uyarıda geçer",
+      "actual": "1 satırda %94,5 (hepsi olumsuz); satır başlıkları: Siluet, Davies–Bouldin, DBCV",
+      "result": "geçti",
+      "ms": 25,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M03-dbscan-grid",
+      "screen": "Model karşılaştırma",
+      "component": "dbscan-grid › metrik seçici",
+      "expected": "Metrik düğmesi hücre değerlerini değiştirir",
+      "actual": "Küme → Siluet → Küme",
+      "result": "geçti",
+      "ms": 89,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M03-hdbscan-grid",
+      "screen": "Model karşılaştırma",
+      "component": "hdbscan-grid › metrik seçici",
+      "expected": "Metrik düğmesi hücre değerlerini değiştirir",
+      "actual": "Küme → Siluet → Küme",
+      "result": "geçti",
+      "ms": 97,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M04",
+      "screen": "Model karşılaştırma",
+      "component": "Bilgi ipuçları (Siluet satırı)",
+      "expected": "İpucu 'doğruluk DEĞİLDİR' açıklamasını gösterir",
+      "actual": "ipucu görünür",
+      "result": "geçti",
+      "ms": 322,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M05",
+      "screen": "Model karşılaştırma",
+      "component": "K-Means k taraması grafiği ipucu",
+      "expected": "Noktanın üzerine gelince k ve siluet değeri görünür",
+      "actual": "k = 10 Siluet 0,398",
+      "result": "geçti",
+      "ms": 75,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {
+    "free_memory_before_dynamic_mb": 3906.9,
+    "dynamic_job": {
+      "job": "05107333c2fc",
+      "n_events": 6686,
+      "clusters": 72,
+      "runtime_s": 0.046,
+      "peak_mb": 183.2
+    }
+  }
+}

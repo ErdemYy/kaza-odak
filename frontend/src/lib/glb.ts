@@ -1,5 +1,6 @@
 // GLB yükleme: başlık doğrulaması, meshopt çözücü, hata sınıflandırması ve ArrayBuffer önbelleği
 // (WebGL bağlam kaybından sonra GPU nesneleri yeniden kurulurken ağdan tekrar indirilmez).
+import { LinearFilter, LinearMipmapLinearFilter, type Mesh, type Object3D, type Texture } from "three";
 import type { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 export class ModelLoadError extends Error {
@@ -70,4 +71,25 @@ export async function loadGlb(url: string): Promise<GLTF> {
   } catch (e) {
     throw new ModelLoadError(url, "parse", `GLB çözümlenemedi: ${(e as Error).message}`);
   }
+}
+
+/**
+ * Faz 8B: Kenney dokuları NEAREST örnekleme ile gelir (mag 9728, min 9984). Bazı UV köşeleri tam texel sınırına oturur
+ * (taksi: 6 köşe, ön plaka); en yakın örneklemede kayan nokta yuvarlaması bu yüzeylerde siyah-beyaz piksel gürültüsü
+ * üretir. Doku VERİSİ değiştirilmez; yalnızca örnekleme doğrusal + mipmap yapılır. Döndürür: güncellenen doku sayısı.
+ */
+export function smoothTextureSampling(root: Object3D): number {
+  const seen = new Set<Texture>();
+  root.traverse((o) => {
+    const mats = (o as Mesh).material;
+    for (const m of mats ? (Array.isArray(mats) ? mats : [mats]) : []) {
+      const t = (m as unknown as { map?: Texture | null }).map;
+      if (!t || seen.has(t)) continue;
+      seen.add(t);
+      t.magFilter = LinearFilter;
+      t.minFilter = LinearMipmapLinearFilter;
+      t.needsUpdate = true;
+    }
+  });
+  return seen.size;
 }

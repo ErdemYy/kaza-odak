@@ -1,0 +1,85 @@
+{
+  "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi",
+  "status": "passed",
+  "duration_ms": 4733,
+  "records": [
+    {
+      "id": "D01",
+      "screen": "Veri Gezgini",
+      "component": "Sekmeler (Veri hattı / Ham / İşlenmiş / Setler)",
+      "expected": "Her sekme kendi içeriğini gösterir",
+      "actual": "4 sekme",
+      "result": "geçti",
+      "ms": 214,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D02",
+      "screen": "Veri Gezgini",
+      "component": "Ham sütunlar: 29 sütun ve açıklamalar",
+      "expected": "29/29 sütun; her satırda anlam",
+      "actual": "29 sütun; anlamı boş olan 0",
+      "result": "geçti",
+      "ms": 99,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D03",
+      "screen": "Veri Gezgini",
+      "component": "Arama kutusu + boş sonuç",
+      "expected": "Arama satırları süzer; eşleşme yoksa boş durum",
+      "actual": "\"borough\" → 1 sütun; \"zzzyok\" → boş durum",
+      "result": "geçti",
+      "ms": 383,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D04",
+      "screen": "Veri Gezgini",
+      "component": "Grup ve 'Modele giriş' seçicileri",
+      "expected": "Seçiciler satırları süzer",
+      "actual": "modele girenler: 2 / 29 sütun; ilk grup: 5 / 29 sütun",
+      "result": "geçti",
+      "ms": 1938,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D05",
+      "screen": "Veri Gezgini",
+      "component": "Sütun ayrıntı çekmecesi",
+      "expected": "Sütuna tıklayınca anlam/model/dönüşüm/gerekçe/eksik değer çekmecesi açılır ve kapanır",
+      "actual": "latitude çekmecesi açıldı/kapandı (Esc)",
+      "result": "geçti",
+      "ms": 814,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D06",
+      "screen": "Veri Gezgini",
+      "component": "İşlenmiş sütunlar (87) ve öznitelik setleri",
+      "expected": "87 sütun; model setleri listelenir",
+      "actual": "87 sütun, 7 öznitelik seti",
+      "result": "geçti",
+      "ms": 148,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {
+    "free_memory_before_dynamic_mb": 3467.5,
+    "dynamic_job": {
+      "job": "94fdbf1adf53",
+      "n_events": 6686,
+      "clusters": 72,
+      "runtime_s": 0.043,
+      "peak_mb": 182.7
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "test": "Hata, yüklenme ve boş durumları",
+  "status": "passed",
+  "duration_ms": 3941,
+  "records": [
+    {
+      "id": "S01",
+      "screen": "Genel bakış",
+      "component": "API hatası + Yeniden dene",
+      "expected": "Sunucu 500 dönerse hata kutusu ve Yeniden dene; düzelince içerik gelir",
+      "actual": "hata → yeniden dene → içerik",
+      "result": "geçti",
+      "ms": 921,
+      "test": "Hata, yüklenme ve boş durumları"
+    },
+    {
+      "id": "S02",
+      "screen": "Laboratuvar",
+      "component": "Boş iş geçmişi / sonuç yok durumu",
+      "expected": "İş yokken açıklayıcı boş durum",
+      "actual": "boş durum metni gösterildi",
+      "result": "geçti",
+      "ms": 924,
+      "test": "Hata, yüklenme ve boş durumları"
+    },
+    {
+      "id": "S03",
+      "screen": "Model karşılaştırma",
+      "component": "Yüklenme durumu",
+      "expected": "Yanıt gelene kadar iskelet (role=status) gösterilir",
+      "actual": "iskelet → tablo",
+      "result": "geçti",
+      "ms": 1933,
+      "test": "Hata, yüklenme ve boş durumları"
+    }
+  ],
+  "logs": {
+    "app_console": [
+      "error: Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    ],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": [
+      "500 http://127.0.0.1:8000/api/overview"
+    ]
+  },
+  "a11y": {},
+  "measurements": {
+    "free_memory_before_dynamic_mb": 3467.5,
+    "dynamic_job": {
+      "job": "94fdbf1adf53",
+      "n_events": 6686,
+      "clusters": 72,
+      "runtime_s": 0.043,
+      "peak_mb": 182.7
+    }
+  }
+}

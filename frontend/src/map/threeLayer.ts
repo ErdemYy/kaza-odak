@@ -9,7 +9,7 @@ import type { CustomLayerInterface, CustomRenderMethodInput, Map as MlMap } from
 import * as THREE from "three";
 import type { LngLat } from "../lib/geo";
 import { anchorMatrix, headingToRotationY, localOffsetM, localToLngLat, transformPoint } from "../lib/geo";
-import { loadGlb } from "../lib/glb";
+import { loadGlb, smoothTextureSampling } from "../lib/glb";
 import type { MotionLevel } from "../lib/layers";
 import type { AssetRecord } from "../lib/registry";
 
@@ -142,6 +142,8 @@ export class CityModelsLayer implements CustomLayerInterface {
       t = (async () => {
         const g0 = await loadGlb(rec.file);
         const g1 = rec.lod1 ? await loadGlb(rec.lod1.file) : null;
+        smoothTextureSampling(g0.scene);
+        if (g1) smoothTextureSampling(g1.scene);
         this.status.loaded = [...new Set([...this.status.loaded, id])];
         this.onStatus({ ...this.status });
         return { lod0: g0.scene, lod1: g1?.scene ?? null };

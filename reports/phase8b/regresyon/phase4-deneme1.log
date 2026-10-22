@@ -1,0 +1,40 @@
+
+Running 11 tests using 1 worker
+
+  ✓   1 [chromium] › e2e\viewer.spec.ts:62:1 › A — açılışta tüm New York görünür, gerçek veri ve gerçek harita karoları yüklenir (4.1s)
+  ✓   2 [chromium] › e2e\viewer.spec.ts:104:1 › B — Brooklyn seçilince kamera Brooklyn'e gider (beş ilçe) (24.0s)
+  ✓   3 [chromium] › e2e\viewer.spec.ts:121:1 › C — kümeye tıklanınca DOĞRU kümenin ayrıntıları açılır, kamera kümeye gider (19.5s)
+  ✓   4 [chromium] › e2e\viewer.spec.ts:155:1 › D — gürültü noktaları açılıp kapatılır; görünen alan sayıları API ile tutarlı (13.3s)
+  ✓   5 [chromium] › e2e\viewer.spec.ts:190:1 › E — GLB araç modeli inceleme: konum/irtifa/yön/ölçek; dönüş ve zoomda koordinattan kopmaz (51.6s)
+  ✓   6 [chromium] › e2e\viewer.spec.ts:236:1 › F — kamera döndürülür, yakınlaştırılır, eğilir ve sıfırlanır (13.6s)
+  ✓   7 [chromium] › e2e\viewer.spec.ts:266:1 › G — büyük veri yükünde donma yok; nokta katmanı yalnızca yakın zoomda ve sınırlı yüklenir (1.4m)
+  ✘   8 [chromium] › e2e\viewer.spec.ts:307:1 › Kavşak yakın görünümü, gece ve gündüz modları (32.0s)
+  -   9 [chromium] › e2e\viewer.spec.ts:330:1 › Animasyon düzeyi: kapalıyken araçlar durur, halka nabzı durur
+  -  10 [chromium] › e2e\viewer.spec.ts:353:1 › WebGL bağlam kaybı sonrası 3D katman yeniden kurulur
+  -  11 [chromium] › e2e\viewer.spec.ts:383:1 › Hata durumu: API'ye ulaşılamazsa kullanıcıya anlaşılır hata gösterilir
+
+
+  1) [chromium] › e2e\viewer.spec.ts:307:1 › Kavşak yakın görünümü, gece ve gündüz modları ─────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "#E8EDF3"
+    Received: "#E4E9F0"
+
+      322 |   await page.getByTestId("theme-toggle").click();
+      323 |   await page.waitForTimeout(800);
+    > 324 |   expect(await page.evaluate(() => (window as any).__saferoute.map.getPaintProperty("background", "background-color"))).toBe("#E8EDF3");
+          |                                                                                                                         ^
+      325 |   await page.screenshot({ path: `${SHOTS}/05b-gunduz-modu.png` });
+      326 |   await page.getByTestId("theme-toggle").click();
+      327 |   expect(await page.evaluate(() => (window as any).__saferoute.map.getPaintProperty("background", "background-color"))).toBe("#0B1120");
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\viewer.spec.ts:324:121
+
+    Error Context: test-results\viewer-Kavşak-yakın-görünümü-gece-ve-gündüz-modları-chromium\error-context.md
+
+    Error Context: test-results\viewer-Kavşak-yakın-görünümü-gece-ve-gündüz-modları-chromium\error-context.md
+
+  1 failed
+    [chromium] › e2e\viewer.spec.ts:307:1 › Kavşak yakın görünümü, gece ve gündüz modları ──────────
+  3 did not run
+  7 passed (4.0m)

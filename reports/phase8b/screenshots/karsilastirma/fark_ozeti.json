@@ -1,0 +1,70 @@
+{
+  "01-nyc-genel": {
+    "degisen_piksel_orani": 0.051,
+    "ortalama_fark": 2.8
+  },
+  "02-orta-yakinlik-gece": {
+    "degisen_piksel_orani": 0.0267,
+    "ortalama_fark": 3.06
+  },
+  "03-manhattan-3d-gece": {
+    "degisen_piksel_orani": 0.3455,
+    "ortalama_fark": 9.42
+  },
+  "04-orta-yakinlik-gunduz": {
+    "degisen_piksel_orani": 0.2763,
+    "ortalama_fark": 7.44
+  },
+  "05-manhattan-3d-gunduz": {
+    "degisen_piksel_orani": 0.5282,
+    "ortalama_fark": 11.99
+  },
+  "06-brooklyn-tillary-secili": {
+    "degisen_piksel_orani": 0.1564,
+    "ortalama_fark": 7.01
+  },
+  "07-kume-detay-paneli": {
+    "degisen_piksel_orani": 0.2164,
+    "ortalama_fark": 18.81
+  },
+  "08-secili-kume-orta-yakinlik": {
+    "degisen_piksel_orani": 0.0651,
+    "ortalama_fark": 5.89
+  },
+  "09-glb-onizleyici-paneli": {
+    "degisen_piksel_orani": 0.1986,
+    "ortalama_fark": 17.96
+  },
+  "10-glb-haritaya-yerlesmis": {
+    "degisen_piksel_orani": 0.0888,
+    "ortalama_fark": 4.84
+  },
+  "11-genel-bakis": {
+    "degisen_piksel_orani": 0.1617,
+    "ortalama_fark": 16.07
+  },
+  "11b-genel-bakis-tam": {
+    "degisen_piksel_orani": 0.1617,
+    "ortalama_fark": 16.07
+  },
+  "12-yerlesim-1280x720": {
+    "degisen_piksel_orani": 0.0341,
+    "ortalama_fark": 3.39
+  },
+  "12-yerlesim-1920x1080": {
+    "degisen_piksel_orani": 0.023,
+    "ortalama_fark": 3.09
+  },
+  "12-yerlesim-390x844": {
+    "degisen_piksel_orani": 0.0115,
+    "ortalama_fark": 2.95
+  },
+  "12-yerlesim-768x1024": {
+    "degisen_piksel_orani": 0.0127,
+    "ortalama_fark": 3.02
+  },
+  "13-mobil-genel-bakis": {
+    "degisen_piksel_orani": 0.2122,
+    "ortalama_fark": 20.68
+  }
+}

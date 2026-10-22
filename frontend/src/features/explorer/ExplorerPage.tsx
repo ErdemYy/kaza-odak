@@ -1,5 +1,5 @@
 // 3D Şehir Keşfi: Faz 4 harita motoru + filtreler, zaman oynatma, küme ayrıntısı ve sonuç kaynağı seçimi.
-import { Box, FlaskConical, Inbox, Layers, Moon, RotateCcw, SlidersHorizontal, Sun, Undo2 } from "lucide-react";
+import { Box, FlaskConical, Inbox, Layers, Moon, PanelLeftClose, PanelLeftOpen, RotateCcw, SlidersHorizontal, Sun, Undo2 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -40,9 +40,10 @@ function useIsMobile() {
   return m;
 }
 
-/** Haritanın görünen kısmını ortalamak için panel boşlukları (≥ 1024 px: sol 332 px panel, sağ 352 px panel, alt zaman çubuğu). */
-function padding(width: number) {
-  return width < 1024 ? { top: 70, bottom: 150, left: 20, right: 20 } : { top: 76, bottom: 150, left: 344, right: 364 };
+/** Haritanın görünen kısmını ortalamak için panel boşlukları (≥ 1024 px: sol 332 px panel — daraltılmışsa yok —,
+ *  sağ 352 px panel, alt zaman çubuğu). */
+function padding(width: number, leftOpen: boolean) {
+  return width < 1024 ? { top: 70, bottom: 150, left: 20, right: 20 } : { top: 76, bottom: 150, left: leftOpen ? 344 : 64, right: 364 };
 }
 
 export function ExplorerPage({ active }: { active: boolean }) {
@@ -80,6 +81,9 @@ export function ExplorerPage({ active }: { active: boolean }) {
   const [inspectorError, setInspectorError] = useState<string | null>(null);
   const [roadNote, setRoadNote] = useState<string | null>(null);
   const [layerCounts, setLayerCounts] = useState<{ clusters: number; total: number; label: string } | null>(null);
+  // Faz 8B: sol panel açıkça daraltılabilir (3D şehir ana odak); işlev kaldırılmaz, tek tıkla geri açılır.
+  const [leftOpen, setLeftOpen] = useState(true);
+  const mapPadding = useCallback((w: number) => padding(w, leftOpen), [leftOpen]);
 
   // Harita alanı en büyük olsun: keşif ekranına ilk girişte kenar çubuğu daraltılır.
   const collapsedOnce = useRef(false);
@@ -146,15 +150,21 @@ export function ExplorerPage({ active }: { active: boolean }) {
 
   const leftContent = (
     <Tabs value={leftPanel} onValueChange={(v) => setLeftPanel(v as "view" | "filters")} className="flex min-h-0 flex-1 flex-col gap-3">
-      <TabsList className="grid w-full grid-cols-2 bg-surface-2">
-        <TabsTrigger value="view" data-testid="tab-view"><Layers /> Görünüm</TabsTrigger>
-        <TabsTrigger value="filters" data-testid="tab-filters">
-          <SlidersHorizontal /> Filtreler {nFilters > 0 && <Badge className="ml-0.5 h-4 min-w-4 px-1 text-[10px] bg-warning text-primary-foreground">{nFilters}</Badge>}
-        </TabsTrigger>
-      </TabsList>
+      <div className="flex items-center gap-1.5">
+        <TabsList className="grid min-w-0 flex-1 grid-cols-2 bg-surface-2">
+          <TabsTrigger value="view" data-testid="tab-view"><Layers /> Görünüm</TabsTrigger>
+          <TabsTrigger value="filters" data-testid="tab-filters">
+            <SlidersHorizontal /> Filtreler {nFilters > 0 && <Badge className="ml-0.5 h-4 min-w-4 px-1 text-[10px] bg-warning text-primary-foreground">{nFilters}</Badge>}
+          </TabsTrigger>
+        </TabsList>
+        {!mobile && (
+          <Button size="icon-sm" variant="ghost" onClick={() => setLeftOpen(false)} aria-label="Paneli daralt" title="Paneli daralt (harita alanını genişletir)"
+            aria-expanded aria-controls="explorer-left-panel" data-testid="left-collapse"><PanelLeftClose /></Button>
+        )}
+      </div>
       <TabsContent value="view" className="min-h-0 flex-1 overflow-y-auto scroll-thin space-y-4 pr-1 mt-0">
         <ViewPanel meta={meta} onBorough={onBorough} zoom={view.zoom} layerCounts={layerCounts} />
-        <div className="border-t border-line pt-3"><Legend viewport={viewport} /></div>
+        <div className="border-t border-line pt-3"><Legend viewport={viewport} zoom={view.zoom} /></div>
       </TabsContent>
       <TabsContent value="filters" className="min-h-0 flex-1 flex flex-col mt-0">
         <FilterPanel onStartLab={() => setRoute("lab")} />
@@ -174,13 +184,13 @@ export function ExplorerPage({ active }: { active: boolean }) {
   return (
     <div className="relative h-full w-full overflow-hidden bg-bg">
       <CityMap ref={mapApi} active={active} source={source} filterQuery={filterQuery} visibility={visibility} theme={theme} motion={motion}
-        padding={padding} onMeta={setMeta} onLoad={setLoad} onViewport={setViewport} onView={setView} onCluster={setCluster}
+        padding={mapPadding} onMeta={setMeta} onLoad={setLoad} onViewport={setViewport} onView={setView} onCluster={setCluster}
         onRoadNote={setRoadNote} onRegistry={setRegistry} onInspectorError={setInspectorError} onLayerCounts={setLayerCounts} />
 
       {/* Üst araç çubuğu */}
       <div className="absolute z-20 left-3 right-3 top-3 flex items-start gap-2 pointer-events-none">
         <div role="status" aria-live="polite" data-testid="load-status" data-phase={load.phase}
-          className="panel pointer-events-auto hidden lg:flex items-center gap-2 px-3 h-10 text-[12.5px] max-w-[380px] shrink-0">
+          className="panel pointer-events-auto hidden lg:flex items-center gap-2 px-3 h-10 text-[12.5px] max-w-[340px] shrink-0">
           <span className={cn("size-2 rounded-full shrink-0", dot)} aria-hidden />
           <span className="truncate">{load.message}</span>
         </div>
@@ -189,7 +199,11 @@ export function ExplorerPage({ active }: { active: boolean }) {
         <div className="flex-1" />
         <div className="panel pointer-events-auto flex items-center gap-1 p-1 shrink-0">
           <Button size="sm" variant={leftPanel === "filters" ? "secondary" : "ghost"} className="hidden lg:inline-flex"
-            onClick={() => setLeftPanel(leftPanel === "filters" ? "view" : "filters")} aria-pressed={leftPanel === "filters"} data-testid="toolbar-filters">
+            onClick={() => {
+              // Daraltılmış panelde "Filtreler" paneli açar ve filtre sekmesini gösterir
+              if (!leftOpen) { setLeftOpen(true); setLeftPanel("filters"); return; }
+              setLeftPanel(leftPanel === "filters" ? "view" : "filters");
+            }} aria-pressed={leftOpen && leftPanel === "filters"} data-testid="toolbar-filters">
             <SlidersHorizontal /> Filtreler{nFilters > 0 ? ` (${nFilters})` : ""}
           </Button>
           <Button size="sm" variant="ghost" className="lg:hidden" onClick={() => setMobileSheet("panel")} data-testid="mobile-panel">
@@ -212,11 +226,20 @@ export function ExplorerPage({ active }: { active: boolean }) {
         </div>
       </div>
 
-      {/* Masaüstü: sol panel */}
-      {!mobile && (
-        <aside className="panel absolute z-10 left-3 top-[64px] bottom-8 w-[320px] flex flex-col p-3" aria-label="Görünüm ve filtreler" data-testid="left-panel">
+      {/* Masaüstü: sol panel (daraltılabilir) */}
+      {!mobile && leftOpen && (
+        <aside id="explorer-left-panel" className="panel absolute z-10 left-3 top-[64px] bottom-8 w-[320px] flex flex-col p-3" aria-label="Görünüm ve filtreler" data-testid="left-panel">
           {leftContent}
         </aside>
+      )}
+      {!mobile && !leftOpen && (
+        <div className="panel absolute z-10 left-3 top-[64px] flex flex-col items-center gap-1 p-1" data-testid="left-collapsed">
+          <Button size="icon-sm" variant="ghost" onClick={() => setLeftOpen(true)} aria-label="Görünüm ve filtreler panelini aç" title="Paneli aç"
+            aria-expanded={false} aria-controls="explorer-left-panel" data-testid="left-expand"><PanelLeftOpen /></Button>
+          <Button size="icon-sm" variant="ghost" onClick={() => { setLeftOpen(true); setLeftPanel("view"); }} aria-label="Katmanlar" title="Katmanlar"><Layers /></Button>
+          <Button size="icon-sm" variant="ghost" onClick={() => { setLeftOpen(true); setLeftPanel("filters"); }} aria-label={`Filtreler${nFilters ? ` (${nFilters} etkin)` : ""}`} title="Filtreler"
+            className={cn(nFilters > 0 && "text-warning")}><SlidersHorizontal /></Button>
+        </div>
       )}
       {/* Masaüstü: sağ panel */}
       {!mobile && (
@@ -227,7 +250,7 @@ export function ExplorerPage({ active }: { active: boolean }) {
         </aside>
       )}
       {/* Alt: zaman + kamera */}
-      <div className={cn("absolute z-10 flex items-end gap-2", mobile ? "bottom-14 left-2 right-2 flex-col items-stretch" : "bottom-8 left-[344px] right-3")}>
+      <div className={cn("absolute z-10 flex items-end gap-2", mobile ? "bottom-14 left-2 right-2 flex-col items-stretch" : cn("bottom-8 right-3", leftOpen ? "left-[344px]" : "left-[64px]"))}>
         <div className="min-w-0 flex-1">
           <TimeControls compact={mobile} disabledReason={null} resultId={source.kind === "result" ? source.id : null} />
         </div>

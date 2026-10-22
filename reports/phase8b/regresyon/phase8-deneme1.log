@@ -1,0 +1,54 @@
+
+Running 19 tests using 1 worker
+
+  ✓   1 [chromium] › e2e\phase8.spec.ts:117:1 › Marka, favikon ve gezinme (11.5s)
+  ✘   2 [chromium] › e2e\phase8.spec.ts:219:1 › Genel bakış etkileşimleri (34.3s)
+  ✓   3 [chromium] › e2e\phase8.spec.ts:304:1 › 3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon (1.1m)
+  ✓   4 [chromium] › e2e\phase8.spec.ts:439:1 › 3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB (1.7m)
+  ✓   5 [chromium] › e2e\phase8.spec.ts:551:1 › 3D Şehir — zaman oynatma (13.1s)
+  ✓   6 [chromium] › e2e\phase8.spec.ts:623:1 › 3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama (39.0s)
+  ✓   7 [chromium] › e2e\phase8.spec.ts:789:1 › Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş (43.3s)
+  ✓   8 [chromium] › e2e\phase8.spec.ts:976:3 › Laboratuvar — dinamik iş, iptal, yeniden deneme, önbellek (yalıtılmış sunucu) › Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster (37.9s)
+  ✓   9 [chromium] › e2e\phase8.spec.ts:1036:1 › Model karşılaştırma — akademik doğruluk ve etkileşimler (6.6s)
+  ✓  10 [chromium] › e2e\phase8.spec.ts:1098:1 › Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi (5.3s)
+  ✓  11 [chromium] › e2e\phase8.spec.ts:1168:1 › Hata, yüklenme ve boş durumları (4.0s)
+  ✓  12 [chromium] › e2e\phase8.spec.ts:1200:1 › WebGL bağlam kaybından dönüş (6.0s)
+  ✓  13 [chromium] › e2e\phase8.spec.ts:1222:1 › Altlık harita servisi erişilemezken kaza katmanları yine yüklenir (4.7s)
+  ✓  14 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 1920x1080 (7.6s)
+  ✓  15 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 1440x900 (9.5s)
+  ✓  16 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 1280x720 (7.8s)
+  ✓  17 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 768x1024 (8.9s)
+  ✓  18 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 390x844 (7.9s)
+  ✓  19 [chromium] › e2e\phase8.spec.ts:1283:1 › Klavye odağı, azaltılmış hareket ve axe (15.9s)
+
+
+  1) [chromium] › e2e\phase8.spec.ts:219:1 › Genel bakış etkileşimleri ─────────────────────────────
+
+    Error: Başarısız etkileşimler: O03
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "O03",
+    + ]
+
+      66 |   writeFileSync(resolve(RUNS, `${slug}.json`), JSON.stringify({ test: info.title, status: failures.length ? "failed" : info.status, duration_ms: info.duration,
+      67 |     records: records.filter((r) => r.test === info.title), logs: logs[info.title] ?? null, a11y, measurements }, null, 2));
+    > 68 |   expect(failures, `Başarısız etkileşimler: ${failures.join(", ")}`).toEqual([]);
+         |                                                                      ^
+      69 | });
+      70 | test.afterAll(() => {
+      71 |   const runs = readdirSync(RUNS).filter((f) => f.endsWith(".json")).map((f) => JSON.parse(readFileSync(resolve(RUNS, f), "utf-8")));
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:68:70
+
+    Error Context: test-results\phase8-Genel-bakış-etkileşimleri-chromium\error-context.md
+
+    Error Context: test-results\phase8-Genel-bakış-etkileşimleri-chromium\error-context.md
+
+  1 failed
+    [chromium] › e2e\phase8.spec.ts:219:1 › Genel bakış etkileşimleri ──────────────────────────────
+  18 passed (7.3m)

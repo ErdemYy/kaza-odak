@@ -116,7 +116,7 @@ export function TimeControls({ disabledReason, compact, resultId }: { disabledRe
       )}
       {!compact && (
         <div className="relative">
-          <div className="flex h-9 items-end gap-px" aria-hidden>
+          <div className="flex h-8 items-end gap-px" aria-hidden>
             {buckets.map((b, i) => (
               <button key={b.key} type="button" tabIndex={-1} onClick={() => { setPlaying(false); go(i); }}
                 title={`${bucketLabel(g, b.key)} — ${fmtInt(b.count)} kayıt`}

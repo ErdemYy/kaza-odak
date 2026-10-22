@@ -1,6 +1,6 @@
 // Harita stili: OpenFreeMap vektör karoları (OpenMapTiles şeması, OSM verisi), API anahtarı gerektirmez.
 // Altlık katmanları burada; Faz 3 veri katmanları dataLayers.ts içinde eklenir.
-import type { LayerSpecification, SkySpecification, StyleSpecification } from "maplibre-gl";
+import type { LayerSpecification, LightSpecification, SkySpecification, StyleSpecification } from "maplibre-gl";
 
 export const TILEJSON_URL = "https://tiles.openfreemap.org/planet";
 export const GLYPHS_URL = "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf";
@@ -14,20 +14,26 @@ export type Theme = "night" | "day";
 
 interface Palette {
   background: string; water: string; park: string; landuse: string; road: string; roadMajor: string; roadMotorway: string;
-  roadCasing: string; rail: string; building: string; buildingTop: string; buildingUnknown: string; label: string;
-  labelHalo: string; waterLabel: string;
+  roadCasing: string; rail: string; buildingLow: string; building: string; buildingTop: string; buildingUnknown: string;
+  buildingUnknownLine: string; label: string; labelHalo: string; waterLabel: string;
 }
 
+// Faz 8B: zemin < yol < bina ışıklılık sıralaması. Faz 8'de gece yolları (#1C2A42) bina tabanıyla (#1A2740) aynı ton
+// bandındaydı ve gündüz binaları (#CBD3DE) zeminden (#E8EDF3) yalnızca ~%6 koyuydu; şehir dokusu okunmuyordu.
+// Yollar hafif nötr (desatüre arduvaz), binalar mavi tonlu: renk tonu ve ışıklılık birlikte ayrışır. Bina tonu
+// yükseklikle kontrollü biçimde açılır (alçak → yüksek); ayrıca neon/ışıma efekti yoktur.
 export const PALETTES: Record<Theme, Palette> = {
   night: {
-    background: "#0B1120", water: "#0A1A2E", park: "#0F1E25", landuse: "#0E1729", road: "#1C2A42", roadMajor: "#26385A",
-    roadMotorway: "#2F4670", roadCasing: "#0B1120", rail: "#22314D", building: "#1A2740", buildingTop: "#2A3B5C",
-    buildingUnknown: "#141F33", label: "#94A3B8", labelHalo: "#0B1120", waterLabel: "#3B5B80",
+    background: "#0B1120", water: "#07182B", park: "#0E1F24", landuse: "#0F182A", road: "#253147", roadMajor: "#34425C",
+    roadMotorway: "#435574", roadCasing: "#080D18", rail: "#273650", buildingLow: "#202C43", building: "#2A3852",
+    buildingTop: "#3A4B6B", buildingUnknown: "#131D30", buildingUnknownLine: "#2A3B58", label: "#A3B1C6", labelHalo: "#0B1120",
+    waterLabel: "#4B6C92",
   },
   day: {
-    background: "#E8EDF3", water: "#B9D3E8", park: "#D3E4D0", landuse: "#E1E6EC", road: "#FFFFFF", roadMajor: "#FFFFFF",
-    roadMotorway: "#F6D9A8", roadCasing: "#C7CFDA", rail: "#B8C0CC", building: "#CBD3DE", buildingTop: "#DCE2EA",
-    buildingUnknown: "#D9DEE5", label: "#334155", labelHalo: "#F8FAFC", waterLabel: "#4A6E92",
+    background: "#E8EDF3", water: "#A8C7E2", park: "#CCDFC9", landuse: "#DCE2EA", road: "#FFFFFF", roadMajor: "#FFFFFF",
+    roadMotorway: "#F3D39A", roadCasing: "#B6C1CF", rail: "#AEB8C6", buildingLow: "#AAB7C8", building: "#BCC7D5",
+    buildingTop: "#D3DBE6", buildingUnknown: "#D2D9E2", buildingUnknownLine: "#AEBACA", label: "#2E3B4E", labelHalo: "#F8FAFC",
+    waterLabel: "#3F6488",
   },
 };
 
@@ -40,8 +46,9 @@ export const PALETTES: Record<Theme, Palette> = {
 const UNKNOWN_HEIGHT = ["all", ["==", ["get", "render_height"], 5], ["==", ["coalesce", ["get", "render_min_height"], 0], 0]];
 const NOT_HIDDEN = ["!=", ["get", "hide_3d"], true];
 
+// Faz 8B: z13–15 aralığında ara yollar 1 px'in altına düşüyordu (Faz 8: z14'te 1,3 px); orta yakınlıkta ızgara okunur.
 function roadWidth(base: number): unknown {
-  return ["interpolate", ["exponential", 1.5], ["zoom"], 10, base * 0.4, 14, base * 1.6, 18, base * 12];
+  return ["interpolate", ["exponential", 1.5], ["zoom"], 10, base * 0.4, 13, base * 1.15, 15, base * 2.6, 18, base * 12];
 }
 
 /** Tema renklerine bağlı boya özellikleri (gece/gündüz geçişinde setPaintProperty ile uygulanır). */
@@ -57,12 +64,21 @@ export function themePaint(theme: Theme): Record<string, Record<string, unknown>
     "road-major": { "line-color": p.roadMajor },
     "road-motorway": { "line-color": p.roadMotorway },
     rail: { "line-color": p.rail },
-    "building-unknown-height": { "fill-color": p.buildingUnknown, "fill-outline-color": p.building },
-    "building-3d": { "fill-extrusion-color": ["interpolate", ["linear"], ["coalesce", ["get", "render_height"], 0], 0, p.building, 120, p.buildingTop] },
+    "building-unknown-height": { "fill-color": p.buildingUnknown, "fill-outline-color": p.buildingUnknownLine },
+    "building-3d": { "fill-extrusion-color": ["interpolate", ["linear"], ["coalesce", ["get", "render_height"], 0],
+      0, p.buildingLow, 25, p.building, 150, p.buildingTop] },
     "road-label": { "text-color": p.label, "text-halo-color": p.labelHalo },
     "place-label": { "text-color": p.label, "text-halo-color": p.labelHalo },
     "water-label": { "text-color": p.waterLabel, "text-halo-color": p.labelHalo },
   };
+}
+
+/** Extrüzyon ışığı: daha yatık güneş (kutup açısı 35° → 48°) çatı/duvar ve güneye/kuzeye bakan duvarlar arasında
+ *  ayrım oluşturur; Faz 8'de (yoğunluk 0,55) bütün bina kütleleri tek düz ton görünüyordu. */
+export function themeLight(theme: Theme): LightSpecification {
+  return theme === "night"
+    ? { anchor: "map", position: [1.3, 210, 48], intensity: 0.6, color: "#F0F4FF" }
+    : { anchor: "map", position: [1.3, 210, 48], intensity: 0.42, color: "#FFFFFF" };
 }
 
 /** Eğik kamerada ufuk ve uzak sis (gece/gündüz). */
@@ -99,7 +115,8 @@ export function buildBaseStyle(theme: Theme): StyleSpecification {
       filter: ["all", NOT_HIDDEN, ["!", UNKNOWN_HEIGHT]] as never,
       paint: { ...paint["building-3d"], "fill-extrusion-height": ["coalesce", ["get", "render_height"], 0], // bazı OSM parçalarında null (konsol uyarısı + siyah dolgu)
         "fill-extrusion-base": ["coalesce", ["get", "render_min_height"], 0],
-        "fill-extrusion-opacity": ["interpolate", ["linear"], ["zoom"], 13, 0, 14, 0.92] } as never },
+        // Faz 8B: yarı saydam ara aralık (z13–14) kısaltıldı; z13,4'te "hayalet" bina kütleleri oluşuyordu.
+        "fill-extrusion-opacity": ["interpolate", ["linear"], ["zoom"], 13.1, 0, 13.8, 0.95] } as never },
     { id: "water-label", type: "symbol", source: "omt", "source-layer": "water_name", minzoom: 10,
       layout: { "text-field": ["coalesce", ["get", "name:tr"], ["get", "name_en"], ["get", "name"]], "text-font": ["Noto Sans Italic"], "text-size": 12 },
       paint: { ...paint["water-label"], "text-halo-width": 1 } },
@@ -116,8 +133,8 @@ export function buildBaseStyle(theme: Theme): StyleSpecification {
     name: `SafeRoute 3D ${theme}`,
     glyphs: GLYPHS_URL,
     sky: themeSky(theme),
-    // Extrüzyon gölgelemesi: haritaya bağlı ışık, duvarlar arasında yön farkı oluşur
-    light: { anchor: "map", position: [1.3, 210, 35], intensity: 0.55, color: "#FFFFFF" },
+    // Extrüzyon gölgelemesi: haritaya bağlı ışık, duvarlar arasında yön farkı oluşur (temaya göre, bkz. themeLight)
+    light: themeLight(theme),
     sources: { omt: { type: "vector", url: TILEJSON_URL, attribution: ATTRIBUTION } },
     layers,
   };

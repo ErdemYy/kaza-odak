@@ -1,5 +1,5 @@
 // Genel bakış: tüm sayılar /api/overview'dan (Faz 1–4 doğrulanmış kayıtları). Sabit örnek değer yoktur.
-import { ExternalLink, Map as MapIcon, Table2, BarChart3 } from "lucide-react";
+import { AlertTriangle, ExternalLink, Map as MapIcon, Table2, BarChart3 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useApp } from "../../app/store";
 import { ColumnChart } from "../../components/charts";
 import { ExportMenu } from "../../components/ExportMenu";
-import { ErrorBlock, InfoTip, LoadingBlock, MetricCard, Note, PageHeader, Section } from "../../components/common";
+import { ErrorBlock, InfoTip, LoadingBlock, MetricCard, PageHeader, Section } from "../../components/common";
 import { BOROUGH_TR } from "../../lib/camera";
 import { fmtInt, fmtPct } from "../../lib/format";
 import { useQuery } from "../../lib/query";
@@ -36,6 +36,10 @@ export default function OverviewPage() {
   const boroughs = o.by_borough.filter((b) => b.borough !== "UNKNOWN");
   const unknown = o.by_borough.find((b) => b.borough === "UNKNOWN");
   const maxEv = Math.max(...boroughs.map((b) => b.events));
+  // Model tüm uygun kayıtlarla mı eğitildi? (kümelenmiş + gürültü = uygun) — eşitse modelin veri dönemi analiz kapsamıdır.
+  const modelOnAllEligible = o.model.events_clustered + o.model.events_noise === o.records.eligible;
+  const day = (iso: string | null | undefined) => iso?.slice(0, 10) ?? "—";
+  const exclusions = Object.entries(o.records.exclusion_reasons).filter(([k]) => k !== "none").sort((a, b) => b[1] - a[1]);
   const openCluster = (id: number) => {
     setSource({ kind: "model" });
     requestFocus("model", id);
@@ -45,19 +49,50 @@ export default function OverviewPage() {
   return (
     <div className="mx-auto w-full max-w-[1480px] p-4 sm:p-6 space-y-5" data-testid="overview">
       <PageHeader eyebrow="NYC Motorlu Araç Kazaları" title="Genel bakış"
-        description={<>Kaynak: <a className="text-primary underline underline-offset-2 hover:decoration-2" href={o.source.source_url} target="_blank" rel="noopener">{o.source.dataset_name ?? o.source.dataset_id} <ExternalLink className="inline size-3" /></a> · {o.source.attribution ?? "NYPD"} · anlık görüntü <code className="text-[12.5px]">{o.source.snapshot}</code></>}
+        description={<>Kaynak: <a className="text-primary underline underline-offset-2 hover:decoration-2" href={o.source.source_url} target="_blank" rel="noopener">{o.source.dataset_name ?? o.source.dataset_id} <ExternalLink className="inline size-3" /></a> · {o.source.attribution ?? "NYPD"}</>}
         actions={<>
           <ExportMenu base="/api/export/records" label="Özeti dışa aktar" testId="overview-export" />
           <Button size="sm" onClick={() => setRoute("explorer")}><MapIcon /> 3D haritada aç</Button>
         </>} />
 
-      {stale && (
-        <Note tone="warning" title="Veri güncellik uyarısı" testId="freshness-warning">
-          Yayıncı günlük güncelleme beyan ediyor; ancak kaynak satırları en son {fr.rows_updated_at?.slice(0, 10)} tarihinde güncellendi
-          (kontrol {fr.checked_at?.slice(0, 10)}: {fmtInt(fr.days_since_rows_updated_at_check)} gün; bugün itibarıyla {fmtInt(fr.days_since_rows_updated_now)} gün,
-          eşik {fr.staleness_threshold_days} gün). Analiz {o.coverage.date_max} tarihine kadarki kayıtları kapsar.
-        </Note>
-      )}
+      {/* Kaynak ve kapsam bloğu: güncellik uyarısı (gizlenmez) + kaynak tarihi, analiz kapsamı ve modelin veri dönemi daima
+          görünür. Uyarı ile şerit tek blokta: uyarı cümlesi kaynak tarihini zaten içerdiği için ayrı kutu dikey yer kaybıydı. */}
+      <section className={cn("surface overflow-hidden", stale && "border-warning/45")} aria-label="Veri kaynağı ve analiz kapsamı" data-testid="ov-scope">
+        {stale && (
+          <div role="note" data-testid="freshness-warning" className="flex items-start gap-2.5 border-b border-warning/35 bg-warning/[0.07] px-4 py-2.5 text-[12.5px] leading-snug">
+            <AlertTriangle className="size-4 shrink-0 mt-[1px] text-warning" aria-hidden />
+            <p className="min-w-0 text-muted-foreground">
+              <b className="font-semibold text-foreground">Veri güncellik uyarısı:</b> kaynak satırları en son{" "}
+              <b className="font-semibold text-foreground">{day(fr.rows_updated_at)}</b> tarihinde güncellendi (bugün itibarıyla{" "}
+              {fmtInt(fr.days_since_rows_updated_now)} gün; eşik {fr.staleness_threshold_days} gün); analiz{" "}
+              <b className="font-semibold text-foreground">{o.coverage.date_max}</b> tarihine kadarki kayıtları kapsar.{" "}
+              <span className="inline-flex align-middle" data-testid="freshness-details">
+                <InfoTip label="Güncellik ayrıntıları">
+                  Yayıncı günlük güncelleme beyan ediyor. Kontrol tarihi {day(fr.checked_at)}: son güncellemeden {fmtInt(fr.days_since_rows_updated_at_check)} gün
+                  geçmişti. Analizde kullanılan anlık görüntü {o.source.snapshot}.
+                </InfoTip>
+              </span>
+            </p>
+          </div>
+        )}
+        <div className="grid grid-cols-1 divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <div className="px-4 py-2.5 min-w-0">
+            <div className="text-[11.5px] font-medium text-muted-foreground">Kaynak tarihi</div>
+            <div className="font-display font-bold text-[15px] tabular" data-testid="ov-source-date">{day(fr.rows_updated_at)}</div>
+            <div className="text-[11.5px] text-subtle truncate">son satır güncellemesi · indirme {day(o.source.acquisition?.retrieval_completed_utc as string | undefined)}</div>
+          </div>
+          <div className="px-4 py-2.5 min-w-0" data-testid="ov-coverage">
+            <div className="text-[11.5px] font-medium text-muted-foreground">Analiz kapsamı</div>
+            <div className="font-display font-bold text-[15px] tabular">{o.coverage.date_min} → {o.coverage.date_max}</div>
+            <div className="text-[11.5px] text-subtle">{o.coverage.partial_years.length ? `Kısmi yıllar: ${o.coverage.partial_years.map((p) => p.year).join(", ")}` : "Tam yıllar"}</div>
+          </div>
+          <div className="px-4 py-2.5 min-w-0" data-testid="ov-model-period">
+            <div className="text-[11.5px] font-medium text-muted-foreground">Modelin veri dönemi</div>
+            <div className="font-display font-bold text-[15px] tabular">{modelOnAllEligible ? `${o.coverage.date_min} → ${o.coverage.date_max}` : "—"}</div>
+            <div className="text-[11.5px] text-subtle">{modelOnAllEligible ? `Tüm uygun kayıtlar (${fmtInt(o.records.eligible)})` : "Kapsam meta verisinde doğrulanamadı"}</div>
+          </div>
+        </div>
+      </section>
 
       {/* Odak: analize uygun kayıtlar */}
       <section className="surface grid gap-6 p-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]" aria-labelledby="hero-title">
@@ -71,30 +106,36 @@ export default function OverviewPage() {
             aria-label={`Uygun ${fmtInt(o.records.eligible)}, dışlanan ${fmtInt(o.records.excluded)} kayıt`}>
             <span className="h-full bg-primary" style={{ width: `${eligibleShare * 100}%` }} />
           </div>
-          <dl className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 text-[12.5px]">
-            {Object.entries(o.records.exclusion_reasons).filter(([k]) => k !== "none").sort((a, b) => b[1] - a[1]).map(([k, v]) => (
-              <div key={k} className="flex justify-between gap-2 border-b border-line/60 pb-1">
-                <dt className="text-muted-foreground">{REASON_TR[k] ?? k}</dt><dd className="tabular">{fmtInt(v)}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-3 text-[12px] text-subtle leading-snug">
-            Uygun = geçerli NYC koordinatı (resmî ilçe sınırı içinde veya kıyıya yakın) ve geçerli tarih. Dışlanan kayıtlar ham veride
-            korunur; yalnızca coğrafi analizden çıkarılır. {fmtInt(o.records.unique_locations)} benzersiz konum.
-          </p>
+          <div className="mt-2 flex flex-wrap justify-between gap-x-4 gap-y-1 text-[12.5px] tabular">
+            <span><span className="inline-block size-2 rounded-sm bg-primary mr-1.5" aria-hidden />Uygun {fmtInt(o.records.eligible)}</span>
+            <span className="text-muted-foreground"><span className="inline-block size-2 rounded-sm bg-surface-3 mr-1.5" aria-hidden />Dışlanan {fmtInt(o.records.excluded)}</span>
+          </div>
+          <details className="disclosure mt-3 rounded-md border border-line px-3 py-2" data-testid="exclusion-details">
+            <summary className="text-[12.5px] font-semibold">Dışlanan kayıtların nedenleri ve eksik koordinatlar</summary>
+            <dl className="mt-2.5 grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 text-[12.5px]">
+              {exclusions.map(([k, v]) => (
+                <div key={k} className="flex justify-between gap-2 border-b border-line/60 pb-1">
+                  <dt className="text-muted-foreground">{REASON_TR[k] ?? k}</dt><dd className="tabular">{fmtInt(v)}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-2.5 text-[12px] text-subtle leading-snug">
+              Uygun = geçerli NYC koordinatı (resmî ilçe sınırı içinde veya kıyıya yakın) ve geçerli tarih. Dışlanan kayıtlar ham veride
+              korunur; yalnızca coğrafi analizden çıkarılır.
+            </p>
+          </details>
         </div>
-        <div className="grid grid-cols-2 gap-x-5 gap-y-5 content-start border-t border-line pt-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-6">
+        <div className="grid grid-cols-2 gap-x-5 gap-y-4 content-start border-t border-line pt-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-6">
           <MetricCard label="Seçilen model" testId="ov-model"
             value={<span className="text-[18px]">{o.model.algorithm.toUpperCase()}</span>}
-            hint={<>eps = {o.model.parameters.eps_m} m · min_samples = {o.model.parameters.min_samples}<br /><code>{o.model.experiment_id}</code></>} />
+            hint={<>eps = {o.model.parameters.eps_m} m · min_samples = {o.model.parameters.min_samples}<br /><span className="text-[11px]">Deney kimliği <code>{o.model.experiment_id}</code></span></>} />
           <MetricCard label="Küme sayısı" value={fmtInt(o.model.clusters)} tone="primary" testId="ov-clusters"
             hint={`${fmtInt(o.model.events_clustered)} olay kümelerde`} />
           <MetricCard label="Gürültü oranı" value={fmtPct(o.model.noise_ratio)} testId="ov-noise"
             info="DBSCAN'in hiçbir kümeye atamadığı olayların payı (etiket −1). Yüksek oran, modelin yalnızca kavşak ölçeğindeki kronik yoğunlaşmaları temsil ettiğini gösterir; bir hata ölçüsü değildir."
-            hint={`${fmtInt(o.model.events_noise)} olay`} />
-          <MetricCard label="Tarih kapsamı" testId="ov-coverage"
-            value={<span className="text-[16px]">{o.coverage.date_min} → {o.coverage.date_max}</span>}
-            hint={o.coverage.partial_years.length ? `Kısmi yıllar: ${o.coverage.partial_years.map((p) => p.year).join(", ")}` : undefined} />
+            hint={`${fmtInt(o.model.events_noise)} olay · hata ölçüsü değil`} />
+          <MetricCard label="Benzersiz konum" value={fmtInt(o.records.unique_locations)} testId="ov-locations"
+            hint="uygun kayıtların tekil koordinatları" />
           <MetricCard label="Yaralanmalı kaza" value={fmtInt(o.totals.injury_crashes)} tone="warning" hint={`${fmtInt(o.totals.persons_injured)} yaralı kişi`} />
           <MetricCard label="Ölümle sonuçlanan kaza" value={fmtInt(o.totals.fatal_crashes)} tone="hotspot" hint={`${fmtInt(o.totals.persons_killed)} ölü kişi`} />
         </div>

@@ -1,0 +1,253 @@
+{
+  "generated_at": "2026-10-22T14:54:34.382Z",
+  "cams": {
+    "nyc": {
+      "center": [
+        -73.94,
+        40.7
+      ],
+      "zoom": 10.3,
+      "pitch": 45,
+      "bearing": -17
+    },
+    "midzoom": {
+      "center": [
+        -73.99,
+        40.735
+      ],
+      "zoom": 13.4,
+      "pitch": 50,
+      "bearing": -17
+    },
+    "manhattan": {
+      "center": [
+        -73.9855,
+        40.7505
+      ],
+      "zoom": 15.4,
+      "pitch": 60,
+      "bearing": 29
+    },
+    "glb": {
+      "center": [
+        -73.98397,
+        40.69471
+      ],
+      "zoom": 19.6,
+      "pitch": 62,
+      "bearing": 335
+    }
+  },
+  "scenes": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4050 Laptop GPU (0x000028E1) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "01-nyc-genel": {
+      "cam": {
+        "center": [
+          -73.94,
+          40.7
+        ],
+        "zoom": 10.3,
+        "pitch": 45,
+        "bearing": -17
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "02-orta-yakinlik-gece": {
+      "cam": {
+        "center": [
+          -73.99,
+          40.735
+        ],
+        "zoom": 13.4,
+        "pitch": 50,
+        "bearing": -17
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "03-manhattan-3d-gece": {
+      "cam": {
+        "center": [
+          -73.9855,
+          40.7505
+        ],
+        "zoom": 15.4,
+        "pitch": 60,
+        "bearing": 29
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "04-orta-yakinlik-gunduz": {
+      "cam": {
+        "center": [
+          -73.99,
+          40.735
+        ],
+        "zoom": 13.4,
+        "pitch": 50,
+        "bearing": -17
+      },
+      "theme": "day",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "05-manhattan-3d-gunduz": {
+      "cam": {
+        "center": [
+          -73.9855,
+          40.7505
+        ],
+        "zoom": 15.4,
+        "pitch": 60,
+        "bearing": 29
+      },
+      "theme": "day",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "06-brooklyn-tillary-secili": {
+      "cam": {
+        "center": [
+          -73.98452963670267,
+          40.69603335263209
+        ],
+        "zoom": 16.6,
+        "pitch": 50,
+        "bearing": -17
+      },
+      "selected": 1344,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "07-kume-detay-paneli": {
+      "selected": 1344,
+      "panel": {
+        "scrollHeight": 1022,
+        "clientHeight": 684
+      }
+    },
+    "08-secili-kume-orta-yakinlik": {
+      "cam": {
+        "center": [
+          -73.98452963670267,
+          40.69603335263209
+        ],
+        "zoom": 13.6,
+        "pitch": 45,
+        "bearing": -17
+      },
+      "selected": 1344,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "09-glb-onizleyici-paneli": {
+      "model": "taxi",
+      "preview": "yok (bu sürümde önizleyici yok)"
+    },
+    "10-glb-haritaya-yerlesmis": {
+      "cam": {
+        "center": [
+          -73.98397,
+          40.69471
+        ],
+        "zoom": 19.6,
+        "pitch": 62,
+        "bearing": 335
+      },
+      "model": "taxi",
+      "heading": 3,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "11-genel-bakis": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "12-yerlesim-1920x1080": {
+      "cam": {
+        "center": [
+          -73.99,
+          40.735
+        ],
+        "zoom": 13.4,
+        "pitch": 50,
+        "bearing": -17
+      },
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "12-yerlesim-1280x720": {
+      "cam": {
+        "center": [
+          -73.99,
+          40.735
+        ],
+        "zoom": 13.4,
+        "pitch": 50,
+        "bearing": -17
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "12-yerlesim-768x1024": {
+      "cam": {
+        "center": [
+          -73.99,
+          40.735
+        ],
+        "zoom": 13.4,
+        "pitch": 50,
+        "bearing": -17
+      },
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      }
+    },
+    "12-yerlesim-390x844": {
+      "cam": {
+        "center": [
+          -73.99,
+          40.735
+        ],
+        "zoom": 13.4,
+        "pitch": 50,
+        "bearing": -17
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    "13-mobil-genel-bakis": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  }
+}

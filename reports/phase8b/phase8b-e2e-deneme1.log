@@ -1,0 +1,38 @@
+
+Running 3 tests using 1 worker
+
+  ✓  1 [chromium] › e2e\phase8b.spec.ts:38:1 › Harita: yeni küme katmanları, hover kartı, isabet alanı ve seçim vurgusu (27.8s)
+  ✘  2 [chromium] › e2e\phase8b.spec.ts:112:1 › GLB önizleyici: seç, döndür, yakınlaştır, sıfırla, lisans, yerleştir/kaldır, tekrar indirme yok, GPU temizliği (11.2s)
+  ✓  3 [chromium] › e2e\phase8b.spec.ts:191:1 › Yerleşim: sol panel daraltma, panel çakışması, responsive, axe (16.2s)
+
+
+  1) [chromium] › e2e\phase8b.spec.ts:112:1 › GLB önizleyici: seç, döndür, yakınlaştır, sıfırla, lisans, yerleştir/kaldır, tekrar indirme yok, GPU temizliği 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "geometries": 4,
+    -   "textures": 2,
+    +   "geometries": 0,
+    +   "textures": 1,
+      }
+
+      165 |   await expect(preview).toHaveAttribute("data-state", "ready", { timeout: 60_000 });
+      166 |   // Model değişiminde önceki modelin kaynakları bırakılır: GPU sayaçları büyümez
+    > 167 |   expect((await st()).memory).toEqual(memTaxi);
+          |                               ^
+      168 |   const taxiDownloads = glbRequests.filter((u) => u.endsWith("/taxi.glb")).length;
+      169 |   expect(taxiDownloads).toBe(1);
+      170 |
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8b.spec.ts:167:31
+
+    Error Context: test-results\phase8b-GLB-önizleyici-seç-3b48c-r-indirme-yok-GPU-temizliği-chromium\error-context.md
+
+    Error Context: test-results\phase8b-GLB-önizleyici-seç-3b48c-r-indirme-yok-GPU-temizliği-chromium\error-context.md
+
+  1 failed
+    [chromium] › e2e\phase8b.spec.ts:112:1 › GLB önizleyici: seç, döndür, yakınlaştır, sıfırla, lisans, yerleştir/kaldır, tekrar indirme yok, GPU temizliği 
+  2 passed (57.8s)

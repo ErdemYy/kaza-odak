@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-10-22T16:13:11.251Z",
+  "server_a_ready_ms": 2937,
+  "resources_before": {
+    "available_memory_mb": 4116.2,
+    "min_free_memory_mb": 1500,
+    "can_start": true,
+    "worker_memory_limit_mb": 3348,
+    "max_concurrent": 1,
+    "max_pending": 3,
+    "running": 0,
+    "queued": 0,
+    "job_object": true,
+    "cpu_count": 16
+  },
+  "job_before_crash": {
+    "job_id": "12a108321c10",
+    "worker_pid": 41804,
+    "state": "running"
+  },
+  "worker_alive_after_crash": false,
+  "worker_exit_after_crash_ms": 0,
+  "server_b_ready_ms": 2511,
+  "recovery": {
+    "checked": 1,
+    "recovered_completed": [],
+    "interrupted": [
+      "12a108321c10"
+    ],
+    "orphans_killed": [],
+    "db_integrity": "ok"
+  },
+  "resources_before_retry": {
+    "available_memory_mb": 4014.1,
+    "min_free_memory_mb": 1500,
+    "can_start": true,
+    "worker_memory_limit_mb": 3246,
+    "max_concurrent": 1,
+    "max_pending": 3,
+    "running": 0,
+    "queued": 0,
+    "job_object": true,
+    "cpu_count": 16
+  },
+  "retry_job": {
+    "job_id": "eb0bd230362d",
+    "state": "completed",
+    "retry_of": "12a108321c10",
+    "experiment_id": "dyn-ffa2ddf23cc1eeda",
+    "n_events": 42712,
+    "n_clusters": 737,
+    "monitor": {
+      "samples": 17,
+      "peak_rss_mb": 621.7,
+      "mean_cpu_percent": 92.4,
+      "max_cpu_percent": 181.2,
+      "cpu_time_s": 3.97,
+      "cpu_note": "% değeri tek çekirdeğe göredir (100 = bir çekirdek tam dolu)",
+      "peak_commit_mb": 867.2,
+      "available_memory_mb_at_start": 4002,
+      "guard": {
+        "job_object": true,
+        "kill_on_close": true,
+        "memory_limit_mb": 3234,
+        "error": null
+      },
+      "exit_code": 0
+    }
+  },
+  "after_second_restart": {
+    "state": "completed",
+    "recovery": {
+      "checked": 0,
+      "recovered_completed": [],
+      "interrupted": [],
+      "orphans_killed": [],
+      "db_integrity": "ok"
+    }
+  }
+}

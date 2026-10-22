@@ -1,0 +1,7 @@
+
+Running 1 test using 1 worker
+
+{"project":"gpu-varsayilan","renderer":"ANGLE (NVIDIA, NVIDIA GeForce RTX 4050 Laptop GPU (0x000028E1) Direct3D11 vs_5_0 ps_5_0, D3D11)","fps_rotate":109.1,"fps_zoom_in":143,"recoveryMs":1110}
+  ✓  1 [gpu-varsayilan] › e2e-perf\map.perf.ts:41:1 › Harita + 3D performansı (58.0s)
+
+  1 passed (58.9s)

@@ -1,0 +1,26 @@
+
+Running 19 tests using 1 worker
+
+  ✓   1 [chromium] › e2e\phase8.spec.ts:117:1 › Marka, favikon ve gezinme (10.5s)
+  ✓   2 [chromium] › e2e\phase8.spec.ts:219:1 › Genel bakış etkileşimleri (3.8s)
+  ✓   3 [chromium] › e2e\phase8.spec.ts:304:1 › 3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon (1.1m)
+  ✓   4 [chromium] › e2e\phase8.spec.ts:439:1 › 3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB (1.3m)
+  ✓   5 [chromium] › e2e\phase8.spec.ts:551:1 › 3D Şehir — zaman oynatma (10.6s)
+  ✓   6 [chromium] › e2e\phase8.spec.ts:623:1 › 3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama (30.5s)
+  ✓   7 [chromium] › e2e\phase8.spec.ts:789:1 › Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş (37.6s)
+  ✓   8 [chromium] › e2e\phase8.spec.ts:976:3 › Laboratuvar — dinamik iş, iptal, yeniden deneme, önbellek (yalıtılmış sunucu) › Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster (20.4s)
+  ✓   9 [chromium] › e2e\phase8.spec.ts:1036:1 › Model karşılaştırma — akademik doğruluk ve etkileşimler (5.3s)
+  ✓  10 [chromium] › e2e\phase8.spec.ts:1098:1 › Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi (4.7s)
+  ✓  11 [chromium] › e2e\phase8.spec.ts:1168:1 › Hata, yüklenme ve boş durumları (3.9s)
+  ✓  12 [chromium] › e2e\phase8.spec.ts:1200:1 › WebGL bağlam kaybından dönüş (5.7s)
+  ✓  13 [chromium] › e2e\phase8.spec.ts:1222:1 › Altlık harita servisi erişilemezken kaza katmanları yine yüklenir (4.2s)
+  ✓  14 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 1920x1080 (7.4s)
+  ✓  15 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 1440x900 (10.0s)
+  ✓  16 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 1280x720 (7.2s)
+  ✓  17 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 768x1024 (8.2s)
+  ✓  18 [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 390x844 (8.2s)
+  ✓  19 [chromium] › e2e\phase8.spec.ts:1283:1 › Klavye odağı, azaltılmış hareket ve axe (14.1s)
+
+  Slow test file: [chromium] › e2e\phase8.spec.ts (5.6m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  19 passed (5.7m)

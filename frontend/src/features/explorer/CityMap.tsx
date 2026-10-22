@@ -5,12 +5,12 @@
 //  * model, filtresiz  → Faz 4 uç noktaları (tam veri etiketleri)
 //  * model, filtreli   → /api/records/* : filtrelenmiş GERÇEK kayıtlar, etiketler tam veri modelinden (yeniden kümeleme YOK)
 //  * result            → /api/results/{kimlik}/* : kayıtlı Faz 3 deneyi veya tamamlanmış laboratuvar işi
-import { Map as MaplibreMap, type MapMouseEvent, type Map as MlMap } from "maplibre-gl";
+import { Map as MaplibreMap, Popup, type MapMouseEvent, type Map as MlMap } from "maplibre-gl";
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from "react";
 import type { CameraAction } from "../../components/CameraControls";
 import type { ViewportInfo } from "../../components/Legend";
 import { api, ApiError, assertClusterMatch, bboxParam, type ClusterDetail, type Meta, type PointsResponse } from "../../lib/api";
-import { boroughTarget, cityTarget, clusterTarget, durationFor, type FitTarget, type FlyTarget } from "../../lib/camera";
+import { BOROUGH_TR, boroughTarget, cityTarget, clusterTarget, durationFor, type FitTarget, type FlyTarget } from "../../lib/camera";
 import { fmtInt } from "../../lib/format";
 import type { BBox, LngLat } from "../../lib/geo";
 import { bboxSpan, snapBBox } from "../../lib/geo";
@@ -18,9 +18,9 @@ import { densityCell, POINT_MIN_ZOOM, pointQueryKind, type MotionLevel, type Vis
 import { cachedGet } from "../../lib/query";
 import { validateRegistry, type AssetRegistry } from "../../lib/registry";
 import type { ClusterRow, FilteredClusterProfile, Profile } from "../../lib/types";
-import { addDataLayers, applyVisibility, setSelected, setSourceData } from "../../map/dataLayers";
+import { addDataLayers, applyVisibility, setHovered, setSelected, setSourceData } from "../../map/dataLayers";
 import { pickCluster, type CentroidIndex } from "../../map/picking";
-import { buildBaseStyle, themePaint, themeSky, type Theme } from "../../map/style";
+import { buildBaseStyle, themeLight, themePaint, themeSky, type Theme } from "../../map/style";
 import { CityModelsLayer, type InspectorPlacement } from "../../map/threeLayer";
 import { nearbyRoads, pickRoadSegment } from "../../map/traffic";
 import type { MapSource } from "../../app/store";
@@ -87,6 +87,21 @@ function occluded(map: MlMap, target: LngLat): boolean {
   const p = map.project(target);
   return map.queryRenderedFeatures([[p.x - 3, p.y - 3], [p.x + 3, p.y + 3]], { layers: ["building-3d"] }).length > 0;
 }
+/** Hover bilgi kartı: tek bir yeniden kullanılan DOM öğesi; değerler küme merkezi özelliklerinden (ek istek yok). */
+function hoverCard(p: Record<string, unknown>): HTMLElement {
+  const el = document.createElement("div");
+  el.className = "map-hover-card";
+  el.dataset.testid = "cluster-hover";
+  el.dataset.clusterId = String(p.cluster_id);
+  const line = (text: string, cls: string) => { const d = document.createElement("div"); d.className = cls; d.textContent = text; el.appendChild(d); };
+  const borough = typeof p.borough === "string" ? BOROUGH_TR[p.borough] ?? p.borough : null;
+  line(`Küme #${p.cluster_id}${p.rank != null ? ` · ${fmtInt(Number(p.rank))}. sırada` : ""}`, "map-hover-title");
+  line(`${fmtInt(Number(p.n_events))} kaza kaydı${borough ? ` · ${borough}` : ""}`, "map-hover-main");
+  if (p.injury_crashes != null) line(`Yaralanmalı ${fmtInt(Number(p.injury_crashes))} · Ölümlü ${fmtInt(Number(p.fatal_crashes ?? 0))}`, "map-hover-sub");
+  line("Ayrıntı için tıklayın", "map-hover-hint");
+  return el;
+}
+
 const modeKey = (m: Mode) => `${m.source.kind === "model" ? "model" : m.source.id}|${m.q}`;
 
 function endpoints(m: Mode) {
@@ -130,6 +145,7 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
   const loaded = useRef<{ geometries: boolean; density250: string }>({ geometries: false, density250: "" });
   const selectedRef = useRef<{ clusterId: number; centroid: LngLat; radius: number } | null>(null);
   const centroidIndex = useRef<CentroidIndex>(new Map());
+  const centroidProps = useRef<Map<number, Record<string, unknown>>>(new Map());
   const styleReady = useRef(false);
   const selectSeq = useRef(0);
   // Bağlam kaybından sonra kaynakları yeniden doldurmak için son yüklenen GeoJSON'lar (nokta katmanı hariç)
@@ -238,6 +254,7 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
       put(map, "centroids", clusters);
       centroidIndex.current = new Map(clusters.features.map((f) => [Number(f.properties!.cluster_id),
         { lngLat: f.geometry.coordinates as LngLat, experimentId: String(f.properties!.experiment_id) }]));
+      centroidProps.current = new Map(clusters.features.map((f) => [Number(f.properties!.cluster_id), f.properties as Record<string, unknown>]));
       put(map, "density", density);
       // Küme geometrileri yalnızca seçili modelde vardır; filtrede yalnızca filtrelenmiş olay içeren kümeler
       if (map.getLayer("geom-fill")) {
@@ -460,10 +477,37 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
     };
     // Tek tıklama dinleyicisi: üst üste binen dairelerde iki kez seçim yapılmaz.
     map.on("click", onClick);
-    for (const l of clickable) {
-      map.on("mouseenter", l, () => { map.getCanvas().style.cursor = "pointer"; });
-      map.on("mouseleave", l, () => { map.getCanvas().style.cursor = ""; });
-    }
+    // Hover: tıklamayla AYNI seçim kuralı (pickCluster → ekranda en yakın merkez), böylece kartta görünen küme
+    // tıklanınca açılan kümeyle aynıdır. Kare başına en çok bir sorgu (rAF); dokunmatikte hover yoktur.
+    const popup = new Popup({ closeButton: false, closeOnClick: false, offset: 12, maxWidth: "260px", className: "map-hover" });
+    let hovered: number | null = null;
+    let hoverFrame = 0;
+    let lastMouse: [number, number] | null = null;
+    const clearHover = () => {
+      hovered = null;
+      lastMouse = null;
+      setHovered(map, null);
+      popup.remove();
+      map.getCanvas().style.cursor = "";
+    };
+    map.on("mousemove", (e) => {
+      lastMouse = [e.point.x, e.point.y];
+      if (hoverFrame) return;
+      hoverFrame = requestAnimationFrame(() => {
+        hoverFrame = 0;
+        if (!lastMouse || map.isMoving()) return;
+        const hit = pickCluster(map, lastMouse[0], lastMouse[1], centroidIndex.current, clickable);
+        if (!hit) return void (hovered !== null && clearHover());
+        map.getCanvas().style.cursor = "pointer";
+        if (hit.clusterId === hovered) return;
+        hovered = hit.clusterId;
+        setHovered(map, hit.clusterId);
+        const entry = centroidIndex.current.get(hit.clusterId)!;
+        popup.setLngLat(entry.lngLat).setDOMContent(hoverCard(centroidProps.current.get(hit.clusterId) ?? { cluster_id: hit.clusterId })).addTo(map);
+      });
+    });
+    map.getCanvas().addEventListener("mouseleave", clearHover);
+    map.on("movestart", () => { if (hovered !== null) clearHover(); });
 
     // WebGL bağlam kaybı: 3D model katmanı yeni bağlamla yeniden kurulur (modeller önbellekteki GLB'lerden).
     map.on("webglcontextlost", () => {
@@ -493,10 +537,14 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
       layer: () => layerRef.current,
       // Faz 4 test kancası sözleşmesi: seçili kümenin cluster_id alanı
       selected: () => (selectedRef.current ? { cluster_id: selectedRef.current.clusterId, ...selectedRef.current } : null),
+      // Faz 8B: seçim kuralının (pickCluster) test kancası — ekran noktasında hangi küme açılır
+      pick: (x: number, y: number) => pickCluster(map, x, y, centroidIndex.current, clickable)?.clusterId ?? null,
       visibility: () => visRef.current,
       mode: () => modeKey(modeRef.current),
     };
     return () => {
+      cancelAnimationFrame(hoverFrame);
+      popup.remove();
       resizeObserver.disconnect();
       ctrl.abort();
       pointsAbort.current?.abort();
@@ -539,6 +587,7 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
       for (const [prop, value] of Object.entries(paint)) map.setPaintProperty(layer, prop as never, value as never);
     }
     map.setSky(themeSky(props.theme));
+    map.setLight(themeLight(props.theme));
   }, [props.theme]);
 
   useEffect(() => {

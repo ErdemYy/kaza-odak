@@ -1,0 +1,75 @@
+{
+  "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster",
+  "status": "passed",
+  "duration_ms": 37925,
+  "records": [
+    {
+      "id": "L08",
+      "screen": "Laboratuvar",
+      "component": "Analizi başlat (gerçek ayrı süreç)",
+      "expected": "İş kuyruğa alınır ve çalışır; aşama bilgisi gösterilir (ilerleme yüzdesi uydurulmaz)",
+      "actual": "iş 40e88026bf62: Aşama: Kaynak gereksinimi ölçülüyor · geçen süre 2,9 sn",
+      "result": "geçti",
+      "ms": 3201,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    },
+    {
+      "id": "L09",
+      "screen": "Laboratuvar",
+      "component": "İptal et",
+      "expected": "Çalışan iş iptal edilir; durum 'İptal edildi'; çalışan süreç sonlandırılır",
+      "actual": "durum cancelled; sonlandırma doğrulandı: true",
+      "result": "geçti",
+      "ms": 93,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    },
+    {
+      "id": "L10",
+      "screen": "Laboratuvar",
+      "component": "Yeniden dene",
+      "expected": "Yeni iş kimliği, retry_of bağlantısı; iş gerçek olarak tamamlanır",
+      "actual": "iş 05107333c2fc: 6.686 olay → 72 küme, fit 0.05 sn",
+      "result": "geçti",
+      "ms": 27659,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    },
+    {
+      "id": "L11",
+      "screen": "Laboratuvar",
+      "component": "Aynı istek yeniden → önbellek",
+      "expected": "Aynı istek yeniden hesaplanmaz; 'Önbellekten' rozeti",
+      "actual": "iş 4d058479b40c önbellekten",
+      "result": "geçti",
+      "ms": 140,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    },
+    {
+      "id": "L14b",
+      "screen": "Laboratuvar",
+      "component": "Dinamik sonuç › Haritada göster",
+      "expected": "Sonuç modunda merkez sayısı sonuç özetiyle aynı; bant 'Dinamik analiz sonucu'",
+      "actual": "72 merkez = sonuç özeti",
+      "result": "geçti",
+      "ms": 3937,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {
+    "free_memory_before_dynamic_mb": 3906.9,
+    "dynamic_job": {
+      "job": "05107333c2fc",
+      "n_events": 6686,
+      "clusters": 72,
+      "runtime_s": 0.046,
+      "peak_mb": 183.2
+    }
+  }
+}

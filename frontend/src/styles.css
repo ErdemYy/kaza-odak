@@ -246,6 +246,74 @@
   outline: 2px solid var(--color-primary);
 }
 
+/* Faz 8B: küme hover kartı (tek MapLibre Popup). İşaretçi olaylarını yakalamaz: altındaki kümeye tıklama haritaya ulaşır. */
+.map-hover {
+  pointer-events: none;
+  z-index: 5;
+}
+.map-hover .maplibregl-popup-content {
+  background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 22px -10px rgb(0 0 0 / 0.7);
+  padding: 7px 10px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+.map-hover .maplibregl-popup-tip {
+  border-top-color: var(--color-line-strong) !important;
+  border-bottom-color: var(--color-line-strong) !important;
+}
+.map-hover-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12.5px;
+}
+.map-hover-main {
+  font-size: 12px;
+}
+.map-hover-sub {
+  font-size: 11.5px;
+  color: var(--color-muted-foreground);
+}
+.map-hover-hint {
+  font-size: 10.5px;
+  color: var(--color-subtle);
+  margin-top: 2px;
+}
+
+/* Faz 8B: açılır ayrıntı bölümleri (küme paneli, genel bakış). Yerel <details>: klavye ve ekran okuyucu desteği yerleşik. */
+.disclosure > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-radius: var(--radius-sm);
+}
+.disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+.disclosure > summary::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: none;
+  border-right: 1.5px solid var(--color-muted-foreground);
+  border-bottom: 1.5px solid var(--color-muted-foreground);
+  transform: rotate(-45deg);
+  transition: transform 150ms;
+  margin-right: 3px;
+}
+.disclosure[open] > summary::after {
+  transform: rotate(45deg) translateY(-2px);
+}
+.disclosure > summary:hover::after {
+  border-color: var(--color-text);
+}
+
 /* Geriye dönük: Faz 4 bileşenlerindeki giriş animasyonu (tw-animate-css ile ad çakışmasın) */
 .enter {
   animation: var(--animate-enter);

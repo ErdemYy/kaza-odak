@@ -1,0 +1,37 @@
+{
+  "test": "WebGL bağlam kaybından dönüş",
+  "status": "passed",
+  "duration_ms": 5699,
+  "records": [
+    {
+      "id": "E18",
+      "screen": "3D Şehir",
+      "component": "WebGL bağlam kaybı → geri yükleme",
+      "expected": "Bağlam geri gelince veri katmanları, 4.179 merkez ve 3D katman yeniden kurulur",
+      "actual": "toparlanma 2.8 sn; 4.179 merkez, city-models katmanı var",
+      "result": "geçti",
+      "ms": 2787,
+      "test": "WebGL bağlam kaybından dönüş"
+    }
+  ],
+  "logs": {
+    "app_console": [
+      "warning: Custom layer with id 'city-models' cannot be restored after WebGL context loss. You will need to re-add it manually after context restoration."
+    ],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {
+    "free_memory_before_dynamic_mb": 3467.5,
+    "dynamic_job": {
+      "job": "94fdbf1adf53",
+      "n_events": 6686,
+      "clusters": 72,
+      "runtime_s": 0.043,
+      "peak_mb": 182.7
+    }
+  }
+}

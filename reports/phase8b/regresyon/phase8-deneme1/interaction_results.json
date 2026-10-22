@@ -1,0 +1,1534 @@
+{
+  "generated_at": "2026-10-22T15:35:22.546Z",
+  "total": 125,
+  "passed": 124,
+  "failed": 1,
+  "tests": [
+    {
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama",
+      "status": "passed",
+      "duration_ms": 38867
+    },
+    {
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon",
+      "status": "passed",
+      "duration_ms": 64286
+    },
+    {
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB",
+      "status": "passed",
+      "duration_ms": 101096
+    },
+    {
+      "test": "3D Şehir — zaman oynatma",
+      "status": "passed",
+      "duration_ms": 12998
+    },
+    {
+      "test": "Altlık harita servisi erişilemezken kaza katmanları yine yüklenir",
+      "status": "passed",
+      "duration_ms": 4661
+    },
+    {
+      "test": "Genel bakış etkileşimleri",
+      "status": "failed",
+      "duration_ms": 34085
+    },
+    {
+      "test": "Hata, yüklenme ve boş durumları",
+      "status": "passed",
+      "duration_ms": 3997
+    },
+    {
+      "test": "Klavye odağı, azaltılmış hareket ve axe",
+      "status": "passed",
+      "duration_ms": 15897
+    },
+    {
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş",
+      "status": "passed",
+      "duration_ms": 43321
+    },
+    {
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster",
+      "status": "passed",
+      "duration_ms": 37925
+    },
+    {
+      "test": "Marka, favikon ve gezinme",
+      "status": "passed",
+      "duration_ms": 11422
+    },
+    {
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler",
+      "status": "passed",
+      "duration_ms": 6586
+    },
+    {
+      "test": "Responsive 1280x720",
+      "status": "passed",
+      "duration_ms": 7720
+    },
+    {
+      "test": "Responsive 1440x900",
+      "status": "passed",
+      "duration_ms": 9508
+    },
+    {
+      "test": "Responsive 1920x1080",
+      "status": "passed",
+      "duration_ms": 7411
+    },
+    {
+      "test": "Responsive 390x844",
+      "status": "passed",
+      "duration_ms": 7849
+    },
+    {
+      "test": "Responsive 768x1024",
+      "status": "passed",
+      "duration_ms": 8853
+    },
+    {
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi",
+      "status": "passed",
+      "duration_ms": 5238
+    },
+    {
+      "test": "WebGL bağlam kaybından dönüş",
+      "status": "passed",
+      "duration_ms": 6029
+    }
+  ],
+  "records": [
+    {
+      "id": "F01",
+      "screen": "3D Şehir › Filtreler",
+      "component": "İlçe çipleri (çoklu)",
+      "expected": "Seçilen ilçeler önizlemeyi API sayısıyla günceller",
+      "actual": "Staten Island 99.401 · + Bronx 401.198",
+      "result": "geçti",
+      "ms": 2360,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F03",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Yıl çipleri",
+      "expected": "Yıl seçimi önizlemeyi günceller; kısmi yıllar kesikli kenarlı",
+      "actual": "6.686 kayıt · 2012 kenarı dashed",
+      "result": "geçti",
+      "ms": 454,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F04",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Ay çipleri",
+      "expected": "Ay seçimi uygulanır",
+      "actual": "813 kayıt",
+      "result": "geçti",
+      "ms": 470,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F05",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Haftanın günü çipleri",
+      "expected": "Gün seçimi uygulanır (çoklu)",
+      "actual": "165 kayıt (hafta sonu)",
+      "result": "geçti",
+      "ms": 597,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F06",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Saat aralığı anahtarı + seçiciler + gece örneği",
+      "expected": "Anahtar 07–10'u açar; seçici değeri değiştirir; gece örneği 22–04 yapar",
+      "actual": "07–10 → 07–12 → 22–04 (30 kayıt) → kapalı",
+      "result": "geçti",
+      "ms": 1760,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F07",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Araç türü çipleri",
+      "expected": "Kategori seçimi uygulanır",
+      "actual": "94 kayıt (SUV), sonra kaldırıldı",
+      "result": "geçti",
+      "ms": 601,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F08",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Katkı faktörü seçici",
+      "expected": "Faktör seçimi uygulanır; 'Tümü' kaldırır",
+      "actual": "66 kayıt, sonra Tümü",
+      "result": "geçti",
+      "ms": 1463,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F09",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Yaralanma durumu (tekli seçim)",
+      "expected": "Yaralanmalı seçimi uygulanır",
+      "actual": "28 kayıt",
+      "result": "geçti",
+      "ms": 819,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F11",
+      "screen": "3D Şehir › Filtreler",
+      "component": "00:00 şüpheli kayıtları hariç tut",
+      "expected": "Onay kutusu uygulanır",
+      "actual": "164 kayıt",
+      "result": "geçti",
+      "ms": 516,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F13",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Mevcut kümelerde göster",
+      "expected": "Filtrelenmiş mod: bant 'yeniden kümeleme yapılmadı'; merkez kimlikleri model kimliklerinin alt kümesi; sayaç API ile aynı",
+      "actual": "33 / 4.179 küme; tüm kimlikler tam veri modelinde",
+      "result": "geçti",
+      "ms": 4001,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F18",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Filtre etkinken küme ayrıntısı",
+      "expected": "Tam küme ve filtrelenmiş sayılar ayrı; küme kimliği değişmez",
+      "actual": "Küme #243: tam 255 / filtrelenmiş 4",
+      "result": "geçti",
+      "ms": 7779,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F15",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Geçersiz tarih aralığı",
+      "expected": "Başlangıç > bitiş: hata mesajı, Uygula ve Laboratuvar düğmeleri devre dışı",
+      "actual": "hata gösterildi, düğmeler kilitli",
+      "result": "geçti",
+      "ms": 409,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F16",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Boş sonuç birleşimi",
+      "expected": "0 kayıt: önizleme 0, haritada 0 küme ve açık bir boş durum mesajı",
+      "actual": "0 kayıt, 0 küme, boş durum: \"Bu filtreyle haritada küme yok Seçilen filtre birleşimine uyan kaza kaydı bulunmuyor. Küme etiketleri değiştirilmedi; fi\"",
+      "result": "geçti",
+      "ms": 6030,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F14",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Filtreleri sıfırla",
+      "expected": "Tüm filtreler temizlenir, seçili model moduna dönülür (4.179 küme)",
+      "actual": "4.179 küme, bant yok",
+      "result": "geçti",
+      "ms": 1754,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F17",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Bu filtreyle yeni kümeleme başlat",
+      "expected": "Filtre uygulanır ve Laboratuvar filtre kapsamıyla açılır; kapsam sayısı API ile aynı",
+      "actual": "Laboratuvar: kapsam 6.686 kayıt",
+      "result": "geçti",
+      "ms": 1568,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F19",
+      "screen": "Laboratuvar",
+      "component": "Kapsam › Filtreleri düzenle (3D Keşif)",
+      "expected": "3D Keşif Filtreler sekmesiyle açılır, filtreler korunur",
+      "actual": "Filtreler sekmesi açık, Staten Island seçili",
+      "result": "geçti",
+      "ms": 1111,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "E01",
+      "screen": "3D Şehir",
+      "component": "Sol panel sekmeleri (Görünüm/Filtreler)",
+      "expected": "Sekmeler panel içeriğini değiştirir",
+      "actual": "Filtreler ↔ Görünüm",
+      "result": "geçti",
+      "ms": 217,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E02",
+      "screen": "3D Şehir",
+      "component": "Araç çubuğu › Filtreler",
+      "expected": "Düğme Filtreler sekmesini açıp kapatır (aria-pressed)",
+      "actual": "aria-pressed true → false",
+      "result": "geçti",
+      "ms": 215,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-MANHATTAN",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › MANHATTAN",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -73.968, 40.771 · zoom 10.7",
+      "result": "geçti",
+      "ms": 3688,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-BROOKLYN",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › BROOKLYN",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -73.929, 40.644 · zoom 10.8",
+      "result": "geçti",
+      "ms": 3542,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-QUEENS",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › QUEENS",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -73.819, 40.657 · zoom 10.2",
+      "result": "geçti",
+      "ms": 3271,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-BRONX",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › BRONX",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -73.843, 40.843 · zoom 11.1",
+      "result": "geçti",
+      "ms": 3604,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-STATEN ISLAND",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › STATEN ISLAND",
+      "expected": "Kamera ilçeye gider; harita merkezi ilçe sınır kutusunun içindedir",
+      "actual": "merkez -74.145, 40.563 · zoom 10.8",
+      "result": "geçti",
+      "ms": 3187,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E03-TUM",
+      "screen": "3D Şehir",
+      "component": "İlçe kamerası › Tüm NYC",
+      "expected": "Kamera şehir ölçeğine döner",
+      "actual": "zoom 9.40",
+      "result": "geçti",
+      "ms": 2743,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-zoom",
+      "screen": "3D Şehir",
+      "component": "Kamera › Yakınlaştır / Uzaklaştır",
+      "expected": "Zoom +1 / −1",
+      "actual": "9.40 → 10.40 → 9.40",
+      "result": "geçti",
+      "ms": 3762,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-rotate",
+      "screen": "3D Şehir",
+      "component": "Kamera › Sola / Sağa döndür",
+      "expected": "Yön ∓30°",
+      "actual": "-17° → -47° → -17°",
+      "result": "geçti",
+      "ms": 2404,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-pitch",
+      "screen": "3D Şehir",
+      "component": "Kamera › Eğimi artır / azalt",
+      "expected": "Eğim ±10°",
+      "actual": "45° → 35° → 45°",
+      "result": "geçti",
+      "ms": 2432,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-north",
+      "screen": "3D Şehir",
+      "component": "Kamera › Kuzeye çevir",
+      "expected": "Yön 0°",
+      "actual": "yön 0.0°",
+      "result": "geçti",
+      "ms": 2207,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E17",
+      "screen": "3D Şehir",
+      "component": "Fareyle harita döndürme (sağ tık sürükle)",
+      "expected": "Sağ tuşla sürüklemek yönü değiştirir",
+      "actual": "yön 0.0° → 120.0°",
+      "result": "geçti",
+      "ms": 5338,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E05-reset",
+      "screen": "3D Şehir",
+      "component": "Kamera › Görünümü sıfırla",
+      "expected": "Tüm NYC görünümüne döner, ilçe seçimi temizlenir",
+      "actual": "zoom 9.40, Tüm NYC seçili",
+      "result": "geçti",
+      "ms": 6147,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-boroughs",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › İlçe sınırları",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (borough-line)",
+      "result": "geçti",
+      "ms": 554,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-density",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Yoğunluk",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (density-heat-1000)",
+      "result": "geçti",
+      "ms": 992,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-centroids",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Küme merkezleri",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (centroid-circle)",
+      "result": "geçti",
+      "ms": 868,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-geometries",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Küme geometrileri",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (geom-fill)",
+      "result": "geçti",
+      "ms": 1271,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-clustered",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Kümelenmiş noktalar",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (points-clustered)",
+      "result": "geçti",
+      "ms": 1081,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-noise",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › Gürültü noktaları",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "kapalı → visible → kapalı (points-noise)",
+      "result": "geçti",
+      "ms": 908,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-buildings",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › 3D binalar",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (building-3d)",
+      "result": "geçti",
+      "ms": 762,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E04-models",
+      "screen": "3D Şehir",
+      "component": "Katman anahtarı › 3D modeller",
+      "expected": "Anahtar katman görünürlüğünü değiştirir; tekrar basınca geri döner",
+      "actual": "açık → none → açık (city-models)",
+      "result": "geçti",
+      "ms": 790,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E06",
+      "screen": "3D Şehir",
+      "component": "Gece/Gündüz düğmesi",
+      "expected": "Tema arka plan rengini değiştirir; etiket güncellenir",
+      "actual": "#0B1120 → #E4E9F0 → #0B1120",
+      "result": "geçti",
+      "ms": 6630,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E07",
+      "screen": "3D Şehir",
+      "component": "Animasyon düzeyi seçicisi",
+      "expected": "tam/azaltılmış/kapalı: belge ve 3D katman hareket düzeyi değişir",
+      "actual": "off → reduced → full",
+      "result": "geçti",
+      "ms": 440,
+      "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon"
+    },
+    {
+      "id": "E09",
+      "screen": "3D Şehir",
+      "component": "Haritada küme merkezine tıklama",
+      "expected": "Tıklanan küme seçilir; panelde kimlik ve kayıt sayısı API ile aynı",
+      "actual": "Küme #1344: 1.444 kayıt, dbscan-52abd2c018",
+      "result": "geçti",
+      "ms": 11279,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E21",
+      "screen": "3D Şehir",
+      "component": "Seçim sonrası kamera / bina engeli",
+      "expected": "Kümeye yaklaşınca merkez bir 3D binanın arkasında kalmaz; temsili araç notu gösterilir",
+      "actual": "bina örtüşmesi 0, zoom 19.2, eğim 62° · not: \"6 temsili araç, küme yakınındaki gerçek bir yol (OSM) üzerinde hareket eden bir simülasyon…\"",
+      "result": "geçti",
+      "ms": 9141,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E22",
+      "screen": "3D Şehir",
+      "component": "Temsili araç sahnesi (GLB)",
+      "expected": "Seçili küme çevresinde GLB araçlar yüklenir; gerçek kaza animasyonu olarak sunulmaz",
+      "actual": "yüklenen GLB: taxi, sedan, suv, truck, delivery, traffic-light, road-sign-stop",
+      "result": "geçti",
+      "ms": 20,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E10",
+      "screen": "3D Şehir",
+      "component": "Küme ayrıntısı › Odakla",
+      "expected": "Kamera seçili kümeye geri uçar",
+      "actual": "merkeze uzaklık 0.00000°, zoom 19.2",
+      "result": "geçti",
+      "ms": 22356,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E11",
+      "screen": "3D Şehir",
+      "component": "Küme ayrıntısı › Kapat (X)",
+      "expected": "Seçim temizlenir, ipucu metni geri gelir",
+      "actual": "seçim yok",
+      "result": "geçti",
+      "ms": 584,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E12",
+      "screen": "3D Şehir",
+      "component": "Zoom'a göre nokta yükleme",
+      "expected": "zoom < 15 'yakınlaştırın'; zoom ≥ 15 görünen alan sayıları sunucudan gelir",
+      "actual": "Görünen alan: 290 konum · 10.431 olay",
+      "result": "geçti",
+      "ms": 38498,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E13",
+      "screen": "3D Şehir",
+      "component": "Gürültü noktaları anahtarı",
+      "expected": "Açılınca gürültü (−1) ve kümelenmiş noktalar ayrı katmanlarda; gürültüde küme kimliği yok",
+      "actual": "gürültü 1014 konum (küme kimliği yok), kümelenmiş 290 konum",
+      "result": "geçti",
+      "ms": 2696,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E08",
+      "screen": "3D Şehir",
+      "component": "3D varlıklar › model yerleştir / düzenle / kaldır",
+      "expected": "Panel açılır; model seçince GLB yerleştirilir; alanlar ve 'Harita merkezine taşı' çalışır; 'Modeli kaldır' sahneden siler",
+      "actual": "sedan yerleştirildi (1 nesne), yön 90°, merkeze taşındı, kaldırıldı (0 nesne), panel kapandı",
+      "result": "geçti",
+      "ms": 4758,
+      "test": "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB"
+    },
+    {
+      "id": "E14-month",
+      "screen": "3D Şehir",
+      "component": "Zaman ölçeği › month",
+      "expected": "Ölçek değişince kova sayısı ve kaydırıcı aralığı değişir; dilim sıfırlanır",
+      "actual": "168 kova",
+      "result": "geçti",
+      "ms": 345,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E14-dow",
+      "screen": "3D Şehir",
+      "component": "Zaman ölçeği › dow",
+      "expected": "Ölçek değişince kova sayısı ve kaydırıcı aralığı değişir; dilim sıfırlanır",
+      "actual": "7 kova",
+      "result": "geçti",
+      "ms": 233,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E14-hour",
+      "screen": "3D Şehir",
+      "component": "Zaman ölçeği › hour",
+      "expected": "Ölçek değişince kova sayısı ve kaydırıcı aralığı değişir; dilim sıfırlanır",
+      "actual": "24 kova",
+      "result": "geçti",
+      "ms": 278,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E14-year",
+      "screen": "3D Şehir",
+      "component": "Zaman ölçeği › year",
+      "expected": "Ölçek değişince kova sayısı ve kaydırıcı aralığı değişir; dilim sıfırlanır",
+      "actual": "15 kova",
+      "result": "geçti",
+      "ms": 153,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-next",
+      "screen": "3D Şehir",
+      "component": "Zaman › Sonraki/Önceki adım",
+      "expected": "Dilim ilerler/geriler; okuma alanında yıl ve kayıt sayısı API kovasıyla aynı",
+      "actual": "2012 (85.458 kayıt) ↔ 2013",
+      "result": "geçti",
+      "ms": 403,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-slice-map",
+      "screen": "3D Şehir",
+      "component": "Zaman dilimi › harita verisi",
+      "expected": "Dilim seçilince merkezler /api/records/clusters'tan gelir; kimlikler modelin alt kümesi (etiket değişmez)",
+      "actual": "3.929 küme (tümü model kimliği) · mod model|years=2012",
+      "result": "geçti",
+      "ms": 2918,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-play",
+      "screen": "3D Şehir",
+      "component": "Zaman › Oynat / Duraklat",
+      "expected": "Oynat dilimi otomatik ilerletir; Duraklat durdurur",
+      "actual": "2012 → 2012 (duraklatınca sabit)",
+      "result": "geçti",
+      "ms": 3183,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-slider",
+      "screen": "3D Şehir",
+      "component": "Zaman kaydırıcısı (klavye)",
+      "expected": "Ok tuşu dilimi değiştirir; aria-valuetext güncellenir",
+      "actual": "değer 0 → 1; 2013, 171.941 kayıt",
+      "result": "geçti",
+      "ms": 120,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E16",
+      "screen": "3D Şehir",
+      "component": "Zaman histogramı çubuğuna tıklama",
+      "expected": "Tıklanan kova seçilir",
+      "actual": "\"2024 — 83.692 kayıt\" seçildi",
+      "result": "geçti",
+      "ms": 187,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-clear",
+      "screen": "3D Şehir",
+      "component": "Zaman › Dilimi kaldır (X)",
+      "expected": "Tüm dönem görünümüne döner",
+      "actual": "Tüm dönem",
+      "result": "geçti",
+      "ms": 205,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E20",
+      "screen": "3D Şehir",
+      "component": "Üçüncü taraf altlık (OpenFreeMap) kesintisi",
+      "expected": "Karo/tilejson/glif istekleri engellense de yerel API'den 4.179 küme merkezi yüklenir ve durum 'hazır' olur",
+      "actual": "1 altlık isteği engellendi; kaza verisi 0.9 sn'de hazır, 4.179 merkez",
+      "result": "geçti",
+      "ms": 2993,
+      "test": "Altlık harita servisi erişilemezken kaza katmanları yine yüklenir"
+    },
+    {
+      "id": "O01",
+      "screen": "Genel bakış",
+      "component": "Özeti dışa aktar (menü)",
+      "expected": "Menü üç biçim sunar; her bağlantı 200 ve doğru içerik türü döner",
+      "actual": "/api/export/records?format=md → text/markdown 3.614 B · /api/export/records?format=csv → text/csv 2.996 B · /api/export/records?format=json → application/json 17.747 B · indirme: saferoute-kayit-ozeti-6cb81d88.csv",
+      "result": "geçti",
+      "ms": 612,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O02",
+      "screen": "Genel bakış",
+      "component": "Yıllara göre grafik › Tablo/Grafik düğmesi",
+      "expected": "Tablo görünümü yıl satırlarını, Grafik görünümü çubuk grafiği gösterir",
+      "actual": "15 yıl satırı ↔ grafik",
+      "result": "geçti",
+      "ms": 350,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O03",
+      "screen": "Genel bakış",
+      "component": "Yıl grafiği › çubuk ipucu",
+      "expected": "Çubuğun üzerine gelince yıl ve kaza sayısı ipucu görünür",
+      "actual": "Beklenen gerçekleşmedi",
+      "result": "başarısız",
+      "cause": "expect(locator).toContainText(expected) failed | Locator: locator('.recharts-tooltip-wrapper') | Expected substring: \"Kaza\" | Received string:    \"\"",
+      "ms": 30081,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O04",
+      "screen": "Genel bakış",
+      "component": "Gürültü oranı › bilgi ipucu",
+      "expected": "Bilgi simgesine odaklanınca açıklama (hata ölçüsü değildir) görünür",
+      "actual": "ipucu klavye odağıyla açıldı",
+      "result": "geçti",
+      "ms": 32,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O05",
+      "screen": "Genel bakış",
+      "component": "Kaynak bağlantısı",
+      "expected": "NYC Open Data bağlantısı yeni sekmede, rel=noopener",
+      "actual": "https://data.cityofnewyork.us/d/h9gi-nx95",
+      "result": "geçti",
+      "ms": 24,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O06",
+      "screen": "Genel bakış",
+      "component": "Model kartları",
+      "expected": "Küme 4.179, gürültü %59,7, eligible 2.020.638 — API ile aynı",
+      "actual": "küme 4.179, gürültü %59.69",
+      "result": "geçti",
+      "ms": 12,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O07",
+      "screen": "Genel bakış",
+      "component": "3D haritada aç",
+      "expected": "3D Şehir Keşfi açılır",
+      "actual": "#/kesif, harita hazır",
+      "result": "geçti",
+      "ms": 632,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O08",
+      "screen": "Genel bakış",
+      "component": "En yüksek kümeler › Haritada",
+      "expected": "İlk küme haritada seçilir; ayrıntıdaki kayıt sayısı API ile aynı",
+      "actual": "Küme #1344: 1.444 kayıt (genel bakış = ayrıntı = API)",
+      "result": "geçti",
+      "ms": 995,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "S01",
+      "screen": "Genel bakış",
+      "component": "API hatası + Yeniden dene",
+      "expected": "Sunucu 500 dönerse hata kutusu ve Yeniden dene; düzelince içerik gelir",
+      "actual": "hata → yeniden dene → içerik",
+      "result": "geçti",
+      "ms": 938,
+      "test": "Hata, yüklenme ve boş durumları"
+    },
+    {
+      "id": "S02",
+      "screen": "Laboratuvar",
+      "component": "Boş iş geçmişi / sonuç yok durumu",
+      "expected": "İş yokken açıklayıcı boş durum",
+      "actual": "boş durum metni gösterildi",
+      "result": "geçti",
+      "ms": 945,
+      "test": "Hata, yüklenme ve boş durumları"
+    },
+    {
+      "id": "S03",
+      "screen": "Model karşılaştırma",
+      "component": "Yüklenme durumu",
+      "expected": "Yanıt gelene kadar iskelet (role=status) gösterilir",
+      "actual": "iskelet → tablo",
+      "result": "geçti",
+      "ms": 1944,
+      "test": "Hata, yüklenme ve boş durumları"
+    },
+    {
+      "id": "A01",
+      "screen": "Genel",
+      "component": "Odak göstergesi",
+      "expected": "Klavyeyle odaklanan gezinme bağlantısında görünür odak halkası (odaklı/odaksız stil farklı)",
+      "actual": "odaklı: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rg…",
+      "result": "geçti",
+      "ms": 819,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A02",
+      "screen": "3D Şehir",
+      "component": "prefers-reduced-motion",
+      "expected": "İşletim sistemi azaltılmış hareket isterse animasyon düzeyi 'azaltılmış' başlar",
+      "actual": "motion-select = reduced",
+      "result": "geçti",
+      "ms": 787,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-genel-bakis",
+      "screen": "genel-bakis",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "0 ihlal (yok), 29 geçen kural",
+      "result": "geçti",
+      "ms": 2076,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-kesif",
+      "screen": "kesif",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "0 ihlal (yok), 32 geçen kural",
+      "result": "geçti",
+      "ms": 3121,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-laboratuvar",
+      "screen": "laboratuvar",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "0 ihlal (yok), 32 geçen kural",
+      "result": "geçti",
+      "ms": 4306,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-modeller",
+      "screen": "modeller",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "0 ihlal (yok), 29 geçen kural",
+      "result": "geçti",
+      "ms": 2684,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-veri",
+      "screen": "veri",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "0 ihlal (yok), 31 geçen kural",
+      "result": "geçti",
+      "ms": 2043,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "L01",
+      "screen": "Laboratuvar",
+      "component": "Algoritma seçimi (DBSCAN/K-Means/HDBSCAN)",
+      "expected": "Algoritma parametre alanlarını değiştirir",
+      "actual": "k / min_cluster_size + örneklem 100.000 / eps",
+      "result": "geçti",
+      "ms": 321,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L02",
+      "screen": "Laboratuvar",
+      "component": "Öznitelik seti radyo düğmeleri",
+      "expected": "Desteklenmeyen setler devre dışı ve gerekçeli; uzay-zaman seçilince eps_gün alanı çıkar",
+      "actual": "2 devre dışı set (gerekçeli); uzay-zaman → eps_gün",
+      "result": "geçti",
+      "ms": 196,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L03",
+      "screen": "Laboratuvar",
+      "component": "Parametre doğrulama (istemci)",
+      "expected": "Sayı olmayan / aralık dışı değer hata verir, gönder düğmesi kilitlenir",
+      "actual": "abc → 'Sayı girin', 99999 → aralık hatası, 2.5 → tamsayı hatası",
+      "result": "geçti",
+      "ms": 293,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L18",
+      "screen": "Laboratuvar",
+      "component": "Sunucu tarafı doğrulama (API)",
+      "expected": "Geçersiz parametreler 422 ve Türkçe gerekçeyle reddedilir",
+      "actual": "{\"eps_m\":-5,\"min_samples\":10} → 422 \"eps_m 5–500 aralığında olmalı: -5\" · {\"eps_m\":25,\"min_samples\":10,\"foo\":1} → 422 \"DBSCAN için tanımsız parametre: ['foo']\"",
+      "result": "geçti",
+      "ms": 106,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L04",
+      "screen": "Laboratuvar",
+      "component": "HDBSCAN › min_samples otomatik + eom/leaf",
+      "expected": "Onay kutusu min_samples alanını kilitler; küme seçim yöntemi değişir",
+      "actual": "min_samples kilitli, leaf seçili",
+      "result": "geçti",
+      "ms": 425,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L17",
+      "screen": "Laboratuvar",
+      "component": "Kaynak bütçesi engeli",
+      "expected": "HDBSCAN örneklemsiz tam veride bütçe uyarısı, gönder kilitli",
+      "actual": "Kaynak bütçesi aşılıyor HDBSCAN kayıt düzeyidir ve ~karesel ölçeklenir: 2.020.638 olay > 100.000 bütçe. Örneklem kullanın veya filtreyi dara",
+      "result": "geçti",
+      "ms": 171,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L05",
+      "screen": "Laboratuvar",
+      "component": "Örneklem boyutu / tohum doğrulaması",
+      "expected": "Geçersiz örneklem boyutu hata verir",
+      "actual": "10 → hata; 100.000 geri",
+      "result": "geçti",
+      "ms": 186,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L07",
+      "screen": "Laboratuvar",
+      "component": "Kayıtlı konfigürasyon eşleşmesi → Kayıtlı sonucu yükle",
+      "expected": "DBSCAN 25 m/100 (filtresiz) Faz 3 kaydıyla eşleşir; yeniden fit yok; 4.179 küme",
+      "actual": "deney dbscan-52abd2c018 · iş 2829d7dca52a",
+      "result": "geçti",
+      "ms": 391,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L13",
+      "screen": "Laboratuvar",
+      "component": "Kayıtlı deneyler › süzgeçler",
+      "expected": "Algoritma ve aşama seçicileri satırları süzer",
+      "actual": "K-Means ızgara: 5 / 115 deney; tüm aşamalar: 18 / 115 deney",
+      "result": "geçti",
+      "ms": 1476,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L13b",
+      "screen": "Laboratuvar",
+      "component": "Kayıtlı deney seçimi",
+      "expected": "K-Means k=5 sonucu: 5 küme, gürültü 'Uygulanamaz'",
+      "actual": "5 küme, gürültü Uygulanamaz",
+      "result": "geçti",
+      "ms": 4309,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L15",
+      "screen": "Laboratuvar",
+      "component": "Sonucu dışa aktar",
+      "expected": "Menü bağlantıları 200 döner",
+      "actual": "text/markdown, text/csv, application/json",
+      "result": "geçti",
+      "ms": 272,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L14",
+      "screen": "Laboratuvar",
+      "component": "Kayıtlı sonuç › Haritada göster",
+      "expected": "3D Keşif sonuç modunda açılır; merkez sayısı sonuçla aynı; 'Seçili modele dön' çalışır",
+      "actual": "HDBSCAN 768 küme / 100.000 olay kapsamı → modele dönüş 4.179",
+      "result": "geçti",
+      "ms": 26989,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L16",
+      "screen": "Laboratuvar",
+      "component": "İş geçmişi",
+      "expected": "Geçmiş listelenir; bir işe tıklayınca iş görünümü açılır; kaynak sınırı işi gerekçesiyle görünür",
+      "actual": "23 iş; Kaynak sınırı — iş tamamlanmadı Bellek yetersiz: kullanılabilir fiziksel bellek 1.260 MB < gereken 1.500 MB. Diğer uygul",
+      "result": "geçti",
+      "ms": 5546,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L20",
+      "screen": "Laboratuvar",
+      "component": "Bellek yetersiz uyarısı (kaynak ölçümü)",
+      "expected": "can_start=false iken açık uyarı ve gerekçe (yanıt tarayıcıda değiştirildi; gerçek ölçüm aşağıda)",
+      "actual": "uyarı gösterildi · gerçek boş bellek 4.121,4 MB (eşik 1.500 MB)",
+      "result": "geçti",
+      "ms": 868,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L08",
+      "screen": "Laboratuvar",
+      "component": "Analizi başlat (gerçek ayrı süreç)",
+      "expected": "İş kuyruğa alınır ve çalışır; aşama bilgisi gösterilir (ilerleme yüzdesi uydurulmaz)",
+      "actual": "iş 40e88026bf62: Aşama: Kaynak gereksinimi ölçülüyor · geçen süre 2,9 sn",
+      "result": "geçti",
+      "ms": 3201,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    },
+    {
+      "id": "L09",
+      "screen": "Laboratuvar",
+      "component": "İptal et",
+      "expected": "Çalışan iş iptal edilir; durum 'İptal edildi'; çalışan süreç sonlandırılır",
+      "actual": "durum cancelled; sonlandırma doğrulandı: true",
+      "result": "geçti",
+      "ms": 93,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    },
+    {
+      "id": "L10",
+      "screen": "Laboratuvar",
+      "component": "Yeniden dene",
+      "expected": "Yeni iş kimliği, retry_of bağlantısı; iş gerçek olarak tamamlanır",
+      "actual": "iş 05107333c2fc: 6.686 olay → 72 küme, fit 0.05 sn",
+      "result": "geçti",
+      "ms": 27659,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    },
+    {
+      "id": "L11",
+      "screen": "Laboratuvar",
+      "component": "Aynı istek yeniden → önbellek",
+      "expected": "Aynı istek yeniden hesaplanmaz; 'Önbellekten' rozeti",
+      "actual": "iş 4d058479b40c önbellekten",
+      "result": "geçti",
+      "ms": 140,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    },
+    {
+      "id": "L14b",
+      "screen": "Laboratuvar",
+      "component": "Dinamik sonuç › Haritada göster",
+      "expected": "Sonuç modunda merkez sayısı sonuç özetiyle aynı; bant 'Dinamik analiz sonucu'",
+      "actual": "72 merkez = sonuç özeti",
+      "result": "geçti",
+      "ms": 3937,
+      "test": "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster"
+    },
+    {
+      "id": "G01",
+      "screen": "Genel",
+      "component": "Navigation › Brand",
+      "expected": "Yeni SVG logo (simge + SafeRoute 3D wordmark) kenar çubuğunda görünür",
+      "actual": "simge 5 vektör öğe; wordmark \"SafeRoute 3D\"",
+      "result": "geçti",
+      "ms": 18,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G02",
+      "screen": "Genel",
+      "component": "index.html › favikon",
+      "expected": "SVG favikon ve PNG yedekleri 200 döner, <link rel=icon> bunları gösterir",
+      "actual": "/favicon.svg image/svg+xml · /brand/icon-32.png image/png · /brand/icon-180.png image/png",
+      "result": "geçti",
+      "ms": 60,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-overview",
+      "screen": "Genel",
+      "component": "Navigation › Genel bakış",
+      "expected": "Tıklayınca #/genel-bakis, başlık \"Genel bakış · SafeRoute 3D\", ekran içeriği görünür",
+      "actual": "URL #/genel-bakis, aria-current=page",
+      "result": "geçti",
+      "ms": 39,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-explorer",
+      "screen": "Genel",
+      "component": "Navigation › 3D Şehir Keşfi",
+      "expected": "Tıklayınca #/kesif, başlık \"3D Şehir Keşfi · SafeRoute 3D\", ekran içeriği görünür",
+      "actual": "URL #/kesif, aria-current=page",
+      "result": "geçti",
+      "ms": 329,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-lab",
+      "screen": "Genel",
+      "component": "Navigation › Kümeleme Laboratuvarı",
+      "expected": "Tıklayınca #/laboratuvar, başlık \"Kümeleme Laboratuvarı · SafeRoute 3D\", ekran içeriği görünür",
+      "actual": "URL #/laboratuvar, aria-current=page",
+      "result": "geçti",
+      "ms": 476,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-models",
+      "screen": "Genel",
+      "component": "Navigation › Model Karşılaştırma",
+      "expected": "Tıklayınca #/modeller, başlık \"Model Karşılaştırma · SafeRoute 3D\", ekran içeriği görünür",
+      "actual": "URL #/modeller, aria-current=page",
+      "result": "geçti",
+      "ms": 858,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G03-data",
+      "screen": "Genel",
+      "component": "Navigation › Veri Gezgini",
+      "expected": "Tıklayınca #/veri, başlık \"Veri Gezgini · SafeRoute 3D\", ekran içeriği görünür",
+      "actual": "URL #/veri, aria-current=page",
+      "result": "geçti",
+      "ms": 987,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G04",
+      "screen": "Genel",
+      "component": "Navigation › Daralt/Genişlet",
+      "expected": "Kenar çubuğu 248↔64 px; daraltılmışken simge ve ipucu görünür",
+      "actual": "64 px (ipucu + simge) → 248 px",
+      "result": "geçti",
+      "ms": 1970,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G05",
+      "screen": "Genel",
+      "component": "Atlama bağlantısı",
+      "expected": "İlk Tab 'İçeriğe geç'e odaklanır; Enter odağı ana içeriğe taşır",
+      "actual": "odak #main",
+      "result": "geçti",
+      "ms": 1886,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G06",
+      "screen": "Genel",
+      "component": "Tarayıcı geri / doğrudan hash",
+      "expected": "Geri tuşu önceki ekrana döner; #/modeller doğrudan açılır",
+      "actual": "geri → Genel bakış; #/modeller → Model karşılaştırma",
+      "result": "geçti",
+      "ms": 815,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "G07",
+      "screen": "Genel (mobil)",
+      "component": "Mobil üst çubuk › Menü çekmecesi",
+      "expected": "390 px'te menü düğmesi çekmeceyi açar; logo görünür; bağlantı ekranı değiştirip çekmeceyi kapatır",
+      "actual": "çekmece açıldı, Veri Gezgini'ne geçildi, çekmece kapandı",
+      "result": "geçti",
+      "ms": 2422,
+      "test": "Marka, favikon ve gezinme"
+    },
+    {
+      "id": "M01",
+      "screen": "Model karşılaştırma",
+      "component": "Karşılaştırma tablosu",
+      "expected": "DBSCAN 4.179 küme / %59,7 / 0,945; K-Means k=5 gürültü 'Uygulanamaz'; HDBSCAN 100.000 örneklem",
+      "actual": "DBSCAN 4.179 / %59.69 / 0.945; K-Means k=5; HDBSCAN 100.000 olay",
+      "result": "geçti",
+      "ms": 20,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M02",
+      "screen": "Model karşılaştırma",
+      "component": "Siluet ≠ doğruluk",
+      "expected": "Sayfada 'doğruluk/accuracy' etiketli metrik yok; %94,5 yalnızca olumsuzlanmış uyarıda geçer",
+      "actual": "1 satırda %94,5 (hepsi olumsuz); satır başlıkları: Siluet, Davies–Bouldin, DBCV",
+      "result": "geçti",
+      "ms": 25,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M03-dbscan-grid",
+      "screen": "Model karşılaştırma",
+      "component": "dbscan-grid › metrik seçici",
+      "expected": "Metrik düğmesi hücre değerlerini değiştirir",
+      "actual": "Küme → Siluet → Küme",
+      "result": "geçti",
+      "ms": 89,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M03-hdbscan-grid",
+      "screen": "Model karşılaştırma",
+      "component": "hdbscan-grid › metrik seçici",
+      "expected": "Metrik düğmesi hücre değerlerini değiştirir",
+      "actual": "Küme → Siluet → Küme",
+      "result": "geçti",
+      "ms": 97,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M04",
+      "screen": "Model karşılaştırma",
+      "component": "Bilgi ipuçları (Siluet satırı)",
+      "expected": "İpucu 'doğruluk DEĞİLDİR' açıklamasını gösterir",
+      "actual": "ipucu görünür",
+      "result": "geçti",
+      "ms": 322,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "M05",
+      "screen": "Model karşılaştırma",
+      "component": "K-Means k taraması grafiği ipucu",
+      "expected": "Noktanın üzerine gelince k ve siluet değeri görünür",
+      "actual": "k = 10 Siluet 0,398",
+      "result": "geçti",
+      "ms": 75,
+      "test": "Model karşılaştırma — akademik doğruluk ve etkileşimler"
+    },
+    {
+      "id": "R-1280x720",
+      "screen": "Tüm ekranlar",
+      "component": "Görüntü alanı 1280x720",
+      "expected": "Beş ekranda yatay taşma yok; mobilde çekmeceler çalışır",
+      "actual": "genel-bakis: taşma 0 · kesif: taşma 0 · laboratuvar: taşma 0 · modeller: taşma 0 · veri: taşma 0",
+      "result": "geçti",
+      "ms": 7655,
+      "test": "Responsive 1280x720"
+    },
+    {
+      "id": "R-1440x900",
+      "screen": "Tüm ekranlar",
+      "component": "Görüntü alanı 1440x900",
+      "expected": "Beş ekranda yatay taşma yok; mobilde çekmeceler çalışır",
+      "actual": "genel-bakis: taşma 0 · kesif: taşma 0 · laboratuvar: taşma 0 · modeller: taşma 0 · veri: taşma 0",
+      "result": "geçti",
+      "ms": 9447,
+      "test": "Responsive 1440x900"
+    },
+    {
+      "id": "R-1920x1080",
+      "screen": "Tüm ekranlar",
+      "component": "Görüntü alanı 1920x1080",
+      "expected": "Beş ekranda yatay taşma yok; mobilde çekmeceler çalışır",
+      "actual": "genel-bakis: taşma 0 · kesif: taşma 0 · laboratuvar: taşma 0 · modeller: taşma 0 · veri: taşma 0",
+      "result": "geçti",
+      "ms": 7259,
+      "test": "Responsive 1920x1080"
+    },
+    {
+      "id": "R-390x844",
+      "screen": "Tüm ekranlar",
+      "component": "Görüntü alanı 390x844",
+      "expected": "Beş ekranda yatay taşma yok; mobilde çekmeceler çalışır",
+      "actual": "genel-bakis: taşma 0 · kesif: taşma 0 · laboratuvar: taşma 0 · modeller: taşma 0 · veri: taşma 0 · mobil katman çekmecesi açıldı · mobil animasyon seçicisi görünür",
+      "result": "geçti",
+      "ms": 7789,
+      "test": "Responsive 390x844"
+    },
+    {
+      "id": "R-768x1024",
+      "screen": "Tüm ekranlar",
+      "component": "Görüntü alanı 768x1024",
+      "expected": "Beş ekranda yatay taşma yok; mobilde çekmeceler çalışır",
+      "actual": "genel-bakis: taşma 0 · kesif: taşma 0 · laboratuvar: taşma 0 · modeller: taşma 0 · veri: taşma 0",
+      "result": "geçti",
+      "ms": 8793,
+      "test": "Responsive 768x1024"
+    },
+    {
+      "id": "D01",
+      "screen": "Veri Gezgini",
+      "component": "Sekmeler (Veri hattı / Ham / İşlenmiş / Setler)",
+      "expected": "Her sekme kendi içeriğini gösterir",
+      "actual": "4 sekme",
+      "result": "geçti",
+      "ms": 250,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D02",
+      "screen": "Veri Gezgini",
+      "component": "Ham sütunlar: 29 sütun ve açıklamalar",
+      "expected": "29/29 sütun; her satırda anlam",
+      "actual": "29 sütun; anlamı boş olan 0",
+      "result": "geçti",
+      "ms": 93,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D03",
+      "screen": "Veri Gezgini",
+      "component": "Arama kutusu + boş sonuç",
+      "expected": "Arama satırları süzer; eşleşme yoksa boş durum",
+      "actual": "\"borough\" → 1 sütun; \"zzzyok\" → boş durum",
+      "result": "geçti",
+      "ms": 433,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D04",
+      "screen": "Veri Gezgini",
+      "component": "Grup ve 'Modele giriş' seçicileri",
+      "expected": "Seçiciler satırları süzer",
+      "actual": "modele girenler: 2 / 29 sütun; ilk grup: 5 / 29 sütun",
+      "result": "geçti",
+      "ms": 1990,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D05",
+      "screen": "Veri Gezgini",
+      "component": "Sütun ayrıntı çekmecesi",
+      "expected": "Sütuna tıklayınca anlam/model/dönüşüm/gerekçe/eksik değer çekmecesi açılır ve kapanır",
+      "actual": "latitude çekmecesi açıldı/kapandı (Esc)",
+      "result": "geçti",
+      "ms": 836,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "D06",
+      "screen": "Veri Gezgini",
+      "component": "İşlenmiş sütunlar (87) ve öznitelik setleri",
+      "expected": "87 sütun; model setleri listelenir",
+      "actual": "87 sütun, 7 öznitelik seti",
+      "result": "geçti",
+      "ms": 142,
+      "test": "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi"
+    },
+    {
+      "id": "E18",
+      "screen": "3D Şehir",
+      "component": "WebGL bağlam kaybı → geri yükleme",
+      "expected": "Bağlam geri gelince veri katmanları, 4.179 merkez ve 3D katman yeniden kurulur",
+      "actual": "toparlanma 3.3 sn; 4.179 merkez, city-models katmanı var",
+      "result": "geçti",
+      "ms": 3278,
+      "test": "WebGL bağlam kaybından dönüş"
+    }
+  ],
+  "logs": {
+    "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "3D Şehir — zaman oynatma": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Altlık harita servisi erişilemezken kaza katmanları yine yüklenir": {
+      "app_console": [],
+      "third_party_console": [
+        "error: Failed to load resource: net::ERR_CONNECTION_FAILED"
+      ],
+      "app_failed": [],
+      "third_party_failed": [
+        "https://tiles.openfreemap.org/planet net::ERR_CONNECTION_FAILED"
+      ],
+      "http_errors": []
+    },
+    "Genel bakış etkileşimleri": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Hata, yüklenme ve boş durumları": {
+      "app_console": [
+        "error: Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      ],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": [
+        "500 http://127.0.0.1:8000/api/overview"
+      ]
+    },
+    "Klavye odağı, azaltılmış hareket ve axe": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Marka, favikon ve gezinme": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Model karşılaştırma — akademik doğruluk ve etkileşimler": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Responsive 1280x720": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Responsive 1440x900": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Responsive 1920x1080": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Responsive 390x844": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Responsive 768x1024": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi": {
+      "app_console": [],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    },
+    "WebGL bağlam kaybından dönüş": {
+      "app_console": [
+        "warning: Custom layer with id 'city-models' cannot be restored after WebGL context loss. You will need to re-add it manually after context restoration."
+      ],
+      "third_party_console": [],
+      "app_failed": [],
+      "third_party_failed": [],
+      "http_errors": []
+    }
+  },
+  "a11y": {
+    "genel-bakis": {
+      "violations": [],
+      "passes": 29
+    },
+    "kesif": {
+      "violations": [],
+      "passes": 32
+    },
+    "laboratuvar": {
+      "violations": [],
+      "passes": 32
+    },
+    "modeller": {
+      "violations": [],
+      "passes": 29
+    },
+    "veri": {
+      "violations": [],
+      "passes": 31
+    }
+  },
+  "measurements": {
+    "free_memory_before_dynamic_mb": 3906.9,
+    "dynamic_job": {
+      "job": "05107333c2fc",
+      "n_events": 6686,
+      "clusters": 72,
+      "runtime_s": 0.046,
+      "peak_mb": 183.2
+    },
+    "basemap_blocked_data_ready_ms": 939
+  }
+}
