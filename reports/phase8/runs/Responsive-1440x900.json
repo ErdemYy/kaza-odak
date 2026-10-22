@@ -1,0 +1,36 @@
+{
+  "test": "Responsive 1440x900",
+  "status": "passed",
+  "duration_ms": 7753,
+  "records": [
+    {
+      "id": "R-1440x900",
+      "screen": "Tüm ekranlar",
+      "component": "Görüntü alanı 1440x900",
+      "expected": "Beş ekranda yatay taşma yok; mobilde çekmeceler çalışır",
+      "actual": "genel-bakis: taşma 0 · kesif: taşma 0 · laboratuvar: taşma 0 · modeller: taşma 0 · veri: taşma 0",
+      "result": "geçti",
+      "ms": 7706,
+      "test": "Responsive 1440x900"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {
+    "free_memory_before_dynamic_mb": 5607,
+    "dynamic_job": {
+      "job": "4e415eac71ee",
+      "n_events": 6686,
+      "clusters": 72,
+      "runtime_s": 0.029,
+      "peak_mb": 182.6
+    },
+    "basemap_blocked_data_ready_ms": 652
+  }
+}

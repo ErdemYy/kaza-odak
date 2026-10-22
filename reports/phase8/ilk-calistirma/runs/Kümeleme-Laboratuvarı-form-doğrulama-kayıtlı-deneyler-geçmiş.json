@@ -1,0 +1,56 @@
+{
+  "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş",
+  "status": "timedOut",
+  "duration_ms": 300010,
+  "records": [
+    {
+      "id": "L01",
+      "screen": "Laboratuvar",
+      "component": "Algoritma seçimi (DBSCAN/K-Means/HDBSCAN)",
+      "expected": "Algoritma parametre alanlarını değiştirir",
+      "actual": "k / min_cluster_size + örneklem 100.000 / eps",
+      "result": "geçti",
+      "ms": 150,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L02",
+      "screen": "Laboratuvar",
+      "component": "Öznitelik seti radyo düğmeleri",
+      "expected": "Desteklenmeyen setler devre dışı ve gerekçeli; uzay-zaman seçilince eps_gün alanı çıkar",
+      "actual": "2 devre dışı set (gerekçeli); uzay-zaman → eps_gün",
+      "result": "geçti",
+      "ms": 127,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L03",
+      "screen": "Laboratuvar",
+      "component": "Parametre doğrulama (istemci)",
+      "expected": "Sayı olmayan / aralık dışı değer hata verir, gönder düğmesi kilitlenir",
+      "actual": "abc → 'Sayı girin', 99999 → aralık hatası, 2.5 → tamsayı hatası",
+      "result": "geçti",
+      "ms": 137,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L18",
+      "screen": "Laboratuvar",
+      "component": "Sunucu tarafı doğrulama (API)",
+      "expected": "Geçersiz parametreler 422 ve Türkçe gerekçeyle reddedilir",
+      "actual": "{\"eps_m\":-5,\"min_samples\":10} → 422 \"eps_m 5–500 aralığında olmalı: -5\" · {\"eps_m\":25,\"min_samples\":10,\"foo\":1} → 422 \"DBSCAN için tanımsız parametre: ['foo']\"",
+      "result": "geçti",
+      "ms": 23,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

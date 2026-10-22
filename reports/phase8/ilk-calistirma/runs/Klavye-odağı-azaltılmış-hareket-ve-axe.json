@@ -1,0 +1,114 @@
+{
+  "test": "Klavye odağı, azaltılmış hareket ve axe",
+  "status": "passed",
+  "duration_ms": 17466,
+  "records": [
+    {
+      "id": "A01",
+      "screen": "Genel",
+      "component": "Odak göstergesi",
+      "expected": "Klavyeyle odaklanan gezinme bağlantısında görünür odak halkası",
+      "actual": "A[overview] box-shadow rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0",
+      "result": "geçti",
+      "ms": 713,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A02",
+      "screen": "3D Şehir",
+      "component": "prefers-reduced-motion",
+      "expected": "İşletim sistemi azaltılmış hareket isterse animasyon düzeyi 'azaltılmış' başlar",
+      "actual": "motion-select = reduced",
+      "result": "geçti",
+      "ms": 541,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-genel-bakis",
+      "screen": "genel-bakis",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "Beklenen gerçekleşmedi",
+      "result": "başarısız",
+      "cause": "expect(received).toEqual(expected) // deep equality | - Expected  - 1 | + Received  + 3 | - Array []",
+      "ms": 2214,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-kesif",
+      "screen": "kesif",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "0 ihlal (yok), 32 geçen kural",
+      "result": "geçti",
+      "ms": 5152,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-laboratuvar",
+      "screen": "laboratuvar",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "0 ihlal (yok), 31 geçen kural",
+      "result": "geçti",
+      "ms": 4085,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-modeller",
+      "screen": "modeller",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "0 ihlal (yok), 29 geçen kural",
+      "result": "geçti",
+      "ms": 2827,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    },
+    {
+      "id": "A03-veri",
+      "screen": "veri",
+      "component": "axe-core (WCAG 2.0/2.1/2.2 A–AA)",
+      "expected": "Ciddi/kritik ihlal yok",
+      "actual": "0 ihlal (yok), 31 geçen kural",
+      "result": "geçti",
+      "ms": 1862,
+      "test": "Klavye odağı, azaltılmış hareket ve axe"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {
+    "genel-bakis": {
+      "violations": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodes": 1
+        }
+      ],
+      "passes": 31
+    },
+    "kesif": {
+      "violations": [],
+      "passes": 32
+    },
+    "laboratuvar": {
+      "violations": [],
+      "passes": 31
+    },
+    "modeller": {
+      "violations": [],
+      "passes": 29
+    },
+    "veri": {
+      "violations": [],
+      "passes": 31
+    }
+  },
+  "measurements": {}
+}

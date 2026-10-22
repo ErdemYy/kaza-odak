@@ -2,6 +2,7 @@ import { BarChart3, Database, FlaskConical, LayoutDashboard, Map as MapIcon, Pan
 import type { ComponentType } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import { LogoMark, Wordmark } from "../brand/Logo";
 import { hashFor, ROUTES, useApp, type Route } from "../../app/store";
 
 const ICONS: Record<Route, ComponentType<{ className?: string }>> = {
@@ -10,15 +11,11 @@ const ICONS: Record<Route, ComponentType<{ className?: string }>> = {
 
 export function Brand({ compact }: { compact?: boolean }) {
   return (
-    <div className="flex items-center gap-2.5 min-w-0">
-      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true" className="shrink-0">
-        <rect width="32" height="32" rx="7" fill="#16233B" />
-        <circle cx="16" cy="16" r="7.5" fill="none" stroke="#38BDF8" strokeWidth="2.5" />
-        <circle cx="16" cy="16" r="2.6" fill="#F87171" />
-      </svg>
+    <div className="flex items-center gap-2.5 min-w-0" data-testid="brand">
+      <LogoMark size={compact ? 30 : 32} title={compact ? "SafeRoute 3D" : undefined} />
       {!compact && (
         <div className="min-w-0">
-          <div className="font-display font-bold text-[15px] leading-none tracking-tight">SafeRoute 3D</div>
+          <Wordmark className="block font-display font-extrabold text-[15.5px] leading-none tracking-[-0.015em]" />
           <div className="text-[11px] text-subtle leading-tight mt-1">NYC kaza analitiği</div>
         </div>
       )}

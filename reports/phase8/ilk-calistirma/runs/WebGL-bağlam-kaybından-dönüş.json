@@ -1,0 +1,19 @@
+{
+  "test": "WebGL bağlam kaybından dönüş",
+  "status": "failed",
+  "duration_ms": 90575,
+  "records": [],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [
+      "error: Failed to load resource: net::ERR_NETWORK_CHANGED"
+    ],
+    "app_failed": [],
+    "third_party_failed": [
+      "https://tiles.openfreemap.org/planet net::ERR_NETWORK_CHANGED"
+    ],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

@@ -1,0 +1,283 @@
+
+Running 18 tests using 1 worker
+
+[1/18] [chromium] › e2e\phase8.spec.ts:117:1 › Marka, favikon ve gezinme
+[2/18] [chromium] › e2e\phase8.spec.ts:219:1 › Genel bakış etkileşimleri
+  1) [chromium] › e2e\phase8.spec.ts:219:1 › Genel bakış etkileşimleri ─────────────────────────────
+
+    Test timeout of 180000ms exceeded.
+
+    Error: Başarısız etkileşimler: O07
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "O07",
+    + ]
+
+      66 |   writeFileSync(resolve(RUNS, `${slug}.json`), JSON.stringify({ test: info.title, status: info.status, duration_ms: info.duration,
+      67 |     records: records.filter((r) => r.test === info.title), logs: logs[info.title] ?? null, a11y, measurements }, null, 2));
+    > 68 |   expect(failures, `Başarısız etkileşimler: ${failures.join(", ")}`).toEqual([]);
+         |                                                                      ^
+      69 | });
+      70 | test.afterAll(() => {
+      71 |   const runs = readdirSync(RUNS).filter((f) => f.endsWith(".json")).map((f) => JSON.parse(readFileSync(resolve(RUNS, f), "utf-8")));
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:68:70
+
+    Error Context: test-results\phase8-Genel-bakış-etkileşimleri-chromium\error-context.md
+
+    Error Context: test-results\phase8-Genel-bakış-etkileşimleri-chromium\error-context.md
+
+
+[3/18] [chromium] › e2e\phase8.spec.ts:304:1 › 3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon
+  2) [chromium] › e2e\phase8.spec.ts:304:1 › 3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByTestId('load-status')
+    Expected: "ready"
+    Received: "loading"
+    Timeout:  90000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByTestId('load-status') with timeout 90000ms
+      - waiting for getByTestId('load-status')
+        179 × locator resolved to <div role="status" aria-live="polite" data-phase="loading" data-testid="load-status" class="panel pointer-events-auto hidden lg:flex items-center gap-2 px-3 h-10 text-[12.5px] max-w-[380px] shrink-0">…</div>
+            - unexpected value "loading"
+
+
+      94 | async function openExplorer(page: Page) {
+      95 |   await page.goto("/#/kesif");
+    > 96 |   await expect(page.getByTestId("load-status")).toHaveAttribute("data-phase", "ready", { timeout: 90_000 });
+         |                                                 ^
+      97 |   await mapIdle(page, 800);
+      98 | }
+      99 | const pagePoint = (page: Page, p: [number, number]) => page.evaluate((q) => {
+        at openExplorer (C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:96:49)
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:306:3
+
+    Error Context: test-results\phase8-3D-Şehir-Keşfi-—-ka-c1f4d-er-katmanlar-tema-animasyon-chromium\error-context.md
+
+    Error Context: test-results\phase8-3D-Şehir-Keşfi-—-ka-c1f4d-er-katmanlar-tema-animasyon-chromium\error-context.md
+
+
+[4/18] [chromium] › e2e\phase8.spec.ts:439:1 › 3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB
+  3) [chromium] › e2e\phase8.spec.ts:439:1 › 3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByTestId('load-status')
+    Expected: "ready"
+    Received: "loading"
+    Timeout:  90000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByTestId('load-status') with timeout 90000ms
+      - waiting for getByTestId('load-status')
+        179 × locator resolved to <div role="status" aria-live="polite" data-phase="loading" data-testid="load-status" class="panel pointer-events-auto hidden lg:flex items-center gap-2 px-3 h-10 text-[12.5px] max-w-[380px] shrink-0">…</div>
+            - unexpected value "loading"
+
+
+      94 | async function openExplorer(page: Page) {
+      95 |   await page.goto("/#/kesif");
+    > 96 |   await expect(page.getByTestId("load-status")).toHaveAttribute("data-phase", "ready", { timeout: 90_000 });
+         |                                                 ^
+      97 |   await mapIdle(page, 800);
+      98 | }
+      99 | const pagePoint = (page: Page, p: [number, number]) => page.evaluate((q) => {
+        at openExplorer (C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:96:49)
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:441:3
+
+    Error Context: test-results\phase8-3D-Şehir-—-küme-seç-59476-paneli-noktalar-gürültü-GLB-chromium\error-context.md
+
+    Error Context: test-results\phase8-3D-Şehir-—-küme-seç-59476-paneli-noktalar-gürültü-GLB-chromium\error-context.md
+
+
+[5/18] [chromium] › e2e\phase8.spec.ts:551:1 › 3D Şehir — zaman oynatma
+  4) [chromium] › e2e\phase8.spec.ts:551:1 › 3D Şehir — zaman oynatma ──────────────────────────────
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByTestId('load-status')
+    Expected: "ready"
+    Received: "loading"
+    Timeout:  90000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByTestId('load-status') with timeout 90000ms
+      - waiting for getByTestId('load-status')
+        178 × locator resolved to <div role="status" aria-live="polite" data-phase="loading" data-testid="load-status" class="panel pointer-events-auto hidden lg:flex items-center gap-2 px-3 h-10 text-[12.5px] max-w-[380px] shrink-0">…</div>
+            - unexpected value "loading"
+
+
+      94 | async function openExplorer(page: Page) {
+      95 |   await page.goto("/#/kesif");
+    > 96 |   await expect(page.getByTestId("load-status")).toHaveAttribute("data-phase", "ready", { timeout: 90_000 });
+         |                                                 ^
+      97 |   await mapIdle(page, 800);
+      98 | }
+      99 | const pagePoint = (page: Page, p: [number, number]) => page.evaluate((q) => {
+        at openExplorer (C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:96:49)
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:553:3
+
+    Error Context: test-results\phase8-3D-Şehir-—-zaman-oynatma-chromium\error-context.md
+
+    Error Context: test-results\phase8-3D-Şehir-—-zaman-oynatma-chromium\error-context.md
+
+
+[6/18] [chromium] › e2e\phase8.spec.ts:624:1 › 3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama
+  5) [chromium] › e2e\phase8.spec.ts:624:1 › 3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama 
+
+    Test timeout of 420000ms exceeded.
+
+    Error: locator.click: Target page, context or browser has been closed
+
+      736 |   await page.getByTestId("cluster-panel").getByRole("button", { name: "Seçimi kapat" }).click().catch(() => {});
+      737 |
+    > 738 |   await page.getByTestId("tab-filters").click();
+          |                                         ^
+      739 |   await step("F15", "3D Şehir › Filtreler", "Geçersiz tarih aralığı", "Başlangıç > bitiş: hata mesajı, Uygula ve Laboratuvar düğmeleri devre dışı", async () => {
+      740 |     await page.locator("#f-date-from").fill("2020-05-01");
+      741 |     await page.locator("#f-date-to").fill("2019-05-01");
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:738:41
+
+    Error Context: test-results\phase8-3D-Şehir-—-filtreler-birleşimler-boş-sonuç-sıfırlama-chromium\error-context.md
+
+    Error Context: test-results\phase8-3D-Şehir-—-filtreler-birleşimler-boş-sonuç-sıfırlama-chromium\error-context.md
+
+
+[7/18] [chromium] › e2e\phase8.spec.ts:790:1 › Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş
+  6) [chromium] › e2e\phase8.spec.ts:790:1 › Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş 
+
+    Test timeout of 300000ms exceeded.
+
+    Error Context: test-results\phase8-Kümeleme-Laboratuva-5daf5-ama-kayıtlı-deneyler-geçmiş-chromium\error-context.md
+
+    Error Context: test-results\phase8-Kümeleme-Laboratuva-5daf5-ama-kayıtlı-deneyler-geçmiş-chromium\error-context.md
+
+
+[8/18] [chromium] › e2e\phase8.spec.ts:977:3 › Laboratuvar — dinamik iş, iptal, yeniden deneme, önbellek (yalıtılmış sunucu) › Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster
+[9/18] [chromium] › e2e\phase8.spec.ts:1037:1 › Model karşılaştırma — akademik doğruluk ve etkileşimler
+[10/18] [chromium] › e2e\phase8.spec.ts:1099:1 › Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi
+  7) [chromium] › e2e\phase8.spec.ts:1099:1 › Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi 
+
+    Test timeout of 180000ms exceeded.
+
+    Error Context: test-results\phase8-Veri-Gezgini-—-sütu-8fa90-ma-süzgeç-ayrıntı-çekmecesi-chromium\error-context.md
+
+    Error Context: test-results\phase8-Veri-Gezgini-—-sütu-8fa90-ma-süzgeç-ayrıntı-çekmecesi-chromium\error-context.md
+
+
+[11/18] [chromium] › e2e\phase8.spec.ts:1169:1 › Hata, yüklenme ve boş durumları
+[12/18] [chromium] › e2e\phase8.spec.ts:1201:1 › WebGL bağlam kaybından dönüş
+  8) [chromium] › e2e\phase8.spec.ts:1201:1 › WebGL bağlam kaybından dönüş ─────────────────────────
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByTestId('load-status')
+    Expected: "ready"
+    Received: "error"
+    Timeout:  90000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByTestId('load-status') with timeout 90000ms
+      - waiting for getByTestId('load-status')
+        16 × locator resolved to <div role="status" aria-live="polite" data-phase="loading" data-testid="load-status" class="panel pointer-events-auto hidden lg:flex items-center gap-2 px-3 h-10 text-[12.5px] max-w-[380px] shrink-0">…</div>
+           - unexpected value "loading"
+        163 × locator resolved to <div role="status" aria-live="polite" data-phase="error" data-testid="load-status" class="panel pointer-events-auto hidden lg:flex items-center gap-2 px-3 h-10 text-[12.5px] max-w-[380px] shrink-0">…</div>
+            - unexpected value "error"
+
+
+      94 | async function openExplorer(page: Page) {
+      95 |   await page.goto("/#/kesif");
+    > 96 |   await expect(page.getByTestId("load-status")).toHaveAttribute("data-phase", "ready", { timeout: 90_000 });
+         |                                                 ^
+      97 |   await mapIdle(page, 800);
+      98 | }
+      99 | const pagePoint = (page: Page, p: [number, number]) => page.evaluate((q) => {
+        at openExplorer (C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:96:49)
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:1203:3
+
+    Error Context: test-results\phase8-WebGL-bağlam-kaybından-dönüş-chromium\error-context.md
+
+    Error Context: test-results\phase8-WebGL-bağlam-kaybından-dönüş-chromium\error-context.md
+
+
+[13/18] [chromium] › e2e\phase8.spec.ts:1259:3 › Responsive 1920x1080
+[14/18] [chromium] › e2e\phase8.spec.ts:1259:3 › Responsive 1440x900
+[15/18] [chromium] › e2e\phase8.spec.ts:1259:3 › Responsive 1280x720
+[16/18] [chromium] › e2e\phase8.spec.ts:1259:3 › Responsive 768x1024
+[17/18] [chromium] › e2e\phase8.spec.ts:1259:3 › Responsive 390x844
+  9) [chromium] › e2e\phase8.spec.ts:1259:3 › Responsive 390x844 ───────────────────────────────────
+
+    Error: Başarısız etkileşimler: R-390x844
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "R-390x844",
+    + ]
+
+      66 |   writeFileSync(resolve(RUNS, `${slug}.json`), JSON.stringify({ test: info.title, status: info.status, duration_ms: info.duration,
+      67 |     records: records.filter((r) => r.test === info.title), logs: logs[info.title] ?? null, a11y, measurements }, null, 2));
+    > 68 |   expect(failures, `Başarısız etkileşimler: ${failures.join(", ")}`).toEqual([]);
+         |                                                                      ^
+      69 | });
+      70 | test.afterAll(() => {
+      71 |   const runs = readdirSync(RUNS).filter((f) => f.endsWith(".json")).map((f) => JSON.parse(readFileSync(resolve(RUNS, f), "utf-8")));
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:68:70
+
+    Error Context: test-results\phase8-Responsive-390x844-chromium\error-context.md
+
+    Error Context: test-results\phase8-Responsive-390x844-chromium\error-context.md
+
+
+[18/18] [chromium] › e2e\phase8.spec.ts:1266:1 › Klavye odağı, azaltılmış hareket ve axe
+  10) [chromium] › e2e\phase8.spec.ts:1266:1 › Klavye odağı, azaltılmış hareket ve axe ─────────────
+
+    Error: Başarısız etkileşimler: A03-genel-bakis
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "A03-genel-bakis",
+    + ]
+
+      66 |   writeFileSync(resolve(RUNS, `${slug}.json`), JSON.stringify({ test: info.title, status: info.status, duration_ms: info.duration,
+      67 |     records: records.filter((r) => r.test === info.title), logs: logs[info.title] ?? null, a11y, measurements }, null, 2));
+    > 68 |   expect(failures, `Başarısız etkileşimler: ${failures.join(", ")}`).toEqual([]);
+         |                                                                      ^
+      69 | });
+      70 | test.afterAll(() => {
+      71 |   const runs = readdirSync(RUNS).filter((f) => f.endsWith(".json")).map((f) => JSON.parse(readFileSync(resolve(RUNS, f), "utf-8")));
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase8.spec.ts:68:70
+
+    Error Context: test-results\phase8-Klavye-odağı-azaltılmış-hareket-ve-axe-chromium\error-context.md
+
+    Error Context: test-results\phase8-Klavye-odağı-azaltılmış-hareket-ve-axe-chromium\error-context.md
+
+
+  10 failed
+    [chromium] › e2e\phase8.spec.ts:219:1 › Genel bakış etkileşimleri ──────────────────────────────
+    [chromium] › e2e\phase8.spec.ts:304:1 › 3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon 
+    [chromium] › e2e\phase8.spec.ts:439:1 › 3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB 
+    [chromium] › e2e\phase8.spec.ts:551:1 › 3D Şehir — zaman oynatma ───────────────────────────────
+    [chromium] › e2e\phase8.spec.ts:624:1 › 3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama 
+    [chromium] › e2e\phase8.spec.ts:790:1 › Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş 
+    [chromium] › e2e\phase8.spec.ts:1099:1 › Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi 
+    [chromium] › e2e\phase8.spec.ts:1201:1 › WebGL bağlam kaybından dönüş ──────────────────────────
+    [chromium] › e2e\phase8.spec.ts:1259:3 › Responsive 390x844 ────────────────────────────────────
+    [chromium] › e2e\phase8.spec.ts:1266:1 › Klavye odağı, azaltılmış hareket ve axe ───────────────
+  8 passed (26.8m)

@@ -1,5 +1,5 @@
 // 3D Şehir Keşfi: Faz 4 harita motoru + filtreler, zaman oynatma, küme ayrıntısı ve sonuç kaynağı seçimi.
-import { Box, FlaskConical, Layers, Moon, SlidersHorizontal, Sun, Undo2 } from "lucide-react";
+import { Box, FlaskConical, Inbox, Layers, Moon, RotateCcw, SlidersHorizontal, Sun, Undo2 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,10 +13,12 @@ import { Legend, type ViewportInfo } from "../../components/Legend";
 import type { Meta } from "../../lib/api";
 import { BOROUGH_TR } from "../../lib/camera";
 import { EMPTY_FILTERS, activeCount, applySlice, describe, sliceLabel, toQuery } from "../../lib/filters";
-import { trLabel } from "../../lib/format";
+import { fmtInt, trLabel } from "../../lib/format";
 import { POINT_MIN_ZOOM, type MotionLevel } from "../../lib/layers";
 import type { LngLat } from "../../lib/geo";
 import type { AssetRegistry } from "../../lib/registry";
+import { useQuery } from "../../lib/query";
+import type { RecordsSummary } from "../../lib/types";
 import type { InspectorPlacement } from "../../map/threeLayer";
 import { CityMap, type CityMapHandle, type ClusterState, type LoadState } from "./CityMap";
 import { ClusterDetails } from "./ClusterDetails";
@@ -24,10 +26,13 @@ import { FilterPanel } from "./FilterPanel";
 import { TimeControls } from "./TimeControls";
 import { ViewPanel } from "./ViewPanel";
 
+// Kompakt düzen (alttan açılan çekmeceler) < 1024 px: 768 px tablette masaüstü panelleri (320 + 340 px) haritayı ve
+// zaman çubuğunu ezip kamera kontrolleriyle çakıştırıyordu (Faz 8 bulgusu).
+const COMPACT_QUERY = "(max-width: 1023px)";
 function useIsMobile() {
-  const [m, setM] = useState(() => window.matchMedia("(max-width: 767px)").matches);
+  const [m, setM] = useState(() => window.matchMedia(COMPACT_QUERY).matches);
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)");
+    const mq = window.matchMedia(COMPACT_QUERY);
     const on = () => setM(mq.matches);
     mq.addEventListener("change", on);
     return () => mq.removeEventListener("change", on);
@@ -35,9 +40,9 @@ function useIsMobile() {
   return m;
 }
 
-/** Haritanın görünen kısmını ortalamak için panel boşlukları (masaüstü: sol 332 px panel, sağ 352 px panel, alt zaman çubuğu). */
+/** Haritanın görünen kısmını ortalamak için panel boşlukları (≥ 1024 px: sol 332 px panel, sağ 352 px panel, alt zaman çubuğu). */
 function padding(width: number) {
-  return width < 768 ? { top: 70, bottom: 150, left: 20, right: 20 } : { top: 76, bottom: 150, left: 344, right: 364 };
+  return width < 1024 ? { top: 70, bottom: 150, left: 20, right: 20 } : { top: 76, bottom: 150, left: 344, right: 364 };
 }
 
 export function ExplorerPage({ active }: { active: boolean }) {
@@ -62,6 +67,7 @@ export function ExplorerPage({ active }: { active: boolean }) {
   const setRoute = useApp((s) => s.setRoute);
   const navCollapsed = useApp((s) => s.navCollapsed);
   const toggleNav = useApp((s) => s.toggleNav);
+  const resetFilters = useApp((s) => s.resetFilters);
 
   const [meta, setMeta] = useState<Meta | null>(null);
   const [load, setLoad] = useState<LoadState>({ phase: "loading", message: "Harita ve doğrulanmış katmanlar yükleniyor…" });
@@ -104,14 +110,17 @@ export function ExplorerPage({ active }: { active: boolean }) {
   const filtersTr = describe(applied, { borough: (b) => BOROUGH_TR[b] ?? b, vehicle: trLabel });
 
   // Genel bakış / laboratuvardan "haritada aç": istenen kümeyi seç
+  // Harita verisi (merkezler, model meta verisi) yüklenmeden seçim yapılmaz: aksi hâlde deney kimliği boş gider (409)
+  // ve henüz eklenmemiş kaynaklara durum yazılır. Veri hazır olunca bu etki yeniden çalışır.
+  const dataReady = layerCounts !== null;
   useEffect(() => {
-    if (!focus || !active) return;
+    if (!focus || !active || !dataReady) return;
     const wanted = focus.sourceId === "model" ? "model" : focus.sourceId;
     const cur = source.kind === "model" ? "model" : source.id;
     if (wanted !== cur) return; // kaynak değişimi önce uygulanır, sonra bu etki yeniden çalışır
     const t = window.setTimeout(() => mapApi.current?.selectCluster(focus.clusterId), 300);
     return () => window.clearTimeout(t);
-  }, [focus, active, source]);
+  }, [focus, active, source, dataReady]);
 
   useEffect(() => {
     if (cluster.status !== "idle" && mobile) setMobileSheet("details");
@@ -129,6 +138,9 @@ export function ExplorerPage({ active }: { active: boolean }) {
   };
 
   const mode = resultMode ? "result" : filterQuery ? "filtered" : "model";
+  // Boş sonuç: filtre (veya zaman dilimi) hiçbir kümeye kayıt düşürmüyorsa harita boş kalır; neden açıkça yazılır.
+  const emptyFiltered = mode === "filtered" && load.phase === "ready" && layerCounts?.clusters === 0;
+  const emptySummary = useQuery<RecordsSummary>(emptyFiltered ? `/api/records/summary?${filterQuery}` : null);
   const readout = `zoom ${view.zoom.toFixed(1)} · yön ${Math.round(((view.bearing % 360) + 360) % 360)}°${borough ? ` · ${BOROUGH_TR[borough]}` : ""}`;
   const dot = load.phase === "ready" ? "bg-success" : load.phase === "error" ? "bg-hotspot" : "bg-warning animate-pulse";
 
@@ -176,11 +188,11 @@ export function ExplorerPage({ active }: { active: boolean }) {
           onBack={() => setSource({ kind: "model" })} onLab={() => setRoute("lab")} />
         <div className="flex-1" />
         <div className="panel pointer-events-auto flex items-center gap-1 p-1 shrink-0">
-          <Button size="sm" variant={leftPanel === "filters" ? "secondary" : "ghost"} className="hidden md:inline-flex"
+          <Button size="sm" variant={leftPanel === "filters" ? "secondary" : "ghost"} className="hidden lg:inline-flex"
             onClick={() => setLeftPanel(leftPanel === "filters" ? "view" : "filters")} aria-pressed={leftPanel === "filters"} data-testid="toolbar-filters">
             <SlidersHorizontal /> Filtreler{nFilters > 0 ? ` (${nFilters})` : ""}
           </Button>
-          <Button size="sm" variant="ghost" className="md:hidden" onClick={() => setMobileSheet("panel")} data-testid="mobile-panel">
+          <Button size="sm" variant="ghost" className="lg:hidden" onClick={() => setMobileSheet("panel")} data-testid="mobile-panel">
             <Layers /> Katmanlar{nFilters > 0 ? ` · ${nFilters}` : ""}
           </Button>
           <Button size="sm" variant={assetsOpen ? "secondary" : "ghost"} aria-pressed={assetsOpen} onClick={() => setAssetsOpen((o) => !o)} data-testid="assets-toggle" className="hidden sm:inline-flex">
@@ -227,6 +239,26 @@ export function ExplorerPage({ active }: { active: boolean }) {
         </div>
       </div>
 
+      {emptyFiltered && (
+        <div className="absolute z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(440px,calc(100%-24px))]" role="status" aria-live="polite" data-testid="empty-filter-result">
+          <div className="panel p-4 space-y-2.5 text-[12.5px] leading-snug">
+            <div className="flex items-center gap-2 font-display font-bold text-[14px]"><Inbox className="size-4 text-warning" aria-hidden /> Bu filtreyle haritada küme yok</div>
+            <p className="text-muted-foreground">
+              {emptySummary.data && emptyFiltered
+                ? emptySummary.data.n_events === 0
+                  ? "Seçilen filtre birleşimine uyan kaza kaydı bulunmuyor."
+                  : `Filtreye uyan ${fmtInt(emptySummary.data.n_events)} kayıt var; ancak hiçbiri seçili modelin bir kümesine düşmüyor (tümü gürültü −1).`
+                : "Filtreye uyan kayıt sayısı sorgulanıyor…"}{" "}
+              Küme etiketleri değiştirilmedi; filtreyi genişletin veya sıfırlayın.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <Button size="sm" variant="outline" onClick={resetFilters} data-testid="empty-reset"><RotateCcw /> Filtreleri sıfırla</Button>
+              <Button size="sm" variant="ghost" onClick={() => { setLeftPanel("filters"); if (mobile) setMobileSheet("panel"); }}><SlidersHorizontal /> Filtreleri düzenle</Button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {load.phase === "error" && !meta && (
         <div className="absolute inset-0 z-30 grid place-items-center bg-bg/70 p-4" role="alert" data-testid="fatal-error">
           <div className="panel p-5 max-w-md text-center space-y-3">
@@ -246,6 +278,15 @@ export function ExplorerPage({ active }: { active: boolean }) {
                 <SheetTitle className="text-[15px]">Görünüm ve filtreler</SheetTitle>
                 <SheetDescription className="text-[12px]">Katmanlar, ilçe kamerası ve kayıt filtreleri</SheetDescription>
               </SheetHeader>
+              <label className="flex items-center justify-between gap-3 rounded-md border border-line px-3 py-2 text-[12.5px] font-semibold">
+                Animasyon düzeyi
+                <select data-testid="mobile-motion-select" value={motion} onChange={(e) => setMotion(e.target.value as MotionLevel)}
+                  className="h-8 rounded-md bg-surface-2 px-2 text-[12.5px] font-semibold text-foreground focus-visible:ring-2 focus-visible:ring-ring outline-none">
+                  <option value="full">Tam</option>
+                  <option value="reduced">Azaltılmış</option>
+                  <option value="off">Kapalı</option>
+                </select>
+              </label>
               {leftContent}
             </SheetContent>
           </Sheet>

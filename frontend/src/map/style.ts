@@ -58,7 +58,7 @@ export function themePaint(theme: Theme): Record<string, Record<string, unknown>
     "road-motorway": { "line-color": p.roadMotorway },
     rail: { "line-color": p.rail },
     "building-unknown-height": { "fill-color": p.buildingUnknown, "fill-outline-color": p.building },
-    "building-3d": { "fill-extrusion-color": ["interpolate", ["linear"], ["get", "render_height"], 0, p.building, 120, p.buildingTop] },
+    "building-3d": { "fill-extrusion-color": ["interpolate", ["linear"], ["coalesce", ["get", "render_height"], 0], 0, p.building, 120, p.buildingTop] },
     "road-label": { "text-color": p.label, "text-halo-color": p.labelHalo },
     "place-label": { "text-color": p.label, "text-halo-color": p.labelHalo },
     "water-label": { "text-color": p.waterLabel, "text-halo-color": p.labelHalo },
@@ -97,7 +97,7 @@ export function buildBaseStyle(theme: Theme): StyleSpecification {
       filter: ["all", NOT_HIDDEN, UNKNOWN_HEIGHT] as never, paint: paint["building-unknown-height"] },
     { id: "building-3d", type: "fill-extrusion", source: "omt", "source-layer": "building", minzoom: 13,
       filter: ["all", NOT_HIDDEN, ["!", UNKNOWN_HEIGHT]] as never,
-      paint: { ...paint["building-3d"], "fill-extrusion-height": ["get", "render_height"],
+      paint: { ...paint["building-3d"], "fill-extrusion-height": ["coalesce", ["get", "render_height"], 0], // bazı OSM parçalarında null (konsol uyarısı + siyah dolgu)
         "fill-extrusion-base": ["coalesce", ["get", "render_min_height"], 0],
         "fill-extrusion-opacity": ["interpolate", ["linear"], ["zoom"], 13, 0, 14, 0.92] } as never },
     { id: "water-label", type: "symbol", source: "omt", "source-layer": "water_name", minzoom: 10,

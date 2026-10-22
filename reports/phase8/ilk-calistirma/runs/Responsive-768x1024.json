@@ -1,0 +1,28 @@
+{
+  "test": "Responsive 768x1024",
+  "status": "passed",
+  "duration_ms": 9670,
+  "records": [
+    {
+      "id": "R-768x1024",
+      "screen": "Tüm ekranlar",
+      "component": "Görüntü alanı 768x1024",
+      "expected": "Beş ekranda yatay taşma yok; mobilde çekmeceler çalışır",
+      "actual": "genel-bakis: taşma 0 · kesif: taşma 0 · laboratuvar: taşma 0 · modeller: taşma 0 · veri: taşma 0",
+      "result": "geçti",
+      "ms": 9612,
+      "test": "Responsive 768x1024"
+    }
+  ],
+  "logs": {
+    "app_console": [
+      "warning: Map cannot fit within canvas with the given bounds, padding, and/or offset."
+    ],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

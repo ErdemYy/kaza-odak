@@ -1,0 +1,93 @@
+{
+  "test": "Genel bakış etkileşimleri",
+  "status": "timedOut",
+  "duration_ms": 180001,
+  "records": [
+    {
+      "id": "O01",
+      "screen": "Genel bakış",
+      "component": "Özeti dışa aktar (menü)",
+      "expected": "Menü üç biçim sunar; her bağlantı 200 ve doğru içerik türü döner",
+      "actual": "/api/export/records?format=md → text/markdown 3.614 B · /api/export/records?format=csv → text/csv 2.996 B · /api/export/records?format=json → application/json 17.747 B · indirme: saferoute-kayit-ozeti-6cb81d88.csv",
+      "result": "geçti",
+      "ms": 418,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O02",
+      "screen": "Genel bakış",
+      "component": "Yıllara göre grafik › Tablo/Grafik düğmesi",
+      "expected": "Tablo görünümü yıl satırlarını, Grafik görünümü çubuk grafiği gösterir",
+      "actual": "15 yıl satırı ↔ grafik",
+      "result": "geçti",
+      "ms": 438,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O03",
+      "screen": "Genel bakış",
+      "component": "Yıl grafiği › çubuk ipucu",
+      "expected": "Çubuğun üzerine gelince yıl ve kaza sayısı ipucu görünür",
+      "actual": "2018 Kaza 216.108",
+      "result": "geçti",
+      "ms": 67,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O04",
+      "screen": "Genel bakış",
+      "component": "Gürültü oranı › bilgi ipucu",
+      "expected": "Bilgi simgesine odaklanınca açıklama (hata ölçüsü değildir) görünür",
+      "actual": "ipucu klavye odağıyla açıldı",
+      "result": "geçti",
+      "ms": 32,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O05",
+      "screen": "Genel bakış",
+      "component": "Kaynak bağlantısı",
+      "expected": "NYC Open Data bağlantısı yeni sekmede, rel=noopener",
+      "actual": "https://data.cityofnewyork.us/d/h9gi-nx95",
+      "result": "geçti",
+      "ms": 14,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O06",
+      "screen": "Genel bakış",
+      "component": "Model kartları",
+      "expected": "Küme 4.179, gürültü %59,7, eligible 2.020.638 — API ile aynı",
+      "actual": "küme 4.179, gürültü %59.69",
+      "result": "geçti",
+      "ms": 9,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O07",
+      "screen": "Genel bakış",
+      "component": "3D haritada aç",
+      "expected": "3D Şehir Keşfi açılır",
+      "actual": "Beklenen gerçekleşmedi",
+      "result": "başarısız",
+      "cause": "expect(locator).toHaveAttribute(expected) failed | Locator:  getByTestId('load-status') | Expected: \"ready\" | Received: \"loading\"",
+      "ms": 90461,
+      "test": "Genel bakış etkileşimleri"
+    }
+  ],
+  "logs": {
+    "app_console": [
+      "error: MapLibre: The source 'centroids' does not exist in the map's style.",
+      "error: MapLibre: The source 'geometries' does not exist in the map's style.",
+      "error: Failed to load resource: the server responded with a status of 409 (Conflict)"
+    ],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": [
+      "409 http://127.0.0.1:8000/api/clusters/1344?experiment_id="
+    ]
+  },
+  "a11y": {},
+  "measurements": {}
+}

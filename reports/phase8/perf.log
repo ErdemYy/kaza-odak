@@ -1,0 +1,16 @@
+
+Running 3 tests using 1 worker
+
+[1/3] [gpu-varsayilan] › e2e-perf\map.perf.ts:41:1 › Harita + 3D performansı
+[gpu-varsayilan] › e2e-perf\map.perf.ts:41:1 › Harita + 3D performansı
+{"project":"gpu-varsayilan","renderer":"ANGLE (NVIDIA, NVIDIA GeForce RTX 4050 Laptop GPU (0x000028E1) Direct3D11 vs_5_0 ps_5_0, D3D11)","fps_rotate":143.6,"fps_zoom_in":143.2,"recoveryMs":873}
+
+[2/3] [gpu-yuksek-performans] › e2e-perf\map.perf.ts:41:1 › Harita + 3D performansı
+[gpu-yuksek-performans] › e2e-perf\map.perf.ts:41:1 › Harita + 3D performansı
+{"project":"gpu-yuksek-performans","renderer":"ANGLE (NVIDIA, NVIDIA GeForce RTX 4050 Laptop GPU (0x000028E1) Direct3D11 vs_5_0 ps_5_0, D3D11)","fps_rotate":143.6,"fps_zoom_in":143.7,"recoveryMs":893}
+
+[3/3] [swiftshader-yazilim] › e2e-perf\map.perf.ts:41:1 › Harita + 3D performansı
+[swiftshader-yazilim] › e2e-perf\map.perf.ts:41:1 › Harita + 3D performansı
+{"project":"swiftshader-yazilim","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","fps_rotate":4.2,"fps_zoom_in":10.4,"recoveryMs":2691}
+
+  3 passed (2.7m)

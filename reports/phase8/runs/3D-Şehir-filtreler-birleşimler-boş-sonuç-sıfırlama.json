@@ -1,0 +1,176 @@
+{
+  "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama",
+  "status": "passed",
+  "duration_ms": 26032,
+  "records": [
+    {
+      "id": "F01",
+      "screen": "3D Şehir › Filtreler",
+      "component": "İlçe çipleri (çoklu)",
+      "expected": "Seçilen ilçeler önizlemeyi API sayısıyla günceller",
+      "actual": "Staten Island 99.401 · + Bronx 401.198",
+      "result": "geçti",
+      "ms": 2258,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F03",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Yıl çipleri",
+      "expected": "Yıl seçimi önizlemeyi günceller; kısmi yıllar kesikli kenarlı",
+      "actual": "6.686 kayıt · 2012 kenarı dashed",
+      "result": "geçti",
+      "ms": 879,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F04",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Ay çipleri",
+      "expected": "Ay seçimi uygulanır",
+      "actual": "813 kayıt",
+      "result": "geçti",
+      "ms": 857,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F05",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Haftanın günü çipleri",
+      "expected": "Gün seçimi uygulanır (çoklu)",
+      "actual": "165 kayıt (hafta sonu)",
+      "result": "geçti",
+      "ms": 912,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F06",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Saat aralığı anahtarı + seçiciler + gece örneği",
+      "expected": "Anahtar 07–10'u açar; seçici değeri değiştirir; gece örneği 22–04 yapar",
+      "actual": "07–10 → 07–12 → 22–04 (30 kayıt) → kapalı",
+      "result": "geçti",
+      "ms": 2350,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F07",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Araç türü çipleri",
+      "expected": "Kategori seçimi uygulanır",
+      "actual": "94 kayıt (SUV), sonra kaldırıldı",
+      "result": "geçti",
+      "ms": 925,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F08",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Katkı faktörü seçici",
+      "expected": "Faktör seçimi uygulanır; 'Tümü' kaldırır",
+      "actual": "66 kayıt, sonra Tümü",
+      "result": "geçti",
+      "ms": 1555,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F09",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Yaralanma durumu (tekli seçim)",
+      "expected": "Yaralanmalı seçimi uygulanır",
+      "actual": "28 kayıt",
+      "result": "geçti",
+      "ms": 1113,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F11",
+      "screen": "3D Şehir › Filtreler",
+      "component": "00:00 şüpheli kayıtları hariç tut",
+      "expected": "Onay kutusu uygulanır",
+      "actual": "164 kayıt",
+      "result": "geçti",
+      "ms": 902,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F13",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Mevcut kümelerde göster",
+      "expected": "Filtrelenmiş mod: bant 'yeniden kümeleme yapılmadı'; merkez kimlikleri model kimliklerinin alt kümesi; sayaç API ile aynı",
+      "actual": "33 / 4.179 küme; tüm kimlikler tam veri modelinde",
+      "result": "geçti",
+      "ms": 1590,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F18",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Filtre etkinken küme ayrıntısı",
+      "expected": "Tam küme ve filtrelenmiş sayılar ayrı; küme kimliği değişmez",
+      "actual": "Küme #243: tam 255 / filtrelenmiş 4",
+      "result": "geçti",
+      "ms": 2189,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F15",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Geçersiz tarih aralığı",
+      "expected": "Başlangıç > bitiş: hata mesajı, Uygula ve Laboratuvar düğmeleri devre dışı",
+      "actual": "hata gösterildi, düğmeler kilitli",
+      "result": "geçti",
+      "ms": 47,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F16",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Boş sonuç birleşimi",
+      "expected": "0 kayıt: önizleme 0, haritada 0 küme ve açık bir boş durum mesajı",
+      "actual": "0 kayıt, 0 küme, boş durum: \"Bu filtreyle haritada küme yok Seçilen filtre birleşimine uyan kaza kaydı bulunmuyor. Küme etiketleri değiştirilmedi; fi\"",
+      "result": "geçti",
+      "ms": 4670,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F14",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Filtreleri sıfırla",
+      "expected": "Tüm filtreler temizlenir, seçili model moduna dönülür (4.179 küme)",
+      "actual": "4.179 küme, bant yok",
+      "result": "geçti",
+      "ms": 793,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F17",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Bu filtreyle yeni kümeleme başlat",
+      "expected": "Filtre uygulanır ve Laboratuvar filtre kapsamıyla açılır; kapsam sayısı API ile aynı",
+      "actual": "Laboratuvar: kapsam 6.686 kayıt",
+      "result": "geçti",
+      "ms": 1382,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F19",
+      "screen": "Laboratuvar",
+      "component": "Kapsam › Filtreleri düzenle (3D Keşif)",
+      "expected": "3D Keşif Filtreler sekmesiyle açılır, filtreler korunur",
+      "actual": "Filtreler sekmesi açık, Staten Island seçili",
+      "result": "geçti",
+      "ms": 224,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

@@ -22,7 +22,7 @@ export function SavedExperiments({ experiments, selected, onSelect }: { experime
     <div data-testid="saved-experiments">
       <div className="flex flex-wrap items-center gap-2 mb-3">
         <Select value={algo} onValueChange={setAlgo}>
-          <SelectTrigger className="h-9 w-[150px]" aria-label="Algoritma süzgeci"><SelectValue /></SelectTrigger>
+          <SelectTrigger className="h-9 w-[176px]" aria-label="Algoritma süzgeci"><SelectValue /></SelectTrigger>
           <SelectContent>
             <SelectItem value="all">Tüm algoritmalar</SelectItem>
             <SelectItem value="dbscan">DBSCAN</SelectItem><SelectItem value="kmeans">K-Means</SelectItem><SelectItem value="hdbscan">HDBSCAN</SelectItem>
@@ -39,10 +39,10 @@ export function SavedExperiments({ experiments, selected, onSelect }: { experime
         <span className="ml-auto text-[12px] text-muted-foreground tabular">{rows.length} / {experiments.length} deney</span>
       </div>
       <div className="overflow-x-auto max-h-[460px] overflow-y-auto scroll-thin rounded-md border border-line">
-        <Table className="text-[12.5px] min-w-[860px]">
+        <Table className="text-[12.5px] min-w-[640px]">
           <TableHeader className="sticky top-0 bg-surface z-[1]">
             <TableRow>
-              <TableHead>Deney</TableHead><TableHead>Aşama</TableHead><TableHead>Parametreler</TableHead><TableHead>Kapsam</TableHead>
+              <TableHead>Deney · aşama · kapsam</TableHead><TableHead>Parametreler</TableHead>
               <TableHead className="text-right">Olay</TableHead><TableHead className="text-right">Küme</TableHead><TableHead className="text-right">Gürültü</TableHead>
               <TableHead className="text-right">Siluet</TableHead><TableHead className="text-right">Süre</TableHead>
             </TableRow>
@@ -58,10 +58,11 @@ export function SavedExperiments({ experiments, selected, onSelect }: { experime
                     <button type="button" className="font-mono text-[12px] text-primary hover:underline focus-visible:ring-2 focus-visible:ring-ring rounded-sm outline-none"
                       onClick={(ev) => { ev.stopPropagation(); onSelect(e); }} data-experiment={e.experiment_id}>{e.experiment_id}</button>
                     {e.selected_as && <span className="ml-1.5 text-[11px] text-primary font-semibold">seçili</span>}
+                    <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11.5px] text-muted-foreground">
+                      {STAGE_TR[e.stage] ?? e.stage} <ScopeBadge scope={e.scope_class} title={e.scope_text} />
+                    </div>
                   </TableCell>
-                  <TableCell className="text-muted-foreground">{STAGE_TR[e.stage] ?? e.stage}</TableCell>
-                  <TableCell className="tabular">{Object.entries(e.params).map(([k, v]) => `${k}=${v ?? "—"}`).join(" ")}</TableCell>
-                  <TableCell><ScopeBadge scope={e.scope_class} title={e.scope_text} /></TableCell>
+                  <TableCell className="tabular whitespace-normal">{Object.entries(e.params).map(([k, v]) => `${k}=${v ?? "—"}`).join(" ")}</TableCell>
                   <TableCell className="text-right tabular">{fmtInt(e.n_events)}</TableCell>
                   <TableCell className="text-right tabular">{fmtInt(m?.n_clusters_full ?? m?.n_clusters_eval ?? (e.raw_metrics?.n_clusters as number | undefined) ?? null)}</TableCell>
                   <TableCell className="text-right tabular">{kmeans ? <span className="text-subtle" title="K-Means gürültü ayırmaz">Uyg. değil</span>

@@ -1,0 +1,48 @@
+
+Running 13 tests using 1 worker
+
+[1/13] [chromium] › e2e\phase6-restart.spec.ts:62:1 › Sunucu çökmesi → yetim süreç yok → iş 'Yarıda kaldı' → açık yeniden deneme
+[chromium] › e2e\phase6-restart.spec.ts:62:1 › Sunucu çökmesi → yetim süreç yok → iş 'Yarıda kaldı' → açık yeniden deneme
+
+
+
+
+[2/13] [chromium] › e2e\phase6.spec.ts:62:1 › Demo senaryosu — 14 adım gerçek veri ve kayıtlı deneylerle
+  1) [chromium] › e2e\phase6.spec.ts:62:1 › Demo senaryosu — 14 adım gerçek veri ve kayıtlı deneylerle 
+
+    Test timeout of 420000ms exceeded.
+
+    Error: locator.click: Test timeout of 420000ms exceeded.
+    Call log:
+      - waiting for getByTestId('tab-saved')
+
+
+      114 |   // 11–12) Kümeleme Laboratuvarı → önceden hesaplanmış DBSCAN deneyi
+      115 |   await page.goto("/#/laboratuvar");
+    > 116 |   await page.getByTestId("tab-saved").click();
+          |                                       ^
+      117 |   const exps = await api(page, "/api/experiments");
+      118 |   const grid = exps.experiments.find((e: any) => e.algorithm === "dbscan" && e.stage === "dbscan_grid" && e.has_labels && e.experiment_id !== "dbscan-52abd2c018");
+      119 |   await page.locator(`[data-experiment="${grid.experiment_id}"]`).first().click();
+        at C:\Proje\SAFEROUTE 3D\frontend\e2e\phase6.spec.ts:116:39
+
+    Error Context: test-results\phase6-Demo-senaryosu-—-14-72a85--veri-ve-kayıtlı-deneylerle-chromium\error-context.md
+
+    Error Context: test-results\phase6-Demo-senaryosu-—-14-72a85--veri-ve-kayıtlı-deneylerle-chromium\error-context.md
+
+
+[3/13] [chromium] › e2e\phase6.spec.ts:164:1 › Zaman oynatma — kayıtlı HDBSCAN deneyinde üyelik sabit, kapsam aşılmaz
+[4/13] [chromium] › e2e\phase6.spec.ts:209:1 › Mod A / Mod B ayrımı — filtre etiketleri korur; dinamik sonuç ayrı deney kimliğinde
+[5/13] [chromium] › e2e\phase6.spec.ts:230:1 › WebGL bağlam kaybı sonrası toparlanma ve GLB modelleri
+[6/13] [chromium] › e2e\phase6.spec.ts:270:1 › Bağlantı kaybı: iş durumu otomatik yeniden denenir; harita veri hatası gösterilir ve toparlanır
+[7/13] [chromium] › e2e\phase6.spec.ts:305:1 › Klavye gezinmesi: atlama bağlantısı, menü, zaman kaydırıcısı
+[8/13] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive telefon 390×844@3x: 5 ekranda yatay taşma yok
+[9/13] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive tablet 820×1180@2x: 5 ekranda yatay taşma yok
+[10/13] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive dizustu 1280×800@1x: 5 ekranda yatay taşma yok
+[11/13] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive genis 1920×1080@1x: 5 ekranda yatay taşma yok
+[12/13] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive yuksek-cozunurluk 2560×1440@2x: 5 ekranda yatay taşma yok
+[13/13] [chromium] › e2e\phase6.spec.ts:371:1 › Erişilebilirlik (axe) — beş ekran
+  1 failed
+    [chromium] › e2e\phase6.spec.ts:62:1 › Demo senaryosu — 14 adım gerçek veri ve kayıtlı deneylerle 
+  11 did not run
+  1 passed (7.3m)

@@ -1,0 +1,116 @@
+{
+  "test": "3D Şehir — zaman oynatma",
+  "status": "passed",
+  "duration_ms": 17177,
+  "records": [
+    {
+      "id": "E14-month",
+      "screen": "3D Şehir",
+      "component": "Zaman ölçeği › month",
+      "expected": "Ölçek değişince kova sayısı ve kaydırıcı aralığı değişir; dilim sıfırlanır",
+      "actual": "168 kova",
+      "result": "geçti",
+      "ms": 159,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E14-dow",
+      "screen": "3D Şehir",
+      "component": "Zaman ölçeği › dow",
+      "expected": "Ölçek değişince kova sayısı ve kaydırıcı aralığı değişir; dilim sıfırlanır",
+      "actual": "7 kova",
+      "result": "geçti",
+      "ms": 61,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E14-hour",
+      "screen": "3D Şehir",
+      "component": "Zaman ölçeği › hour",
+      "expected": "Ölçek değişince kova sayısı ve kaydırıcı aralığı değişir; dilim sıfırlanır",
+      "actual": "24 kova",
+      "result": "geçti",
+      "ms": 67,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E14-year",
+      "screen": "3D Şehir",
+      "component": "Zaman ölçeği › year",
+      "expected": "Ölçek değişince kova sayısı ve kaydırıcı aralığı değişir; dilim sıfırlanır",
+      "actual": "15 kova",
+      "result": "geçti",
+      "ms": 65,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-next",
+      "screen": "3D Şehir",
+      "component": "Zaman › Sonraki/Önceki adım",
+      "expected": "Dilim ilerler/geriler; okuma alanında yıl ve kayıt sayısı API kovasıyla aynı",
+      "actual": "2012 (85.458 kayıt) ↔ 2013",
+      "result": "geçti",
+      "ms": 193,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-slice-map",
+      "screen": "3D Şehir",
+      "component": "Zaman dilimi › harita verisi",
+      "expected": "Dilim seçilince merkezler /api/records/clusters'tan gelir; kimlikler modelin alt kümesi (etiket değişmez)",
+      "actual": "3.929 küme (tümü model kimliği) · mod model|years=2012",
+      "result": "geçti",
+      "ms": 2249,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-play",
+      "screen": "3D Şehir",
+      "component": "Zaman › Oynat / Duraklat",
+      "expected": "Oynat dilimi otomatik ilerletir; Duraklat durdurur",
+      "actual": "2012 → 2012 (duraklatınca sabit)",
+      "result": "geçti",
+      "ms": 3106,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-slider",
+      "screen": "3D Şehir",
+      "component": "Zaman kaydırıcısı (klavye)",
+      "expected": "Ok tuşu dilimi değiştirir; aria-valuetext güncellenir",
+      "actual": "değer 0 → 1; 2013, 171.941 kayıt",
+      "result": "geçti",
+      "ms": 54,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E16",
+      "screen": "3D Şehir",
+      "component": "Zaman histogramı çubuğuna tıklama",
+      "expected": "Tıklanan kova seçilir",
+      "actual": "\"2024 — 83.692 kayıt\" seçildi",
+      "result": "geçti",
+      "ms": 92,
+      "test": "3D Şehir — zaman oynatma"
+    },
+    {
+      "id": "E15-clear",
+      "screen": "3D Şehir",
+      "component": "Zaman › Dilimi kaldır (X)",
+      "expected": "Tüm dönem görünümüne döner",
+      "actual": "Tüm dönem",
+      "result": "geçti",
+      "ms": 139,
+      "test": "3D Şehir — zaman oynatma"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

@@ -1,0 +1,96 @@
+{
+  "test": "Genel bakış etkileşimleri",
+  "status": "passed",
+  "duration_ms": 3761,
+  "records": [
+    {
+      "id": "O01",
+      "screen": "Genel bakış",
+      "component": "Özeti dışa aktar (menü)",
+      "expected": "Menü üç biçim sunar; her bağlantı 200 ve doğru içerik türü döner",
+      "actual": "/api/export/records?format=md → text/markdown 3.614 B · /api/export/records?format=csv → text/csv 2.996 B · /api/export/records?format=json → application/json 17.747 B · indirme: saferoute-kayit-ozeti-6cb81d88.csv",
+      "result": "geçti",
+      "ms": 258,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O02",
+      "screen": "Genel bakış",
+      "component": "Yıllara göre grafik › Tablo/Grafik düğmesi",
+      "expected": "Tablo görünümü yıl satırlarını, Grafik görünümü çubuk grafiği gösterir",
+      "actual": "15 yıl satırı ↔ grafik",
+      "result": "geçti",
+      "ms": 310,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O03",
+      "screen": "Genel bakış",
+      "component": "Yıl grafiği › çubuk ipucu",
+      "expected": "Çubuğun üzerine gelince yıl ve kaza sayısı ipucu görünür",
+      "actual": "2018 Kaza 216.108",
+      "result": "geçti",
+      "ms": 67,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O04",
+      "screen": "Genel bakış",
+      "component": "Gürültü oranı › bilgi ipucu",
+      "expected": "Bilgi simgesine odaklanınca açıklama (hata ölçüsü değildir) görünür",
+      "actual": "ipucu klavye odağıyla açıldı",
+      "result": "geçti",
+      "ms": 29,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O05",
+      "screen": "Genel bakış",
+      "component": "Kaynak bağlantısı",
+      "expected": "NYC Open Data bağlantısı yeni sekmede, rel=noopener",
+      "actual": "https://data.cityofnewyork.us/d/h9gi-nx95",
+      "result": "geçti",
+      "ms": 18,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O06",
+      "screen": "Genel bakış",
+      "component": "Model kartları",
+      "expected": "Küme 4.179, gürültü %59,7, eligible 2.020.638 — API ile aynı",
+      "actual": "küme 4.179, gürültü %59.69",
+      "result": "geçti",
+      "ms": 8,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O07",
+      "screen": "Genel bakış",
+      "component": "3D haritada aç",
+      "expected": "3D Şehir Keşfi açılır",
+      "actual": "#/kesif, harita hazır",
+      "result": "geçti",
+      "ms": 883,
+      "test": "Genel bakış etkileşimleri"
+    },
+    {
+      "id": "O08",
+      "screen": "Genel bakış",
+      "component": "En yüksek kümeler › Haritada",
+      "expected": "İlk küme haritada seçilir; ayrıntıdaki kayıt sayısı API ile aynı",
+      "actual": "Küme #1344: 1.444 kayıt (genel bakış = ayrıntı = API)",
+      "result": "geçti",
+      "ms": 948,
+      "test": "Genel bakış etkileşimleri"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

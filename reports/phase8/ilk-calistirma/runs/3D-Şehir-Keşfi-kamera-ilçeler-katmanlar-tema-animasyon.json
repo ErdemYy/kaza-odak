@@ -1,0 +1,15 @@
+{
+  "test": "3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon",
+  "status": "failed",
+  "duration_ms": 90367,
+  "records": [],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

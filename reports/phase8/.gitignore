@@ -1,0 +1,5 @@
+# Regresyon ve ilk çalıştırma ekran görüntüleri Faz 4–6 görüntülerinin kopyalarıdır (≈ 30 MB); Git'e eklenmez.
+# Günlükler (*.log) ve ölçüm/sonuç JSON dosyaları eklenir.
+regresyon/**/screenshots/
+ilk-calistirma/screenshots/
+perf/screenshots/

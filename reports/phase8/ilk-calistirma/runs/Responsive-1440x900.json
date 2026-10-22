@@ -1,0 +1,26 @@
+{
+  "test": "Responsive 1440x900",
+  "status": "passed",
+  "duration_ms": 13133,
+  "records": [
+    {
+      "id": "R-1440x900",
+      "screen": "Tüm ekranlar",
+      "component": "Görüntü alanı 1440x900",
+      "expected": "Beş ekranda yatay taşma yok; mobilde çekmeceler çalışır",
+      "actual": "genel-bakis: taşma 0 · kesif: taşma 0 · laboratuvar: taşma 0 · modeller: taşma 0 · veri: taşma 0",
+      "result": "geçti",
+      "ms": 13074,
+      "test": "Responsive 1440x900"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

@@ -16,7 +16,7 @@ const ROOT = resolve(HERE, "../..");
 const PORT = 8011;
 const BASE = `http://127.0.0.1:${PORT}`;
 const LAB = resolve(HERE, "../test-results/phase6-restart-lab");
-const OUT = resolve(ROOT, "reports/phase6");
+const OUT = process.env.SAFEROUTE_PHASE6_OUT ? resolve(process.env.SAFEROUTE_PHASE6_OUT) : resolve(ROOT, "reports/phase6");
 const PY = resolve(ROOT, process.platform === "win32" ? "backend/.venv/Scripts/python.exe" : "backend/.venv/bin/python");
 mkdirSync(resolve(OUT, "screenshots"), { recursive: true });
 const log: Record<string, unknown> = {};

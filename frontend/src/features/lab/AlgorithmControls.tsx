@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { InfoTip, Note } from "../../components/common";
 import { fmtInt, fmtPct } from "../../lib/format";
 import type { Experiment, LabCapabilities, RecordsSummary } from "../../lib/types";
-import { budgetWarnings, DEFAULT_PARAMS, PARAM_LABELS, paramKeys, registryMatch, type Algorithm, type LabForm, type Validation } from "./labForm";
+import { budgetWarnings, DEFAULT_PARAMS, defaultForm, PARAM_LABELS, paramKeys, registryMatch, type Algorithm, type LabForm, type Validation } from "./labForm";
 
 const ALGOS: { id: Algorithm; label: string; note: string }[] = [
   { id: "dbscan", label: "DBSCAN", note: "Yoğunluk tabanlı; gürültüyü ayırır. Ana model." },
@@ -31,8 +31,12 @@ export function AlgorithmControls({ form, setForm, cap, validation, scope, filte
   const match = registryMatch(form, validation, filtersEmpty, experiments);
   const setAlgo = (a: Algorithm) => {
     const fsNext = cap.compatibility[a].allowed.includes(form.featureSet) ? form.featureSet : cap.compatibility[a].allowed[0];
-    setForm({ ...form, algorithm: a, featureSet: fsNext, params: { ...DEFAULT_PARAMS[a] }, useSample: a === "hdbscan" ? true : form.useSample,
-      sampleN: a === "hdbscan" ? "100000" : form.sampleN });
+    // HDBSCAN örneklemi zorunlu açar; HDBSCAN'den çıkınca bu zorlama geri alınır (aksi hâlde DBSCAN/K-Means istekleri
+    // fark edilmeden 100.000 olaylık örneklemle gider ve Faz 3 kaydıyla eşleşmez).
+    const leavingHdb = form.algorithm === "hdbscan" && a !== "hdbscan";
+    setForm({ ...form, algorithm: a, featureSet: fsNext, params: { ...DEFAULT_PARAMS[a] },
+      useSample: a === "hdbscan" ? true : leavingHdb ? false : form.useSample,
+      sampleN: a === "hdbscan" ? "100000" : leavingHdb ? defaultForm().sampleN : form.sampleN });
   };
   const setParam = (k: string, v: string) => setForm({ ...form, params: { ...form.params, [k]: v } });
 
@@ -69,7 +73,7 @@ export function AlgorithmControls({ form, setForm, cap, validation, scope, filte
                   {ok && <span className="block text-muted-foreground mt-0.5">{f.metric} · {f.level}</span>}
                   {!ok && reason && (
                     <span className="mt-0.5 flex items-start gap-1 text-warning" data-testid={`lab-fs-reason-${id}`}>
-                      <span className="line-clamp-2" title={reason}>Desteklenmiyor: {reason}</span>
+                      <span>Desteklenmiyor: {reason}</span>
                     </span>
                   )}
                 </span>

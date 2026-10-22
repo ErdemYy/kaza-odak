@@ -1,0 +1,40 @@
+{
+  "test": "Altlık harita servisi erişilemezken kaza katmanları yine yüklenir",
+  "status": "passed",
+  "duration_ms": 3166,
+  "records": [
+    {
+      "id": "E20",
+      "screen": "3D Şehir",
+      "component": "Üçüncü taraf altlık (OpenFreeMap) kesintisi",
+      "expected": "Karo/tilejson/glif istekleri engellense de yerel API'den 4.179 küme merkezi yüklenir ve durum 'hazır' olur",
+      "actual": "1 altlık isteği engellendi; kaza verisi 0.7 sn'de hazır, 4.179 merkez",
+      "result": "geçti",
+      "ms": 1831,
+      "test": "Altlık harita servisi erişilemezken kaza katmanları yine yüklenir"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [
+      "error: Failed to load resource: net::ERR_CONNECTION_FAILED"
+    ],
+    "app_failed": [],
+    "third_party_failed": [
+      "https://tiles.openfreemap.org/planet net::ERR_CONNECTION_FAILED"
+    ],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {
+    "free_memory_before_dynamic_mb": 5607,
+    "dynamic_job": {
+      "job": "4e415eac71ee",
+      "n_events": 6686,
+      "clusters": 72,
+      "runtime_s": 0.029,
+      "peak_mb": 182.6
+    },
+    "basemap_blocked_data_ready_ms": 652
+  }
+}

@@ -7,9 +7,10 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const OUT = resolve(HERE, "../../reports/phase6");
+// SAFEROUTE_PERF_OUT ile yönlendirilebilir (Faz 8 ölçümü Faz 6 dosyalarını değiştirmesin; verilmezse Faz 6 yolu).
+const OUT = process.env.SAFEROUTE_PERF_OUT ? resolve(process.env.SAFEROUTE_PERF_OUT) : resolve(HERE, "../../reports/phase6");
 const FILE = resolve(OUT, "map_performance.json");
-mkdirSync(OUT, { recursive: true });
+mkdirSync(resolve(OUT, "screenshots"), { recursive: true });
 
 async function idle(page: Page, extra = 500) {
   await page.waitForFunction(() => { const m = (window as any).__saferoute?.map; return m && m.loaded() && m.areTilesLoaded() && !m.isMoving(); }, null, { timeout: 120_000 });

@@ -1,0 +1,156 @@
+{
+  "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş",
+  "status": "passed",
+  "duration_ms": 39257,
+  "records": [
+    {
+      "id": "L01",
+      "screen": "Laboratuvar",
+      "component": "Algoritma seçimi (DBSCAN/K-Means/HDBSCAN)",
+      "expected": "Algoritma parametre alanlarını değiştirir",
+      "actual": "k / min_cluster_size + örneklem 100.000 / eps",
+      "result": "geçti",
+      "ms": 142,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L02",
+      "screen": "Laboratuvar",
+      "component": "Öznitelik seti radyo düğmeleri",
+      "expected": "Desteklenmeyen setler devre dışı ve gerekçeli; uzay-zaman seçilince eps_gün alanı çıkar",
+      "actual": "2 devre dışı set (gerekçeli); uzay-zaman → eps_gün",
+      "result": "geçti",
+      "ms": 99,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L03",
+      "screen": "Laboratuvar",
+      "component": "Parametre doğrulama (istemci)",
+      "expected": "Sayı olmayan / aralık dışı değer hata verir, gönder düğmesi kilitlenir",
+      "actual": "abc → 'Sayı girin', 99999 → aralık hatası, 2.5 → tamsayı hatası",
+      "result": "geçti",
+      "ms": 93,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L18",
+      "screen": "Laboratuvar",
+      "component": "Sunucu tarafı doğrulama (API)",
+      "expected": "Geçersiz parametreler 422 ve Türkçe gerekçeyle reddedilir",
+      "actual": "{\"eps_m\":-5,\"min_samples\":10} → 422 \"eps_m 5–500 aralığında olmalı: -5\" · {\"eps_m\":25,\"min_samples\":10,\"foo\":1} → 422 \"DBSCAN için tanımsız parametre: ['foo']\"",
+      "result": "geçti",
+      "ms": 16,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L04",
+      "screen": "Laboratuvar",
+      "component": "HDBSCAN › min_samples otomatik + eom/leaf",
+      "expected": "Onay kutusu min_samples alanını kilitler; küme seçim yöntemi değişir",
+      "actual": "min_samples kilitli, leaf seçili",
+      "result": "geçti",
+      "ms": 189,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L17",
+      "screen": "Laboratuvar",
+      "component": "Kaynak bütçesi engeli",
+      "expected": "HDBSCAN örneklemsiz tam veride bütçe uyarısı, gönder kilitli",
+      "actual": "Kaynak bütçesi aşılıyor HDBSCAN kayıt düzeyidir ve ~karesel ölçeklenir: 2.020.638 olay > 100.000 bütçe. Örneklem kullanın veya filtreyi dara",
+      "result": "geçti",
+      "ms": 98,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L05",
+      "screen": "Laboratuvar",
+      "component": "Örneklem boyutu / tohum doğrulaması",
+      "expected": "Geçersiz örneklem boyutu hata verir",
+      "actual": "10 → hata; 100.000 geri",
+      "result": "geçti",
+      "ms": 87,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L07",
+      "screen": "Laboratuvar",
+      "component": "Kayıtlı konfigürasyon eşleşmesi → Kayıtlı sonucu yükle",
+      "expected": "DBSCAN 25 m/100 (filtresiz) Faz 3 kaydıyla eşleşir; yeniden fit yok; 4.179 küme",
+      "actual": "deney dbscan-52abd2c018 · iş 7e6d78d55275",
+      "result": "geçti",
+      "ms": 180,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L13",
+      "screen": "Laboratuvar",
+      "component": "Kayıtlı deneyler › süzgeçler",
+      "expected": "Algoritma ve aşama seçicileri satırları süzer",
+      "actual": "K-Means ızgara: 5 / 115 deney; tüm aşamalar: 18 / 115 deney",
+      "result": "geçti",
+      "ms": 1305,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L13b",
+      "screen": "Laboratuvar",
+      "component": "Kayıtlı deney seçimi",
+      "expected": "K-Means k=5 sonucu: 5 küme, gürültü 'Uygulanamaz'",
+      "actual": "5 küme, gürültü Uygulanamaz",
+      "result": "geçti",
+      "ms": 351,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L15",
+      "screen": "Laboratuvar",
+      "component": "Sonucu dışa aktar",
+      "expected": "Menü bağlantıları 200 döner",
+      "actual": "text/markdown, text/csv, application/json",
+      "result": "geçti",
+      "ms": 126,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L14",
+      "screen": "Laboratuvar",
+      "component": "Kayıtlı sonuç › Haritada göster",
+      "expected": "3D Keşif sonuç modunda açılır; merkez sayısı sonuçla aynı; 'Seçili modele dön' çalışır",
+      "actual": "HDBSCAN 768 küme / 100.000 olay kapsamı → modele dönüş 4.179",
+      "result": "geçti",
+      "ms": 30455,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L16",
+      "screen": "Laboratuvar",
+      "component": "İş geçmişi",
+      "expected": "Geçmiş listelenir; bir işe tıklayınca iş görünümü açılır; kaynak sınırı işi gerekçesiyle görünür",
+      "actual": "14 iş; Kaynak sınırı — iş tamamlanmadı Bellek yetersiz: kullanılabilir fiziksel bellek 1.260 MB < gereken 1.500 MB. Diğer uygul",
+      "result": "geçti",
+      "ms": 4038,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    },
+    {
+      "id": "L20",
+      "screen": "Laboratuvar",
+      "component": "Bellek yetersiz uyarısı (kaynak ölçümü)",
+      "expected": "can_start=false iken açık uyarı ve gerekçe (yanıt tarayıcıda değiştirildi; gerçek ölçüm aşağıda)",
+      "actual": "uyarı gösterildi · gerçek boş bellek 5.952,1 MB (eşik 1.500 MB)",
+      "result": "geçti",
+      "ms": 799,
+      "test": "Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

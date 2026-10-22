@@ -1,0 +1,27 @@
+{
+  "test": "Responsive 390x844",
+  "status": "passed",
+  "duration_ms": 39383,
+  "records": [
+    {
+      "id": "R-390x844",
+      "screen": "Tüm ekranlar",
+      "component": "Görüntü alanı 390x844",
+      "expected": "Beş ekranda yatay taşma yok; mobilde çekmeceler çalışır",
+      "actual": "Beklenen gerçekleşmedi",
+      "result": "başarısız",
+      "cause": "expect(locator).toBeVisible() failed | Locator: getByTestId('mobile-motion-select') | Expected: visible | Timeout: 30000ms",
+      "ms": 39315,
+      "test": "Responsive 390x844"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

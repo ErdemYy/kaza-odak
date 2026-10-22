@@ -44,9 +44,12 @@ export function AssetInspector({ registry, placement, onChange, onClose, onPlace
           </div>
           {placement && rec && (
             <div className="space-y-2 rounded-xl border border-line bg-surface-2/50 p-3">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-1.5">
                 <span className="font-display font-bold text-[13.5px]">{rec.name_tr}</span>
-                <button type="button" className="btn !py-1 text-[11.5px]" onClick={onPlaceHere} data-testid="place-here">Harita merkezine taşı</button>
+                <span className="flex gap-1.5">
+                  <button type="button" className="btn !py-1 text-[11.5px]" onClick={onPlaceHere} data-testid="place-here">Harita merkezine taşı</button>
+                  <button type="button" className="btn !py-1 text-[11.5px]" onClick={() => onChange(null)} data-testid="remove-model">Modeli kaldır</button>
+                </span>
               </div>
               <Field label="Boylam" value={placement.lngLat[0]} step={0.00001} suffix="°" testid="insp-lng" onChange={(v) => set({ lngLat: [v, placement.lngLat[1]] })} />
               <Field label="Enlem" value={placement.lngLat[1]} step={0.00001} suffix="°" testid="insp-lat" onChange={(v) => set({ lngLat: [placement.lngLat[0], v] })} />
@@ -69,6 +72,7 @@ export function AssetInspector({ registry, placement, onChange, onClose, onPlace
             </dl>
           )}
           <p className="text-[10.5px] text-subtle leading-snug border-t border-line pt-2">
+            {placement ? "Paneli kapatmak yerleştirilen modeli haritada bırakır; kaldırmak için \"Modeli kaldır\"ı kullanın. " : ""}
             Araç hareketleri temsili bir simülasyondur; geçmiş kazaların gerçek hareket kayıtlarını göstermez.
           </p>
         </>

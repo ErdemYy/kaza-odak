@@ -1,0 +1,25 @@
+
+Running 19 tests using 1 worker
+
+[1/19] [chromium] › e2e\phase8.spec.ts:117:1 › Marka, favikon ve gezinme
+[2/19] [chromium] › e2e\phase8.spec.ts:219:1 › Genel bakış etkileşimleri
+[3/19] [chromium] › e2e\phase8.spec.ts:304:1 › 3D Şehir Keşfi — kamera, ilçeler, katmanlar, tema, animasyon
+[4/19] [chromium] › e2e\phase8.spec.ts:439:1 › 3D Şehir — küme seçimi, ayrıntı paneli, noktalar, gürültü, GLB
+[5/19] [chromium] › e2e\phase8.spec.ts:551:1 › 3D Şehir — zaman oynatma
+[6/19] [chromium] › e2e\phase8.spec.ts:623:1 › 3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama
+[7/19] [chromium] › e2e\phase8.spec.ts:789:1 › Kümeleme Laboratuvarı — form, doğrulama, kayıtlı deneyler, geçmiş
+[8/19] [chromium] › e2e\phase8.spec.ts:976:3 › Laboratuvar — dinamik iş, iptal, yeniden deneme, önbellek (yalıtılmış sunucu) › Dinamik DBSCAN: başlat, iptal, yeniden dene, tamamla, önbellek, haritada göster
+[9/19] [chromium] › e2e\phase8.spec.ts:1036:1 › Model karşılaştırma — akademik doğruluk ve etkileşimler
+[10/19] [chromium] › e2e\phase8.spec.ts:1098:1 › Veri Gezgini — sütunlar, arama, süzgeç, ayrıntı çekmecesi
+[11/19] [chromium] › e2e\phase8.spec.ts:1168:1 › Hata, yüklenme ve boş durumları
+[12/19] [chromium] › e2e\phase8.spec.ts:1200:1 › WebGL bağlam kaybından dönüş
+[13/19] [chromium] › e2e\phase8.spec.ts:1222:1 › Altlık harita servisi erişilemezken kaza katmanları yine yüklenir
+[14/19] [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 1920x1080
+[15/19] [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 1440x900
+[16/19] [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 1280x720
+[17/19] [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 768x1024
+[18/19] [chromium] › e2e\phase8.spec.ts:1276:3 › Responsive 390x844
+[19/19] [chromium] › e2e\phase8.spec.ts:1283:1 › Klavye odağı, azaltılmış hareket ve axe
+  Slow test file: [chromium] › e2e\phase8.spec.ts (6.2m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  19 passed (6.3m)

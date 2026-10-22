@@ -1,0 +1,16 @@
+
+Running 12 tests using 1 worker
+
+[1/12] [chromium] › e2e\phase6.spec.ts:62:1 › Demo senaryosu — 14 adım gerçek veri ve kayıtlı deneylerle
+[2/12] [chromium] › e2e\phase6.spec.ts:164:1 › Zaman oynatma — kayıtlı HDBSCAN deneyinde üyelik sabit, kapsam aşılmaz
+[3/12] [chromium] › e2e\phase6.spec.ts:209:1 › Mod A / Mod B ayrımı — filtre etiketleri korur; dinamik sonuç ayrı deney kimliğinde
+[4/12] [chromium] › e2e\phase6.spec.ts:230:1 › WebGL bağlam kaybı sonrası toparlanma ve GLB modelleri
+[5/12] [chromium] › e2e\phase6.spec.ts:270:1 › Bağlantı kaybı: iş durumu otomatik yeniden denenir; harita veri hatası gösterilir ve toparlanır
+[6/12] [chromium] › e2e\phase6.spec.ts:305:1 › Klavye gezinmesi: atlama bağlantısı, menü, zaman kaydırıcısı
+[7/12] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive telefon 390×844@3x: 5 ekranda yatay taşma yok
+[8/12] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive tablet 820×1180@2x: 5 ekranda yatay taşma yok
+[9/12] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive dizustu 1280×800@1x: 5 ekranda yatay taşma yok
+[10/12] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive genis 1920×1080@1x: 5 ekranda yatay taşma yok
+[11/12] [chromium] › e2e\phase6.spec.ts:334:3 › Responsive yuksek-cozunurluk 2560×1440@2x: 5 ekranda yatay taşma yok
+[12/12] [chromium] › e2e\phase6.spec.ts:371:1 › Erişilebilirlik (axe) — beş ekran
+  12 passed (4.7m)

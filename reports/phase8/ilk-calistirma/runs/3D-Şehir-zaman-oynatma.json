@@ -1,0 +1,15 @@
+{
+  "test": "3D Şehir — zaman oynatma",
+  "status": "failed",
+  "duration_ms": 90353,
+  "records": [],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

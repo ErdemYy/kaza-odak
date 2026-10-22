@@ -1,0 +1,88 @@
+{
+  "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama",
+  "status": "timedOut",
+  "duration_ms": 420011,
+  "records": [
+    {
+      "id": "F01",
+      "screen": "3D Şehir › Filtreler",
+      "component": "İlçe çipleri (çoklu)",
+      "expected": "Seçilen ilçeler önizlemeyi API sayısıyla günceller",
+      "actual": "Staten Island 99.401 · + Bronx 401.198",
+      "result": "geçti",
+      "ms": 1958,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F03",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Yıl çipleri",
+      "expected": "Yıl seçimi önizlemeyi günceller; kısmi yıllar kesikli kenarlı",
+      "actual": "6.686 kayıt · 2012 kenarı dashed",
+      "result": "geçti",
+      "ms": 1056,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F04",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Ay çipleri",
+      "expected": "Ay seçimi uygulanır",
+      "actual": "813 kayıt",
+      "result": "geçti",
+      "ms": 484,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F05",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Haftanın günü çipleri",
+      "expected": "Gün seçimi uygulanır (çoklu)",
+      "actual": "165 kayıt (hafta sonu)",
+      "result": "geçti",
+      "ms": 570,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F06",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Saat aralığı anahtarı + seçiciler + gece örneği",
+      "expected": "Anahtar 07–10'u açar; seçici değeri değiştirir; gece örneği 22–04 yapar",
+      "actual": "07–10 → 07–12 → 22–04 (30 kayıt) → kapalı",
+      "result": "geçti",
+      "ms": 1591,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F07",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Araç türü çipleri",
+      "expected": "Kategori seçimi uygulanır",
+      "actual": "94 kayıt (SUV), sonra kaldırıldı",
+      "result": "geçti",
+      "ms": 661,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    },
+    {
+      "id": "F08",
+      "screen": "3D Şehir › Filtreler",
+      "component": "Katkı faktörü seçici",
+      "expected": "Faktör seçimi uygulanır; 'Tümü' kaldırır",
+      "actual": "66 kayıt, sonra Tümü",
+      "result": "geçti",
+      "ms": 2555,
+      "test": "3D Şehir — filtreler, birleşimler, boş sonuç, sıfırlama"
+    }
+  ],
+  "logs": {
+    "app_console": [],
+    "third_party_console": [],
+    "app_failed": [],
+    "third_party_failed": [
+      "https://tiles.openfreemap.org/planet/20261018_080001_pt/10/300/384.pbf net::ERR_CONNECTION_RESET"
+    ],
+    "http_errors": []
+  },
+  "a11y": {},
+  "measurements": {}
+}

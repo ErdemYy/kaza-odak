@@ -292,7 +292,7 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
     if (!map) return;
     const mode = modeRef.current;
     const seq = ++selectSeq.current;
-    const exp = experimentId ?? centroidIndex.current.get(clusterId)?.experimentId ?? "";
+    const exp = experimentId ?? centroidIndex.current.get(clusterId)?.experimentId ?? metaRef.current?.model.experiment_id ?? "";
     setSelected(map, clusterId);
     cb.current.onCluster({ status: "loading", clusterId });
     try {
@@ -399,7 +399,13 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
     resizeObserver.observe(container.current);
     const ctrl = new AbortController();
 
-    map.on("load", async () => {
+    // Kaza katmanları stil işlenir işlenmez kurulur ("style.load"). Faz 4–7'de "load" olayı bekleniyordu: bu olay
+    // üçüncü taraf altlık karoları (OpenFreeMap) ve glifler inene kadar gecikir; servis yavaşken (Faz 8 ölçümü:
+    // tilejson 4,4 sn, glif 16,7 sn) yerel API hazır olsa bile kaza verisi hiç görünmüyordu.
+    let initialized = false;
+    const init = async () => {
+      if (initialized) return;
+      initialized = true;
       addDataLayers(map);
       applyVisibility(map, visRef.current);
       styleReady.current = true;
@@ -427,7 +433,9 @@ export const CityMap = forwardRef<CityMapHandle, CityMapProps>(function CityMap(
       } catch (e) {
         if ((e as Error).name !== "AbortError") cb.current.onInspectorError((e as Error).message);
       }
-    });
+    };
+    if (map.isStyleLoaded()) void init();
+    else map.once("style.load", () => void init());
 
     const onMove = () => cb.current.onView({ zoom: map.getZoom(), bearing: map.getBearing(), center: [map.getCenter().lng, map.getCenter().lat] });
     let debounce: number | undefined;

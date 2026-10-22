@@ -77,7 +77,7 @@ export default function LabPage() {
         <Section id="controls" title="Yeni analiz" className="lg:sticky lg:top-4">
           {resources.data && (
             resources.data.can_start ? (
-              <p className="mb-3 text-[11.5px] text-subtle tabular" data-testid="lab-resources" data-can-start="true">
+              <p className="mb-3 text-[11.5px] text-subtle tabular text-pretty" data-testid="lab-resources" data-can-start="true">
                 Kaynak: boş bellek {resources.data.available_memory_mb != null ? `${fmtInt(resources.data.available_memory_mb)} MB` : "ölçülemedi"} ·
                 çalışan tavanı {fmtInt(resources.data.worker_memory_limit_mb)} MB · aynı anda {resources.data.max_concurrent} iş
                 {resources.data.running + resources.data.queued > 0 ? ` · şu an ${resources.data.running} çalışan, ${resources.data.queued} kuyrukta` : ""}
