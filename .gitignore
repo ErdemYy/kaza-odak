@@ -62,3 +62,10 @@ htmlcov/
 
 # --- Faz 6 çalışma zamanı (başlatma betiği PID/günlük) ---
 .saferoute/
+
+# --- Akademik teslim belgeleri (yerelde tutulur, herkese açık depoda yayınlanmaz) ---
+# Sunum, rapor, savunma soruları, demo rehberi, konuşma notları ve bunların doğrulama/önizleme çıktıları.
+# deliverables/fonts/ izlenir: marka betikleri (scripts/*_brand.py) Plus Jakarta Sans'ı oradan okur.
+/deliverables/*
+!/deliverables/fonts/
+/reports/kaza-odak/teslim/
