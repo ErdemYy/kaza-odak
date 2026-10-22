@@ -69,3 +69,10 @@ htmlcov/
 /deliverables/*
 !/deliverables/fonts/
 /reports/kaza-odak/teslim/
+# Teslim belgelerini üreten betikler sunum/rapor metnini içerir: yerelde tutulur, yayınlanmaz.
+/scripts/phase7_build_deck.py
+/scripts/phase7_build_report.py
+/scripts/phase7_office_finalize.ps1
+/scripts/phase7_code_snippets.py
+/scripts/phase7_verify_facts.py
+/scripts/teslim_marka.py
