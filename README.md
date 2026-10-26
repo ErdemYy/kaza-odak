@@ -222,18 +222,21 @@ data/metadata/  Edinim ve kaynak durumu kayıtları (ham/işlenmiş veri git dı
 assets/         Marka varlıkları (Kaza Odak logo), 3D varlık kaydı
 ```
 
-## Akademik teslim dosyaları
+## Akademik sunum ve çalışma materyalleri
 
-| Dosya | İçerik |
-|---|---|
-| [`Kaza_Odak_Sunum.pptx`](deliverables/Kaza_Odak_Sunum.pptx) | 17 slayt, her slaytta konuşma notu, yazı tipleri gömülü |
-| [`Kaza_Odak_Proje_Raporu.pdf`](deliverables/Kaza_Odak_Proje_Raporu.pdf) / [`.docx`](deliverables/Kaza_Odak_Proje_Raporu.docx) | 25 bölüm, 32 sayfa akademik rapor |
-| [`CANLI_DEMO_REHBERI.md`](deliverables/CANLI_DEMO_REHBERI.md) | 14 adımlı demo akışı ve beklenen değerler |
-| [`HOCA_SORULARI_VE_CEVAPLARI.md`](deliverables/HOCA_SORULARI_VE_CEVAPLARI.md) | 36 olası savunma sorusu |
-| [`ONEMLI_KODLAR_VE_ACIKLAMALAR.md`](deliverables/ONEMLI_KODLAR_VE_ACIKLAMALAR.md) | Kaynaktan satır numarasıyla alınmış kod parçaları |
+Proje, Makine Öğrenmesi dersi kapsamında hazırlanmıştır. Sunum, ayrıntılı proje raporu, öğretim üyesi soruları, kod gezi notları ve ham veri örnek dosyası **yerel çalışma alanında** tutulur; telif, dosya boyutu ve akademik teslim gereksinimleri nedeniyle herkese açık depoya dahil edilmez. Bu dosyalara ait doğrudan indirme bağlantıları bu nedenle burada sunulmaz.
 
-Belgelerdeki sayılar kaynak dosyalardan yeniden hesaplanır, kod blokları kaynakla satır satır doğrulanır (59/59).
-Önceki ad (SafeRoute 3D) ile hazırlanan Faz 7 sürümü geçmiş sürüm olarak korunur: [`deliverables/`](deliverables/README.md).
+Herkese açık ve incelenebilir teknik kaynaklar:
+
+- [Proje kapsamı ve gereksinimler](PROJECT_SPEC.md)
+- [Geliştirici ve kurulum rehberi](docs/GELISTIRME.md)
+- [Karar günlüğü](docs/decision_log.md)
+- [Faz 8B teknik raporu](docs/phase8b/TEKNIK_RAPOR.md)
+- [DBSCAN parametre duyarlılığı görseli](docs/gorseller/dbscan-parametre-duyarliligi.jpg)
+
+### Aynı veride farklı DBSCAN parametrelerini karşılaştırma
+
+3D Şehir Keşfi'nde ilçe ve yıl filtrelerini uygula. Ardından Kümeleme Laboratuvarı'nda bu filtreleri doğrulayıp aynı kapsamda iki DBSCAN deneyi başlat. Örneğin Staten Island / 2019 için **eps = 25 m, min_samples = 10** ve **eps = 40 m, min_samples = 10** seçilebilir. Her deney tamamlandığında **Haritada göster** düğmesiyle o deneyin gerçek kümeleme sonucu 3D haritaya aktarılır. Filtreler iş gönderildiği anda sabitlenir; sonraki filtre değişiklikleri tamamlanmış deneyi yeniden eğitmez. Sonuçları karşılaştırırken küme kimlikleri yerine küme sayısına, gürültü oranına ve coğrafi dağılıma bakılmalıdır.
 
 ## Veri kaynakları, atıf ve lisanslar
 
